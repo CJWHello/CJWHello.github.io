@@ -64,14 +64,6 @@
           }
         },
         {
-          "className": "tag-clip",
-          "label": "CLIP",
-          "style": {
-            "left": "82px",
-            "bottom": "26px"
-          }
-        },
-        {
           "className": "tag-transformer",
           "label": "Transformer",
           "style": {
