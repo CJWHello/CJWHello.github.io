@@ -1,12 +1,12 @@
 ---
-title: "LLM 卡片自动生成测试"
+title: "Agent 卡片自动生成测试"
 cover: "./assets/images/project-nexus.svg"
 excerpt: "用于测试 Notes 页是否会自动生成新类别按钮和新笔记卡片。"
-tags: ["LLM", "Demo", "Auto Card"]
+tags: ["Agent", "Demo", "Auto Card"]
 type: "Demo"
 ---
 
-# LLM 卡片自动生成测试
+# Agent 卡片自动生成测试
 
 这是一篇示例笔记，用来验证三件事：
 
