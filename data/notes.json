@@ -45,7 +45,7 @@
     },
     {
       "key": "vlm-llm-card-demo",
-      "title": "LLM 卡片自动生成测试",
+      "title": "Agent 卡片自动生成测试",
       "category": "vlm",
       "categoryLabel": "VLM",
       "type": "Demo",
@@ -53,7 +53,7 @@
       "cover": "./assets/images/project-nexus.svg",
       "excerpt": "用于测试 Notes 页是否会自动生成新类别按钮和新笔记卡片。",
       "tags": [
-        "LLM",
+        "Agent",
         "Demo",
         "Auto Card"
       ]
