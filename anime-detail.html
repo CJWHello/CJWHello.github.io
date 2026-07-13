@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="二次元详情页。" />
+  <meta name="theme-color" content="#050816" />
+  <title>二次元详情 | 恍如昨日</title>
+  <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&family=Poppins:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/animation.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+</head>
+<body>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="aurora-field" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header" data-page-shell>
+    <a class="brand" href="./index.html"><img class="brand-avatar" src="./assets/my.jpg" alt="恍如昨日头像" loading="eager" /><span class="brand-text" data-profile="name">恍如昨日</span></a>
+    <nav class="site-nav" aria-label="Primary navigation"><a href="./index.html">Home</a><a href="./about.html">About</a><a href="./projects.html">Notes</a><a href="./works.html">Projects</a><a href="./blog.html">Musings</a><a href="./anime.html" class="active">二次元</a><a href="./contact.html">Contact</a></nav>
+    <div class="header-actions"><button class="icon-button theme-toggle" type="button" aria-label="Toggle color theme" data-theme-toggle><i class="fa-solid fa-moon"></i></button><button class="icon-button menu-toggle" type="button" aria-label="Open navigation" data-menu-toggle><i class="fa-solid fa-bars"></i></button></div>
+  </header>
+
+  <main class="page-transition inner-page">
+    <section class="section-shell acgn-detail-section" data-acgn-detail></section>
+  </main>
+
+  <script src="./js/particles.js"></script><script src="./js/animation.js"></script><script src="./js/site-data.js"></script><script src="./js/main.js"></script><script src="./js/anime-data.js"></script><script src="./js/anime-detail.js"></script>
+</body>
+</html>
+

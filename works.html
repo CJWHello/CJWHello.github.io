@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="恍如昨日的小项目页面，记录桌面便签、学习工具和个人开发实验。" />
+  <meta name="theme-color" content="#050816" />
+  <meta property="og:title" content="Projects - 恍如昨日" />
+  <meta property="og:description" content="桌面便签、笔记工具、学习记录站点等个人小项目。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./assets/images/og-cover.svg" />
+  <title>Projects | 恍如昨日</title>
+  <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&family=Poppins:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/animation.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+</head>
+<body>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="aurora-field" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header" data-page-shell>
+    <a class="brand" href="./index.html"><img class="brand-avatar" src="./assets/my.jpg" alt="恍如昨日头像" loading="eager" /><span class="brand-text" data-profile="name">恍如昨日</span></a>
+    <nav class="site-nav" aria-label="Primary navigation"><a href="./index.html">Home</a><a href="./about.html">About</a><a href="./projects.html">Notes</a><a href="./works.html" class="active">Projects</a><a href="./blog.html">Musings</a><a href="./anime.html">二次元</a><a href="./contact.html">Contact</a></nav>
+    <div class="header-actions"><button class="icon-button theme-toggle" type="button" aria-label="Toggle color theme" data-theme-toggle><i class="fa-solid fa-moon"></i></button><button class="icon-button menu-toggle" type="button" aria-label="Open navigation" data-menu-toggle><i class="fa-solid fa-bars"></i></button></div>
+  </header>
+
+  <main class="page-transition inner-page">
+    <section class="section-shell page-hero">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Projects</p>
+        <h1>一些小而实用的开发实验。</h1>
+        <p>这里放个人开发的小项目、工具想法和原型记录。重点不是做大而全，而是解决学习和日常里真实遇到的小问题。</p>
+      </div>
+    </section>
+
+    <section class="section-shell">
+      <div class="project-grid project-grid-wide notes-compact-grid">
+        <article class="project-card reveal" data-tilt-card>
+          <img src="./assets/images/project-dashboard.svg" alt="桌面便签项目预览" loading="lazy" />
+          <div class="project-content">
+            <div class="project-meta"><span>Desktop</span><span>Idea</span></div>
+            <h2>桌面便签</h2>
+            <p>一个轻量桌面便签工具，用来快速记录待办、论文阅读灵感、临时命令和 Debug 线索。</p>
+            <div class="tech-stack"><span>Notes</span><span>Todo</span><span>Local First</span></div>
+            <div class="card-actions"><a href="#"><i class="fa-brands fa-github"></i> GitHub</a><a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a></div>
+          </div>
+        </article>
+        <article class="project-card reveal" data-tilt-card>
+          <img src="./assets/images/project-nexus.svg" alt="Markdown 学习主页项目预览" loading="lazy" />
+          <div class="project-content">
+            <div class="project-meta"><span>Web</span><span>Static</span></div>
+            <h2>Markdown 学习主页</h2>
+            <p>当前这个 GitHub Pages 站点本身也是一个项目：用纯静态页面组织笔记、随想和项目索引。</p>
+            <div class="tech-stack"><span>HTML</span><span>CSS</span><span>ES6</span></div>
+            <div class="card-actions"><a href="./index.html"><i class="fa-solid fa-house"></i> Home</a><a href="./projects.html"><i class="fa-regular fa-file-lines"></i> Notes</a></div>
+          </div>
+        </article>
+        <article class="project-card reveal" data-tilt-card>
+          <img src="./assets/images/project-vision.svg" alt="论文阅读卡片项目预览" loading="lazy" />
+          <div class="project-content">
+            <div class="project-meta"><span>Research Tool</span><span>Prototype</span></div>
+            <h2>论文阅读卡片</h2>
+            <p>把论文拆成问题、方法、实验、复现计划四类卡片，帮助自己从“读过”变成“能复盘”。</p>
+            <div class="tech-stack"><span>Paper</span><span>Review</span><span>Workflow</span></div>
+            <div class="card-actions"><a href="./blog.html"><i class="fa-regular fa-note-sticky"></i> Musings</a><a href="./contact.html"><i class="fa-regular fa-envelope"></i> Discuss</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-grid"><div><a class="brand" href="./index.html"><img class="brand-avatar" src="./assets/my.jpg" alt="恍如昨日头像" loading="eager" /><span class="brand-text" data-profile="name">恍如昨日</span></a><p data-profile="tagline">多模态大模型学习记录、项目复盘与算法笔记分享。</p></div><div class="footer-links"><a href="https://github.com/" data-href="github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a><a href="./projects.html"><i class="fa-regular fa-file-lines"></i> Notes</a><a href="./blog.html"><i class="fa-regular fa-note-sticky"></i> Musings</a><a href="mailto:2426815661@qq.com" data-href="email"><i class="fa-regular fa-envelope"></i> Email</a></div></div><div class="footer-bottom"><p>Copyright <span data-current-year></span> <span data-profile="name">恍如昨日</span>. All rights reserved.</p><button class="back-to-top" type="button" data-back-to-top aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button></div></footer>
+  <script src="./js/particles.js"></script><script src="./js/animation.js"></script><script src="./js/site-data.js"></script><script src="./js/main.js"></script>
+</body>
+</html>
+
+

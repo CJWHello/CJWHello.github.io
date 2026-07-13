@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-label="Manga collection cover">
+  <rect width="800" height="520" rx="34" fill="#050816"/>
+  <rect x="92" y="76" width="616" height="368" rx="24" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.18)"/>
+  <rect x="134" y="118" width="250" height="132" rx="18" fill="#FFFFFF" opacity=".88"/>
+  <rect x="416" y="118" width="250" height="132" rx="18" fill="#FFFFFF" opacity=".78"/>
+  <rect x="134" y="282" width="250" height="120" rx="18" fill="#FFFFFF" opacity=".72"/>
+  <rect x="416" y="282" width="250" height="120" rx="18" fill="#FFFFFF" opacity=".86"/>
+  <path d="M172 214c42-50 86-50 132 0" fill="none" stroke="#8B5CF6" stroke-width="12" stroke-linecap="round"/>
+  <path d="M454 206h160M454 236h110" stroke="#050816" stroke-opacity=".42" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="232" cy="340" r="34" fill="#00E5FF" opacity=".7"/>
+  <path d="M462 340h150M462 370h90" stroke="#050816" stroke-opacity=".42" stroke-width="12" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,228 @@
+@keyframes auroraDrift {
+  0% {
+    transform: translate3d(-2%, -1%, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate3d(2%, 1.5%, 0) rotate(3deg) scale(1.04);
+  }
+  100% {
+    transform: translate3d(1%, -2%, 0) rotate(-2deg) scale(1.02);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes floatSoft {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -16px, 0) scale(1.015);
+  }
+}
+
+@keyframes cuePulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scaleY(0.72);
+    transform-origin: top;
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes shimmerMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes tagBreathe {
+  0%,
+  100% {
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: none;
+  }
+  50% {
+    border-color: rgba(0, 229, 255, 0.36);
+    box-shadow: 0 0 18px rgba(0, 229, 255, 0.11);
+  }
+}
+
+@keyframes typingCaret {
+  0%,
+  45% {
+    border-color: rgba(255, 255, 255, 0.85);
+  }
+  46%,
+  100% {
+    border-color: transparent;
+  }
+}
+
+.page-transition {
+  animation: none;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 34px, 0) scale(0.985);
+  transition:
+    opacity 720ms cubic-bezier(.2, .75, .2, 1),
+    transform 720ms cubic-bezier(.2, .75, .2, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.reveal:nth-child(2) {
+  transition-delay: 70ms;
+}
+
+.reveal:nth-child(3) {
+  transition-delay: 130ms;
+}
+
+.reveal:nth-child(4) {
+  transition-delay: 190ms;
+}
+
+.scroll-cue span {
+  animation: cuePulse 1.7s ease-in-out infinite;
+}
+
+.gradient-text {
+  background-size: 220% 220%;
+  animation: shimmerMove 8s ease infinite;
+}
+
+.typing-text {
+  padding-right: 0.08em;
+  border-right: 0.06em solid rgba(255, 255, 255, 0.85);
+  animation: shimmerMove 8s ease infinite, typingCaret 1s steps(1) infinite;
+}
+
+.skill-tags span,
+.tech-stack span {
+  animation: none;
+}
+
+.skill-tags span:nth-child(2),
+.tech-stack span:nth-child(2) {
+  animation-delay: 400ms;
+}
+
+.skill-tags span:nth-child(3),
+.tech-stack span:nth-child(3) {
+  animation-delay: 800ms;
+}
+
+.skill-card,
+.project-card,
+.glass-card,
+.button,
+.blog-card {
+  will-change: transform;
+}
+
+.hero-copy {
+  transform: translateZ(0);
+}
+
+.hero-visual::before {
+  position: absolute;
+  inset: 18px;
+  content: "";
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 26px;
+  pointer-events: none;
+  transform: translateZ(32px);
+}
+
+.hero-visual::after {
+  position: absolute;
+  inset: auto 12% 10% 12%;
+  height: 22%;
+  content: "";
+  border-radius: 999px;
+  background: radial-gradient(ellipse, rgba(0, 229, 255, 0.28), transparent 70%);
+  filter: blur(24px);
+  pointer-events: none;
+}
+
+.floating-panel {
+  animation: floatSoft 6s ease-in-out infinite;
+}
+
+.panel-status {
+  animation-delay: 1.5s;
+}
+
+.button .ripple {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.42);
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple 620ms ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(18);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .cursor-glow,
+  .aurora-field,
+  #particle-canvas {
+    display: none;
+  }
+}

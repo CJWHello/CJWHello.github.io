@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-label="Anime collection cover">
+  <rect width="800" height="520" rx="34" fill="#080D22"/>
+  <circle cx="190" cy="120" r="150" fill="#5B8CFF" opacity=".22"/>
+  <circle cx="620" cy="390" r="210" fill="#FF7AB6" opacity=".22"/>
+  <rect x="96" y="78" width="608" height="364" rx="30" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.18)"/>
+  <circle cx="400" cy="212" r="86" fill="#F8D7FF"/>
+  <path d="M302 360c34-84 66-126 98-126s64 42 98 126" fill="#8B5CF6" opacity=".85"/>
+  <path d="M310 186c42-76 138-80 180 0-42-18-138-18-180 0Z" fill="#1A1F3A"/>
+  <circle cx="366" cy="218" r="10" fill="#050816"/><circle cx="434" cy="218" r="10" fill="#050816"/>
+  <path d="M374 256c20 16 34 16 52 0" fill="none" stroke="#050816" stroke-width="6" stroke-linecap="round"/>
+</svg>

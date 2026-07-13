@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-label="Video diffusion project preview">
+  <rect width="960" height="600" rx="36" fill="#050816"/>
+  <defs><radialGradient id="r" cx="50%" cy="50%" r="60%"><stop stop-color="#00E5FF" stop-opacity=".55"/><stop offset=".45" stop-color="#5B8CFF" stop-opacity=".24"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/></radialGradient></defs>
+  <circle cx="480" cy="300" r="320" fill="url(#r)"/>
+  <g opacity=".9">
+    <rect x="110" y="145" width="220" height="310" rx="28" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.2)"/>
+    <rect x="370" y="112" width="220" height="376" rx="28" fill="rgba(255,255,255,.12)" stroke="rgba(0,229,255,.36)"/>
+    <rect x="630" y="145" width="220" height="310" rx="28" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.2)"/>
+  </g>
+  <path d="M430 230l124 70-124 70V230Z" fill="#fff"/>
+  <g fill="none" stroke="#fff" stroke-opacity=".42"><path d="M176 220h86M176 300h106M176 380h70"/><path d="M692 220h86M692 300h106M692 380h70"/></g>
+</svg>

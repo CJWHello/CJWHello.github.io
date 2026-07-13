@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="恍如昨日的关于页面，包含个人背景、教育经历、项目方向、技能栈和联系方式。" />
+  <meta name="theme-color" content="#050816" />
+  <meta property="og:title" content="About - 恍如昨日" />
+  <meta property="og:description" content="个人背景、学习方向、教育经历与联系方式。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./assets/images/og-cover.svg" />
+  <title>About | 恍如昨日</title>
+  <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&family=Poppins:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/animation.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+</head>
+<body>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="aurora-field" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <header class="site-header" data-page-shell>
+    <a class="brand" href="./index.html"><img class="brand-avatar" src="./assets/my.jpg" alt="恍如昨日头像" loading="eager" /><span class="brand-text" data-profile="name">恍如昨日</span></a>
+    <nav class="site-nav" aria-label="Primary navigation"><a href="./index.html">Home</a><a href="./about.html" class="active">About</a><a href="./projects.html">Notes</a><a href="./works.html">Projects</a><a href="./blog.html">Musings</a><a href="./anime.html">二次元</a><a href="./contact.html">Contact</a></nav>
+    <div class="header-actions"><button class="icon-button theme-toggle" type="button" aria-label="Toggle color theme" data-theme-toggle><i class="fa-solid fa-moon"></i></button><button class="icon-button menu-toggle" type="button" aria-label="Open navigation" data-menu-toggle><i class="fa-solid fa-bars"></i></button></div>
+  </header>
+
+  <main class="page-transition inner-page">
+    <section class="section-shell page-hero">
+      <div class="section-heading reveal">
+        <p class="eyebrow">About</p>
+        <h1>关于 <span data-profile="name">恍如昨日</span></h1>
+        <p>这里集中放置个人背景、教育经历、技能栈、荣誉证书和联系方式。主页只保留站点模块导览。</p>
+      </div>
+    </section>
+
+    <section class="section-shell split-section">
+      <div class="glass-card reveal profile-card-large">
+        <img src="./assets/my.jpg" alt="恍如昨日头像" loading="lazy" />
+        <h2 data-profile="name">恍如昨日</h2>
+        <p class="muted"><span data-profile="age">24岁</span> / <span data-profile="gender">男</span> / <span data-profile="hometown">湖北黄冈</span></p>
+        <div class="skill-tags centered-tags"><span data-profile="politics">中共党员</span><span>多模态大模型</span><span>学习记录</span></div>
+      </div>
+      <div class="story-stack reveal">
+        <p class="eyebrow">Profile</p>
+        <h2>个人信息</h2>
+        <div class="resume-list">
+          <p><strong>昵称：</strong><span data-profile="name">恍如昨日</span></p>
+          <p><strong>电话：</strong><a href="tel:18872722092" data-href="phone" data-profile="phone">18872722092</a></p>
+          <p><strong>邮箱：</strong><a href="mailto:2426815661@qq.com" data-href="email" data-profile="email">2426815661@qq.com</a></p>
+          <p><strong>定位：</strong><span data-profile="tagline">多模态大模型学习记录、项目复盘与算法笔记分享。</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell timeline-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Education</p>
+        <h2>教育背景</h2>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item reveal"><span class="timeline-dot"></span><div class="timeline-card"><time data-profile="educationMasterPeriod">2025-09 ~ 2028-06</time><h3 data-profile="educationMaster">中国科学技术大学，软件工程（硕士）</h3><p>计划继续围绕多模态大模型、模型压缩、生成模型与工程化应用深入学习。</p></div></article>
+        <article class="timeline-item reveal"><span class="timeline-dot"></span><div class="timeline-card"><time data-profile="educationBachelorPeriod">2019-09 ~ 2023-06</time><h3 data-profile="educationBachelor">中南财经政法大学，信息管理与信息系统（本科）</h3><p>形成信息系统、数据分析、软件开发与管理交叉的基础能力。</p></div></article>
+      </div>
+    </section>
+
+    <section class="section-shell">
+      <div class="section-heading reveal"><p class="eyebrow">Skills</p><h2>技能栈与方向</h2></div>
+      <div class="skills-grid">
+        <article class="skill-card reveal" data-tilt-card><i class="fa-solid fa-brain"></i><h3>基础理论</h3><p>机器学习、深度学习、自然语言处理，理解 Transformer、BERT、GPT 等主流架构。</p><div class="skill-tags"><span>ML</span><span>DL</span><span>NLP</span></div></article>
+        <article class="skill-card reveal" data-tilt-card><i class="fa-brands fa-python"></i><h3>工程框架</h3><p>Python、PyTorch、HuggingFace、Transformers，关注训练、微调与推理部署。</p><div class="skill-tags"><span>Python</span><span>PyTorch</span><span>HF</span></div></article>
+        <article class="skill-card reveal" data-tilt-card><i class="fa-solid fa-robot"></i><h3>大模型技术</h3><p>SFT、LoRA、RLHF、RAG、Prompt Engineering 与多模态应用开发。</p><div class="skill-tags"><span>SFT</span><span>LoRA</span><span>RAG</span></div></article>
+        <article class="skill-card reveal" data-tilt-card><i class="fa-solid fa-award"></i><h3>荣誉证书</h3><div class="resume-list" data-profile-list="honors"><p>英语六级（CET-6）</p><p>中国大学生服务外包创新创业大赛国家三等奖</p><p>湖北省区块链技术应用创新创业大赛三等奖</p></div></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-grid"><div><a class="brand" href="./index.html"><img class="brand-avatar" src="./assets/my.jpg" alt="恍如昨日头像" loading="eager" /><span class="brand-text" data-profile="name">恍如昨日</span></a><p data-profile="tagline">多模态大模型学习记录、项目复盘与算法笔记分享。</p></div><div class="footer-links"><a href="https://github.com/" data-href="github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a><a href="./projects.html"><i class="fa-regular fa-file-lines"></i> Notes</a><a href="mailto:2426815661@qq.com" data-href="email"><i class="fa-regular fa-envelope"></i> Email</a></div></div><div class="footer-bottom"><p>Copyright <span data-current-year></span> <span data-profile="name">恍如昨日</span>. All rights reserved.</p><button class="back-to-top" type="button" data-back-to-top aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button></div></footer>
+  <script src="./js/particles.js"></script><script src="./js/animation.js"></script><script src="./js/site-data.js"></script><script src="./js/main.js"></script>
+</body>
+</html>
+
+

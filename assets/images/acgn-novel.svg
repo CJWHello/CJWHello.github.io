@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-label="Novel shelf cover">
+  <rect width="800" height="520" rx="34" fill="#071024"/>
+  <circle cx="650" cy="120" r="180" fill="#00E5FF" opacity=".16"/>
+  <circle cx="210" cy="420" r="210" fill="#8B5CF6" opacity=".2"/>
+  <rect x="180" y="90" width="320" height="360" rx="20" fill="#FFFFFF" opacity=".9"/>
+  <rect x="224" y="138" width="232" height="18" rx="9" fill="#5B8CFF"/>
+  <rect x="224" y="184" width="196" height="12" rx="6" fill="#050816" opacity=".32"/>
+  <rect x="224" y="214" width="220" height="12" rx="6" fill="#050816" opacity=".22"/>
+  <rect x="224" y="244" width="170" height="12" rx="6" fill="#050816" opacity=".22"/>
+  <path d="M520 116l78 34v284l-78-34V116Z" fill="#5B8CFF" opacity=".85"/>
+  <path d="M520 116H180v334h340V116Z" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="4"/>
+</svg>

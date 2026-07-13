@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="恍如昨日的 Markdown 学习笔记、项目复盘与多模态算法记录。" />
+  <meta name="theme-color" content="#050816" />
+  <meta property="og:title" content="学习笔记 - 恍如昨日" />
+  <meta property="og:description" content="多模态大模型学习路线、Diffusion 视频算法面试八股与项目复盘。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./assets/images/og-cover.svg" />
+  <title>学习笔记 | 恍如昨日</title>
+  <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&family=Poppins:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/animation.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+</head>
+<body>
+  <div class="page-loader" aria-hidden="true"><div class="loader-orbit"></div><p>Loading notes</p></div>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas><div class="aurora-field" aria-hidden="true"></div><div class="cursor-glow" aria-hidden="true"></div><div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header" data-page-shell>
+    <a class="brand" href="./index.html"><img class="brand-avatar" src="./assets/my.jpg" alt="恍如昨日头像" loading="eager" /><span class="brand-text" data-profile="name">恍如昨日</span></a>
+    <nav class="site-nav" aria-label="Primary navigation"><a href="./index.html">Home</a><a href="./about.html">About</a><a href="./projects.html" class="active">Notes</a><a href="./works.html">Projects</a><a href="./blog.html">Musings</a><a href="./anime.html">二次元</a><a href="./contact.html">Contact</a></nav>
+    <div class="header-actions"><button class="icon-button theme-toggle" type="button" aria-label="Toggle color theme" data-theme-toggle><i class="fa-solid fa-moon"></i></button><button class="icon-button menu-toggle" type="button" aria-label="Open navigation" data-menu-toggle><i class="fa-solid fa-bars"></i></button></div>
+  </header>
+
+  <main class="page-transition inner-page">
+    <section class="section-shell page-hero">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Markdown Notes</p>
+        <h1>按方向整理的学习笔记索引。</h1>
+        <p>这里不是传统 Demo 展示区，而是持续更新的知识目录。笔记按 Agent、VLM、RL、Infra、Interview 分类，方便快速回看。</p>
+      </div>
+      <div class="filter-bar reveal" role="list" aria-label="Note filters">
+        <button class="filter-button active" type="button" data-filter="all">All</button>
+        <button class="filter-button" type="button" data-filter="agent">Agent</button>
+        <button class="filter-button" type="button" data-filter="vlm">VLM</button>
+        <button class="filter-button" type="button" data-filter="rl">RL</button>
+        <button class="filter-button" type="button" data-filter="infra">Infra</button>
+        <button class="filter-button" type="button" data-filter="interview">Interview</button>
+      </div>
+    </section>
+
+    <section class="section-shell">
+      <div class="project-grid project-grid-wide notes-compact-grid">
+        <a class="project-card note-card-link reveal" href="./note.html?file=multimodal-roadmap" data-tilt-card data-category="vlm" aria-label="阅读多模态大模型算法学习路线">
+          <img src="./assets/images/project-vision.svg" alt="多模态学习路线笔记预览" loading="lazy" />
+          <div class="project-content">
+            <div class="project-meta"><span>VLM</span><span>Roadmap</span></div>
+            <h2>多模态大模型算法学习路线</h2>
+            <p>面向多模态方向的系统学习地图，覆盖模型基础、VLM、视频理解、扩散模型、工程实践与面试准备。</p>
+            <div class="tech-stack"><span>VLM</span><span>Qwen2-VL</span><span>Diffusion</span><span>Roadmap</span></div>
+          </div>
+        </a>
+
+        <a class="project-card note-card-link reveal" href="./note.html?file=multimodal-roadmap" data-tilt-card data-category="agent" aria-label="阅读 Agent / RAG 学习索引">
+          <img src="./assets/images/project-nexus.svg" alt="Agent 学习笔记预览" loading="lazy" />
+          <div class="project-content">
+            <div class="project-meta"><span>Agent</span><span>Index</span></div>
+            <h2>Agent / RAG 学习索引</h2>
+            <p>围绕工具调用、RAG、任务拆解、长期记忆和多模态 Agent 评估整理的学习入口。</p>
+            <div class="tech-stack"><span>Agent</span><span>RAG</span><span>Tool Use</span></div>
+          </div>
+        </a>
+
+        <a class="project-card note-card-link reveal" href="./note.html?file=diffusion-interview" data-tilt-card data-category="interview" aria-label="阅读 Diffusion 视频算法面试八股">
+          <img src="./assets/images/project-diffusion.svg" alt="Diffusion 视频算法面试笔记预览" loading="lazy" />
+          <div class="project-content">
+            <div class="project-meta"><span>Interview</span><span>Diffusion</span></div>
+            <h2>Diffusion 视频算法面试八股</h2>
+            <p>围绕扩散模型、视频生成、训练策略、奖励模型、推理优化等主题整理的面试复习笔记。</p>
+            <div class="tech-stack"><span>Diffusion</span><span>Video Generation</span><span>Interview</span></div>
+          </div>
+        </a>
+
+        <a class="project-card note-card-link reveal" href="./note.html?file=resume-projects" data-tilt-card data-category="rl" aria-label="阅读图像/视频生成多维奖励强化学习框架">
+          <img src="./assets/images/project-dashboard.svg" alt="奖励强化学习框架复盘预览" loading="lazy" />
+          <div class="project-content">
+            <div class="project-meta"><span>RL</span><span>GRPO</span></div>
+            <h2>图像/视频生成多维奖励强化学习框架</h2>
+            <p>基于 FLUX.1 与 Wan2.1-T2V 的 GRPO 后训练实践，重点记录 CLIP Reward、结构化 VLM Reward 与分布式训练实现。</p>
+            <div class="tech-stack"><span>GRPO</span><span>CLIP Reward</span><span>Qwen2-VL</span><span>LoRA</span></div>
+          </div>
+        </a>
+
+        <a class="project-card note-card-link reveal" href="./note.html?file=resume-projects" data-tilt-card data-category="infra" aria-label="阅读任务感知视觉 Token 动态剪枝与高效推理">
+          <img src="./assets/images/project-nexus.svg" alt="视觉 Token 动态剪枝项目预览" loading="lazy" />
+          <div class="project-content">
+            <div class="project-meta"><span>Infra</span><span>Inference</span></div>
+            <h2>任务感知视觉 Token 动态剪枝与高效推理</h2>
+            <p>基于 Qwen2-VL 的视觉 Token 动态压缩方案，记录跨模态注意力评分、Top-K 保留、KV Cache 同步裁剪与推理一致性。</p>
+            <div class="tech-stack"><span>Token Pruning</span><span>KV Cache</span><span>Cross-Attention</span></div>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-grid"><div><a class="brand" href="./index.html"><img class="brand-avatar" src="./assets/my.jpg" alt="恍如昨日头像" loading="eager" /><span class="brand-text" data-profile="name">恍如昨日</span></a><p data-profile="tagline">多模态大模型学习记录、项目复盘与算法笔记分享。</p></div><div class="footer-links"><a href="https://github.com/" data-href="github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a><a href="./projects.html"><i class="fa-regular fa-file-lines"></i> Notes</a><a href="mailto:2426815661@qq.com" data-href="email"><i class="fa-regular fa-envelope"></i> Email</a></div></div><div class="footer-bottom"><p>Copyright <span data-current-year></span> <span data-profile="name">恍如昨日</span>. All rights reserved.</p><button class="back-to-top" type="button" data-back-to-top aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button></div></footer>
+  <script src="./js/particles.js"></script><script src="./js/animation.js"></script><script src="./js/site-data.js"></script><script src="./js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

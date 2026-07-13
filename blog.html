@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="恍如昨日的随想页面，记录心情、科研日常、论文阅读和生活片段。" />
+  <meta name="theme-color" content="#050816" />
+  <meta property="og:title" content="随想 - 恍如昨日" />
+  <meta property="og:description" content="心情、科研生活、论文阅读、夜晚 debug 与日常观察。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./assets/images/og-cover.svg" />
+  <title>随想 | 恍如昨日</title>
+  <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&family=Poppins:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/animation.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+</head>
+<body>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="aurora-field" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header" data-page-shell>
+    <a class="brand" href="./index.html"><img class="brand-avatar" src="./assets/my.jpg" alt="恍如昨日头像" loading="eager" /><span class="brand-text" data-profile="name">恍如昨日</span></a>
+    <nav class="site-nav" aria-label="Primary navigation"><a href="./index.html">Home</a><a href="./about.html">About</a><a href="./projects.html">Notes</a><a href="./works.html">Projects</a><a href="./blog.html" class="active">Musings</a><a href="./anime.html">二次元</a><a href="./contact.html">Contact</a></nav>
+    <div class="header-actions"><button class="icon-button theme-toggle" type="button" aria-label="Toggle color theme" data-theme-toggle><i class="fa-solid fa-moon"></i></button><button class="icon-button menu-toggle" type="button" aria-label="Open navigation" data-menu-toggle><i class="fa-solid fa-bars"></i></button></div>
+  </header>
+
+  <main class="page-transition inner-page">
+    <section class="section-shell page-hero">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Musings</p>
+        <h1>随想、心情和科研生活切片。</h1>
+        <p>这里不追求完整教程，更像一叠便签：记录某天读论文的卡顿、夜里 Debug 的念头、科研日常里的小观察。</p>
+      </div>
+      <div class="filter-bar reveal" role="list" aria-label="Musing filters">
+        <button class="filter-button active" type="button" data-musing-filter="all">All</button>
+        <button class="filter-button" type="button" data-musing-filter="科研">科研</button>
+        <button class="filter-button" type="button" data-musing-filter="日常">日常</button>
+        <button class="filter-button" type="button" data-musing-filter="VLM">VLM</button>
+        <button class="filter-button" type="button" data-musing-filter="论文">论文</button>
+        <button class="filter-button" type="button" data-musing-filter="心情">心情</button>
+        <button class="filter-button" type="button" data-musing-filter="工程">工程</button>
+      </div>
+    </section>
+
+    <section class="section-shell sticky-notes-section">
+      <div class="sticky-notes-grid" data-musings-grid>
+        <article class="sticky-note-card"><h2>Loading...</h2><p>正在读取 Markdown 随想。</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-grid"><div><a class="brand" href="./index.html"><img class="brand-avatar" src="./assets/my.jpg" alt="恍如昨日头像" loading="eager" /><span class="brand-text" data-profile="name">恍如昨日</span></a><p data-profile="tagline">多模态大模型学习记录、项目复盘与算法笔记分享。</p></div><div class="footer-links"><a href="https://github.com/" data-href="github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a><a href="./projects.html"><i class="fa-regular fa-file-lines"></i> Notes</a><a href="./works.html"><i class="fa-solid fa-code"></i> Projects</a><a href="mailto:2426815661@qq.com" data-href="email"><i class="fa-regular fa-envelope"></i> Email</a></div></div><div class="footer-bottom"><p>Copyright <span data-current-year></span> <span data-profile="name">恍如昨日</span>. All rights reserved.</p><button class="back-to-top" type="button" data-back-to-top aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button></div></footer>
+  <script src="./js/particles.js"></script><script src="./js/animation.js"></script><script src="./js/site-data.js"></script><script src="./js/main.js"></script><script src="./js/musings.js"></script>
+</body>
+</html>
+
+
