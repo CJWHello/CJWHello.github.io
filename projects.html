@@ -33,69 +33,22 @@
       <div class="section-heading reveal">
         <p class="eyebrow">Markdown Notes</p>
         <h1>按方向整理的学习笔记索引。</h1>
-        <p>这里不是传统 Demo 展示区，而是持续更新的知识目录。笔记按 Agent、VLM、RL、Infra、Interview 分类，方便快速回看。</p>
+        <p>这里不是传统 Demo 展示区，而是持续更新的知识目录。笔记会按当前已有类别自动生成筛选按钮，方便快速回看。</p>
       </div>
       <div class="filter-bar reveal" role="list" aria-label="Note filters">
-        <button class="filter-button active" type="button" data-filter="all">All</button>
-        <button class="filter-button" type="button" data-filter="agent">Agent</button>
-        <button class="filter-button" type="button" data-filter="vlm">VLM</button>
-        <button class="filter-button" type="button" data-filter="rl">RL</button>
-        <button class="filter-button" type="button" data-filter="infra">Infra</button>
-        <button class="filter-button" type="button" data-filter="interview">Interview</button>
+        <button class="filter-button active" type="button" data-filter="all">Loading</button>
       </div>
     </section>
 
     <section class="section-shell">
       <div class="project-grid project-grid-wide notes-compact-grid">
-        <a class="project-card note-card-link reveal" href="./note.html?file=multimodal-roadmap" data-tilt-card data-category="vlm" aria-label="阅读多模态大模型算法学习路线">
-          <img src="./assets/images/project-vision.svg" alt="多模态学习路线笔记预览" loading="lazy" />
+        <article class="project-card reveal is-visible">
           <div class="project-content">
-            <div class="project-meta"><span>VLM</span><span>Roadmap</span></div>
-            <h2>多模态大模型算法学习路线</h2>
-            <p>面向多模态方向的系统学习地图，覆盖模型基础、VLM、视频理解、扩散模型、工程实践与面试准备。</p>
-            <div class="tech-stack"><span>VLM</span><span>Qwen2-VL</span><span>Diffusion</span><span>Roadmap</span></div>
+            <div class="project-meta"><span>Notes</span><span>Loading</span></div>
+            <h2>正在加载笔记卡片</h2>
+            <p>页面会根据 <code>data/notes.json</code> 自动生成分类按钮和笔记卡片。</p>
           </div>
-        </a>
-
-        <a class="project-card note-card-link reveal" href="./note.html?file=multimodal-roadmap" data-tilt-card data-category="agent" aria-label="阅读 Agent / RAG 学习索引">
-          <img src="./assets/images/project-nexus.svg" alt="Agent 学习笔记预览" loading="lazy" />
-          <div class="project-content">
-            <div class="project-meta"><span>Agent</span><span>Index</span></div>
-            <h2>Agent / RAG 学习索引</h2>
-            <p>围绕工具调用、RAG、任务拆解、长期记忆和多模态 Agent 评估整理的学习入口。</p>
-            <div class="tech-stack"><span>Agent</span><span>RAG</span><span>Tool Use</span></div>
-          </div>
-        </a>
-
-        <a class="project-card note-card-link reveal" href="./note.html?file=diffusion-interview" data-tilt-card data-category="interview" aria-label="阅读 Diffusion 视频算法面试八股">
-          <img src="./assets/images/project-diffusion.svg" alt="Diffusion 视频算法面试笔记预览" loading="lazy" />
-          <div class="project-content">
-            <div class="project-meta"><span>Interview</span><span>Diffusion</span></div>
-            <h2>Diffusion 视频算法面试八股</h2>
-            <p>围绕扩散模型、视频生成、训练策略、奖励模型、推理优化等主题整理的面试复习笔记。</p>
-            <div class="tech-stack"><span>Diffusion</span><span>Video Generation</span><span>Interview</span></div>
-          </div>
-        </a>
-
-        <a class="project-card note-card-link reveal" href="./note.html?file=resume-projects" data-tilt-card data-category="rl" aria-label="阅读图像/视频生成多维奖励强化学习框架">
-          <img src="./assets/images/project-dashboard.svg" alt="奖励强化学习框架复盘预览" loading="lazy" />
-          <div class="project-content">
-            <div class="project-meta"><span>RL</span><span>GRPO</span></div>
-            <h2>图像/视频生成多维奖励强化学习框架</h2>
-            <p>基于 FLUX.1 与 Wan2.1-T2V 的 GRPO 后训练实践，重点记录 CLIP Reward、结构化 VLM Reward 与分布式训练实现。</p>
-            <div class="tech-stack"><span>GRPO</span><span>CLIP Reward</span><span>Qwen2-VL</span><span>LoRA</span></div>
-          </div>
-        </a>
-
-        <a class="project-card note-card-link reveal" href="./note.html?file=resume-projects" data-tilt-card data-category="infra" aria-label="阅读任务感知视觉 Token 动态剪枝与高效推理">
-          <img src="./assets/images/project-nexus.svg" alt="视觉 Token 动态剪枝项目预览" loading="lazy" />
-          <div class="project-content">
-            <div class="project-meta"><span>Infra</span><span>Inference</span></div>
-            <h2>任务感知视觉 Token 动态剪枝与高效推理</h2>
-            <p>基于 Qwen2-VL 的视觉 Token 动态压缩方案，记录跨模态注意力评分、Top-K 保留、KV Cache 同步裁剪与推理一致性。</p>
-            <div class="tech-stack"><span>Token Pruning</span><span>KV Cache</span><span>Cross-Attention</span></div>
-          </div>
-        </a>
+        </article>
       </div>
     </section>
   </main>

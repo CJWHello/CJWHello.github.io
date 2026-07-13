@@ -20,6 +20,7 @@ COVER_BY_CATEGORY = {
 }
 
 LABEL_BY_CATEGORY = {
+    "llm": "LLM",
     "vlm": "VLM",
     "interview": "Interview",
     "projects": "Projects",
@@ -27,6 +28,17 @@ LABEL_BY_CATEGORY = {
     "rl": "RL",
     "infra": "Infra",
 }
+
+
+def format_category_label(category: str) -> str:
+    value = category.strip()
+    if not value:
+        return "Note"
+    if value in LABEL_BY_CATEGORY:
+        return LABEL_BY_CATEGORY[value]
+    if len(value) <= 4:
+        return value.upper()
+    return " ".join(part.capitalize() for part in re.split(r"[-_\s]+", value) if part)
 
 
 def load_existing_keys() -> dict[str, str]:
@@ -88,7 +100,7 @@ def extract_title(meta: dict[str, object], body: str, fallback: str) -> str:
 
 
 def extract_excerpt(meta: dict[str, object], body: str) -> str:
-    excerpt = meta.get("excerpt")
+    excerpt = meta.get("excerpt") or meta.get("summary") or meta.get("description")
     if isinstance(excerpt, str) and excerpt.strip():
         return excerpt.strip()
     for line in body.splitlines():
@@ -121,10 +133,12 @@ def build_note(path: Path, existing_keys: dict[str, str]) -> dict[str, object]:
         "key": key,
         "title": extract_title(meta, body, path.stem),
         "category": category,
-        "categoryLabel": LABEL_BY_CATEGORY.get(category, category),
+        "categoryLabel": format_category_label(category),
         "type": meta.get("type", "Note"),
         "path": note_path,
-        "cover": meta.get("cover", COVER_BY_CATEGORY.get(category, "./assets/images/project-nexus.svg")),
+        "cover": meta.get("cover")
+        or meta.get("image")
+        or COVER_BY_CATEGORY.get(category, "./assets/images/project-nexus.svg"),
         "excerpt": extract_excerpt(meta, body),
         "tags": tags,
     }

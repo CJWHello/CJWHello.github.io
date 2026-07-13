@@ -33,12 +33,23 @@
       .replace(/'/g, "&#039;");
   }
 
+  function formatCategoryLabel(category) {
+    const value = String(category || "").trim();
+    if (!value) return "Note";
+    if (value.length <= 4) return value.toUpperCase();
+    return value
+      .split(/[-_\s]+/)
+      .filter(Boolean)
+      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+      .join(" ");
+  }
+
   function uniqueCategories(notes) {
     const seen = new Map();
     notes.forEach((note) => {
       if (!note.category) return;
       if (!seen.has(note.category)) {
-        seen.set(note.category, note.categoryLabel || note.category);
+        seen.set(note.category, note.categoryLabel || formatCategoryLabel(note.category));
       }
     });
     return [...seen.entries()].map(([key, label]) => ({ key, label }));
@@ -75,7 +86,7 @@
       <a class="project-card note-card-link reveal is-visible" href="${href}" data-category="${escapeHtml(note.category || "")}" aria-label="阅读${escapeHtml(note.title || "笔记")}">
         <img src="${escapeHtml(note.cover || "./assets/images/project-nexus.svg")}" alt="${escapeHtml(note.title || "笔记")}预览" loading="lazy" />
         <div class="project-content">
-          <div class="project-meta"><span>${escapeHtml(note.categoryLabel || note.category || "Note")}</span><span>${escapeHtml(note.type || "Note")}</span></div>
+          <div class="project-meta"><span>${escapeHtml(note.categoryLabel || formatCategoryLabel(note.category))}</span><span>${escapeHtml(note.type || "Note")}</span></div>
           <h2>${escapeHtml(note.title || "未命名笔记")}</h2>
           <p>${escapeHtml(note.excerpt || "暂无摘要。")}</p>
           <div class="tech-stack">${tags}</div>

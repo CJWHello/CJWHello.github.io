@@ -40,9 +40,16 @@
 │   ├── site-data.js
 │   ├── markdown.js
 │   ├── musings.js
-│   ├── anime-data.js
 │   ├── anime.js
 │   └── anime-detail.js
+├── data/
+│   ├── home.json
+│   ├── notes.json
+│   ├── projects.json
+│   ├── musings.json
+│   └── acgn.json
+├── scripts/
+│   └── generate_notes_index.py
 ├── musings/
 │   ├── research-life.md
 │   ├── paper-reading.md
@@ -153,6 +160,19 @@ Markdown 笔记按类别放在 `notes/` 子目录：
 3. GitHub Actions 会自动运行 `.github/workflows/update-notes-index.yml`，生成或更新 `data/notes.json`。
 4. `projects.html` 会根据清单自动生成笔记卡片。
 
+推荐在笔记顶部使用 front matter，这样卡片就像“自定义组件”一样由数据驱动：
+
+```text
+---
+title: "你的笔记标题"
+cover: "./assets/images/your-cover.png"
+excerpt: "卡片上的简要概述"
+tags: ["VLM", "Qwen2-VL"]
+---
+```
+
+也支持把 `cover` 写成 `image`，把 `excerpt` 写成 `summary` 或 `description`。
+
 如果你本地也想预览自动生成结果，可以手动运行：
 
 ```bash
@@ -168,6 +188,17 @@ note.html?file=resume-projects
 ```
 
 现在 `note.html` 会优先读取 `data/notes.json`，不再需要手动维护 `js/markdown.js` 的路径映射。
+
+## Component-like Data
+
+如果你希望像 Vue 自定义组件一样维护卡片数据，现在这几个页面都可以按数据文件维护：
+
+- `Notes`：`data/notes.json`，由 GitHub Actions 自动生成
+- `Projects`：`data/projects.json`
+- `Musings`：`data/musings.json`
+- `二次元`：`data/acgn.json`
+
+你只需要填封面路径、介绍文本、跳转链接或 Markdown 路径，页面会自动渲染卡片。
 
 ## Manage Musings
 
@@ -187,21 +218,21 @@ excerpt: "卡片摘要"
 
 ## Manage ACGN
 
-二次元内容集中在 `js/anime-data.js`：
+二次元内容集中在 `data/acgn.json`：
 
-```js
+```json
 {
-  id: "anime-watchlist",
-  type: "Anime",
-  title: "追番清单",
-  cover: "./assets/images/acgn-anime.svg",
-  summary: "卡片摘要",
-  tags: ["动画", "追番"],
-  content: "详情页正文"
+  "id": "anime-watchlist",
+  "type": "Anime",
+  "title": "追番清单",
+  "cover": "./assets/images/acgn-anime.svg",
+  "summary": "卡片摘要",
+  "tags": ["动画", "追番"],
+  "content": "详情页正文"
 }
 ```
 
-新增动漫、小说或漫画条目时，在 `ACGN_ITEMS` 里追加对象，并准备对应封面图即可。
+新增动漫、小说或漫画条目时，在 `items` 数组里追加对象，并准备对应封面图即可。
 
 ## Replace Images
 

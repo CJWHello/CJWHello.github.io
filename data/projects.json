@@ -1,0 +1,31 @@
+{
+  "projects": [
+    {
+      "title": "桌面便签",
+      "category": "Desktop",
+      "type": "Idea",
+      "cover": "./assets/images/project-dashboard.svg",
+      "summary": "一个轻量桌面便签工具，用来快速记录待办、论文阅读灵感、临时命令和 Debug 线索。",
+      "tags": ["Notes", "Todo", "Local First"],
+      "href": "#"
+    },
+    {
+      "title": "Markdown 学习主页",
+      "category": "Web",
+      "type": "Static",
+      "cover": "./assets/images/project-nexus.svg",
+      "summary": "当前这个 GitHub Pages 站点本身也是一个项目：用纯静态页面组织笔记、随想和项目索引。",
+      "tags": ["HTML", "CSS", "ES6"],
+      "href": "./index.html"
+    },
+    {
+      "title": "论文阅读卡片",
+      "category": "Research Tool",
+      "type": "Prototype",
+      "cover": "./assets/images/project-vision.svg",
+      "summary": "把论文拆成问题、方法、实验、复现计划四类卡片，帮助自己从“读过”变成“能复盘”。",
+      "tags": ["Paper", "Review", "Workflow"],
+      "href": "./blog.html"
+    }
+  ]
+}

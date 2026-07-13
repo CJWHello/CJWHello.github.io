@@ -1,0 +1,28 @@
+{
+  "musings": [
+    {
+      "title": "科研日常",
+      "date": "2026-07-11",
+      "tags": ["科研", "日常"],
+      "cover": "./assets/images/project-vision.svg",
+      "excerpt": "记录实验推进、读论文时的卡顿点，以及那些看起来很小但会影响整天节奏的细节。",
+      "href": "./musings/research-life.md"
+    },
+    {
+      "title": "论文阅读切片",
+      "date": "2026-07-11",
+      "tags": ["论文", "VLM"],
+      "cover": "./assets/images/project-dashboard.svg",
+      "excerpt": "把某篇论文最值得记住的问题意识、方法直觉和我自己的疑问压缩成一张卡片。",
+      "href": "./musings/paper-reading.md"
+    },
+    {
+      "title": "夜里 Debug",
+      "date": "2026-07-11",
+      "tags": ["工程", "心情"],
+      "cover": "./assets/images/project-nexus.svg",
+      "excerpt": "那些在深夜突然定位到 bug 根因的时刻，通常伴随着一点疲惫、一点成就感和一点哭笑不得。",
+      "href": "./musings/night-debug.md"
+    }
+  ]
+}
