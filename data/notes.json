@@ -44,6 +44,21 @@
       ]
     },
     {
+      "key": "vlm-llm-card-demo",
+      "title": "LLM 卡片自动生成测试",
+      "category": "vlm",
+      "categoryLabel": "VLM",
+      "type": "Demo",
+      "path": "./notes/vlm/llm-card-demo.md",
+      "cover": "./assets/images/project-nexus.svg",
+      "excerpt": "用于测试 Notes 页是否会自动生成新类别按钮和新笔记卡片。",
+      "tags": [
+        "LLM",
+        "Demo",
+        "Auto Card"
+      ]
+    },
+    {
       "key": "vlm-59dd5de5",
       "title": "多模态大模型算法学习路线",
       "category": "vlm",
