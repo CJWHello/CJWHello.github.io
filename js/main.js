@@ -115,11 +115,11 @@
     const setMenu = (open) => {
       header.classList.toggle("is-expanded", open);
       nav.classList.toggle("is-open", open);
-      body.classList.toggle("menu-open", open && mobileMenu.matches);
+      body.classList.remove("menu-open");
       navAvatarToggle?.setAttribute("aria-expanded", String(open));
-      menuToggle?.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+      menuToggle?.setAttribute("aria-label", "Collapse navigation");
       const icon = menuToggle?.querySelector("i");
-      if (icon) icon.className = open ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+      if (icon) icon.className = "fa-solid fa-chevron-left";
     };
 
     navAvatarToggle?.setAttribute("role", "button");
@@ -128,42 +128,26 @@
     navAvatarToggle?.setAttribute("aria-label", "Toggle navigation");
 
     navAvatarToggle?.addEventListener("click", (event) => {
+      if (header.classList.contains("is-expanded")) return;
       event.preventDefault();
-      setMenu(!header.classList.contains("is-expanded"));
+      setMenu(true);
     });
 
     navAvatarToggle?.addEventListener("keydown", (event) => {
-      if (event.key !== " ") return;
+      if (event.key !== " " || header.classList.contains("is-expanded")) return;
       event.preventDefault();
-      setMenu(!header.classList.contains("is-expanded"));
+      setMenu(true);
     });
 
     menuToggle?.addEventListener("click", () => {
-      setMenu(!header.classList.contains("is-expanded"));
-    });
-
-    nav?.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        setMenu(false);
-      });
-    });
-
-    document.addEventListener("click", (event) => {
-      if (!header.classList.contains("is-expanded")) return;
-      if (header.contains(event.target)) return;
       setMenu(false);
     });
 
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") setMenu(false);
+    mobileMenu.addEventListener?.("change", () => {
+      body.classList.remove("menu-open");
     });
 
-    mobileMenu.addEventListener?.("change", () => {
-      if (!header.classList.contains("is-expanded")) body.classList.remove("menu-open");
-      if (header.classList.contains("is-expanded")) {
-        body.classList.toggle("menu-open", mobileMenu.matches);
-      }
-    });
+    setMenu(true);
   }
 
   function initScrollProgress() {

@@ -63,7 +63,7 @@
   }
 
   .menu-toggle {
-    display: none !important;
+    display: inline-grid;
   }
 
   .site-nav {

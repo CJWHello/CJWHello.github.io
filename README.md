@@ -52,9 +52,12 @@
 │   ├── icons/
 │   └── background/
 ├── notes/
-│   ├── 多模态大模型算法学习路线.md
-│   ├── Diffusion视频算法面试八股.md
-│   └── 简历项目.md
+│   ├── vlm/
+│   │   └── 多模态大模型算法学习路线.md
+│   ├── interview/
+│   │   └── Diffusion视频算法面试八股.md
+│   └── projects/
+│       └── 简历项目.md
 ├── robots.txt
 ├── sitemap.xml
 ├── .nojekyll
@@ -102,6 +105,7 @@ https://你的用户名.github.io/portfolio/
 主要替换以下内容：
 
 - `js/site-data.js`：姓名、缩写、年龄、籍贯、邮箱、电话、GitHub、教育背景、荣誉证书等集中在这里维护
+- `data/home.json`：首页 Hero、Profile、Capabilities、Notes Preview、Timeline、Musings、Contact CTA 文案集中在这里维护
 - HTML 中带 `data-profile`、`data-href`、`data-action`、`data-profile-list` 的位置会自动读取 `site-data.js`
 - 首页 Hero 文案
 - 笔记卡片标题、描述、技术栈与 Markdown 链接
@@ -136,17 +140,24 @@ https://你的用户名.github.io/portfolio/
 
 ## Manage Notes
 
-Markdown 笔记放在 `notes/` 目录：
+Markdown 笔记按类别放在 `notes/` 子目录：
 
-- `多模态大模型算法学习路线.md`
-- `Diffusion视频算法面试八股.md`
-- `简历项目.md`
+- `notes/vlm/多模态大模型算法学习路线.md`
+- `notes/interview/Diffusion视频算法面试八股.md`
+- `notes/projects/简历项目.md`
 
 如果新增笔记：
 
-1. 把新的 `.md` 文件放进 `notes/`。
-2. 在 `projects.html` 中新增一个 `project-card`。
-3. 链接使用相对路径，例如 `./notes/新笔记.md`。
+1. 按类别把新的 `.md` 文件放进 `notes/` 下的子目录，例如 `notes/vlm/`、`notes/interview/`。
+2. 提交并推送到 GitHub。
+3. GitHub Actions 会自动运行 `.github/workflows/update-notes-index.yml`，生成或更新 `data/notes.json`。
+4. `projects.html` 会根据清单自动生成笔记卡片。
+
+如果你本地也想预览自动生成结果，可以手动运行：
+
+```bash
+python scripts/generate_notes_index.py
+```
 
 `note.html` 会通过 `js/markdown.js` 在浏览器端读取并渲染 Markdown。例如：
 
@@ -156,7 +167,7 @@ note.html?file=diffusion-interview
 note.html?file=resume-projects
 ```
 
-如果新增笔记，需要在 `js/markdown.js` 的 `allowedNotes` 中增加一个 key 到 Markdown 文件路径的映射。
+现在 `note.html` 会优先读取 `data/notes.json`，不再需要手动维护 `js/markdown.js` 的路径映射。
 
 ## Manage Musings
 

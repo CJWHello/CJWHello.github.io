@@ -13,35 +13,38 @@
   const rawLink = document.querySelector("[data-raw-note]");
   if (!output) return;
 
-  const allowedNotes = new Map([
-    ["multimodal-roadmap", "./notes/多模态大模型算法学习路线.md"],
-    ["diffusion-interview", "./notes/Diffusion视频算法面试八股.md"],
-    ["resume-projects", "./notes/简历项目.md"]
-  ]);
+  const fallbackNotes = [
+    { key: "multimodal-roadmap", title: "多模态大模型算法学习路线", path: "./notes/vlm/多模态大模型算法学习路线.md" },
+    { key: "diffusion-interview", title: "Diffusion 视频算法面试八股", path: "./notes/interview/Diffusion视频算法面试八股.md" },
+    { key: "resume-projects", title: "简历项目", path: "./notes/projects/简历项目.md" }
+  ];
 
   const params = new URLSearchParams(window.location.search);
   const key = params.get("file") || "multimodal-roadmap";
-  const notePath = allowedNotes.get(key);
 
-  if (!notePath) {
-    output.innerHTML = "<p>未找到对应笔记。请从笔记库重新进入。</p>";
-    return;
-  }
+  loadNotes()
+    .then((notes) => {
+      const note = notes.find((item) => item.key === key);
 
-  if (rawLink) rawLink.setAttribute("href", notePath);
+      if (!note?.path) {
+        output.innerHTML = "<p>未找到对应笔记。请从笔记库重新进入。</p>";
+        return;
+      }
 
-  fetch(notePath)
-    .then((response) => {
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return response.text();
-    })
-    .then((markdown) => {
-      const firstHeading = markdown.match(/^#\s+(.+)$/m);
-      const displayTitle = firstHeading ? firstHeading[1].trim() : fileNameFromPath(notePath);
-      if (titleNode) titleNode.textContent = displayTitle;
-      if (subtitleNode) subtitleNode.textContent = "Markdown 笔记已渲染为网页阅读模式，原始文件仍可访问。";
-      document.title = `${displayTitle} | 恍如昨日`;
-      output.innerHTML = renderMarkdown(markdown);
+      if (rawLink) rawLink.setAttribute("href", note.path);
+      return fetch(note.path)
+        .then((response) => {
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return response.text();
+        })
+        .then((markdown) => {
+          const firstHeading = markdown.match(/^#\s+(.+)$/m);
+          const displayTitle = note.title || (firstHeading ? firstHeading[1].trim() : fileNameFromPath(note.path));
+          if (titleNode) titleNode.textContent = displayTitle;
+          if (subtitleNode) subtitleNode.textContent = "Markdown 笔记已渲染为网页阅读模式。";
+          document.title = `${displayTitle} | 恍如昨日`;
+          output.innerHTML = renderMarkdown(markdown);
+        });
     })
     .catch(() => {
       output.innerHTML = [
@@ -50,6 +53,16 @@
         "<p>部署到 GitHub Pages 后可以正常访问；本地预览建议运行 <code>python -m http.server 8080</code>。</p>"
       ].join("");
     });
+
+  function loadNotes() {
+    return fetch("./data/notes.json")
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
+      .then((payload) => Array.isArray(payload.notes) ? payload.notes : fallbackNotes)
+      .catch(() => fallbackNotes);
+  }
 
   function fileNameFromPath(path) {
     return decodeURIComponent(path.split("/").pop().replace(/\.md$/i, ""));

@@ -1,0 +1,60 @@
+{
+    "notes":  [
+                  {
+                      "key":  "diffusion-interview",
+                      "title":  "Diffusion 视频算法面试八股",
+                      "category":  "interview",
+                      "categoryLabel":  "Interview",
+                      "type":  "Note",
+                      "path":  "./notes/interview/Diffusion视频算法面试八股.md",
+                      "cover":  "./assets/images/project-diffusion.svg",
+                      "excerpt":  "\u003e 定位：面向快手可灵/字节 Seed/腾讯混元/阿里通义视频一线视频算法岗，重点围绕 Diffusion 视频生成、low-level 视频处理、VAE/DiT、视频压缩与修复、以及你的两个...",
+                      "tags":  [
+                                   "Interview",
+                                   "Diffusion视频算法面试八股"
+                               ]
+                  },
+                  {
+                      "key":  "resume-projects",
+                      "title":  "项目一：基于GRPO的文本视频生成奖励强化学习",
+                      "category":  "projects",
+                      "categoryLabel":  "Projects",
+                      "type":  "Note",
+                      "path":  "./notes/projects/简历项目.md",
+                      "cover":  "./assets/images/project-dashboard.svg",
+                      "excerpt":  "这个项目主要是对 Wan2.1-T2V 文生视频扩散模型做后训练，希望解决扩散模型\"画面生成得很好，但内容和Prompt不一致\"的问题。",
+                      "tags":  [
+                                   "Projects",
+                                   "简历项目"
+                               ]
+                  },
+                  {
+                      "key":  "multimodal-roadmap",
+                      "title":  "多模态大模型算法学习路线",
+                      "category":  "vlm",
+                      "categoryLabel":  "VLM",
+                      "type":  "Note",
+                      "path":  "./notes/vlm/多模态大模型算法学习路线.md",
+                      "cover":  "./assets/images/project-vision.svg",
+                      "excerpt":  "\u003e 目标岗位：多模态大模型算法工程师",
+                      "tags":  [
+                                   "VLM",
+                                   "多模态大模型算法学习路线"
+                               ]
+                  },
+                  {
+                      "key":  "vlm-resume-projects",
+                      "title":  "项目一：基于GRPO的文本视频生成奖励强化学习",
+                      "category":  "vlm",
+                      "categoryLabel":  "VLM",
+                      "type":  "Note",
+                      "path":  "./notes/vlm/简历项目.md",
+                      "cover":  "./assets/images/project-vision.svg",
+                      "excerpt":  "这个项目主要是对 Wan2.1-T2V 文生视频扩散模型做后训练，希望解决扩散模型\"画面生成得很好，但内容和Prompt不一致\"的问题。",
+                      "tags":  [
+                                   "VLM",
+                                   "简历项目"
+                               ]
+                  }
+              ]
+}
