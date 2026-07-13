@@ -30,6 +30,18 @@
     return className ? `<i class="${escapeHtml(className)}"></i>` : "";
   }
 
+  function styleAttr(style) {
+    if (!style || typeof style !== "object") return "";
+    const entries = Object.entries(style)
+      .filter(([, value]) => value !== undefined && value !== null && value !== "")
+      .map(([key, value]) => `${toCssProperty(key)}:${escapeHtml(String(value))}`);
+    return entries.length ? ` style="${entries.join(";")}"` : "";
+  }
+
+  function toCssProperty(key) {
+    return key.replace(/[A-Z]/g, (char) => `-${char.toLowerCase()}`);
+  }
+
   function tags(items = [], className = "skill-tags") {
     return `<div class="${className}">${items.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}</div>`;
   }
@@ -91,12 +103,12 @@
     }
     if (visual && hero.visual) {
       const panels = (hero.visual.panels || []).map((panel) => `
-        <div class="floating-panel ${escapeHtml(panel.className || "")}">
+        <div class="floating-panel ${escapeHtml(panel.className || "")}"${styleAttr(panel.style)}>
           ${panel.icon ? icon(panel.icon) : `<span class="mono">${escapeHtml(panel.label || "")}</span>`}
           ${panel.detail ? `<small>${escapeHtml(panel.detail)}</small>` : `<span>${escapeHtml(panel.label || "")}</span>`}
         </div>
       `).join("");
-      const tagHtml = (hero.visual.tags || []).map((tag) => `<span class="orbit-tag ${escapeHtml(tag.className || "")}">${escapeHtml(tag.label || "")}</span>`).join("");
+      const tagHtml = (hero.visual.tags || []).map((tag) => `<span class="orbit-tag ${escapeHtml(tag.className || "")}"${styleAttr(tag.style)}>${escapeHtml(tag.label || "")}</span>`).join("");
       visual.innerHTML = `
         <div class="profile-orb">
           <img src="${escapeHtml(hero.visual.image || "./assets/my.jpg")}" alt="${escapeHtml(hero.visual.imageAlt || "")}" loading="eager" />

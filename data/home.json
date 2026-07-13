@@ -17,14 +17,68 @@
       "image": "./assets/my.jpg",
       "imageAlt": "Abstract portrait card",
       "panels": [
-        { "className": "panel-code", "icon": "", "label": "VLM", "detail": "Qwen2-VL" },
-        { "className": "panel-status", "icon": "fa-solid fa-star", "label": "GRPO Reward", "detail": "" }
+        {
+          "className": "panel-code",
+          "icon": "",
+          "label": "VLM",
+          "detail": "Qwen2-VL",
+          "style": {
+            "top": "28px",
+            "left": "24px"
+          }
+        },
+        {
+          "className": "panel-status",
+          "icon": "fa-solid fa-star",
+          "label": "GRPO Reward",
+          "detail": "",
+          "style": {
+            "right": "24px",
+            "bottom": "112px"
+          }
+        }
       ],
       "tags": [
-        { "className": "tag-diffusion", "label": "Diffusion" },
-        { "className": "tag-lora", "label": "LoRA" },
-        { "className": "tag-rag", "label": "RAG" },
-        { "className": "tag-clip", "label": "CLIP" }
+        {
+          "className": "tag-diffusion",
+          "label": "Diffusion",
+          "style": {
+            "top": "32px",
+            "right": "42px"
+          }
+        },
+        {
+          "className": "tag-lora",
+          "label": "LoRA",
+          "style": {
+            "top": "128px",
+            "right": "58px"
+          }
+        },
+        {
+          "className": "tag-rag",
+          "label": "RAG",
+          "style": {
+            "left": "46px",
+            "bottom": "64px"
+          }
+        },
+        {
+          "className": "tag-clip",
+          "label": "CLIP",
+          "style": {
+            "left": "82px",
+            "bottom": "26px"
+          }
+        },
+        {
+          "className": "tag-transformer",
+          "label": "Transformer",
+          "style": {
+            "left": "60px",
+            "bottom": "35px"
+          }
+        }
       ]
     }
   },
