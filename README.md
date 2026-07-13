@@ -48,8 +48,6 @@
 │   ├── projects.json
 │   ├── musings.json
 │   └── acgn.json
-├── scripts/
-│   └── generate_notes_index.py
 ├── musings/
 │   ├── research-life.md
 │   ├── paper-reading.md
@@ -156,27 +154,24 @@ Markdown 笔记按类别放在 `notes/` 子目录：
 如果新增笔记：
 
 1. 按类别把新的 `.md` 文件放进 `notes/` 下的子目录，例如 `notes/vlm/`、`notes/interview/`。
-2. 提交并推送到 GitHub。
-3. GitHub Actions 会自动运行 `.github/workflows/update-notes-index.yml`，生成或更新 `data/notes.json`。
-4. `projects.html` 会根据清单自动生成笔记卡片。
+2. 手动在 `data/notes.json` 里新增一条笔记配置。
+3. `projects.html` 会根据 `data/notes.json` 自动生成分类按钮和笔记卡片。
+4. 点击卡片后，`note.html` 会按配置里的 `path` 读取对应 Markdown 详情。
 
-推荐在笔记顶部使用 front matter，这样卡片就像“自定义组件”一样由数据驱动：
+推荐在 `data/notes.json` 中为每篇笔记配置这些字段：
 
-```text
----
-title: "你的笔记标题"
-cover: "./assets/images/your-cover.png"
-excerpt: "卡片上的简要概述"
-tags: ["VLM", "Qwen2-VL"]
----
-```
-
-也支持把 `cover` 写成 `image`，把 `excerpt` 写成 `summary` 或 `description`。
-
-如果你本地也想预览自动生成结果，可以手动运行：
-
-```bash
-python scripts/generate_notes_index.py
+```json
+{
+  "key": "vlm-your-note",
+  "title": "你的笔记标题",
+  "category": "vlm",
+  "categoryLabel": "VLM",
+  "type": "Note",
+  "path": "./notes/vlm/你的笔记.md",
+  "cover": "./assets/images/your-cover.png",
+  "excerpt": "卡片上的简要概述",
+  "tags": ["VLM", "Qwen2-VL"]
+}
 ```
 
 `note.html` 会通过 `js/markdown.js` 在浏览器端读取并渲染 Markdown。例如：
@@ -193,7 +188,7 @@ note.html?file=resume-projects
 
 如果你希望像 Vue 自定义组件一样维护卡片数据，现在这几个页面都可以按数据文件维护：
 
-- `Notes`：`data/notes.json`，由 GitHub Actions 自动生成
+- `Notes`：`data/notes.json`
 - `Projects`：`data/projects.json`
 - `Musings`：`data/musings.json`
 - `二次元`：`data/acgn.json`
