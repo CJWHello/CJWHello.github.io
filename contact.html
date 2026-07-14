@@ -20,25 +20,42 @@
   <div class="page-loader" aria-hidden="true"><div class="loader-orbit"></div><p>Opening channel</p></div>
   <canvas id="particle-canvas" aria-hidden="true"></canvas><div class="aurora-field" aria-hidden="true"></div><div class="cursor-glow" aria-hidden="true"></div><div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-header is-expanded" data-page-shell><a class="brand" href="./index.html"><img class="brand-avatar" src="./assets/my.jpg" alt="恍如昨日头像" loading="eager" /><span class="brand-text" data-profile="name">恍如昨日</span></a><nav class="site-nav" aria-label="Primary navigation"><a href="./index.html">Home</a><a href="./about.html">About</a><a href="./projects.html">Notes</a><a href="./works.html">Projects</a><a href="./blog.html">Musings</a><a href="./anime.html">二次元</a><a href="./contact.html" class="active">Contact</a></nav><div class="header-actions"><button class="icon-button theme-toggle" type="button" aria-label="Toggle color theme" data-theme-toggle><i class="fa-solid fa-moon"></i></button><button class="icon-button menu-toggle" type="button" aria-label="Open navigation" data-menu-toggle><i class="fa-solid fa-bars"></i></button></div></header>
-  <main class="page-transition inner-page">
-    <section class="section-shell page-hero"><div class="section-heading reveal"><p class="eyebrow">Contact</p><h1>欢迎交流多模态学习、项目经验和面试准备。</h1><p>这是 GitHub Pages 静态页面，表单默认通过本地邮件客户端发送。也可以直接使用下方邮箱或电话联系。</p></div></section>
-    <section class="section-shell contact-layout">
-      <form class="contact-form glass-card reveal" action="mailto:2426815661@qq.com" data-action="email" method="post" enctype="text/plain">
-        <label for="name">姓名</label><input id="name" name="name" type="text" placeholder="你的姓名" required />
-        <label for="email">邮箱</label><input id="email" name="email" type="email" placeholder="you@example.com" required />
-        <label for="topic">交流主题</label><select id="topic" name="topic"><option>多模态学习交流</option><option>项目经历讨论</option><option>算法面试准备</option><option>其他</option></select>
-        <label for="message">留言</label><textarea id="message" name="message" rows="7" placeholder="可以简单说明你想交流的问题。" required></textarea>
-        <button class="button button-primary" type="submit"><span>发送邮件</span><i class="fa-regular fa-paper-plane"></i></button>
-      </form>
-      <aside class="contact-panel reveal">
-        <article class="glass-card"><i class="fa-regular fa-envelope card-icon"></i><h2>邮箱</h2><a href="mailto:2426815661@qq.com" data-href="email" data-profile="email">2426815661@qq.com</a></article>
-        <article class="glass-card"><i class="fa-solid fa-phone card-icon"></i><h2>电话</h2><a href="tel:18872722092" data-href="phone" data-profile="phone">18872722092</a></article>
-        <article class="glass-card"><i class="fa-regular fa-file-lines card-icon"></i><h2>学习笔记</h2><a href="./projects.html">查看 Markdown 笔记库</a></article>
-      </aside>
+  <main class="page-transition inner-page" data-contact-page>
+    <section class="section-shell page-hero" data-contact-hero>
+      <div class="section-heading reveal">
+        <p class="eyebrow">Contact</p>
+        <h1>在常用平台继续找到我。</h1>
+        <p>这里集中放 GitHub、小红书和其他常用账号入口。点击卡片即可跳转到对应主页。</p>
+      </div>
+    </section>
+    <section class="section-shell">
+      <div class="contact-account-grid" data-contact-grid>
+        <a class="contact-account-card reveal accent-blue" href="https://github.com/" target="_blank" rel="noopener">
+          <img src="./assets/my.jpg" alt="GitHub account cover" loading="lazy" />
+          <div class="contact-account-body">
+            <span>GitHub</span>
+            <h2>恍如昨日</h2>
+          </div>
+        </a>
+        <a class="contact-account-card reveal accent-rose" href="https://www.xiaohongshu.com/" target="_blank" rel="noopener">
+          <img src="./assets/my.jpg" alt="Xiaohongshu account cover" loading="lazy" />
+          <div class="contact-account-body">
+            <span>小红书</span>
+            <h2>恍如昨日</h2>
+          </div>
+        </a>
+        <a class="contact-account-card reveal accent-cyan" href="mailto:2426815661@qq.com">
+          <img src="./assets/my.jpg" alt="Contact account cover" loading="lazy" />
+          <div class="contact-account-body">
+            <span>账号</span>
+            <h2>2426815661@qq.com</h2>
+          </div>
+        </a>
+      </div>
     </section>
   </main>
   <footer class="site-footer"><div class="footer-grid"><div><a class="brand" href="./index.html"><img class="brand-avatar" src="./assets/my.jpg" alt="恍如昨日头像" loading="eager" /><span class="brand-text" data-profile="name">恍如昨日</span></a><p data-profile="tagline">多模态大模型学习记录、项目复盘与算法笔记分享。</p></div><div class="footer-links"><a href="https://github.com/" data-href="github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a><a href="./projects.html"><i class="fa-regular fa-file-lines"></i> Notes</a><a href="mailto:2426815661@qq.com" data-href="email"><i class="fa-regular fa-envelope"></i> Email</a></div></div><div class="footer-bottom"><p>Copyright <span data-current-year></span> <span data-profile="name">恍如昨日</span>. All rights reserved.</p><button class="back-to-top" type="button" data-back-to-top aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button></div></footer>
-  <script src="./js/particles.js"></script><script src="./js/animation.js"></script><script src="./js/site-data.js"></script><script src="./js/main.js"></script>
+  <script src="./js/particles.js"></script><script src="./js/animation.js"></script><script src="./js/site-data.js"></script><script src="./js/contact-config.js"></script><script src="./js/main.js"></script>
 </body>
 </html>
 

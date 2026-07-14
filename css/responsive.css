@@ -152,6 +152,7 @@
   .blog-grid-wide,
   .sticky-notes-grid,
   .acgn-grid,
+  .contact-account-grid,
   .contact-panel {
     grid-template-columns: 1fr;
   }
