@@ -5,6 +5,36 @@
     "lead": "把一张头像拆成 9 块，每一块翻到背面，展示一个不同维度的我。这里先放占位信息，后续你可以直接改 JSON。",
     "meta": ["Hover to reveal", "3 x 3 Puzzle"]
   },
+  "pet": {
+    "eyebrow": "Pet",
+    "title": "今日值班的小桌宠",
+    "lead": "基于 my.jpg 做的限定区域桌宠。它会在自己的舞台里巡逻、挥手、跳一下、打瞌睡，只会在 About 左侧这块区域活动。",
+    "image": "./assets/my.jpg",
+    "hoverText": "已进入互动模式，正在认真营业。",
+    "meta": ["Hover: 互动", "Click: 换动作", "Stage: 限定区域"],
+    "actions": [
+      {
+        "state": "is-idle",
+        "text": "今天也在认真值班。"
+      },
+      {
+        "state": "is-wave",
+        "text": "你好，欢迎来到 About。"
+      },
+      {
+        "state": "is-jump",
+        "text": "让我原地蹦一下。"
+      },
+      {
+        "state": "is-nap",
+        "text": "先小睡一会儿，再继续巡逻。"
+      },
+      {
+        "state": "is-proud",
+        "text": "状态良好，继续前进。"
+      }
+    ]
+  },
   "puzzle": {
     "image": "./assets/my.jpg",
     "imageAlt": "恍如昨日头像",
