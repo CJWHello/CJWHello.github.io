@@ -72,19 +72,31 @@
         "edges": {
           "top": "out",
           "right": "flat",
-          "bottom": "out",
+          "bottom": "in",
           "left": "out"
         }
       },
       {
         "label": "审美偏好",
         "title": "简洁 / 克制 / 可维护",
-        "description": "这里可以写你偏好的设计或做事风格。"
+        "description": "这里可以写你偏好的设计或做事风格。",
+        "edges": {
+          "top": "in",
+          "right": "in",
+          "bottom": "flat",
+          "left": "flat"
+        }
       },
       {
         "label": "一句话",
         "title": "知命不惧，日日自新",
-        "description": "这里可以换成座右铭、喜欢的句子或价值观。"
+        "description": "这里可以换成座右铭、喜欢的句子或价值观。",
+        "edges": {
+          "top": "in",
+          "right": "out",
+          "bottom": "flat",
+          "left": "out"
+        }
       },
       {
         "label": "下一步",
@@ -108,6 +120,11 @@
         "title": "中国科学技术大学，软件工程（硕士）",
         "description": "计划继续围绕多模态大模型、模型压缩、生成模型与工程化应用深入学习。"
       },
+      {
+        "period": "2023-06 ~ 2025-09",
+        "title": "考研之旅",
+        "description": "漫长的三年考研之旅，考上科软时，本科同学已经开始工作，但是那一刻的喜悦，一切值得。"
+      }
       {
         "period": "2019-09 ~ 2023-06",
         "title": "中南财经政法大学，信息管理与信息系统（本科）",
