@@ -648,6 +648,7 @@ h3 {
   gap: 18px;
   margin-top: 18px;
   text-align: center;
+  background-color: transparent;
 }
 
 .hero-mantra h1 {
