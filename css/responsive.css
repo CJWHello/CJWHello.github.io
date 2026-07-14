@@ -23,6 +23,10 @@
     min-height: 700px;
   }
 
+  .orbiter-ring {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
   .skills-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -126,7 +130,7 @@
     min-height: 620px;
   }
 
-  .orbit-ring {
+  .orbiter-ring {
     transform: translate(-50%, -50%) scale(0.78);
   }
 
@@ -254,7 +258,7 @@
     margin-bottom: 24px;
   }
 
-  .orbit-ring {
+  .orbiter-ring {
     transform: translate(-50%, -50%) scale(0.6);
   }
 
@@ -276,17 +280,19 @@
     width: 152px;
   }
 
-  .orbit-node {
+  .star-chip {
     gap: 6px;
-    font-size: 0.64rem;
   }
 
-  .orbit-node.is-medium {
-    font-size: 0.72rem;
+  .star-label {
+    padding: 5px 8px;
+    font-size: 0.66rem;
   }
 
-  .orbit-node.is-large {
-    font-size: 0.78rem;
+  .orbiter-dot {
+    width: 12px;
+    height: 12px;
+    margin: -6px 0 0 -6px;
   }
 
   .glass-card,

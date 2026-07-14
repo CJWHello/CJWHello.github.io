@@ -4,19 +4,24 @@
     "visual": {
       "image": "./assets/my.jpg",
       "imageAlt": "Abstract portrait card",
-      "satellites": [
-        { "label": "VLM", "radius": 260, "size": "small", "speed": 34, "delay": 0, "angle": 4 },
-        { "label": "LLM", "radius": 284, "size": "small", "speed": 38, "delay": -5, "angle": 34 },
-        { "label": "LoRA", "radius": 308, "size": "small", "speed": 42, "delay": -8, "angle": 64 },
-        { "label": "Transformer", "radius": 340, "size": "large", "speed": 46, "delay": -12, "angle": 102 },
-        { "label": "VAE", "radius": 246, "size": "small", "speed": 36, "delay": -16, "angle": 142 },
-        { "label": "ViT", "radius": 276, "size": "small", "speed": 40, "delay": -4, "angle": 178 },
-        { "label": "DiT", "radius": 300, "size": "small", "speed": 44, "delay": -10, "angle": 214 },
-        { "label": "GRPO", "radius": 350, "size": "medium", "speed": 50, "delay": -14, "angle": 252 },
-        { "label": "PPO", "radius": 254, "size": "small", "speed": 35, "delay": -6, "angle": 292 },
-        { "label": "RoPE", "radius": 294, "size": "small", "speed": 41, "delay": -2, "angle": 326 },
-        { "label": "RAG", "radius": 366, "size": "small", "speed": 48, "delay": -9, "angle": 18 },
-        { "label": "CLIP", "radius": 288, "size": "small", "speed": 37, "delay": -13, "angle": 234 }
+      "orbiters": [
+        { "label": "Agent", "radius": 190, "speed": 30, "delay": 0, "angle": 16 },
+        { "label": "LLM", "radius": 244, "speed": 38, "delay": -8, "angle": 148 },
+        { "label": "Infra", "radius": 302, "speed": 48, "delay": -14, "angle": 266 }
+      ],
+      "stars": [
+        { "label": "VLM", "top": "12%", "left": "24%", "size": "sm", "driftX": -8, "driftY": 10, "duration": 9 },
+        { "label": "LLM", "top": "18%", "left": "68%", "size": "md", "driftX": 10, "driftY": -12, "duration": 11 },
+        { "label": "LoRA", "top": "26%", "left": "18%", "size": "sm", "driftX": 12, "driftY": 8, "duration": 10 },
+        { "label": "Transformer", "top": "10%", "left": "50%", "size": "lg", "driftX": -10, "driftY": 12, "duration": 12 },
+        { "label": "VAE", "top": "34%", "left": "74%", "size": "sm", "driftX": 8, "driftY": -8, "duration": 9 },
+        { "label": "ViT", "top": "54%", "left": "12%", "size": "sm", "driftX": 10, "driftY": 12, "duration": 10 },
+        { "label": "DiT", "top": "42%", "left": "20%", "size": "sm", "driftX": -12, "driftY": 8, "duration": 11 },
+        { "label": "GRPO", "top": "8%", "left": "56%", "size": "md", "driftX": 8, "driftY": -10, "duration": 13 },
+        { "label": "PPO", "top": "22%", "left": "72%", "size": "sm", "driftX": -8, "driftY": 6, "duration": 9 },
+        { "label": "RoPE", "top": "46%", "left": "84%", "size": "md", "driftX": 10, "driftY": 10, "duration": 12 },
+        { "label": "RAG", "top": "68%", "left": "74%", "size": "sm", "driftX": -10, "driftY": 10, "duration": 10 },
+        { "label": "CLIP", "top": "24%", "left": "30%", "size": "sm", "driftX": 6, "driftY": -10, "duration": 8 }
       ]
     }
   },
