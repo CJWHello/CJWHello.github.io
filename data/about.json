@@ -13,17 +13,35 @@
       {
         "label": "爱好",
         "title": "阅读 / 电影 / 羽毛球",
-        "description": "这里可以替换成你真实的兴趣爱好。"
+        "description": "这里可以替换成你真实的兴趣爱好。",
+        "edges": {
+          "top": "flat",
+          "right": "out",
+          "bottom": "in",
+          "left": "flat"
+        }
       },
       {
         "label": "MBTI",
         "title": "INTJ",
-        "description": "这里写人格类型，或者你更认可的一种自我描述。"
+        "description": "这里写人格类型，或者你更认可的一种自我描述。",
+        "edges": {
+          "top": "flat",
+          "right": "in",
+          "bottom": "out",
+          "left": "in"
+        }
       },
       {
         "label": "城市",
         "title": "湖北黄冈",
-        "description": "这里可以写家乡、常驻城市，或者一句和城市有关的小注解。"
+        "description": "这里可以写家乡、常驻城市，或者一句和城市有关的小注解。",
+        "edges": {
+          "top": "flat",
+          "right": "flat",
+          "bottom": "in",
+          "left": "out"
+        }
       },
       {
         "label": "研究方向",
@@ -53,7 +71,13 @@
       {
         "label": "下一步",
         "title": "继续系统化沉淀",
-        "description": "这里可以写阶段目标，比如项目、论文或学习计划。"
+        "description": "这里可以写阶段目标，比如项目、论文或学习计划。",
+        "edges": {
+          "top": "out",
+          "right": "flat",
+          "bottom": "flat",
+          "left": "in"
+        }
       }
     ]
   },

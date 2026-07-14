@@ -64,7 +64,7 @@
       const row = Math.floor(index / grid);
       const pieceClass = getPieceClass(index, row, col);
       const pieceStyle = getPieceStyle(index);
-      const pieceShape = getPieceShape(row, col, grid);
+      const pieceShape = getPieceShape(tile, row, col, grid);
       const pieceMask = getPieceMask(pieceShape);
       const maskStyle = `--piece-mask:${pieceMask};-webkit-mask-image:var(--piece-mask);mask-image:var(--piece-mask);-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;`;
 
@@ -130,12 +130,22 @@
     return `--piece-shift-x:${x};--piece-shift-y:${y};--piece-tilt:${r};`;
   }
 
-  function getPieceShape(row, col, grid) {
-    const top = row === 0 ? 0 : getHorizontalSign(row - 1, col);
-    const right = col === grid - 1 ? 0 : getVerticalSign(row, col);
-    const bottom = row === grid - 1 ? 0 : -getHorizontalSign(row, col);
-    const left = col === 0 ? 0 : -getVerticalSign(row, col - 1);
+  function getPieceShape(tile, row, col, grid) {
+    const edges = tile && typeof tile === "object" ? tile.edges : null;
+    const top = parseEdge(edges?.top, row === 0 ? 0 : getHorizontalSign(row - 1, col));
+    const right = parseEdge(edges?.right, col === grid - 1 ? 0 : getVerticalSign(row, col));
+    const bottom = parseEdge(edges?.bottom, row === grid - 1 ? 0 : -getHorizontalSign(row, col));
+    const left = parseEdge(edges?.left, col === 0 ? 0 : -getVerticalSign(row, col - 1));
     return buildPuzzlePath(top, right, bottom, left);
+  }
+
+  function parseEdge(value, fallback) {
+    if (typeof value !== "string") return fallback;
+    const normalized = value.trim().toLowerCase();
+    if (normalized === "flat" || normalized === "line" || normalized === "straight") return 0;
+    if (normalized === "in" || normalized === "inside" || normalized === "notch" || normalized === "concave") return -1;
+    if (normalized === "out" || normalized === "outside" || normalized === "tab" || normalized === "convex") return 1;
+    return fallback;
   }
 
   function getHorizontalSign(row, col) {
