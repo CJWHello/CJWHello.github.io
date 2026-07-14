@@ -2074,6 +2074,10 @@ h3 {
   background: none;
   box-shadow: none;
   transform: rotateY(0deg) translateZ(1px);
+  z-index: 2;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 220ms ease, visibility 220ms ease;
 }
 
 .puzzle-svg {
@@ -2129,6 +2133,23 @@ h3 {
   isolation: isolate;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 220ms ease, visibility 220ms ease;
+}
+
+.puzzle-tile:hover .puzzle-face-front,
+.puzzle-tile:focus-visible .puzzle-face-front {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.puzzle-tile:hover .puzzle-face-back,
+.puzzle-tile:focus-visible .puzzle-face-back {
+  z-index: 3;
+  opacity: 1;
+  visibility: visible;
 }
 
 .puzzle-face-back::after {
