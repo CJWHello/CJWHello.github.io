@@ -19,6 +19,10 @@
     min-height: 340px;
   }
 
+  .hero-visual-solar {
+    min-height: 620px;
+  }
+
   .skills-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -110,6 +114,18 @@
 
   .hero {
     padding-top: 120px;
+  }
+
+  .hero-minimal {
+    min-height: calc(100vh - 148px);
+  }
+
+  .hero-visual-solar {
+    min-height: 560px;
+  }
+
+  .orbit-ring {
+    transform: translate(-50%, -50%) scale(0.84);
   }
 
   .hero h1,
@@ -227,6 +243,14 @@
     border-radius: 24px;
   }
 
+  .hero-visual-solar {
+    min-height: 500px;
+  }
+
+  .orbit-ring {
+    transform: translate(-50%, -50%) scale(0.68);
+  }
+
   .profile-orb {
     top: 50%;
     right: auto;
@@ -242,43 +266,24 @@
   }
 
   .profile-orb {
-    width: 140px;
+    width: 152px;
   }
 
-  .orbit-tag {
-    font-size: 0.66rem;
-    min-height: 24px;
-    padding: 0 8px;
+  .orbit-node {
+    width: 54px;
+    height: 54px;
+    font-size: 0.6rem;
   }
 
-  .tag-diffusion {
-    top: 24px;
-    right: 22px;
+  .orbit-node.is-medium {
+    width: 64px;
+    height: 64px;
   }
 
-  .tag-lora {
-    top: 112px;
-    right: 18px;
-  }
-
-  .tag-rag {
-    left: 20px;
-    bottom: 54px;
-  }
-
-  .tag-clip {
-    left: 48px;
-    bottom: 22px;
-  }
-
-  .panel-code {
-    top: 44px;
-    left: 16px;
-  }
-
-  .panel-status {
-    right: 14px;
-    bottom: 38px;
+  .orbit-node.is-large {
+    width: 76px;
+    height: 76px;
+    font-size: 0.58rem;
   }
 
   .glass-card,
