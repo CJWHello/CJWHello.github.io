@@ -2050,12 +2050,11 @@ h3 {
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  transition: transform 620ms cubic-bezier(.2, .75, .2, 1), filter 220ms ease;
+  transition: filter 220ms ease;
 }
 
 .puzzle-tile:hover .puzzle-tile-inner,
 .puzzle-tile:focus-visible .puzzle-tile-inner {
-  transform: rotateY(180deg) rotateX(3deg);
   filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.2));
 }
 
@@ -2073,11 +2072,11 @@ h3 {
 .puzzle-face-front {
   background: none;
   box-shadow: none;
-  transform: rotateY(0deg) translateZ(1px);
+  transform: rotateY(0deg);
   z-index: 2;
   opacity: 1;
   visibility: visible;
-  transition: opacity 220ms ease, visibility 220ms ease;
+  transition: transform 620ms cubic-bezier(.2, .75, .2, 1), opacity 220ms ease, visibility 220ms ease;
 }
 
 .puzzle-svg {
@@ -2123,7 +2122,7 @@ h3 {
   padding: 22px;
   color: var(--text);
   background: #0d152b;
-  transform: rotateY(180deg) translateZ(1px);
+  transform: rotateY(-180deg);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.08),
     0 16px 34px rgba(0, 0, 0, 0.2);
@@ -2133,17 +2132,19 @@ h3 {
   z-index: 1;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 220ms ease, visibility 220ms ease;
+  transition: transform 620ms cubic-bezier(.2, .75, .2, 1), opacity 220ms ease, visibility 220ms ease;
 }
 
 .puzzle-tile:hover .puzzle-face-front,
 .puzzle-tile:focus-visible .puzzle-face-front {
+  transform: rotateY(180deg);
   opacity: 0;
   visibility: hidden;
 }
 
 .puzzle-tile:hover .puzzle-face-back,
 .puzzle-tile:focus-visible .puzzle-face-back {
+  transform: rotateY(0deg);
   z-index: 3;
   opacity: 1;
   visibility: visible;
