@@ -9,7 +9,7 @@
       "platform": "GitHub",
       "nickname": "恍如昨日",
       "href": "https://github.com/",
-      "image": "./assets/my.jpg",
+      "image": "./assets/icons/accounts/github.png",
       "imageAlt": "GitHub account cover",
       "accent": "blue"
     },
@@ -17,16 +17,16 @@
       "platform": "小红书",
       "nickname": "恍如昨日",
       "href": "https://www.xiaohongshu.com/",
-      "image": "./assets/my.jpg",
+      "image": "./assets/icons/accounts/xiaohongshu.ico",
       "imageAlt": "Xiaohongshu account cover",
       "accent": "rose"
     },
     {
-      "platform": "账号",
-      "nickname": "2426815661@qq.com",
-      "href": "mailto:2426815661@qq.com",
-      "image": "./assets/my.jpg",
-      "imageAlt": "Contact account cover",
+      "platform": "抖音",
+      "nickname": "壬无",
+      "href": "https://www.douyin.com/",
+      "image": "./assets/icons/accounts/douyin.png",
+      "imageAlt": "Douyin account cover",
       "accent": "cyan"
     }
   ]

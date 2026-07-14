@@ -167,6 +167,7 @@
     width: 72px;
     height: 72px;
     border-radius: 20px;
+    padding: 14px;
   }
 
   .acgn-detail-card {
@@ -338,6 +339,7 @@
     width: 62px;
     height: 62px;
     border-radius: 16px;
+    padding: 12px;
   }
 
   .contact-account-body h2 {
