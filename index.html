@@ -62,230 +62,50 @@
   </header>
 
   <main class="page-transition">
-    <section class="hero section-shell" id="home">
-      <div class="hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow" data-profile="role">Multimodal AI Learner / Software Engineering M.S. Candidate</p>
-          <h2>
-            记录多模态算法学习、实验与
-            <span class="gradient-text typing-text" data-typing='["模型理解笔记.", "视频生成实践.", "面试复盘沉淀."]'>模型理解笔记.</span>
-          </h2>
-          <p class="hero-lead">
-            这里是一个面向多模态大模型方向的学习记录站点。
-            首页只负责说明站点结构：学习路线、Markdown 笔记、项目复盘、博客索引与交流入口。
-            更详细的个人背景与联系方式放在 About 页面。
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="./projects.html">
-              <span>查看学习笔记</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-            <a class="button button-ghost" href="./contact.html">
-              <span>联系我</span>
-              <i class="fa-regular fa-paper-plane"></i>
-            </a>
-          </div>
-          <div class="hero-metrics" aria-label="Profile highlights">
-            <div>
-              <strong data-count-to="18">0</strong>
-              <span>核心项目经历</span>
-            </div>
-            <div>
-              <strong data-count-to="6">0</strong>
-              <span>学习方向</span>
-            </div>
-            <div>
-              <strong data-count-to="120">0</strong>
-              <span>笔记沉淀</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-visual reveal" data-tilt-card>
+    <section class="hero section-shell hero-minimal" id="home">
+      <div class="hero-grid hero-grid-minimal">
+        <div class="hero-visual reveal hero-visual-solar" data-tilt-card>
+          <h1 class="sr-only">多模态关键词环绕头像展示</h1>
           <div class="profile-orb">
             <img src="./assets/my.jpg" alt="Abstract portrait card" loading="eager" />
           </div>
+          <div class="orbit-ring" style="--orbit-radius:132px;--orbit-speed:34s;--orbit-delay:0s;">
+            <span class="orbit-node is-small" style="--orbit-angle:0deg;">VLM</span>
+          </div>
+          <div class="orbit-ring" style="--orbit-radius:138px;--orbit-speed:38s;--orbit-delay:-5s;">
+            <span class="orbit-node is-small" style="--orbit-angle:32deg;">LLM</span>
+          </div>
+          <div class="orbit-ring" style="--orbit-radius:150px;--orbit-speed:42s;--orbit-delay:-8s;">
+            <span class="orbit-node is-small" style="--orbit-angle:68deg;">LoRA</span>
+          </div>
+          <div class="orbit-ring" style="--orbit-radius:168px;--orbit-speed:46s;--orbit-delay:-12s;">
+            <span class="orbit-node is-medium" style="--orbit-angle:108deg;">Transformer</span>
+          </div>
+          <div class="orbit-ring" style="--orbit-radius:124px;--orbit-speed:36s;--orbit-delay:-16s;">
+            <span class="orbit-node is-small" style="--orbit-angle:148deg;">VAE</span>
+          </div>
+          <div class="orbit-ring" style="--orbit-radius:146px;--orbit-speed:40s;--orbit-delay:-4s;">
+            <span class="orbit-node is-small" style="--orbit-angle:188deg;">ViT</span>
+          </div>
+          <div class="orbit-ring" style="--orbit-radius:160px;--orbit-speed:44s;--orbit-delay:-10s;">
+            <span class="orbit-node is-small" style="--orbit-angle:226deg;">DiT</span>
+          </div>
+          <div class="orbit-ring" style="--orbit-radius:174px;--orbit-speed:50s;--orbit-delay:-14s;">
+            <span class="orbit-node is-medium" style="--orbit-angle:264deg;">GRPO</span>
+          </div>
+          <div class="orbit-ring" style="--orbit-radius:128px;--orbit-speed:35s;--orbit-delay:-6s;">
+            <span class="orbit-node is-small" style="--orbit-angle:304deg;">PPO</span>
+          </div>
+          <div class="orbit-ring" style="--orbit-radius:156px;--orbit-speed:41s;--orbit-delay:-2s;">
+            <span class="orbit-node is-small" style="--orbit-angle:342deg;">RoPE</span>
+          </div>
+          <div class="orbit-ring" style="--orbit-radius:182px;--orbit-speed:48s;--orbit-delay:-9s;">
+            <span class="orbit-node is-small" style="--orbit-angle:20deg;">RAG</span>
+          </div>
+          <div class="orbit-ring" style="--orbit-radius:142px;--orbit-speed:37s;--orbit-delay:-13s;">
+            <span class="orbit-node is-small" style="--orbit-angle:248deg;">CLIP</span>
+          </div>
         </div>
-      </div>
-      <a class="scroll-cue" href="#about" aria-label="Scroll to about section">
-        <span></span>
-        <small>Scroll</small>
-      </a>
-    </section>
-
-    <section class="section-shell about-band" id="about">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Profile</p>
-        <h2>从课程学习、项目实践到笔记复盘，持续构建多模态算法知识体系。</h2>
-        <p>
-          目前重点关注 Qwen2-VL、扩散模型、图像/视频生成、视觉 Token 剪枝、
-          强化学习后训练与大模型应用开发。主页定位不是传统作品集，而是公开的学习分享与成长记录。
-        </p>
-      </div>
-      <div class="about-grid">
-        <article class="glass-card reveal">
-          <i class="fa-solid fa-brain card-icon"></i>
-          <h3>多模态理解</h3>
-          <p>围绕 Qwen2-VL、视觉语言模型、图像/视频理解、跨模态注意力与高效推理持续学习和实践。</p>
-        </article>
-        <article class="glass-card reveal">
-          <i class="fa-solid fa-layer-group card-icon"></i>
-          <h3>生成与强化学习</h3>
-          <p>关注 FLUX.1、Wan2.1-T2V、GRPO、CLIP Reward、VLM Reward 与生成质量评估。</p>
-        </article>
-        <article class="glass-card reveal">
-          <i class="fa-solid fa-compass-drafting card-icon"></i>
-          <h3>学习分享记录</h3>
-          <p>把学习路线、论文理解、项目问题、面试八股与实验复盘整理成可持续迭代的 Markdown 笔记。</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section-shell skills-section">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Capabilities</p>
-        <h2>围绕多模态大模型方向积累的技能栈。</h2>
-      </div>
-      <div class="skills-grid">
-        <article class="skill-card reveal" data-tilt-card>
-          <i class="fa-solid fa-robot"></i>
-          <h3>LLM / VLM</h3>
-          <p>理解 Transformer、BERT、GPT、Qwen2-VL 等模型结构，关注多模态推理与评估。</p>
-          <div class="skill-tags"><span>Qwen</span><span>LLaVA</span><span>CLIP</span></div>
-        </article>
-        <article class="skill-card reveal" data-tilt-card>
-          <i class="fa-solid fa-video"></i>
-          <h3>Video / Diffusion</h3>
-          <p>学习图像/视频生成 Pipeline、扩散模型奖励建模、视频采样与质量评估。</p>
-          <div class="skill-tags"><span>Diffusion</span><span>ViT</span><span>3D CNN</span></div>
-        </article>
-        <article class="skill-card reveal" data-tilt-card>
-          <i class="fa-solid fa-code"></i>
-          <h3>Python / PyTorch</h3>
-          <p>熟悉 Python、PyTorch、HuggingFace、Transformers，具备训练、微调与推理部署基础。</p>
-          <div class="skill-tags"><span>HTML</span><span>CSS</span><span>ES6+</span></div>
-        </article>
-        <article class="skill-card reveal" data-tilt-card>
-          <i class="fa-solid fa-gauge-high"></i>
-          <h3>Fine-tuning / RAG</h3>
-          <p>了解 SFT、LoRA、RLHF、RAG、Prompt Engineering 等大模型应用与优化技术。</p>
-          <div class="skill-tags"><span>CUDA</span><span>ONNX</span><span>Quant</span></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section-shell projects-preview">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Notes</p>
-        <h2>Notes 区域负责整理 Markdown 学习笔记。</h2>
-      </div>
-      <div class="project-grid">
-        <article class="project-card reveal" data-tilt-card data-category="ai">
-          <img src="./assets/images/project-vision.svg" alt="Multimodal agent project preview" loading="lazy" />
-          <div class="project-content">
-            <div class="project-meta"><span>Learning Route</span><span>MD</span></div>
-            <h3>多模态大模型算法学习路线</h3>
-            <p>系统整理多模态大模型、视觉语言模型、视频理解、生成模型与工程实践的学习路径。</p>
-            <div class="tech-stack"><span>VLM</span><span>Qwen2-VL</span><span>Learning</span></div>
-            <div class="card-actions">
-              <a href="./note.html?file=multimodal-roadmap" aria-label="Read markdown note"><i class="fa-regular fa-file-lines"></i> Read Note</a>
-              <a href="./blog.html" aria-label="Musings index"><i class="fa-solid fa-arrow-up-right-from-square"></i> Musings</a>
-            </div>
-          </div>
-        </article>
-        <article class="project-card reveal" data-tilt-card data-category="web">
-          <img src="./assets/images/project-dashboard.svg" alt="Analytics dashboard project preview" loading="lazy" />
-          <div class="project-content">
-            <div class="project-meta"><span>Interview Notes</span><span>MD</span></div>
-            <h3>Diffusion 视频算法面试八股</h3>
-            <p>围绕扩散模型、视频生成、模型训练与算法面试问题进行高密度整理。</p>
-            <div class="tech-stack"><span>Diffusion</span><span>Video</span><span>Interview</span></div>
-            <div class="card-actions">
-              <a href="./note.html?file=diffusion-interview"><i class="fa-regular fa-file-lines"></i> Read Note</a>
-              <a href="./projects.html"><i class="fa-solid fa-layer-group"></i> Notes</a>
-            </div>
-          </div>
-        </article>
-        <article class="project-card reveal" data-tilt-card data-category="ai">
-          <img src="./assets/images/project-diffusion.svg" alt="Video diffusion project preview" loading="lazy" />
-          <div class="project-content">
-            <div class="project-meta"><span>Project Review</span><span>Resume</span></div>
-            <h3>多模态项目经历复盘</h3>
-            <p>记录奖励强化学习框架、视觉 Token 动态剪枝框架等项目的背景、方法与工程实现。</p>
-            <div class="tech-stack"><span>GRPO</span><span>Token Pruning</span><span>PyTorch</span></div>
-            <div class="card-actions">
-              <a href="./note.html?file=resume-projects"><i class="fa-regular fa-file-lines"></i> Read Note</a>
-              <a href="./about.html"><i class="fa-solid fa-user-graduate"></i> About</a>
-            </div>
-          </div>
-        </article>
-      </div>
-      <div class="centered-action reveal">
-        <a class="button button-ghost" href="./projects.html">查看全部笔记</a>
-      </div>
-    </section>
-
-    <section class="section-shell timeline-section">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Timeline</p>
-        <h2>站点内容如何组织。</h2>
-      </div>
-      <div class="timeline">
-        <article class="timeline-item reveal">
-          <span class="timeline-dot"></span>
-          <div class="timeline-card">
-            <time>Notes</time>
-            <h3>Markdown 笔记库</h3>
-            <p>集中存放多模态学习路线、Diffusion 视频算法面试八股和项目复盘。</p>
-          </div>
-        </article>
-        <article class="timeline-item reveal">
-          <span class="timeline-dot"></span>
-          <div class="timeline-card">
-            <time>Musings</time>
-            <h3>随想和科研日常</h3>
-            <p>用便签形式记录心情、科研生活、论文阅读和夜里 Debug 的碎片。</p>
-          </div>
-        </article>
-        <article class="timeline-item reveal">
-          <span class="timeline-dot"></span>
-          <div class="timeline-card">
-            <time>About</time>
-            <h3>个人背景单独查看</h3>
-            <p>教育背景、联系方式、技能栈和荣誉证书不放在首页，统一收纳到 About 页面。</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section-shell blog-preview">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Musings</p>
-        <h2>随想页记录心情、科研日常和生活片段。</h2>
-      </div>
-      <div class="blog-grid">
-        <a class="blog-card reveal" href="./blog.html">
-          <span>Daily</span>
-          <h3>科研日常和心情切片</h3>
-          <p>把读论文、写代码、卡 bug 和日常观察写成轻量便签。</p>
-        </a>
-        <a class="blog-card reveal" href="./blog.html">
-          <span>Projects</span>
-          <h3>小项目和工具想法</h3>
-          <p>桌面便签、论文阅读卡片、学习主页这类小工具会放到 Projects 页面。</p>
-        </a>
-      </div>
-    </section>
-
-    <section class="section-shell contact-cta">
-      <div class="cta-card reveal">
-        <p class="eyebrow">Contact</p>
-        <h2>欢迎交流多模态学习、项目复盘与算法面试准备。</h2>
-        <p>如果你也在学习视觉语言模型、扩散模型、视频生成或大模型工程化，欢迎通过邮件联系我。</p>
-        <a class="button button-primary" href="./contact.html">
-          <span>发送邮件</span>
-          <i class="fa-regular fa-paper-plane"></i>
-        </a>
       </div>
     </section>
   </main>
@@ -320,8 +140,6 @@
   <script src="./js/main.js"></script>
 </body>
 </html>
-
-
 
 
 
