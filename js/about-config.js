@@ -63,14 +63,32 @@
       const row = Math.floor(index / grid);
       const pieceClass = getPieceClass(index, row, col);
       const pieceStyle = getPieceStyle(index);
+      const pieceShape = getPieceShape(row, col, grid);
+      const pieceClip = `clip-path:path('${pieceShape}')`;
 
       return `
         <article class="puzzle-tile ${pieceClass}" style="${pieceStyle}" tabindex="0" aria-label="${escapeHtml(tile.label || "")}">
           <div class="puzzle-tile-inner">
-            <div class="puzzle-face puzzle-face-front" style="--piece-col:${col};--piece-row:${row};--piece-grid:${grid};" aria-hidden="true">
-              <img class="puzzle-fragment" src="${image}" alt="" loading="lazy" />
+            <div class="puzzle-face puzzle-face-front" style="${pieceClip};" aria-hidden="true">
+              <svg class="puzzle-svg" viewBox="-16 -16 132 132" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <clipPath id="clip-${index}" clipPathUnits="userSpaceOnUse">
+                    <path d="${pieceShape}"></path>
+                  </clipPath>
+                </defs>
+                <image
+                  href="${image}"
+                  x="${-100 * col}"
+                  y="${-100 * row}"
+                  width="${100 * grid}"
+                  height="${100 * grid}"
+                  preserveAspectRatio="xMidYMid slice"
+                  clip-path="url(#clip-${index})"
+                ></image>
+                <path class="puzzle-outline" d="${pieceShape}"></path>
+              </svg>
             </div>
-            <div class="puzzle-face puzzle-face-back">
+            <div class="puzzle-face puzzle-face-back" style="${pieceClip};">
               <span>${escapeHtml(tile.label || "")}</span>
               <h2>${escapeHtml(tile.title || "")}</h2>
               <p>${escapeHtml(tile.description || "")}</p>
@@ -108,6 +126,60 @@
     ];
     const [x, y, r] = presets[index % presets.length];
     return `--piece-shift-x:${x};--piece-shift-y:${y};--piece-tilt:${r};`;
+  }
+
+  function getPieceShape(row, col, grid) {
+    const top = row === 0 ? 0 : ((row + col) % 2 === 0 ? 1 : -1);
+    const right = col === grid - 1 ? 0 : ((row + col) % 2 === 0 ? 1 : -1);
+    const bottom = row === grid - 1 ? 0 : ((row + col) % 2 === 0 ? -1 : 1);
+    const left = col === 0 ? 0 : ((row + col) % 2 === 0 ? -1 : 1);
+    return buildPuzzlePath(top, right, bottom, left);
+  }
+
+  function buildPuzzlePath(top, right, bottom, left) {
+    const edge = 32;
+    const tab = 10;
+    const depth = 14;
+    const neck = 8;
+    const d = ["M 0 0"];
+
+    if (top === 0) {
+      d.push("L 100 0");
+    } else {
+      d.push(`L ${edge} 0`);
+      d.push(`C ${edge + neck} 0 ${40} ${top * -depth} 50 ${top * -depth}`);
+      d.push(`C ${60} ${top * -depth} ${100 - edge - neck} 0 ${100 - edge} 0`);
+      d.push("L 100 0");
+    }
+
+    if (right === 0) {
+      d.push("L 100 100");
+    } else {
+      d.push(`L 100 ${edge}`);
+      d.push(`C 100 ${edge + neck} ${100 + right * depth} 40 ${100 + right * depth} 50`);
+      d.push(`C ${100 + right * depth} 60 100 ${100 - edge - neck} 100 ${100 - edge}`);
+      d.push("L 100 100");
+    }
+
+    if (bottom === 0) {
+      d.push("L 0 100");
+    } else {
+      d.push(`L ${100 - edge} 100`);
+      d.push(`C ${100 - edge - neck} 100 60 ${100 + bottom * depth} 50 ${100 + bottom * depth}`);
+      d.push(`C 40 ${100 + bottom * depth} ${edge + neck} 100 ${edge} 100`);
+      d.push("L 0 100");
+    }
+
+    if (left === 0) {
+      d.push("Z");
+    } else {
+      d.push(`L 0 ${100 - edge}`);
+      d.push(`C 0 ${100 - edge - neck} ${left * -depth} 60 ${left * -depth} 50`);
+      d.push(`C ${left * -depth} 40 0 ${edge + neck} 0 ${edge}`);
+      d.push("Z");
+    }
+
+    return d.join(" ");
   }
 
   function renderTimeline(timeline) {

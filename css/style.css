@@ -2019,11 +2019,7 @@ h3 {
 .puzzle-tile::after,
 .puzzle-tile-inner::before,
 .puzzle-tile-inner::after {
-  position: absolute;
-  z-index: 0;
-  content: "";
-  pointer-events: none;
-  opacity: 0.96;
+  display: none;
 }
 
 .puzzle-tile:focus-visible {
@@ -2031,10 +2027,7 @@ h3 {
 }
 
 .puzzle-tile:focus-visible .puzzle-face {
-  border-color: rgba(0, 229, 255, 0.46);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.18),
-    0 0 0 3px rgba(0, 229, 255, 0.14);
+  filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.22));
 }
 
 .puzzle-tile-inner {
@@ -2045,72 +2038,6 @@ h3 {
   transition: transform 620ms cubic-bezier(.2, .75, .2, 1), filter 220ms ease;
 }
 
-.piece-tab-right .puzzle-tile-inner::after,
-.piece-notch-right .puzzle-tile-inner::after {
-  top: 50%;
-  right: -10%;
-  width: 24%;
-  height: 24%;
-  border-radius: 50%;
-  transform: translateY(-50%);
-}
-
-.piece-tab-bottom .puzzle-tile-inner::before,
-.piece-notch-bottom .puzzle-tile-inner::before {
-  bottom: -10%;
-  left: 50%;
-  width: 24%;
-  height: 24%;
-  border-radius: 50%;
-  transform: translateX(-50%);
-}
-
-.piece-tab-left::after,
-.piece-notch-left::after {
-  top: 50%;
-  left: -10%;
-  width: 24%;
-  height: 24%;
-  border-radius: 50%;
-  transform: translateY(-50%);
-}
-
-.piece-tab-top::before,
-.piece-notch-top::before {
-  top: -10%;
-  left: 50%;
-  width: 24%;
-  height: 24%;
-  border-radius: 50%;
-  transform: translateX(-50%);
-}
-
-.piece-tab-right .puzzle-tile-inner::after,
-.piece-tab-bottom .puzzle-tile-inner::before,
-.piece-tab-left::after,
-.piece-tab-top::before {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background:
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), transparent 48%),
-    linear-gradient(145deg, rgba(255,255,255,.1), rgba(255,255,255,.03)),
-    rgba(18, 26, 54, 0.92);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.14),
-    0 10px 20px rgba(0, 0, 0, 0.12);
-}
-
-.piece-notch-right .puzzle-tile-inner::after,
-.piece-notch-bottom .puzzle-tile-inner::before,
-.piece-notch-left::after,
-.piece-notch-top::before {
-  border: 1px dashed rgba(255, 255, 255, 0.08);
-  background:
-    radial-gradient(circle, rgba(5, 8, 22, 0.94) 58%, rgba(5, 8, 22, 0) 64%);
-  box-shadow:
-    inset 0 0 16px rgba(0, 0, 0, 0.3),
-    0 0 0 6px rgba(5, 8, 22, 0.2);
-}
-
 .puzzle-tile:hover .puzzle-tile-inner,
 .puzzle-tile:focus-visible .puzzle-tile-inner {
   transform: rotateY(180deg) rotateX(3deg);
@@ -2119,37 +2046,42 @@ h3 {
 
 .puzzle-face {
   position: absolute;
-  inset: 0;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 18px;
+  inset: -14px;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
   backface-visibility: hidden;
 }
 
 .puzzle-face-front {
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0)),
-    linear-gradient(145deg, rgba(255,255,255,.02), rgba(255,255,255,0));
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.18),
-    0 12px 26px rgba(0, 0, 0, 0.16);
+  background: none;
+  box-shadow: none;
 }
 
-.puzzle-fragment {
-  position: absolute;
-  top: calc(var(--piece-row) * -100%);
-  left: calc(var(--piece-col) * -100%);
-  width: calc(var(--piece-grid) * 100%);
-  height: calc(var(--piece-grid) * 100%);
-  object-fit: cover;
-  user-select: none;
-  pointer-events: none;
-  filter: saturate(1.02) contrast(1.02);
+.puzzle-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.16));
+}
+
+.puzzle-svg image {
+  filter: saturate(1.04) contrast(1.03);
+}
+
+.puzzle-outline {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.26);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
 }
 
 .puzzle-face-front::after {
   position: absolute;
   inset: 0;
+  z-index: 1;
   content: "";
   background:
     linear-gradient(135deg, rgba(255,255,255,.18), transparent 45%),
@@ -2161,7 +2093,7 @@ h3 {
   display: grid;
   align-content: center;
   gap: 10px;
-  padding: 16px;
+  padding: 28px;
   color: var(--text);
   background:
     linear-gradient(145deg, rgba(255,255,255,.13), rgba(255,255,255,.04)),
@@ -2171,6 +2103,7 @@ h3 {
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.16),
     0 16px 34px rgba(0, 0, 0, 0.18);
+  isolation: isolate;
 }
 
 .puzzle-face-back::after {
@@ -2223,7 +2156,7 @@ h3 {
 }
 
 [data-theme="light"] .puzzle-face {
-  border-color: rgba(9, 16, 36, 0.08);
+  border-color: transparent;
 }
 
 [data-theme="light"] .puzzle-face-back {
@@ -2233,30 +2166,8 @@ h3 {
     rgba(255,255,255,.92);
 }
 
-[data-theme="light"] .piece-tab-right .puzzle-tile-inner::after,
-[data-theme="light"] .piece-tab-bottom .puzzle-tile-inner::before,
-[data-theme="light"] .piece-tab-left::after,
-[data-theme="light"] .piece-tab-top::before {
-  border-color: rgba(9, 16, 36, 0.08);
-  background:
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,.7), transparent 48%),
-    linear-gradient(145deg, rgba(255,255,255,.92), rgba(255,255,255,.74)),
-    rgba(245, 248, 255, 0.96);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.4),
-    0 10px 18px rgba(35, 70, 150, 0.12);
-}
-
-[data-theme="light"] .piece-notch-right .puzzle-tile-inner::after,
-[data-theme="light"] .piece-notch-bottom .puzzle-tile-inner::before,
-[data-theme="light"] .piece-notch-left::after,
-[data-theme="light"] .piece-notch-top::before {
-  border-color: rgba(9, 16, 36, 0.08);
-  background:
-    radial-gradient(circle, rgba(231, 238, 252, 0.94) 58%, rgba(231, 238, 252, 0) 64%);
-  box-shadow:
-    inset 0 0 14px rgba(35, 70, 150, 0.1),
-    0 0 0 6px rgba(231, 238, 252, 0.28);
+[data-theme="light"] .puzzle-outline {
+  stroke: rgba(9, 16, 36, 0.22);
 }
 
 .about-profile-shell {
