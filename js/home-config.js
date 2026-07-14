@@ -42,6 +42,7 @@
           <span class="orbiter-track"></span>
           <div class="orbiter-satellite" style="--orbit-angle:${escapeHtml(item.angle || 0)}deg;">
             <button class="orbiter-dot" type="button" aria-label="${escapeHtml(item.label || "")}" title="${escapeHtml(item.label || "")}"></button>
+            <span class="orbiter-label">${escapeHtml(item.label || "")}</span>
           </div>
         </div>
       `).join("");
