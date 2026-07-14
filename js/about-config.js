@@ -168,8 +168,8 @@
       d.push("L 100 0");
     } else {
       d.push(`L ${edge} 0`);
-      d.push(`C ${edge + neck} 0 ${centerMin} ${top * depth} 50 ${top * depth}`);
-      d.push(`C ${centerMax} ${top * depth} ${100 - edge - neck} 0 ${100 - edge} 0`);
+      d.push(`C ${edge + neck} 0 ${centerMin} ${top * -depth} 50 ${top * -depth}`);
+      d.push(`C ${centerMax} ${top * -depth} ${100 - edge - neck} 0 ${100 - edge} 0`);
       d.push("L 100 0");
     }
 
