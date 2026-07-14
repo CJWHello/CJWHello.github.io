@@ -270,20 +270,16 @@
   }
 
   .orbit-node {
-    width: 50px;
-    height: 50px;
-    font-size: 0.6rem;
+    gap: 6px;
+    font-size: 0.64rem;
   }
 
   .orbit-node.is-medium {
-    width: 60px;
-    height: 60px;
+    font-size: 0.72rem;
   }
 
   .orbit-node.is-large {
-    width: 72px;
-    height: 72px;
-    font-size: 0.58rem;
+    font-size: 0.78rem;
   }
 
   .glass-card,

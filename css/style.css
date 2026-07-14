@@ -716,73 +716,82 @@ h3 {
 .orbit-node {
   appearance: none;
   position: absolute;
-  top: 0;
-  left: 0;
-  display: inline-grid;
+  top: 50%;
+  left: 50%;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 68px;
-  height: 68px;
-  padding: 0;
-  border: 1px solid rgba(255,255,255,.18);
-  border-radius: 50%;
+  gap: 8px;
+  min-height: 28px;
+  padding: 0 2px;
+  border: 0;
+  border-radius: 0;
   color: var(--text);
   background: transparent;
   box-shadow: none;
   backdrop-filter: none;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 700;
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
   pointer-events: auto;
-  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease, background 180ms ease;
-  transform: translateX(calc(var(--orbit-radius) + 56px)) translate(-50%, -50%);
-  animation: orbitNodeCounterNegative var(--orbit-speed, 40s) linear infinite;
-  animation-delay: var(--orbit-delay, 0s);
-}
-
-.orbit-ring[data-direction="-1"] .orbit-node {
-  animation-name: orbitNodeCounterPositive;
+  text-shadow: 0 0 14px rgba(91, 140, 255, 0.24);
+  transition: transform 180ms ease, color 180ms ease, text-shadow 180ms ease, opacity 180ms ease;
+  transform:
+    rotate(var(--orbit-angle))
+    translateX(calc(var(--orbit-radius) + 28px))
+    rotate(calc(var(--orbit-angle) * -1))
+    translate(-50%, -50%);
 }
 
 .orbit-label {
   display: inline-block;
-  max-width: 78%;
+  max-width: none;
   text-align: center;
-  line-height: 1.15;
-  white-space: normal;
-  word-break: break-word;
-  transform-origin: center;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.orbit-node::before {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  content: "";
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.42);
 }
 
 .orbit-node.is-medium {
-  width: 78px;
-  height: 78px;
-  font-size: 0.74rem;
+  font-size: 0.9rem;
 }
 
 .orbit-node.is-large {
-  width: 94px;
-  height: 94px;
-  font-size: 0.68rem;
+  font-size: 1rem;
 }
 
 .orbit-node:hover,
 .orbit-node:focus-visible {
   color: #fff;
-  border-color: rgba(0, 229, 255, 0.8);
-  background: rgba(0, 229, 255, 0.08);
-  box-shadow:
-    0 0 0 8px rgba(0, 229, 255, 0.05),
-    0 0 24px rgba(0, 229, 255, 0.24);
+  text-shadow:
+    0 0 16px rgba(0, 229, 255, 0.5),
+    0 0 26px rgba(91, 140, 255, 0.26);
   transform: translateX(calc(var(--orbit-radius) + 56px)) translate(-50%, -50%) scale(1.08);
   outline: none;
 }
 
+.orbit-node:hover,
+.orbit-node:focus-visible {
+  transform:
+    rotate(var(--orbit-angle))
+    translateX(calc(var(--orbit-radius) + 28px))
+    rotate(calc(var(--orbit-angle) * -1))
+    translate(-50%, -50%)
+    scale(1.08);
+}
+
 [data-theme="light"] .orbit-ring::before {
-  border-color: rgba(7, 16, 36, 0.16);
+  border-color: rgba(7, 16, 36, 0.18);
 }
 
 [data-theme="light"] .orbit-dot {
@@ -794,17 +803,15 @@ h3 {
 
 [data-theme="light"] .orbit-node {
   color: rgba(7, 16, 36, 0.9);
-  border-color: rgba(7, 16, 36, 0.2);
+  text-shadow: 0 0 12px rgba(22, 136, 255, 0.12);
 }
 
 [data-theme="light"] .orbit-node:hover,
 [data-theme="light"] .orbit-node:focus-visible {
   color: #071024;
-  border-color: rgba(22, 136, 255, 0.58);
-  background: rgba(22, 136, 255, 0.08);
-  box-shadow:
-    0 0 0 8px rgba(22, 136, 255, 0.08),
-    0 0 22px rgba(22, 136, 255, 0.18);
+  text-shadow:
+    0 0 14px rgba(22, 136, 255, 0.24),
+    0 0 24px rgba(22, 136, 255, 0.12);
 }
 
 .profile-orb {
@@ -977,23 +984,6 @@ h3 {
   }
 }
 
-@keyframes orbitNodeCounterNegative {
-  from {
-    transform: translateX(calc(var(--orbit-radius) + 56px)) translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    transform: translateX(calc(var(--orbit-radius) + 56px)) translate(-50%, -50%) rotate(-360deg);
-  }
-}
-
-@keyframes orbitNodeCounterPositive {
-  from {
-    transform: translateX(calc(var(--orbit-radius) + 56px)) translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    transform: translateX(calc(var(--orbit-radius) + 56px)) translate(-50%, -50%) rotate(360deg);
-  }
-}
 
 .section-heading {
   max-width: 820px;

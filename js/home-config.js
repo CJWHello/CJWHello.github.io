@@ -47,13 +47,14 @@
         >
           <div class="orbit-satellite" style="--orbit-angle:${escapeHtml(item.angle || index * 30)}deg;">
             <span class="orbit-dot"></span>
-            <button
-              class="orbit-node ${item.size ? `is-${escapeHtml(item.size)}` : ""}"
-              type="button"
-              aria-label="${escapeHtml(item.label || "")}"
-              title="${escapeHtml(item.label || "")}"
-            ><span class="orbit-label">${escapeHtml(item.label || "")}</span></button>
           </div>
+          <button
+            class="orbit-node ${item.size ? `is-${escapeHtml(item.size)}` : ""}"
+            type="button"
+            style="--orbit-angle:${escapeHtml(item.angle || index * 30)}deg;"
+            aria-label="${escapeHtml(item.label || "")}"
+            title="${escapeHtml(item.label || "")}"
+          ><span class="orbit-label">${escapeHtml(item.label || "")}</span></button>
         </div>
       `;
       }).join("");
