@@ -1987,13 +1987,20 @@ h3 {
 
 .contact-account-card {
   position: relative;
-  display: block;
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  min-height: 116px;
+  padding: 18px;
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
+  border-radius: 18px;
   color: inherit;
-  background: var(--surface);
-  box-shadow: var(--shadow-soft);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.1), rgba(255,255,255,.03)),
+    rgba(255,255,255,.04);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16);
   backdrop-filter: blur(18px);
   transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
@@ -2007,6 +2014,15 @@ h3 {
   opacity: 0;
   transform: translateX(-70%);
   transition: opacity 220ms ease, transform 520ms ease;
+}
+
+.contact-account-card::before {
+  position: absolute;
+  inset: auto 18px 0 18px;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
+  opacity: 0.7;
 }
 
 .contact-account-card:hover,
@@ -2024,13 +2040,22 @@ h3 {
 }
 
 .contact-account-card img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
+  position: relative;
+  z-index: 1;
+  width: 72px;
+  height: 72px;
+  aspect-ratio: 1;
   object-fit: cover;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 20px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
 }
 
 .contact-account-body {
-  padding: 18px;
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  padding: 0;
 }
 
 .contact-account-body span {
@@ -2044,23 +2069,39 @@ h3 {
 
 .contact-account-body h2 {
   margin: 8px 0 0;
-  font-size: 1rem;
-  line-height: 1.3;
+  font-size: 0.98rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .contact-account-card.accent-blue:hover,
 .contact-account-card.accent-blue:focus-visible {
   border-color: rgba(91, 140, 255, 0.42);
+  box-shadow: 0 20px 40px rgba(91, 140, 255, 0.16);
 }
 
 .contact-account-card.accent-rose:hover,
 .contact-account-card.accent-rose:focus-visible {
   border-color: rgba(255, 122, 182, 0.4);
+  box-shadow: 0 20px 40px rgba(255, 122, 182, 0.14);
 }
 
 .contact-account-card.accent-cyan:hover,
 .contact-account-card.accent-cyan:focus-visible {
   border-color: rgba(0, 229, 255, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 229, 255, 0.14);
+}
+
+.contact-account-card.accent-blue .contact-account-body span {
+  color: #7fb0ff;
+}
+
+.contact-account-card.accent-rose .contact-account-body span {
+  color: #ff9abf;
+}
+
+.contact-account-card.accent-cyan .contact-account-body span {
+  color: #7ef4ff;
 }
 
 .contact-form {

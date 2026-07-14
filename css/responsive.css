@@ -157,6 +157,18 @@
     grid-template-columns: 1fr;
   }
 
+  .contact-account-card {
+    grid-template-columns: 64px minmax(0, 1fr);
+    min-height: 104px;
+    padding: 16px;
+  }
+
+  .contact-account-card img {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+  }
+
   .acgn-detail-card {
     grid-template-columns: 1fr;
   }
@@ -312,6 +324,24 @@
     width: 12px;
     height: 12px;
     margin: -6px 0 0 -6px;
+  }
+
+  .contact-account-card {
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 12px;
+    min-height: 96px;
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .contact-account-card img {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+  }
+
+  .contact-account-body h2 {
+    font-size: 0.92rem;
   }
 
   .glass-card,
