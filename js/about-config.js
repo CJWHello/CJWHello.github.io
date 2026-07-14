@@ -53,23 +53,23 @@
 
     const tiles = Array.isArray(puzzle.tiles) ? puzzle.tiles.slice(0, 9) : [];
     const grid = Number(puzzle.grid) || 3;
-    const denominator = Math.max(grid - 1, 1);
     const image = escapeHtml(puzzle.image || "./assets/my.jpg");
     const imageAlt = escapeHtml(puzzle.imageAlt || "");
 
-    container.style.setProperty("--about-image", `url('${image}')`);
     container.setAttribute("aria-label", imageAlt || "个人信息拼图");
 
     container.innerHTML = tiles.map((tile, index) => {
       const col = index % grid;
       const row = Math.floor(index / grid);
-      const bgX = `${(col / denominator) * 100}%`;
-      const bgY = `${(row / denominator) * 100}%`;
+      const pieceClass = getPieceClass(index, row, col);
+      const pieceStyle = getPieceStyle(index);
 
       return `
-        <article class="puzzle-tile" tabindex="0" aria-label="${escapeHtml(tile.label || "")}">
+        <article class="puzzle-tile ${pieceClass}" style="${pieceStyle}" tabindex="0" aria-label="${escapeHtml(tile.label || "")}">
           <div class="puzzle-tile-inner">
-            <div class="puzzle-face puzzle-face-front" style="--bg-x:${bgX};--bg-y:${bgY};" aria-hidden="true"></div>
+            <div class="puzzle-face puzzle-face-front" style="--piece-col:${col};--piece-row:${row};--piece-grid:${grid};" aria-hidden="true">
+              <img class="puzzle-fragment" src="${image}" alt="" loading="lazy" />
+            </div>
             <div class="puzzle-face puzzle-face-back">
               <span>${escapeHtml(tile.label || "")}</span>
               <h2>${escapeHtml(tile.title || "")}</h2>
@@ -79,6 +79,35 @@
         </article>
       `;
     }).join("");
+  }
+
+  function getPieceClass(index, row, col) {
+    const classes = [`piece-row-${row}`, `piece-col-${col}`];
+
+    if (col < 2) classes.push((row + col) % 2 === 0 ? "piece-tab-right" : "piece-notch-right");
+    if (row < 2) classes.push((row + col) % 2 === 0 ? "piece-notch-bottom" : "piece-tab-bottom");
+
+    if (col > 0) classes.push((row + col) % 2 === 0 ? "piece-notch-left" : "piece-tab-left");
+    if (row > 0) classes.push((row + col) % 2 === 0 ? "piece-tab-top" : "piece-notch-top");
+
+    classes.push(`piece-variant-${index % 3}`);
+    return classes.join(" ");
+  }
+
+  function getPieceStyle(index) {
+    const presets = [
+      ["-4px", "-3px", "-1.6deg"],
+      ["0px", "-5px", "1.1deg"],
+      ["4px", "-2px", "-0.8deg"],
+      ["-5px", "2px", "1.4deg"],
+      ["0px", "0px", "0deg"],
+      ["5px", "1px", "-1.2deg"],
+      ["-3px", "4px", "-1deg"],
+      ["1px", "5px", "0.9deg"],
+      ["4px", "3px", "-1.4deg"]
+    ];
+    const [x, y, r] = presets[index % presets.length];
+    return `--piece-shift-x:${x};--piece-shift-y:${y};--piece-tilt:${r};`;
   }
 
   function renderTimeline(timeline) {
