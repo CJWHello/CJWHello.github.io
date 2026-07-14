@@ -46,17 +46,35 @@
       {
         "label": "研究方向",
         "title": "VLM / Agent / Infra",
-        "description": "这里可以写你当前最关注的技术主线。"
+        "description": "这里可以写你当前最关注的技术主线。",
+        "edges": {
+          "top": "out",
+          "right": "out",
+          "bottom": "in",
+          "left": "flat"
+        }
       },
       {
         "label": "关键词",
         "title": "持续学习",
-        "description": "这里适合放你的核心特质或成长关键词。"
+        "description": "这里适合放你的核心特质或成长关键词。",
+        "edges": {
+          "top": "in",
+          "right": "in",
+          "bottom": "out",
+          "left": "in"
+        }
       },
       {
         "label": "日常状态",
         "title": "看论文 / 做笔记 / 写 Demo",
-        "description": "这里可以放平时最常见的学习和工作节奏。"
+        "description": "这里可以放平时最常见的学习和工作节奏。",
+        "edges": {
+          "top": "out",
+          "right": "flat",
+          "bottom": "out",
+          "left": "out"
+        }
       },
       {
         "label": "审美偏好",
