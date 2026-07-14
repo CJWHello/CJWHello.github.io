@@ -65,13 +65,14 @@
       const pieceClass = getPieceClass(index, row, col);
       const pieceStyle = getPieceStyle(index);
       const pieceShape = getPieceShape(row, col, grid);
-      const pieceClip = `clip-path:path('${pieceShape}')`;
+      const pieceMask = getPieceMask(pieceShape);
+      const maskStyle = `--piece-mask:${pieceMask};-webkit-mask-image:var(--piece-mask);mask-image:var(--piece-mask);-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;`;
 
       return `
         <article class="puzzle-tile ${pieceClass}" style="${pieceStyle}" tabindex="0" aria-label="${escapeHtml(tile.label || "")}">
           <div class="puzzle-tile-inner">
-            <div class="puzzle-face puzzle-face-front" style="${pieceClip};" aria-hidden="true">
-              <svg class="puzzle-svg" viewBox="-16 -16 132 132" preserveAspectRatio="none" aria-hidden="true">
+            <div class="puzzle-face puzzle-face-front" style="${maskStyle}" aria-hidden="true">
+              <svg class="puzzle-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
                 <defs>
                   <clipPath id="clip-${index}" clipPathUnits="userSpaceOnUse">
                     <path d="${pieceShape}"></path>
@@ -89,7 +90,7 @@
                 <path class="puzzle-outline" d="${pieceShape}"></path>
               </svg>
             </div>
-            <div class="puzzle-face puzzle-face-back" style="${pieceClip};">
+            <div class="puzzle-face puzzle-face-back" style="${maskStyle}">
               <span>${escapeHtml(tile.label || "")}</span>
               <h2>${escapeHtml(tile.title || "")}</h2>
               <p>${escapeHtml(tile.description || "")}</p>
@@ -130,16 +131,16 @@
   }
 
   function getPieceShape(row, col, grid) {
-    const top = row === 0 ? 0 : ((row + col) % 2 === 0 ? 1 : -1);
-    const right = col === grid - 1 ? 0 : ((row + col) % 2 === 0 ? 1 : -1);
-    const bottom = row === grid - 1 ? 0 : ((row + col) % 2 === 0 ? -1 : 1);
-    const left = col === 0 ? 0 : ((row + col) % 2 === 0 ? -1 : 1);
+    const top = row === 0 ? 0 : 1;
+    const right = col === grid - 1 ? 0 : 1;
+    const bottom = row === grid - 1 ? 0 : 1;
+    const left = col === 0 ? 0 : 1;
     return buildPuzzlePath(top, right, bottom, left);
   }
 
   function buildPuzzlePath(top, right, bottom, left) {
     const edge = 30;
-    const depth = 12;
+    const depth = 10;
     const neck = 8;
     const centerMin = 42;
     const centerMax = 58;
@@ -182,6 +183,11 @@
     }
 
     return d.join(" ");
+  }
+
+  function getPieceMask(pieceShape) {
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="white" d="${pieceShape}"/></svg>`;
+    return `url("data:image/svg+xml;utf8,${encodeURIComponent(svg)}")`;
   }
 
   function renderTimeline(timeline) {
