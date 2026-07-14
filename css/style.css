@@ -1914,6 +1914,148 @@ h3 {
   align-items: center;
 }
 
+.about-cosmos-hero {
+  padding-top: 18px;
+  padding-bottom: 34px;
+}
+
+.about-cosmos-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(340px, 1.08fr);
+  gap: 32px;
+  align-items: center;
+  min-height: 620px;
+}
+
+.about-cosmos-copy {
+  max-width: 520px;
+}
+
+.about-cosmos-copy h1 {
+  margin-bottom: 16px;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+.about-cosmos-lead {
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.8;
+}
+
+.about-cosmos-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.about-cosmos-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 14px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(255,255,255,.05);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.about-cosmos-visual {
+  position: relative;
+  min-height: 620px;
+}
+
+.about-avatar-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,.14), transparent 36%),
+    rgba(255,255,255,.04);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.18),
+    0 24px 56px rgba(0, 0, 0, 0.24);
+  transform: translate(-50%, -50%);
+}
+
+.about-avatar-core img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-planet-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ring-one {
+  width: 360px;
+  height: 360px;
+}
+
+.ring-two {
+  width: 454px;
+  height: 454px;
+}
+
+.ring-three {
+  width: 548px;
+  height: 548px;
+}
+
+.about-orbit-node {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 999px;
+  color: var(--text);
+  background: rgba(8, 13, 34, 0.82);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.about-orbit-node::before {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  content: "";
+  background: var(--secondary);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.65);
+}
+
+.node-one {
+  top: 18%;
+  left: 54%;
+}
+
+.node-two {
+  top: 60%;
+  left: 16%;
+}
+
+.node-three {
+  right: 8%;
+  bottom: 22%;
+}
+
 .profile-card-large {
   text-align: center;
 }
