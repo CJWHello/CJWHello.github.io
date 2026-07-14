@@ -178,8 +178,8 @@
 
   .about-puzzle-board {
     width: min(100%, 560px);
-    padding: 14px;
-    gap: 10px;
+    padding: 20px;
+    gap: 14px;
   }
 
   .contact-account-card {
@@ -311,16 +311,16 @@
 
   .about-puzzle-board {
     width: 100%;
-    padding: 12px;
+    padding: 16px;
     border-radius: 22px;
   }
 
-  .puzzle-face {
-    border-radius: 14px;
+  .about-puzzle-board::after {
+    inset: 16px;
   }
 
   .puzzle-face-back {
-    padding: 12px;
+    padding: 16px;
     gap: 8px;
   }
 

@@ -57,6 +57,7 @@
     const imageAlt = escapeHtml(puzzle.imageAlt || "");
 
     container.setAttribute("aria-label", imageAlt || "个人信息拼图");
+    container.style.setProperty("--about-image", `url('${image}')`);
 
     container.innerHTML = tiles.map((tile, index) => {
       const col = index % grid;
@@ -137,18 +138,19 @@
   }
 
   function buildPuzzlePath(top, right, bottom, left) {
-    const edge = 32;
-    const tab = 10;
-    const depth = 14;
+    const edge = 30;
+    const depth = 12;
     const neck = 8;
+    const centerMin = 42;
+    const centerMax = 58;
     const d = ["M 0 0"];
 
     if (top === 0) {
       d.push("L 100 0");
     } else {
       d.push(`L ${edge} 0`);
-      d.push(`C ${edge + neck} 0 ${40} ${top * -depth} 50 ${top * -depth}`);
-      d.push(`C ${60} ${top * -depth} ${100 - edge - neck} 0 ${100 - edge} 0`);
+      d.push(`C ${edge + neck} 0 ${centerMin} ${depth} 50 ${depth}`);
+      d.push(`C ${centerMax} ${depth} ${100 - edge - neck} 0 ${100 - edge} 0`);
       d.push("L 100 0");
     }
 
@@ -156,8 +158,8 @@
       d.push("L 100 100");
     } else {
       d.push(`L 100 ${edge}`);
-      d.push(`C 100 ${edge + neck} ${100 + right * depth} 40 ${100 + right * depth} 50`);
-      d.push(`C ${100 + right * depth} 60 100 ${100 - edge - neck} 100 ${100 - edge}`);
+      d.push(`C 100 ${edge + neck} ${100 - depth} ${centerMin} ${100 - depth} 50`);
+      d.push(`C ${100 - depth} ${centerMax} 100 ${100 - edge - neck} 100 ${100 - edge}`);
       d.push("L 100 100");
     }
 
@@ -165,8 +167,8 @@
       d.push("L 0 100");
     } else {
       d.push(`L ${100 - edge} 100`);
-      d.push(`C ${100 - edge - neck} 100 60 ${100 + bottom * depth} 50 ${100 + bottom * depth}`);
-      d.push(`C 40 ${100 + bottom * depth} ${edge + neck} 100 ${edge} 100`);
+      d.push(`C ${100 - edge - neck} 100 ${centerMax} ${100 - depth} 50 ${100 - depth}`);
+      d.push(`C ${centerMin} ${100 - depth} ${edge + neck} 100 ${edge} 100`);
       d.push("L 0 100");
     }
 
@@ -174,8 +176,8 @@
       d.push("Z");
     } else {
       d.push(`L 0 ${100 - edge}`);
-      d.push(`C 0 ${100 - edge - neck} ${left * -depth} 60 ${left * -depth} 50`);
-      d.push(`C ${left * -depth} 40 0 ${edge + neck} 0 ${edge}`);
+      d.push(`C 0 ${100 - edge - neck} ${depth} ${centerMax} ${depth} 50`);
+      d.push(`C ${depth} ${centerMin} 0 ${edge + neck} 0 ${edge}`);
       d.push("Z");
     }
 
