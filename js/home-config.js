@@ -35,6 +35,7 @@
     if (!hero) return;
     const section = document.querySelector(".hero");
     const visual = section?.querySelector(".hero-visual");
+    const mantra = section?.querySelector(".hero-mantra");
 
     if (visual && hero.visual) {
       const orbiters = (hero.visual.orbiters || []).map((item) => `
@@ -69,6 +70,17 @@
         ${orbiters}
         ${stars}
       `;
+    }
+
+    if (mantra && hero.mantra) {
+      const title = mantra.querySelector("h1");
+      const typing = mantra.querySelector("[data-typing]");
+      const quotes = hero.mantra.quotes || [];
+      if (title) title.textContent = hero.mantra.title || "";
+      if (typing) {
+        typing.dataset.typing = JSON.stringify(quotes);
+        typing.textContent = quotes[0] || "";
+      }
     }
   }
 })();

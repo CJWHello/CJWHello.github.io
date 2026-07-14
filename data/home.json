@@ -1,6 +1,14 @@
 {
   "hero": {
     "eyebrow": "Multimodal AI Learner / Software Engineering M.S. Candidate",
+    "mantra": {
+      "title": "恍然如梦",
+      "quotes": [
+        "知命不惧，日日自新。",
+        "山高路远，看世界，也找自己。",
+        "心有所向，行则将至。"
+      ]
+    },
     "visual": {
       "image": "./assets/my.jpg",
       "imageAlt": "Abstract portrait card",
