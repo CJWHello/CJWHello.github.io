@@ -623,6 +623,8 @@ h3 {
   min-height: calc(100vh - 164px);
   padding-top: 118px;
   padding-bottom: 42px;
+  margin-top: 36px;
+  margin-bottom: 56px;
   align-items: center;
 }
 
@@ -634,11 +636,11 @@ h3 {
   width: min(100%, 1120px);
   min-height: clamp(700px, 82vh, 980px);
   margin: 0 auto;
-  border: 0;
-  border-radius: 0;
-  background: none;
-  box-shadow: none;
-  backdrop-filter: none;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
 }
 
 .hero-visual-solar::before {

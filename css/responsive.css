@@ -118,6 +118,8 @@
 
   .hero-minimal {
     min-height: calc(100vh - 148px);
+    margin-top: 20px;
+    margin-bottom: 36px;
   }
 
   .hero-visual-solar {
@@ -245,6 +247,11 @@
 
   .hero-visual-solar {
     min-height: 520px;
+  }
+
+  .hero-minimal {
+    margin-top: 12px;
+    margin-bottom: 24px;
   }
 
   .orbit-ring {
