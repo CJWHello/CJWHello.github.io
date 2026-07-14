@@ -5,18 +5,18 @@
       "image": "./assets/my.jpg",
       "imageAlt": "Abstract portrait card",
       "satellites": [
-        { "label": "VLM", "radius": 228, "size": "small", "speed": 34, "delay": 0, "angle": 4 },
-        { "label": "LLM", "radius": 246, "size": "small", "speed": 38, "delay": -5, "angle": 34 },
-        { "label": "LoRA", "radius": 264, "size": "small", "speed": 42, "delay": -8, "angle": 64 },
-        { "label": "Transformer", "radius": 286, "size": "large", "speed": 46, "delay": -12, "angle": 102 },
-        { "label": "VAE", "radius": 216, "size": "small", "speed": 36, "delay": -16, "angle": 142 },
-        { "label": "ViT", "radius": 238, "size": "small", "speed": 40, "delay": -4, "angle": 178 },
-        { "label": "DiT", "radius": 258, "size": "small", "speed": 44, "delay": -10, "angle": 214 },
-        { "label": "GRPO", "radius": 292, "size": "medium", "speed": 50, "delay": -14, "angle": 252 },
-        { "label": "PPO", "radius": 224, "size": "small", "speed": 35, "delay": -6, "angle": 292 },
-        { "label": "RoPE", "radius": 252, "size": "small", "speed": 41, "delay": -2, "angle": 326 },
-        { "label": "RAG", "radius": 304, "size": "small", "speed": 48, "delay": -9, "angle": 18 },
-        { "label": "CLIP", "radius": 244, "size": "small", "speed": 37, "delay": -13, "angle": 234 }
+        { "label": "VLM", "radius": 260, "size": "small", "speed": 34, "delay": 0, "angle": 4 },
+        { "label": "LLM", "radius": 284, "size": "small", "speed": 38, "delay": -5, "angle": 34 },
+        { "label": "LoRA", "radius": 308, "size": "small", "speed": 42, "delay": -8, "angle": 64 },
+        { "label": "Transformer", "radius": 340, "size": "large", "speed": 46, "delay": -12, "angle": 102 },
+        { "label": "VAE", "radius": 246, "size": "small", "speed": 36, "delay": -16, "angle": 142 },
+        { "label": "ViT", "radius": 276, "size": "small", "speed": 40, "delay": -4, "angle": 178 },
+        { "label": "DiT", "radius": 300, "size": "small", "speed": 44, "delay": -10, "angle": 214 },
+        { "label": "GRPO", "radius": 350, "size": "medium", "speed": 50, "delay": -14, "angle": 252 },
+        { "label": "PPO", "radius": 254, "size": "small", "speed": 35, "delay": -6, "angle": 292 },
+        { "label": "RoPE", "radius": 294, "size": "small", "speed": 41, "delay": -2, "angle": 326 },
+        { "label": "RAG", "radius": 366, "size": "small", "speed": 48, "delay": -9, "angle": 18 },
+        { "label": "CLIP", "radius": 288, "size": "small", "speed": 37, "delay": -13, "angle": 234 }
       ]
     }
   },

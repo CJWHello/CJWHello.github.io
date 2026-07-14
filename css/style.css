@@ -631,8 +631,8 @@ h3 {
 }
 
 .hero-visual-solar {
-  width: min(100%, 980px);
-  min-height: clamp(620px, 76vh, 900px);
+  width: min(100%, 1120px);
+  min-height: clamp(700px, 82vh, 980px);
   margin: 0 auto;
   border: 0;
   border-radius: 0;
@@ -643,7 +643,7 @@ h3 {
 
 .hero-visual-solar::before {
   position: absolute;
-  inset: 10% 10%;
+  inset: 7% 7%;
   border: 0;
   border-radius: 50%;
   content: "";
@@ -651,7 +651,7 @@ h3 {
 }
 
 .hero-visual-solar .profile-orb {
-  width: 204px;
+  width: 216px;
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.16),
     0 18px 42px rgba(0, 0, 0, 0.18),
@@ -674,7 +674,7 @@ h3 {
   left: calc(var(--orbit-radius) * -1);
   width: calc(var(--orbit-radius) * 2);
   height: calc(var(--orbit-radius) * 2);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 50%;
   content: "";
 }
@@ -724,7 +724,7 @@ h3 {
   width: 68px;
   height: 68px;
   padding: 0;
-  border: 1px solid rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.18);
   border-radius: 50%;
   color: var(--text);
   background: transparent;
@@ -738,7 +738,13 @@ h3 {
   cursor: pointer;
   pointer-events: auto;
   transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease, background 180ms ease;
-  transform: translateX(calc(var(--orbit-radius) + 44px)) translate(-50%, -50%);
+  transform: translateX(calc(var(--orbit-radius) + 56px)) translate(-50%, -50%);
+  animation: orbitNodeCounterNegative var(--orbit-speed, 40s) linear infinite;
+  animation-delay: var(--orbit-delay, 0s);
+}
+
+.orbit-ring[data-direction="-1"] .orbit-node {
+  animation-name: orbitNodeCounterPositive;
 }
 
 .orbit-label {
@@ -748,13 +754,7 @@ h3 {
   line-height: 1.15;
   white-space: normal;
   word-break: break-word;
-  animation: orbitCounterSpinNegative var(--orbit-speed, 40s) linear infinite;
-  animation-delay: var(--orbit-delay, 0s);
   transform-origin: center;
-}
-
-.orbit-ring[data-direction="-1"] .orbit-label {
-  animation-name: orbitCounterSpinPositive;
 }
 
 .orbit-node.is-medium {
@@ -772,13 +772,39 @@ h3 {
 .orbit-node:hover,
 .orbit-node:focus-visible {
   color: #fff;
-  border-color: rgba(0, 229, 255, 0.72);
+  border-color: rgba(0, 229, 255, 0.8);
   background: rgba(0, 229, 255, 0.08);
   box-shadow:
     0 0 0 8px rgba(0, 229, 255, 0.05),
     0 0 24px rgba(0, 229, 255, 0.24);
-  transform: translateX(calc(var(--orbit-radius) + 44px)) translate(-50%, -50%) scale(1.08);
+  transform: translateX(calc(var(--orbit-radius) + 56px)) translate(-50%, -50%) scale(1.08);
   outline: none;
+}
+
+[data-theme="light"] .orbit-ring::before {
+  border-color: rgba(7, 16, 36, 0.16);
+}
+
+[data-theme="light"] .orbit-dot {
+  background: linear-gradient(135deg, #1688ff, #00b7ff);
+  box-shadow:
+    0 0 0 5px rgba(22, 136, 255, 0.1),
+    0 0 16px rgba(22, 136, 255, 0.35);
+}
+
+[data-theme="light"] .orbit-node {
+  color: rgba(7, 16, 36, 0.9);
+  border-color: rgba(7, 16, 36, 0.2);
+}
+
+[data-theme="light"] .orbit-node:hover,
+[data-theme="light"] .orbit-node:focus-visible {
+  color: #071024;
+  border-color: rgba(22, 136, 255, 0.58);
+  background: rgba(22, 136, 255, 0.08);
+  box-shadow:
+    0 0 0 8px rgba(22, 136, 255, 0.08),
+    0 0 22px rgba(22, 136, 255, 0.18);
 }
 
 .profile-orb {
@@ -951,21 +977,21 @@ h3 {
   }
 }
 
-@keyframes orbitCounterSpinNegative {
+@keyframes orbitNodeCounterNegative {
   from {
-    transform: rotate(0deg);
+    transform: translateX(calc(var(--orbit-radius) + 56px)) translate(-50%, -50%) rotate(0deg);
   }
   to {
-    transform: rotate(-360deg);
+    transform: translateX(calc(var(--orbit-radius) + 56px)) translate(-50%, -50%) rotate(-360deg);
   }
 }
 
-@keyframes orbitCounterSpinPositive {
+@keyframes orbitNodeCounterPositive {
   from {
-    transform: rotate(0deg);
+    transform: translateX(calc(var(--orbit-radius) + 56px)) translate(-50%, -50%) rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: translateX(calc(var(--orbit-radius) + 56px)) translate(-50%, -50%) rotate(360deg);
   }
 }
 
