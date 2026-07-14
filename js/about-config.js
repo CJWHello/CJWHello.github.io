@@ -72,7 +72,7 @@
         <article class="puzzle-tile ${pieceClass}" style="${pieceStyle}" tabindex="0" aria-label="${escapeHtml(tile.label || "")}">
           <div class="puzzle-tile-inner">
             <div class="puzzle-face puzzle-face-front" style="${maskStyle}" aria-hidden="true">
-              <svg class="puzzle-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <svg class="puzzle-svg" viewBox="-12 -12 124 124" preserveAspectRatio="none" aria-hidden="true">
                 <defs>
                   <clipPath id="clip-${index}" clipPathUnits="userSpaceOnUse">
                     <path d="${pieceShape}"></path>
@@ -194,7 +194,7 @@
   }
 
   function getPieceMask(pieceShape) {
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="white" d="${pieceShape}"/></svg>`;
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-12 -12 124 124" preserveAspectRatio="none"><path fill="white" d="${pieceShape}"/></svg>`;
     return `url("data:image/svg+xml;utf8,${encodeURIComponent(svg)}")`;
   }
 
