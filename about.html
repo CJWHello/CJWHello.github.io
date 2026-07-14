@@ -1,12 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="恍如昨日的关于页面，包含个人背景、教育经历、项目方向、技能栈和联系方式。" />
+  <meta name="description" content="恍如昨日的关于页面，包含个人信息拼图与教育经历时间轴。" />
   <meta name="theme-color" content="#050816" />
   <meta property="og:title" content="About - 恍如昨日" />
-  <meta property="og:description" content="个人背景、学习方向、教育经历与联系方式。" />
+  <meta property="og:description" content="个人信息拼图与教育背景时间轴。" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="./assets/images/og-cover.svg" />
   <title>About | 恍如昨日</title>
@@ -32,71 +32,98 @@
   </header>
 
   <main class="page-transition inner-page">
-    <section class="section-shell about-profile-hero">
-      <div class="about-profile-shell reveal">
-        <div class="about-profile-card">
-          <img src="./assets/my.jpg" alt="恍如昨日头像" loading="lazy" />
-          <div class="about-profile-meta">
-            <p class="eyebrow">About</p>
-            <h1>关于 <span data-profile="name">恍如昨日</span></h1>
-            <p class="about-profile-lead">多模态学习者，持续围绕视觉语言模型、生成模型与工程实践构建自己的知识体系。</p>
-          </div>
-        </div>
-        <div class="about-info-grid">
-          <article class="about-info-panel">
-            <span>昵称</span>
-            <h2 data-profile="name">恍如昨日</h2>
-            <p>这是我用来记录学习、实验、阅读和阶段性思考的名字。</p>
-          </article>
-          <article class="about-info-panel">
-            <span>定位</span>
-            <h2>Multimodal Learner</h2>
-            <p data-profile="tagline">多模态大模型学习记录、项目复盘与算法笔记分享。</p>
-          </article>
-          <article class="about-info-panel">
-            <span>地区</span>
-            <h2><span data-profile="hometown">湖北黄冈</span></h2>
-            <p><span data-profile="age">24岁</span> / <span data-profile="gender">男</span> / <span data-profile="politics">中共党员</span></p>
-          </article>
-          <article class="about-info-panel">
-            <span>联系</span>
-            <h2>保持连接</h2>
-            <p><a href="mailto:2426815661@qq.com" data-href="email" data-profile="email">2426815661@qq.com</a></p>
-            <p><a href="tel:18872722092" data-href="phone" data-profile="phone">18872722092</a></p>
-          </article>
-        </div>
-        <div class="about-focus-panel">
+    <section class="section-shell about-puzzle-section">
+      <div class="about-puzzle-layout reveal">
+        <div class="about-puzzle-copy" data-about-copy>
           <p class="eyebrow">About</p>
-          <h2>当前关注</h2>
-          <div class="about-focus-tags">
-            <span>Vision Language Model</span>
-            <span>Diffusion</span>
-            <span>Video Generation</span>
-            <span>Reward Modeling</span>
-            <span>RAG</span>
-            <span>Learning Notes</span>
+          <h1>个人信息拼图</h1>
+          <p class="about-puzzle-lead">把一张头像拆成 9 块，每一块翻到背面，展示一个不同维度的我。</p>
+          <div class="about-puzzle-meta">
+            <span>Hover to reveal</span>
+            <span>3 x 3 Puzzle</span>
           </div>
-          <p>About 页更像一张个人信息面板：把身份、关注方向和教育经历集中放在一起，方便快速认识我，而不是重复首页的氛围化展示。</p>
+        </div>
+        <div
+          class="about-puzzle-board"
+          data-about-puzzle
+          style="--about-image:url('./assets/my.jpg');"
+          aria-label="个人信息拼图"
+        >
+          <article class="puzzle-tile" tabindex="0" aria-label="爱好">
+            <div class="puzzle-tile-inner">
+              <div class="puzzle-face puzzle-face-front" style="--bg-x:0%;--bg-y:0%;"></div>
+              <div class="puzzle-face puzzle-face-back"><span>爱好</span><h2>占位内容</h2><p>例如：阅读、电影、羽毛球。</p></div>
+            </div>
+          </article>
+          <article class="puzzle-tile" tabindex="0" aria-label="MBTI">
+            <div class="puzzle-tile-inner">
+              <div class="puzzle-face puzzle-face-front" style="--bg-x:50%;--bg-y:0%;"></div>
+              <div class="puzzle-face puzzle-face-back"><span>MBTI</span><h2>占位内容</h2><p>例如：INTJ / INFJ。</p></div>
+            </div>
+          </article>
+          <article class="puzzle-tile" tabindex="0" aria-label="城市">
+            <div class="puzzle-tile-inner">
+              <div class="puzzle-face puzzle-face-front" style="--bg-x:100%;--bg-y:0%;"></div>
+              <div class="puzzle-face puzzle-face-back"><span>城市</span><h2>占位内容</h2><p>例如：湖北黄冈。</p></div>
+            </div>
+          </article>
+          <article class="puzzle-tile" tabindex="0" aria-label="方向">
+            <div class="puzzle-tile-inner">
+              <div class="puzzle-face puzzle-face-front" style="--bg-x:0%;--bg-y:50%;"></div>
+              <div class="puzzle-face puzzle-face-back"><span>方向</span><h2>占位内容</h2><p>例如：VLM / Agent / Infra。</p></div>
+            </div>
+          </article>
+          <article class="puzzle-tile" tabindex="0" aria-label="关键词">
+            <div class="puzzle-tile-inner">
+              <div class="puzzle-face puzzle-face-front" style="--bg-x:50%;--bg-y:50%;"></div>
+              <div class="puzzle-face puzzle-face-back"><span>关键词</span><h2>占位内容</h2><p>例如：持续学习，保持好奇。</p></div>
+            </div>
+          </article>
+          <article class="puzzle-tile" tabindex="0" aria-label="日常">
+            <div class="puzzle-tile-inner">
+              <div class="puzzle-face puzzle-face-front" style="--bg-x:100%;--bg-y:50%;"></div>
+              <div class="puzzle-face puzzle-face-back"><span>日常</span><h2>占位内容</h2><p>例如：做笔记、看论文、写 demo。</p></div>
+            </div>
+          </article>
+          <article class="puzzle-tile" tabindex="0" aria-label="偏好">
+            <div class="puzzle-tile-inner">
+              <div class="puzzle-face puzzle-face-front" style="--bg-x:0%;--bg-y:100%;"></div>
+              <div class="puzzle-face puzzle-face-back"><span>偏好</span><h2>占位内容</h2><p>例如：简洁、克制、能长期维护。</p></div>
+            </div>
+          </article>
+          <article class="puzzle-tile" tabindex="0" aria-label="一句话">
+            <div class="puzzle-tile-inner">
+              <div class="puzzle-face puzzle-face-front" style="--bg-x:50%;--bg-y:100%;"></div>
+              <div class="puzzle-face puzzle-face-back"><span>一句话</span><h2>占位内容</h2><p>例如：知命不惧，日日自新。</p></div>
+            </div>
+          </article>
+          <article class="puzzle-tile" tabindex="0" aria-label="计划">
+            <div class="puzzle-tile-inner">
+              <div class="puzzle-face puzzle-face-front" style="--bg-x:100%;--bg-y:100%;"></div>
+              <div class="puzzle-face puzzle-face-back"><span>计划</span><h2>占位内容</h2><p>例如：继续沉淀系统化内容。</p></div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="section-shell timeline-section">
-      <div class="section-heading reveal">
+      <div class="section-heading reveal" data-about-timeline-heading>
         <p class="eyebrow">Education</p>
         <h2>教育背景</h2>
       </div>
-      <div class="timeline">
-        <article class="timeline-item reveal"><span class="timeline-dot"></span><div class="timeline-card"><time data-profile="educationMasterPeriod">2025-09 ~ 2028-06</time><h3 data-profile="educationMaster">中国科学技术大学，软件工程（硕士）</h3><p>计划继续围绕多模态大模型、模型压缩、生成模型与工程化应用深入学习。</p></div></article>
-        <article class="timeline-item reveal"><span class="timeline-dot"></span><div class="timeline-card"><time data-profile="educationBachelorPeriod">2019-09 ~ 2023-06</time><h3 data-profile="educationBachelor">中南财经政法大学，信息管理与信息系统（本科）</h3><p>形成信息系统、数据分析、软件开发与管理交叉的基础能力。</p></div></article>
+      <div class="timeline" data-about-timeline>
+        <article class="timeline-item reveal"><span class="timeline-dot"></span><div class="timeline-card"><time>2025-09 ~ 2028-06</time><h3>中国科学技术大学，软件工程（硕士）</h3><p>计划继续围绕多模态大模型、模型压缩、生成模型与工程化应用深入学习。</p></div></article>
+        <article class="timeline-item reveal"><span class="timeline-dot"></span><div class="timeline-card"><time>2019-09 ~ 2023-06</time><h3>中南财经政法大学，信息管理与信息系统（本科）</h3><p>形成信息系统、数据分析、软件开发与管理交叉的基础能力。</p></div></article>
       </div>
     </section>
   </main>
 
   <footer class="site-footer"><div class="footer-grid"><div><a class="brand" href="./index.html"><img class="brand-avatar" src="./assets/my.jpg" alt="恍如昨日头像" loading="eager" /><span class="brand-text" data-profile="name">恍如昨日</span></a><p data-profile="tagline">多模态大模型学习记录、项目复盘与算法笔记分享。</p></div><div class="footer-links"><a href="https://github.com/" data-href="github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a><a href="./projects.html"><i class="fa-regular fa-file-lines"></i> Notes</a><a href="mailto:2426815661@qq.com" data-href="email"><i class="fa-regular fa-envelope"></i> Email</a></div></div><div class="footer-bottom"><p>Copyright <span data-current-year></span> <span data-profile="name">恍如昨日</span>. All rights reserved.</p><button class="back-to-top" type="button" data-back-to-top aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button></div></footer>
-  <script src="./js/particles.js"></script><script src="./js/animation.js"></script><script src="./js/site-data.js"></script><script src="./js/main.js"></script>
+  <script src="./js/particles.js"></script>
+  <script src="./js/animation.js"></script>
+  <script src="./js/site-data.js"></script>
+  <script src="./js/about-config.js"></script>
+  <script src="./js/main.js"></script>
 </body>
 </html>
-
-
-

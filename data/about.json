@@ -1,0 +1,76 @@
+{
+  "hero": {
+    "eyebrow": "About",
+    "title": "个人信息拼图",
+    "lead": "把一张头像拆成 9 块，每一块翻到背面，展示一个不同维度的我。这里先放占位信息，后续你可以直接改 JSON。",
+    "meta": ["Hover to reveal", "3 x 3 Puzzle"]
+  },
+  "puzzle": {
+    "image": "./assets/my.jpg",
+    "imageAlt": "恍如昨日头像",
+    "grid": 3,
+    "tiles": [
+      {
+        "label": "爱好",
+        "title": "阅读 / 电影 / 羽毛球",
+        "description": "这里可以替换成你真实的兴趣爱好。"
+      },
+      {
+        "label": "MBTI",
+        "title": "INTJ",
+        "description": "这里写人格类型，或者你更认可的一种自我描述。"
+      },
+      {
+        "label": "城市",
+        "title": "湖北黄冈",
+        "description": "这里可以写家乡、常驻城市，或者一句和城市有关的小注解。"
+      },
+      {
+        "label": "研究方向",
+        "title": "VLM / Agent / Infra",
+        "description": "这里可以写你当前最关注的技术主线。"
+      },
+      {
+        "label": "关键词",
+        "title": "持续学习",
+        "description": "这里适合放你的核心特质或成长关键词。"
+      },
+      {
+        "label": "日常状态",
+        "title": "看论文 / 做笔记 / 写 Demo",
+        "description": "这里可以放平时最常见的学习和工作节奏。"
+      },
+      {
+        "label": "审美偏好",
+        "title": "简洁 / 克制 / 可维护",
+        "description": "这里可以写你偏好的设计或做事风格。"
+      },
+      {
+        "label": "一句话",
+        "title": "知命不惧，日日自新",
+        "description": "这里可以换成座右铭、喜欢的句子或价值观。"
+      },
+      {
+        "label": "下一步",
+        "title": "继续系统化沉淀",
+        "description": "这里可以写阶段目标，比如项目、论文或学习计划。"
+      }
+    ]
+  },
+  "timeline": {
+    "eyebrow": "Education",
+    "title": "教育背景",
+    "items": [
+      {
+        "period": "2025-09 ~ 2028-06",
+        "title": "中国科学技术大学，软件工程（硕士）",
+        "description": "计划继续围绕多模态大模型、模型压缩、生成模型与工程化应用深入学习。"
+      },
+      {
+        "period": "2019-09 ~ 2023-06",
+        "title": "中南财经政法大学，信息管理与信息系统（本科）",
+        "description": "形成信息系统、数据分析、软件开发与管理交叉的基础能力。"
+      }
+    ]
+  }
+}
