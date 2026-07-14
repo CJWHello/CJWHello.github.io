@@ -2076,6 +2076,7 @@ h3 {
   z-index: 2;
   opacity: 1;
   visibility: visible;
+  background-color: transparent;
   transition: transform 620ms cubic-bezier(.2, .75, .2, 1), opacity 220ms ease, visibility 220ms ease;
 }
 
