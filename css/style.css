@@ -628,6 +628,16 @@ h3 {
   align-items: center;
 }
 
+.hero-minimal .hero-visual,
+.hero-minimal .hero-visual.reveal,
+.hero-minimal .hero-visual.hero-visual-solar {
+  border: 0 !important;
+  outline: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
 .hero-grid-minimal {
   display: block;
 }
