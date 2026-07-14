@@ -258,6 +258,24 @@
     margin-bottom: 24px;
   }
 
+  .hero-mantra {
+    gap: 14px;
+    margin-top: 10px;
+  }
+
+  .hero-mantra h1 {
+    font-size: clamp(1.45rem, 7vw, 2rem);
+  }
+
+  .mantra-input-shell {
+    min-height: 50px;
+    padding: 0 14px;
+  }
+
+  .mantra-typing {
+    font-size: 0.78rem;
+  }
+
   .orbiter-ring {
     transform: translate(-50%, -50%) scale(0.6);
   }

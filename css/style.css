@@ -642,6 +642,70 @@ h3 {
   display: block;
 }
 
+.hero-mantra {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  margin-top: 18px;
+  text-align: center;
+}
+
+.hero-mantra h1 {
+  margin-bottom: 0;
+  font-size: clamp(1.65rem, 2.6vw, 2.5rem);
+  font-weight: 800;
+}
+
+.mantra-input-shell {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  width: min(100%, 620px);
+  min-height: 56px;
+  padding: 0 18px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 999px;
+  color: var(--text);
+  background: rgba(8, 13, 34, 0.6);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(18px);
+}
+
+.mantra-prefix {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: var(--secondary);
+  background: rgba(0, 229, 255, 0.08);
+  flex: 0 0 auto;
+}
+
+.mantra-typing {
+  min-width: 0;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+[data-theme="light"] .mantra-input-shell {
+  border-color: rgba(7, 16, 36, 0.14);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 18px 34px rgba(35, 70, 150, 0.12);
+}
+
+[data-theme="light"] .mantra-prefix {
+  color: #1688ff;
+  background: rgba(22, 136, 255, 0.08);
+}
+
+[data-theme="light"] .mantra-typing {
+  color: rgba(7, 16, 36, 0.76);
+}
+
 .hero-visual-solar {
   width: min(100%, 1120px);
   min-height: clamp(700px, 82vh, 980px);
