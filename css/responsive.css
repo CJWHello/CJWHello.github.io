@@ -158,15 +158,15 @@
   }
 
   .contact-account-card {
-    grid-template-columns: 64px minmax(0, 1fr);
-    min-height: 104px;
+    grid-template-columns: 72px minmax(0, 1fr);
+    min-height: 112px;
     padding: 16px;
   }
 
   .contact-account-card img {
-    width: 64px;
-    height: 64px;
-    border-radius: 18px;
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
   }
 
   .acgn-detail-card {
@@ -327,16 +327,16 @@
   }
 
   .contact-account-card {
-    grid-template-columns: 58px minmax(0, 1fr);
+    grid-template-columns: 62px minmax(0, 1fr);
     gap: 12px;
-    min-height: 96px;
+    min-height: 98px;
     padding: 14px;
     border-radius: 16px;
   }
 
   .contact-account-card img {
-    width: 58px;
-    height: 58px;
+    width: 62px;
+    height: 62px;
     border-radius: 16px;
   }
 

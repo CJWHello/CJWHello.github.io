@@ -1982,25 +1982,26 @@ h3 {
 .contact-account-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 20px;
 }
 
 .contact-account-card {
   position: relative;
   display: grid;
-  grid-template-columns: 72px minmax(0, 1fr);
+  grid-template-columns: 88px minmax(0, 1fr);
   align-items: center;
-  gap: 14px;
-  min-height: 116px;
-  padding: 18px;
+  gap: 16px;
+  min-height: 132px;
+  padding: 20px;
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 20px;
   color: inherit;
   background:
-    linear-gradient(145deg, rgba(255,255,255,.1), rgba(255,255,255,.03)),
-    rgba(255,255,255,.04);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16);
+    linear-gradient(145deg, rgba(255,255,255,.1), rgba(255,255,255,.02)),
+    radial-gradient(circle at top right, rgba(91, 140, 255, 0.14), transparent 38%),
+    rgba(255,255,255,.035);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
   backdrop-filter: blur(18px);
   transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
@@ -2018,11 +2019,14 @@ h3 {
 
 .contact-account-card::before {
   position: absolute;
-  inset: auto 18px 0 18px;
-  height: 1px;
+  inset: 18px 18px auto auto;
+  width: 90px;
+  height: 90px;
   content: "";
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
-  opacity: 0.7;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,.1), transparent 64%);
+  filter: blur(12px);
+  opacity: 0.8;
 }
 
 .contact-account-card:hover,
@@ -2042,13 +2046,15 @@ h3 {
 .contact-account-card img {
   position: relative;
   z-index: 1;
-  width: 72px;
-  height: 72px;
+  width: 88px;
+  height: 88px;
   aspect-ratio: 1;
   object-fit: cover;
   border: 1px solid rgba(255,255,255,.14);
-  border-radius: 20px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  border-radius: 24px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.2),
+    0 12px 28px rgba(0, 0, 0, 0.2);
 }
 
 .contact-account-body {
@@ -2063,15 +2069,24 @@ h3 {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .contact-account-body h2 {
   margin: 8px 0 0;
-  font-size: 0.98rem;
+  font-size: 1rem;
   line-height: 1.35;
   overflow-wrap: anywhere;
+}
+
+.contact-account-body::after {
+  display: block;
+  width: 56px;
+  height: 1px;
+  margin-top: 14px;
+  content: "";
+  background: linear-gradient(90deg, rgba(255,255,255,.38), transparent);
 }
 
 .contact-account-card.accent-blue:hover,
@@ -2102,6 +2117,35 @@ h3 {
 
 .contact-account-card.accent-cyan .contact-account-body span {
   color: #7ef4ff;
+}
+
+.contact-account-card.accent-blue img {
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.2),
+    0 12px 28px rgba(91, 140, 255, 0.16);
+}
+
+.contact-account-card.accent-rose img {
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.2),
+    0 12px 28px rgba(255, 122, 182, 0.14);
+}
+
+.contact-account-card.accent-cyan img {
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.2),
+    0 12px 28px rgba(0, 229, 255, 0.14);
+}
+
+[data-theme="light"] .contact-account-card {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.88), rgba(255,255,255,.68)),
+    radial-gradient(circle at top right, rgba(91, 140, 255, 0.1), transparent 40%);
+  box-shadow: 0 18px 38px rgba(35, 70, 150, 0.12);
+}
+
+[data-theme="light"] .contact-account-card::before {
+  background: radial-gradient(circle, rgba(91, 140, 255, 0.12), transparent 64%);
 }
 
 .contact-form {
