@@ -691,6 +691,10 @@ h3 {
   content: "";
 }
 
+.hero-minimal .orbit-ring:last-of-type::before {
+  display: none;
+}
+
 .orbit-ring {
   animation: none;
 }
