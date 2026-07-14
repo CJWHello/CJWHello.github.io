@@ -683,10 +683,7 @@ h3 {
 .orbit-ring {
   animation: orbitSpin var(--orbit-speed, 40s) linear infinite;
   animation-delay: var(--orbit-delay, 0s);
-}
-
-.orbit-ring:nth-child(even) {
-  animation-direction: reverse;
+  animation-direction: normal;
 }
 
 .orbit-node {
@@ -713,6 +710,17 @@ h3 {
     rotate(var(--orbit-angle))
     translateX(var(--orbit-radius))
     rotate(calc(var(--orbit-angle) * -1));
+}
+
+.orbit-label {
+  display: inline-block;
+  animation: orbitCounterSpin var(--orbit-speed, 40s) linear infinite;
+  animation-delay: var(--orbit-delay, 0s);
+  animation-direction: reverse;
+}
+
+.orbit-ring[data-direction="-1"] .orbit-label {
+  animation-direction: normal;
 }
 
 .orbit-node::before {
@@ -894,7 +902,16 @@ h3 {
     transform: translate(-50%, -50%) rotate(0deg);
   }
   to {
-    transform: translate(-50%, -50%) rotate(360deg);
+    transform: translate(-50%, -50%) rotate(calc(360deg * var(--orbit-direction, 1)));
+  }
+}
+
+@keyframes orbitCounterSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(calc(-360deg * var(--orbit-direction, 1)));
   }
 }
 

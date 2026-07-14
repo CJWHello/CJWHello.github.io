@@ -69,41 +69,41 @@
           <div class="profile-orb">
             <img src="./assets/my.jpg" alt="Abstract portrait card" loading="eager" />
           </div>
-          <div class="orbit-ring" style="--orbit-radius:132px;--orbit-speed:34s;--orbit-delay:0s;">
-            <span class="orbit-node is-small" style="--orbit-angle:0deg;">VLM</span>
+          <div class="orbit-ring" data-direction="1" style="--orbit-radius:132px;--orbit-speed:34s;--orbit-delay:0s;--orbit-direction:1;">
+            <span class="orbit-node is-small" style="--orbit-angle:0deg;"><span class="orbit-label">VLM</span></span>
           </div>
-          <div class="orbit-ring" style="--orbit-radius:138px;--orbit-speed:38s;--orbit-delay:-5s;">
-            <span class="orbit-node is-small" style="--orbit-angle:32deg;">LLM</span>
+          <div class="orbit-ring" data-direction="-1" style="--orbit-radius:138px;--orbit-speed:38s;--orbit-delay:-5s;--orbit-direction:-1;">
+            <span class="orbit-node is-small" style="--orbit-angle:32deg;"><span class="orbit-label">LLM</span></span>
           </div>
-          <div class="orbit-ring" style="--orbit-radius:150px;--orbit-speed:42s;--orbit-delay:-8s;">
-            <span class="orbit-node is-small" style="--orbit-angle:68deg;">LoRA</span>
+          <div class="orbit-ring" data-direction="1" style="--orbit-radius:150px;--orbit-speed:42s;--orbit-delay:-8s;--orbit-direction:1;">
+            <span class="orbit-node is-small" style="--orbit-angle:68deg;"><span class="orbit-label">LoRA</span></span>
           </div>
-          <div class="orbit-ring" style="--orbit-radius:168px;--orbit-speed:46s;--orbit-delay:-12s;">
-            <span class="orbit-node is-medium" style="--orbit-angle:108deg;">Transformer</span>
+          <div class="orbit-ring" data-direction="-1" style="--orbit-radius:168px;--orbit-speed:46s;--orbit-delay:-12s;--orbit-direction:-1;">
+            <span class="orbit-node is-medium" style="--orbit-angle:108deg;"><span class="orbit-label">Transformer</span></span>
           </div>
-          <div class="orbit-ring" style="--orbit-radius:124px;--orbit-speed:36s;--orbit-delay:-16s;">
-            <span class="orbit-node is-small" style="--orbit-angle:148deg;">VAE</span>
+          <div class="orbit-ring" data-direction="1" style="--orbit-radius:124px;--orbit-speed:36s;--orbit-delay:-16s;--orbit-direction:1;">
+            <span class="orbit-node is-small" style="--orbit-angle:148deg;"><span class="orbit-label">VAE</span></span>
           </div>
-          <div class="orbit-ring" style="--orbit-radius:146px;--orbit-speed:40s;--orbit-delay:-4s;">
-            <span class="orbit-node is-small" style="--orbit-angle:188deg;">ViT</span>
+          <div class="orbit-ring" data-direction="-1" style="--orbit-radius:146px;--orbit-speed:40s;--orbit-delay:-4s;--orbit-direction:-1;">
+            <span class="orbit-node is-small" style="--orbit-angle:188deg;"><span class="orbit-label">ViT</span></span>
           </div>
-          <div class="orbit-ring" style="--orbit-radius:160px;--orbit-speed:44s;--orbit-delay:-10s;">
-            <span class="orbit-node is-small" style="--orbit-angle:226deg;">DiT</span>
+          <div class="orbit-ring" data-direction="1" style="--orbit-radius:160px;--orbit-speed:44s;--orbit-delay:-10s;--orbit-direction:1;">
+            <span class="orbit-node is-small" style="--orbit-angle:226deg;"><span class="orbit-label">DiT</span></span>
           </div>
-          <div class="orbit-ring" style="--orbit-radius:174px;--orbit-speed:50s;--orbit-delay:-14s;">
-            <span class="orbit-node is-medium" style="--orbit-angle:264deg;">GRPO</span>
+          <div class="orbit-ring" data-direction="-1" style="--orbit-radius:174px;--orbit-speed:50s;--orbit-delay:-14s;--orbit-direction:-1;">
+            <span class="orbit-node is-medium" style="--orbit-angle:264deg;"><span class="orbit-label">GRPO</span></span>
           </div>
-          <div class="orbit-ring" style="--orbit-radius:128px;--orbit-speed:35s;--orbit-delay:-6s;">
-            <span class="orbit-node is-small" style="--orbit-angle:304deg;">PPO</span>
+          <div class="orbit-ring" data-direction="1" style="--orbit-radius:128px;--orbit-speed:35s;--orbit-delay:-6s;--orbit-direction:1;">
+            <span class="orbit-node is-small" style="--orbit-angle:304deg;"><span class="orbit-label">PPO</span></span>
           </div>
-          <div class="orbit-ring" style="--orbit-radius:156px;--orbit-speed:41s;--orbit-delay:-2s;">
-            <span class="orbit-node is-small" style="--orbit-angle:342deg;">RoPE</span>
+          <div class="orbit-ring" data-direction="-1" style="--orbit-radius:156px;--orbit-speed:41s;--orbit-delay:-2s;--orbit-direction:-1;">
+            <span class="orbit-node is-small" style="--orbit-angle:342deg;"><span class="orbit-label">RoPE</span></span>
           </div>
-          <div class="orbit-ring" style="--orbit-radius:182px;--orbit-speed:48s;--orbit-delay:-9s;">
-            <span class="orbit-node is-small" style="--orbit-angle:20deg;">RAG</span>
+          <div class="orbit-ring" data-direction="1" style="--orbit-radius:182px;--orbit-speed:48s;--orbit-delay:-9s;--orbit-direction:1;">
+            <span class="orbit-node is-small" style="--orbit-angle:20deg;"><span class="orbit-label">RAG</span></span>
           </div>
-          <div class="orbit-ring" style="--orbit-radius:142px;--orbit-speed:37s;--orbit-delay:-13s;">
-            <span class="orbit-node is-small" style="--orbit-angle:248deg;">CLIP</span>
+          <div class="orbit-ring" data-direction="-1" style="--orbit-radius:142px;--orbit-speed:37s;--orbit-delay:-13s;--orbit-direction:-1;">
+            <span class="orbit-node is-small" style="--orbit-angle:248deg;"><span class="orbit-label">CLIP</span></span>
           </div>
         </div>
       </div>
@@ -140,8 +140,6 @@
   <script src="./js/main.js"></script>
 </body>
 </html>
-
-
 
 
 

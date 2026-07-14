@@ -37,17 +37,21 @@
     const visual = section?.querySelector(".hero-visual");
 
     if (visual && hero.visual) {
-      const satellites = (hero.visual.satellites || []).map((item, index) => `
+      const satellites = (hero.visual.satellites || []).map((item, index) => {
+        const direction = index % 2 === 0 ? 1 : -1;
+        return `
         <div
           class="orbit-ring"
-          style="--orbit-radius:${escapeHtml(item.radius || 140)}px;--orbit-speed:${escapeHtml(item.speed || 40)}s;--orbit-delay:${escapeHtml(item.delay || 0)}s;"
+          data-direction="${direction}"
+          style="--orbit-radius:${escapeHtml(item.radius || 140)}px;--orbit-speed:${escapeHtml(item.speed || 40)}s;--orbit-delay:${escapeHtml(item.delay || 0)}s;--orbit-direction:${direction};"
         >
           <span
             class="orbit-node ${item.size ? `is-${escapeHtml(item.size)}` : ""}"
             style="--orbit-angle:${escapeHtml(item.angle || index * 30)}deg;"
-          >${escapeHtml(item.label || "")}</span>
+          ><span class="orbit-label">${escapeHtml(item.label || "")}</span></span>
         </div>
-      `).join("");
+      `;
+      }).join("");
       visual.innerHTML = `
         <div class="profile-orb">
           <img src="${escapeHtml(hero.visual.image || "./assets/my.jpg")}" alt="${escapeHtml(hero.visual.imageAlt || "")}" loading="eager" />
