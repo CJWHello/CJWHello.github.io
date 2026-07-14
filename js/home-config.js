@@ -45,14 +45,15 @@
           data-direction="${direction}"
           style="--orbit-radius:${escapeHtml(item.radius || 140)}px;--orbit-speed:${escapeHtml(item.speed || 40)}s;--orbit-delay:${escapeHtml(item.delay || 0)}s;--orbit-direction:${direction};"
         >
-          <span class="orbit-dot"></span>
-          <button
-            class="orbit-node ${item.size ? `is-${escapeHtml(item.size)}` : ""}"
-            type="button"
-            style="--orbit-angle:${escapeHtml(item.angle || index * 30)}deg;"
-            aria-label="${escapeHtml(item.label || "")}"
-            title="${escapeHtml(item.label || "")}"
-          ><span class="orbit-label">${escapeHtml(item.label || "")}</span></button>
+          <div class="orbit-satellite" style="--orbit-angle:${escapeHtml(item.angle || index * 30)}deg;">
+            <span class="orbit-dot"></span>
+            <button
+              class="orbit-node ${item.size ? `is-${escapeHtml(item.size)}` : ""}"
+              type="button"
+              aria-label="${escapeHtml(item.label || "")}"
+              title="${escapeHtml(item.label || "")}"
+            ><span class="orbit-label">${escapeHtml(item.label || "")}</span></button>
+          </div>
         </div>
       `;
       }).join("");
