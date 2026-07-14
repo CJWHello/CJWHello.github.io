@@ -131,11 +131,19 @@
   }
 
   function getPieceShape(row, col, grid) {
-    const top = row === 0 ? 0 : 1;
-    const right = col === grid - 1 ? 0 : 1;
-    const bottom = row === grid - 1 ? 0 : 1;
-    const left = col === 0 ? 0 : 1;
+    const top = row === 0 ? 0 : getHorizontalSign(row - 1, col);
+    const right = col === grid - 1 ? 0 : getVerticalSign(row, col);
+    const bottom = row === grid - 1 ? 0 : -getHorizontalSign(row, col);
+    const left = col === 0 ? 0 : -getVerticalSign(row, col - 1);
     return buildPuzzlePath(top, right, bottom, left);
+  }
+
+  function getHorizontalSign(row, col) {
+    return (row + col) % 2 === 0 ? 1 : -1;
+  }
+
+  function getVerticalSign(row, col) {
+    return (row + col) % 2 === 0 ? -1 : 1;
   }
 
   function buildPuzzlePath(top, right, bottom, left) {
@@ -150,8 +158,8 @@
       d.push("L 100 0");
     } else {
       d.push(`L ${edge} 0`);
-      d.push(`C ${edge + neck} 0 ${centerMin} ${depth} 50 ${depth}`);
-      d.push(`C ${centerMax} ${depth} ${100 - edge - neck} 0 ${100 - edge} 0`);
+      d.push(`C ${edge + neck} 0 ${centerMin} ${top * depth} 50 ${top * depth}`);
+      d.push(`C ${centerMax} ${top * depth} ${100 - edge - neck} 0 ${100 - edge} 0`);
       d.push("L 100 0");
     }
 
@@ -159,8 +167,8 @@
       d.push("L 100 100");
     } else {
       d.push(`L 100 ${edge}`);
-      d.push(`C 100 ${edge + neck} ${100 - depth} ${centerMin} ${100 - depth} 50`);
-      d.push(`C ${100 - depth} ${centerMax} 100 ${100 - edge - neck} 100 ${100 - edge}`);
+      d.push(`C 100 ${edge + neck} ${100 + right * depth} ${centerMin} ${100 + right * depth} 50`);
+      d.push(`C ${100 + right * depth} ${centerMax} 100 ${100 - edge - neck} 100 ${100 - edge}`);
       d.push("L 100 100");
     }
 
@@ -168,8 +176,8 @@
       d.push("L 0 100");
     } else {
       d.push(`L ${100 - edge} 100`);
-      d.push(`C ${100 - edge - neck} 100 ${centerMax} ${100 - depth} 50 ${100 - depth}`);
-      d.push(`C ${centerMin} ${100 - depth} ${edge + neck} 100 ${edge} 100`);
+      d.push(`C ${100 - edge - neck} 100 ${centerMax} ${100 + bottom * depth} 50 ${100 + bottom * depth}`);
+      d.push(`C ${centerMin} ${100 + bottom * depth} ${edge + neck} 100 ${edge} 100`);
       d.push("L 0 100");
     }
 
@@ -177,8 +185,8 @@
       d.push("Z");
     } else {
       d.push(`L 0 ${100 - edge}`);
-      d.push(`C 0 ${100 - edge - neck} ${depth} ${centerMax} ${depth} 50`);
-      d.push(`C ${depth} ${centerMin} 0 ${edge + neck} 0 ${edge}`);
+      d.push(`C 0 ${100 - edge - neck} ${left * -depth} ${centerMax} ${left * -depth} 50`);
+      d.push(`C ${left * -depth} ${centerMin} 0 ${edge + neck} 0 ${edge}`);
       d.push("Z");
     }
 
