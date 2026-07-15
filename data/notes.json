@@ -7,7 +7,7 @@
       "categoryLabel": "LLM",
       "type": "LLM",
       "path": "./notes/llm/llm-card-demo.md",
-      "cover": "https://i-blog.csdnimg.cn/img_convert/00e3bfd5a3c0070849b4aa5fa2635b12.png",
+      "cover": "./assets/images/project-nexus.svg",
       "excerpt": "关于Transformer的笔记",
       "tags": [
         "LLM",
