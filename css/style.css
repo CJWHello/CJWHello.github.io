@@ -2532,10 +2532,7 @@ h3 {
 }
 
 [data-theme="light"] .about-pet-stage {
-  background:
-    radial-gradient(circle at 20% 16%, rgba(91, 140, 255, 0.1), transparent 24%),
-    radial-gradient(circle at 82% 28%, rgba(0, 229, 255, 0.08), transparent 20%),
-    linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.74));
+  background: transparent;
 }
 
 .pet-actor {
