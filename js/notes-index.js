@@ -75,7 +75,7 @@
 
   function renderNotes(notes, filter) {
     const visibleNotes = filter === "all" ? notes : notes.filter((note) => note.category === filter);
-    grid.innerHTML = visibleNotes.map(renderCard).join("");
+    grid.innerHTML = visibleNotes.map((note, index) => renderCard(note, index)).join("");
     grid.querySelectorAll(".reveal").forEach((node) => node.classList.add("is-visible"));
   }
 
@@ -90,13 +90,32 @@
       .join("");
   }
 
-  function renderCard(note) {
+  function renderCrestLabel(note) {
+    const value = String(note.categoryLabel || note.category || "N").trim();
+    const parts = value.split(/[-_\s]+/).filter(Boolean);
+    if (!parts.length) return "N";
+    return escapeHtml(parts.slice(0, 2).map((part) => part.charAt(0).toUpperCase()).join(""));
+  }
+
+  function renderCard(note, index) {
     const href = `./note.html?file=${encodeURIComponent(note.key || "")}`;
     const tags = (note.tags || []).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("");
+    const categoryLabel = note.categoryLabel || formatCategoryLabel(note.category);
+    const volume = String(index + 1).padStart(2, "0");
+
     return `
-      <a class="project-card note-card-link note-book-card reveal is-visible" href="${href}" data-category="${escapeHtml(note.category || "")}" aria-label="阅读${escapeHtml(note.title || "笔记")}">
+      <a class="project-card note-card-link note-book-card reveal is-visible" href="${href}" data-category="${escapeHtml(note.category || "")}" aria-label="阅读 ${escapeHtml(note.title || "笔记")}">
+        <span class="note-corner note-corner-top-left" aria-hidden="true"></span>
+        <span class="note-corner note-corner-top-right" aria-hidden="true"></span>
+        <span class="note-corner note-corner-bottom-left" aria-hidden="true"></span>
+        <span class="note-corner note-corner-bottom-right" aria-hidden="true"></span>
+        <span class="note-volume-badge" aria-hidden="true">Vol. ${volume}</span>
         <div class="project-content">
-          <div class="project-meta"><span>${escapeHtml(note.categoryLabel || formatCategoryLabel(note.category))}</span></div>
+          <div class="project-meta"><span>${escapeHtml(categoryLabel)}</span></div>
+          <div class="note-cover-crest" aria-hidden="true">
+            <span class="note-cover-crest-ring"></span>
+            <span class="note-cover-crest-core">${renderCrestLabel(note)}</span>
+          </div>
           <h2 class="note-cover-title">${renderCoverTitle(note.title || "未命名笔记")}</h2>
           <p>${escapeHtml(note.excerpt || "暂无摘要。")}</p>
           <div class="tech-stack">${tags}</div>

@@ -13,7 +13,7 @@
   <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&family=Poppins:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&family=MedievalSharp&family=Poppins:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/animation.css" />
@@ -38,8 +38,17 @@
     <section class="section-shell">
       <div class="project-grid project-grid-wide notes-compact-grid">
         <article class="project-card note-book-card reveal is-visible">
+          <span class="note-corner note-corner-top-left" aria-hidden="true"></span>
+          <span class="note-corner note-corner-top-right" aria-hidden="true"></span>
+          <span class="note-corner note-corner-bottom-left" aria-hidden="true"></span>
+          <span class="note-corner note-corner-bottom-right" aria-hidden="true"></span>
+          <span class="note-volume-badge" aria-hidden="true">Vol. 00</span>
           <div class="project-content">
             <div class="project-meta"><span>Notes</span></div>
+            <div class="note-cover-crest" aria-hidden="true">
+              <span class="note-cover-crest-ring"></span>
+              <span class="note-cover-crest-core">NT</span>
+            </div>
             <h2 class="note-cover-title"><span class="note-cover-zh">正在加载笔记卡片</span></h2>
             <p>页面会根据 <code>data/notes.json</code> 自动生成分类按钮和笔记卡片。</p>
           </div>
