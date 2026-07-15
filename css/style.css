@@ -1665,6 +1665,13 @@ h3 {
     radial-gradient(circle, rgba(255, 255, 255, 0.98) 0 62%, rgba(219, 228, 255, 0.94) 100%);
 }
 
+[data-theme="light"] .note-cover-crest-core {
+  color: #f5f5f0;
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.68),
+    0 0 4px rgba(75, 47, 154, 0.14);
+}
+
 .project-content {
   padding: 24px;
 }
