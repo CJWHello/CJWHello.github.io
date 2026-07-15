@@ -501,6 +501,10 @@
     aspect-ratio: 16 / 8;
   }
 
+  .sticky-note-body {
+    padding: 18px 18px 20px;
+  }
+
   .acgn-share-card {
     grid-template-columns: 1fr;
   }
