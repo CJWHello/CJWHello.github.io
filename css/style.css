@@ -1447,12 +1447,6 @@ h3 {
   text-shadow: 0 0 18px rgba(212, 179, 92, 0.14);
 }
 
-.note-book-card p {
-  margin-top: 4px;
-  color: rgba(239, 230, 201, 0.76);
-  text-align: center;
-}
-
 .note-book-card .tech-stack span {
   color: rgba(239, 230, 201, 0.76);
   min-height: 0;
@@ -1469,6 +1463,7 @@ h3 {
 .note-book-card .tech-stack {
   justify-content: center;
   gap: 10px;
+  margin-top: 6px;
 }
 
 [data-theme="light"] .note-book-card {
@@ -1596,10 +1591,6 @@ h3 {
 .note-cover-zh,
 .note-cover-crest-core {
   color: var(--note-magic-title);
-}
-
-.note-book-card p {
-  color: var(--note-magic-body);
 }
 
 .note-book-card .tech-stack span {
