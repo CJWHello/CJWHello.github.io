@@ -117,7 +117,6 @@
             <span class="note-cover-crest-core">${renderCrestLabel(note)}</span>
           </div>
           <h2 class="note-cover-title">${renderCoverTitle(note.title || "未命名笔记")}</h2>
-          <p>${escapeHtml(note.excerpt || "暂无摘要。")}</p>
           <div class="tech-stack">${tags}</div>
         </div>
       </a>
