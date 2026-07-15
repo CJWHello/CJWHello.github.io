@@ -1307,10 +1307,10 @@ h3 {
 }
 
 .note-cover-crest-ring::after {
-  width: 8px;
-  height: 18px;
-  border-radius: 999px;
-  background: linear-gradient(180deg, rgba(245, 232, 190, 0.98), rgba(212, 179, 92, 0.45));
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 232, 190, 0.98), rgba(212, 179, 92, 0.45));
   box-shadow: 0 0 10px rgba(255, 238, 194, 0.16);
 }
 
@@ -1319,7 +1319,7 @@ h3 {
   display: grid;
   place-items: center;
   color: #f4ead1;
-  border-radius: 999px;
+  border-radius: 50%;
   border: 3px solid rgba(18, 15, 18, 0.72);
   background:
     radial-gradient(circle, rgba(16, 12, 18, 0.98) 0 68%, rgba(48, 30, 28, 0.9) 100%);
