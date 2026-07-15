@@ -20,12 +20,10 @@
   function renderCard(post) {
     const dateTime = [post.date || "", post.time || ""].filter(Boolean).join(" ");
     return `
-      <a class="sticky-note-card reveal is-visible" href="./musing.html?file=${encodeURIComponent(post.href || "")}">
-        <img src="${post.cover}" alt="${post.title}" loading="lazy" />
+      <a class="sticky-note-card sticky-note-timeline reveal is-visible" href="./musing.html?file=${encodeURIComponent(post.href || "")}">
         <div class="sticky-note-body">
           <time>${dateTime}</time>
           <h2>${post.title}</h2>
-          <p>${post.excerpt || ""}</p>
         </div>
       </a>
     `;

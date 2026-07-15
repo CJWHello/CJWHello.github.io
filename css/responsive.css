@@ -218,7 +218,7 @@
   }
 
   .sticky-note-card {
-    grid-template-columns: 180px minmax(0, 1fr);
+    margin-left: 50px;
   }
 
   .notes-compact-grid {
@@ -492,17 +492,20 @@
     transform: translate(-50%, -50%) translateX(24%) rotateY(-18deg) scale(0.82);
   }
 
-  .sticky-note-card {
-    grid-template-columns: 1fr;
+  .sticky-notes-grid::before {
+    left: 18px;
   }
 
-  .sticky-note-card img {
-    height: auto;
-    aspect-ratio: 16 / 8;
+  .sticky-note-card {
+    margin-left: 40px;
   }
 
   .sticky-note-body {
     padding: 18px 18px 20px;
+  }
+
+  .sticky-note-timeline::before {
+    left: -31px;
   }
 
   .acgn-share-card {

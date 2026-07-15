@@ -1753,21 +1753,29 @@ h3 {
 .sticky-notes-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 18px;
+  gap: 14px;
+  position: relative;
+}
+
+.sticky-notes-grid::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 24px;
+  width: 1px;
+  content: "";
+  background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.06));
 }
 
 .sticky-note-card {
   position: relative;
-  display: grid;
-  grid-template-columns: 224px minmax(0, 1fr);
-  align-items: stretch;
+  display: block;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 18px 20px 18px 16px;
-  background:
-    linear-gradient(180deg, rgba(255,248,221,.96), rgba(247,236,202,.94));
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 16px 18px 16px 14px;
+  background: linear-gradient(180deg, rgba(255,248,221,.96), rgba(247,236,202,.94));
   box-shadow:
-    0 14px 28px rgba(0, 0, 0, 0.14),
+    0 10px 20px rgba(0, 0, 0, 0.12),
     inset 0 1px 0 rgba(255,255,255,.6);
   isolation: isolate;
   transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
@@ -1801,6 +1809,24 @@ h3 {
   transform: rotate(-3deg);
 }
 
+.sticky-note-timeline {
+  margin-left: 54px;
+}
+
+.sticky-note-timeline::before {
+  position: absolute;
+  top: 26px;
+  left: -39px;
+  z-index: 2;
+  width: 18px;
+  height: 18px;
+  content: "";
+  border: 3px solid rgba(120, 190, 255, 0.75);
+  border-radius: 50%;
+  background: #f8eed0;
+  box-shadow: 0 0 0 6px rgba(91, 140, 255, 0.08);
+}
+
 .sticky-note-card:hover {
   border-color: rgba(0, 229, 255, 0.16);
   transform: translateY(-4px) rotate(-0.2deg);
@@ -1822,22 +1848,15 @@ h3 {
   display: none;
 }
 
-.sticky-note-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.96;
-  filter: saturate(0.98) contrast(1.02);
-}
-
 .sticky-note-body {
   position: relative;
   z-index: 1;
   display: grid;
   align-content: center;
-  gap: 8px;
+  gap: 6px;
   min-width: 0;
-  padding: 20px 24px 22px;
+  min-height: 86px;
+  padding: 18px 24px 18px;
   color: #3c2f1f;
   background:
     linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0)),
@@ -1861,15 +1880,8 @@ h3 {
 .sticky-note-body h2 {
   margin: 0;
   color: #2d2216;
-  font-size: 1.05rem;
-  line-height: 1.32;
-}
-
-.sticky-note-body p {
-  margin-bottom: 0;
-  color: rgba(60, 47, 31, 0.8);
-  font-size: 0.84rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
 [data-theme="light"] .sticky-note-card {
