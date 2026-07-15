@@ -1763,12 +1763,10 @@ h3 {
   position: absolute;
   inset: 0;
   content: "";
-  background:
-    linear-gradient(rgba(245, 247, 255, 0.76), rgba(245, 247, 255, 0.76)),
-    url("../assets/my.jpg") center/cover no-repeat;
-  opacity: 0.18;
-  filter: blur(18px) saturate(0.9);
-  border-radius: 28px;
+  background: transparent;
+  opacity: 0;
+  filter: none;
+  border-radius: 0;
   pointer-events: none;
 }
 
@@ -1872,10 +1870,6 @@ h3 {
 .musing-empty {
   margin: 0 0 0 44px;
   color: var(--muted);
-}
-
-[data-theme="light"] .sticky-notes-grid::before {
-  opacity: 0.28;
 }
 
 [data-theme="light"] .sticky-notes-grid::after {
