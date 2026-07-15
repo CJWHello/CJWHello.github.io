@@ -1250,21 +1250,11 @@ h3 {
   position: relative;
   display: grid;
   place-items: center;
+  flex-shrink: 0;
   width: 124px;
   height: 72px;
   margin: 6px auto 16px;
-}
-
-.note-cover-crest-ring,
-.note-cover-crest-core {
-  position: absolute;
-}
-
-.note-cover-crest-ring {
-  inset: 4px 0;
-  border: 4px solid rgba(212, 179, 92, 0.72);
-  border-radius: 0;
-  clip-path: polygon(
+  --note-eye-shape: polygon(
     0% 50%,
     10% 26%,
     26% 9%,
@@ -1278,9 +1268,21 @@ h3 {
     26% 91%,
     10% 74%
   );
+}
+
+.note-cover-crest-ring,
+.note-cover-crest-core {
+  position: absolute;
+}
+
+.note-cover-crest-ring {
+  inset: 4px 0;
+  border: 5px solid rgba(212, 179, 92, 0.78);
+  border-radius: 0;
+  clip-path: var(--note-eye-shape);
   box-shadow:
-    inset 0 0 0 2px rgba(35, 20, 14, 0.48),
-    inset 0 0 0 6px rgba(255,255,255,.04),
+    inset 0 0 0 2px rgba(35, 20, 14, 0.5),
+    inset 0 0 0 7px rgba(255,255,255,.035),
     0 0 18px rgba(212, 179, 92, 0.08);
   background:
     linear-gradient(180deg, rgba(255,255,255,.04), rgba(212, 179, 92, 0.06));
@@ -1292,16 +1294,16 @@ h3 {
   top: 50%;
   left: 50%;
   content: "";
-  border-radius: 50%;
   transform: translate(-50%, -50%);
 }
 
 .note-cover-crest-ring::before {
-  width: 58px;
-  height: 58px;
+  width: 78px;
+  height: 44px;
   border: 3px solid rgba(212, 179, 92, 0.42);
+  clip-path: var(--note-eye-shape);
   background:
-    radial-gradient(circle, rgba(110, 43, 74, 0.74) 0 30%, rgba(43, 70, 115, 0.92) 45%, rgba(17, 21, 38, 0.96) 72%);
+    radial-gradient(circle at 50% 50%, rgba(110, 43, 74, 0.74) 0 24%, rgba(43, 70, 115, 0.92) 40%, rgba(17, 21, 38, 0.96) 72%);
   box-shadow:
     inset 0 0 0 3px rgba(255,255,255,.05),
     0 0 12px rgba(212, 179, 92, 0.1);
@@ -1316,9 +1318,12 @@ h3 {
 }
 
 .note-cover-crest-core {
-  inset: 18px 45px;
+  top: 50%;
+  left: 50%;
   display: grid;
   place-items: center;
+  width: 20px;
+  height: 36px;
   color: #f4ead1;
   border-radius: 999px;
   border: 3px solid rgba(18, 15, 18, 0.72);
@@ -1332,6 +1337,8 @@ h3 {
   box-shadow:
     0 0 0 2px rgba(212, 179, 92, 0.12),
     0 0 14px rgba(0, 0, 0, 0.16);
+  transform: translate(-50%, -50%);
+  line-height: 1;
 }
 
 .note-cover-title {
