@@ -1977,8 +1977,7 @@ h3 {
   position: relative;
   overflow: hidden;
   padding: 24px;
-  border: 1px solid var(--line);
-  border-radius: 28px;
+  border: 0;
   background: transparent;
   box-shadow: 0;
   backdrop-filter: none;
