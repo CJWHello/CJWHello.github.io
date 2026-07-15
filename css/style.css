@@ -1949,6 +1949,7 @@ h3 {
   place-items: center;
   min-height: 320px;
   padding: 20px 0 8px;
+  background: transparent;
 }
 
 .about-pet {
