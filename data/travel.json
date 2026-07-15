@@ -1,0 +1,60 @@
+{
+  "title": "\u4e2a\u4eba\u65c5\u6e38\u96c6\u9526",
+  "lead": "\u6bcf\u4e2a\u5730\u70b9\u4e00\u7ec4\u6a2a\u5411\u6ed1\u52a8\u753b\u5eca\uff0c\u6807\u9898\u548c\u56fe\u7247\u8def\u5f84\u7edf\u4e00\u4ece JSON \u8bfb\u53d6\uff0c\u540e\u7eed\u53ea\u6539\u8fd9\u4e2a\u6587\u4ef6\u5c31\u80fd\u65b0\u589e\u6216\u5220\u9664\u65c5\u884c\u5730\u70b9\u3002",
+  "destinations": [
+    {
+      "title": "\u676d\u5dde",
+      "subtitle": "West Lake",
+      "images": [
+        {
+          "src": "./assets/images/project-nexus.svg",
+          "alt": "\u676d\u5dde\u65c5\u884c\u7167\u7247 1"
+        },
+        {
+          "src": "./assets/images/project-dashboard.svg",
+          "alt": "\u676d\u5dde\u65c5\u884c\u7167\u7247 2"
+        },
+        {
+          "src": "./assets/images/project-vision.svg",
+          "alt": "\u676d\u5dde\u65c5\u884c\u7167\u7247 3"
+        }
+      ]
+    },
+    {
+      "title": "\u91cd\u5e86",
+      "subtitle": "Mountain City",
+      "images": [
+        {
+          "src": "./assets/images/project-diffusion.svg",
+          "alt": "\u91cd\u5e86\u65c5\u884c\u7167\u7247 1"
+        },
+        {
+          "src": "./assets/images/project-nexus.svg",
+          "alt": "\u91cd\u5e86\u65c5\u884c\u7167\u7247 2"
+        },
+        {
+          "src": "./assets/images/project-dashboard.svg",
+          "alt": "\u91cd\u5e86\u65c5\u884c\u7167\u7247 3"
+        }
+      ]
+    },
+    {
+      "title": "\u9752\u5c9b",
+      "subtitle": "Sea Breeze",
+      "images": [
+        {
+          "src": "./assets/images/project-vision.svg",
+          "alt": "\u9752\u5c9b\u65c5\u884c\u7167\u7247 1"
+        },
+        {
+          "src": "./assets/images/project-diffusion.svg",
+          "alt": "\u9752\u5c9b\u65c5\u884c\u7167\u7247 2"
+        },
+        {
+          "src": "./assets/images/project-nexus.svg",
+          "alt": "\u9752\u5c9b\u65c5\u884c\u7167\u7247 3"
+        }
+      ]
+    }
+  ]
+}

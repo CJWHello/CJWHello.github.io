@@ -203,6 +203,16 @@
     grid-template-columns: 1fr;
   }
 
+  .travel-slider-shell {
+    grid-template-columns: 38px minmax(0, 1fr) 38px;
+    gap: 10px;
+  }
+
+  .travel-slider-button {
+    width: 38px;
+    height: 38px;
+  }
+
   .notes-compact-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -441,6 +451,14 @@
 
   .notes-compact-grid .project-content {
     padding: 16px;
+  }
+
+  .travel-gallery-card {
+    padding: 18px;
+  }
+
+  .travel-slide img {
+    height: 220px;
   }
 
   .acgn-share-card {
