@@ -1416,64 +1416,170 @@ h3 {
 
 .site-footer {
   width: min(calc(100% - 40px), var(--max-width));
-  margin: 0 auto 28px;
-  padding: 28px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  background: rgba(255,255,255,.055);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(22px);
+  margin: 0 auto 18px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(255,255,255,.028);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(14px);
 }
 
-.footer-grid {
-  display: flex;
-  justify-content: space-between;
-  gap: 28px;
+.footer-grid,
+.footer-bottom {
+  display: contents;
 }
 
 .footer-grid p,
 .footer-bottom p {
   color: var(--muted);
+  font-size: 0.82rem;
+  margin-bottom: 0;
+}
+
+.site-footer .brand {
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.site-footer .brand-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.site-footer .brand-text {
+  max-width: none;
+  opacity: 1;
+  font-size: 0.88rem;
+}
+
+.footer-grid > div:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.footer-grid > div:first-child p {
+  min-width: 0;
+  max-width: 460px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .footer-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  align-content: flex-start;
-  justify-content: flex-end;
+  gap: 8px;
+  align-content: center;
+  justify-content: flex-start;
+  flex: 0 1 auto;
 }
 
 .footer-links a {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 12px;
-  border: 1px solid var(--line);
+  gap: 6px;
+  min-height: 32px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 999px;
   color: var(--muted);
-  background: rgba(255,255,255,.04);
+  background: rgba(255,255,255,.025);
+  font-size: 0.78rem;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 
-.footer-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  margin-top: 22px;
-  padding-top: 18px;
-  border-top: 1px solid var(--line);
+.footer-bottom p {
+  flex: 0 1 auto;
+  white-space: nowrap;
+}
+
+.footer-links a:hover {
+  color: var(--text);
+  border-color: rgba(91, 140, 255, 0.24);
+  background: rgba(255,255,255,.05);
 }
 
 .back-to-top {
   display: inline-grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--line);
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 999px;
   color: var(--text);
-  background: rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.back-to-top:hover {
+  transform: translateY(-1px);
+  border-color: rgba(91, 140, 255, 0.24);
+  background: rgba(255,255,255,.06);
+}
+
+.footer-pet-runner {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: calc(100% + 6px);
+  height: 50px;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.96;
+  background: transparent;
+}
+
+.footer-pet-track {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  animation: footerPetTraverse 32s linear infinite alternate;
+  will-change: left;
+}
+
+.footer-pet-frame {
+  width: 72px;
+  height: auto;
+  object-fit: contain;
+  transform-origin: center bottom;
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.2));
+}
+
+.footer-pet-frame.is-returning {
+  transform: scaleX(-1);
+}
+
+@keyframes footerPetTraverse {
+  from {
+    left: 0;
+  }
+  to {
+    left: calc(100% - 80px);
+  }
+}
+
+[data-theme="light"] .site-footer {
+  border-color: rgba(9, 16, 36, 0.08);
+  background: rgba(255,255,255,.55);
+  box-shadow: 0 10px 24px rgba(35, 70, 150, 0.08);
+}
+
+[data-theme="light"] .footer-links a,
+[data-theme="light"] .back-to-top {
+  border-color: rgba(9, 16, 36, 0.08);
+  background: rgba(255,255,255,.52);
 }
 
 .inner-page {

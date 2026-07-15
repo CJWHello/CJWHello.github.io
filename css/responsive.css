@@ -230,13 +230,22 @@
     left: 10px;
   }
 
-  .footer-grid,
-  .footer-bottom {
-    display: grid;
+  .site-footer {
+    gap: 10px 12px;
+    padding-bottom: 14px;
   }
 
+  .footer-grid > div:first-child {
+    flex-basis: 100%;
+  }
+
+  .footer-grid > div:first-child p,
   .footer-links {
     justify-content: flex-start;
+  }
+
+  .footer-grid > div:first-child p {
+    max-width: none;
   }
 }
 

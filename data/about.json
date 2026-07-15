@@ -21,17 +21,17 @@
       {
         "state": "is-sit",
         "text": "先坐一会儿，整理一下思路。",
-        "frame": "./assets/pet/坐.jpg"
+        "frame": "./assets/pet/sit.jpg"
       },
       {
         "state": "is-wave",
         "text": "你好啊。",
-        "frame": "./assets/pet/挥手.jpg"
+        "frame": "./assets/pet/wave.jpg"
       },
       {
         "state": "is-smile",
         "text": "今天心情不错，先笑一个。",
-        "frame": "./assets/pet/笑.jpg"
+        "frame": "./assets/pet/smile.jpg"
       },
       {
         "state": "is-left-walk",
@@ -51,27 +51,27 @@
       {
         "state": "is-nap",
         "text": "太困了，允许我短暂休眠。",
-        "frame": "./assets/pet/睡.jpg"
+        "frame": "./assets/pet/sleep.jpg"
       },
       {
         "state": "is-guitar",
         "text": "给你弹一段，不过只会可爱风。",
-        "frame": "./assets/pet/弹吉他.jpg"
+        "frame": "./assets/pet/guitar.jpg"
       },
       {
         "state": "is-proud",
         "text": "状态良好，继续前进。",
-        "frame": "./assets/pet/叉腰.jpg"
+        "frame": "./assets/pet/proud.jpg"
       },
       {
         "state": "is-lookback",
         "text": "回头看你一眼。",
-        "frame": "./assets/pet/回头望.jpg"
+        "frame": "./assets/pet/lookback.jpg"
       },
       {
         "state": "is-crouch",
         "text": "先蹲一下，再考虑下一步。",
-        "frame": "./assets/pet/蹲.jpg"
+        "frame": "./assets/pet/crouch.jpg"
       }
     ]
   },

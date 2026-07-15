@@ -176,6 +176,69 @@
     });
   }
 
+  function initFooterPet() {
+    const footer = document.querySelector(".site-footer");
+    if (!footer || footer.querySelector(".footer-pet-runner")) return;
+
+    const frames = [
+      { kind: "walk", src: "./assets/pet/right_walk.jpg", alt: "Footer pet walking" },
+      { kind: "pose", src: "./assets/pet/stand.jpg", alt: "Footer pet standing" },
+      { kind: "pose", src: "./assets/pet/wave.jpg", alt: "Footer pet waving" },
+      { kind: "pose", src: "./assets/pet/smile.jpg", alt: "Footer pet smiling" },
+      { kind: "pose", src: "./assets/pet/jump.jpg", alt: "Footer pet jumping" },
+      { kind: "pose", src: "./assets/pet/sit.jpg", alt: "Footer pet sitting" },
+      { kind: "pose", src: "./assets/pet/proud.jpg", alt: "Footer pet posing" },
+      { kind: "pose", src: "./assets/pet/lookback.jpg", alt: "Footer pet looking back" },
+      { kind: "pose", src: "./assets/pet/crouch.jpg", alt: "Footer pet crouching" },
+      { kind: "pose", src: "./assets/pet/guitar.jpg", alt: "Footer pet playing guitar" },
+      { kind: "pose", src: "./assets/pet/sleep.jpg", alt: "Footer pet sleeping" }
+    ];
+
+    const runner = document.createElement("div");
+    runner.className = "footer-pet-runner";
+    runner.innerHTML = `
+      <span class="footer-pet-track" aria-hidden="true">
+        <img class="footer-pet-frame" src="${frames[0].src}" alt="${frames[0].alt}" loading="lazy" />
+      </span>
+    `;
+    footer.appendChild(runner);
+
+    const track = runner.querySelector(".footer-pet-track");
+    const frame = runner.querySelector(".footer-pet-frame");
+    if (!track || !frame) return;
+
+    let index = 0;
+    let movingRight = true;
+
+    const resolveFrame = (item) => {
+      if (item.kind === "walk") {
+        return movingRight ? "./assets/pet/right_walk.jpg" : "./assets/pet/left_walk.jpg";
+      }
+      return item.src;
+    };
+
+    const applyFrame = (nextIndex) => {
+      index = nextIndex % frames.length;
+      const item = frames[index];
+      frame.src = resolveFrame(item);
+      frame.alt = item.alt;
+      frame.classList.toggle("is-returning", !movingRight);
+    };
+
+    track.addEventListener("animationiteration", () => {
+      movingRight = !movingRight;
+      frame.classList.toggle("is-returning", !movingRight);
+      if (frames[index]?.kind === "walk") {
+        frame.src = resolveFrame(frames[index]);
+      }
+    });
+
+    applyFrame(0);
+    window.setInterval(() => {
+      applyFrame((index + 1) % frames.length);
+    }, 2400);
+  }
+
   function initButtonRipples() {
     document.querySelectorAll(".button").forEach((button) => {
       button.addEventListener("pointermove", (event) => {
@@ -259,6 +322,7 @@
   initMenu();
   initScrollProgress();
   initBackToTop();
+  initFooterPet();
   initButtonRipples();
   initCursorGlow();
   initProjectFilters();
