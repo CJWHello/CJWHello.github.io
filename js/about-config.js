@@ -78,46 +78,13 @@
     const hoverText = config?.hoverText || "已进入互动模式，正在认真营业。";
 
     let index = 0;
-    let roamTimer = null;
-    let walkToggle = false;
-
-    function movePet() {
-      const stageRect = stage.getBoundingClientRect();
-      const petRect = pet.getBoundingClientRect();
-      const maxX = Math.max(20, stageRect.width - petRect.width - 20);
-      const minY = 74;
-      const maxY = Math.max(minY, stageRect.height - petRect.height - 12);
-      const x = Math.round(Math.random() * maxX);
-      const y = Math.round(minY + Math.random() * Math.max(0, maxY - minY));
-      pet.style.setProperty("--pet-x", `${x}px`);
-      pet.style.setProperty("--pet-y", `${y}px`);
-      if (frame) {
-        walkToggle = !walkToggle;
-        frame.src = walkToggle ? frames.walk1 : frames.walk2;
-        window.setTimeout(() => {
-          if (!pet.matches(":hover")) {
-            frame.src = framesForState(actions[index].state, frames);
-          }
-        }, 420);
-      }
-    }
-
-    function applyAction(nextIndex, shouldMove) {
+    function applyAction(nextIndex) {
       index = nextIndex % actions.length;
       const stateClasses = actions.map((item) => item.state);
       pet.classList.remove(...stateClasses);
       pet.classList.add(actions[index].state);
       speech.textContent = actions[index].text;
       if (frame) frame.src = framesForState(actions[index].state, frames);
-      if (shouldMove) movePet();
-    }
-
-    function startRoam() {
-      clearInterval(roamTimer);
-      roamTimer = window.setInterval(() => {
-        if (pet.matches(":hover")) return;
-        applyAction((index + 1) % actions.length, true);
-      }, 4200);
     }
 
     pet.addEventListener("pointerenter", () => {
@@ -133,13 +100,10 @@
     });
 
     pet.addEventListener("click", () => {
-      applyAction((index + 1) % actions.length, true);
+      applyAction((index + 1) % actions.length);
     });
 
-    window.addEventListener("resize", movePet, { passive: true });
-    applyAction(0, false);
-    movePet();
-    startRoam();
+    applyAction(0);
   }
 
   function getPetFramesConfig(config) {

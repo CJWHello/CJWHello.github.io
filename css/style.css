@@ -2280,15 +2280,15 @@ h3 {
 
 .about-pet {
   position: absolute;
-  top: 0;
-  left: 0;
+  left: 50%;
+  bottom: 14px;
   width: 176px;
   height: 228px;
   padding: 0;
   border: 0;
   background: transparent;
-  transform: translate3d(var(--pet-x, 56px), var(--pet-y, 84px), 0);
-  transition: transform 720ms cubic-bezier(.2, .8, .2, 1), filter 220ms ease;
+  transform: translateX(-50%);
+  transition: filter 220ms ease, transform 220ms ease;
 }
 
 .pet-floor {
