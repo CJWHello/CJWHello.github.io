@@ -78,13 +78,58 @@
     const hoverText = config?.hoverText || "已进入互动模式，正在认真营业。";
 
     let index = 0;
+    let direction = 1;
+    let walkToggle = false;
+    let patrolTimer = null;
+
+    function applyFacing() {
+      pet.style.setProperty("--pet-facing", String(direction));
+    }
+
+    function patrol() {
+      const stageRect = stage.getBoundingClientRect();
+      const petWidth = pet.offsetWidth || 176;
+      const current = Number.parseFloat(pet.style.getPropertyValue("--pet-left")) || 24;
+      const maxLeft = Math.max(24, stageRect.width - petWidth - 24);
+      let next = current + direction * 40;
+
+      if (next <= 24) {
+        next = 24;
+        direction = 1;
+      } else if (next >= maxLeft) {
+        next = maxLeft;
+        direction = -1;
+      }
+
+      applyFacing();
+      pet.style.setProperty("--pet-left", `${Math.round(next)}px`);
+
+      if (frame && !pet.matches(":hover")) {
+        walkToggle = !walkToggle;
+        frame.src = walkToggle ? frames.walk1 : frames.walk2;
+        window.setTimeout(() => {
+          if (!pet.matches(":hover")) {
+            frame.src = framesForAction(actions[index], frames);
+          }
+        }, 260);
+      }
+    }
+
     function applyAction(nextIndex) {
       index = nextIndex % actions.length;
       const stateClasses = actions.map((item) => item.state);
       pet.classList.remove(...stateClasses);
       pet.classList.add(actions[index].state);
       speech.textContent = actions[index].text;
-      if (frame) frame.src = framesForState(actions[index].state, frames);
+      if (frame) frame.src = framesForAction(actions[index], frames);
+    }
+
+    function startPatrol() {
+      clearInterval(patrolTimer);
+      patrolTimer = window.setInterval(() => {
+        if (pet.matches(":hover")) return;
+        patrol();
+      }, 1800);
     }
 
     pet.addEventListener("pointerenter", () => {
@@ -96,14 +141,25 @@
     pet.addEventListener("pointerleave", () => {
       pet.classList.remove("is-hovering");
       speech.textContent = actions[index].text;
-      if (frame) frame.src = framesForState(actions[index].state, frames);
+      if (frame) frame.src = framesForAction(actions[index], frames);
     });
 
     pet.addEventListener("click", () => {
       applyAction((index + 1) % actions.length);
     });
 
+    window.addEventListener("resize", () => {
+      const stageRect = stage.getBoundingClientRect();
+      const petWidth = pet.offsetWidth || 176;
+      const maxLeft = Math.max(24, stageRect.width - petWidth - 24);
+      const current = Number.parseFloat(pet.style.getPropertyValue("--pet-left")) || 24;
+      pet.style.setProperty("--pet-left", `${Math.min(current, maxLeft)}px`);
+    }, { passive: true });
+
+    pet.style.setProperty("--pet-left", "24px");
+    applyFacing();
     applyAction(0);
+    startPatrol();
   }
 
   function getPetFramesConfig(config) {
@@ -114,17 +170,23 @@
       jump: userFrames?.jump || "./assets/pet/c-10.jpg",
       nap: userFrames?.nap || "./assets/pet/c-11.jpg",
       proud: userFrames?.proud || "./assets/pet/c-12.jpg",
+      surprise: userFrames?.surprise || "./assets/pet/c-13.jpg",
+      cheer: userFrames?.cheer || "./assets/pet/c-14.jpg",
       walk1: userFrames?.walk1 || "./assets/pet/c-4.jpg",
       walk2: userFrames?.walk2 || "./assets/pet/c-5.jpg",
       hover: userFrames?.hover || "./assets/pet/c-7.jpg"
     };
   }
 
-  function framesForState(state, frames) {
+  function framesForAction(action, frames) {
+    const state = action?.state;
+    if (typeof action?.frame === "string") return action.frame;
     if (state === "is-wave") return frames.wave;
     if (state === "is-jump") return frames.jump;
     if (state === "is-nap") return frames.nap;
     if (state === "is-proud") return frames.proud;
+    if (state === "is-surprise") return frames.surprise;
+    if (state === "is-cheer") return frames.cheer;
     return frames.idle;
   }
 

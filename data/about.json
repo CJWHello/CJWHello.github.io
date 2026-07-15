@@ -18,6 +18,8 @@
       "jump": "./assets/pet/c-10.jpg",
       "nap": "./assets/pet/c-11.jpg",
       "proud": "./assets/pet/c-12.jpg",
+      "surprise": "./assets/pet/c-13.jpg",
+      "cheer": "./assets/pet/c-14.jpg",
       "walk1": "./assets/pet/c-4.jpg",
       "walk2": "./assets/pet/c-5.jpg",
       "hover": "./assets/pet/c-7.jpg"
@@ -42,6 +44,14 @@
       {
         "state": "is-proud",
         "text": "状态良好，继续前进。"
+      },
+      {
+        "state": "is-surprise",
+        "text": "咦，刚刚是不是点到我了？"
+      },
+      {
+        "state": "is-cheer",
+        "text": "收到，马上进入高能状态。"
       }
     ]
   },

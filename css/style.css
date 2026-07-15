@@ -2231,37 +2231,55 @@ h3 {
 
 @keyframes petHoverBob {
   0% {
-    transform: translateY(0) rotate(-2deg);
+    transform: scaleX(var(--pet-facing, 1)) translateY(0) rotate(-2deg);
   }
   100% {
-    transform: translateY(-6px) rotate(2deg);
+    transform: scaleX(var(--pet-facing, 1)) translateY(-6px) rotate(2deg);
   }
 }
 
 @keyframes petWavePose {
   0% {
-    transform: translateY(0) rotate(-3deg) scale(1);
+    transform: scaleX(var(--pet-facing, 1)) translateY(0) rotate(-3deg) scale(1);
   }
   100% {
-    transform: translateY(-4px) rotate(3deg) scale(1.03);
+    transform: scaleX(var(--pet-facing, 1)) translateY(-4px) rotate(3deg) scale(1.03);
   }
 }
 
 @keyframes petNapFloat {
   0%, 100% {
-    transform: translateY(0) scale(1);
+    transform: scaleX(var(--pet-facing, 1)) translateY(0) scale(1);
   }
   50% {
-    transform: translateY(-4px) scale(0.985);
+    transform: scaleX(var(--pet-facing, 1)) translateY(-4px) scale(0.985);
   }
 }
 
 @keyframes petProudTilt {
   0% {
-    transform: rotate(-2deg) translateY(0);
+    transform: scaleX(var(--pet-facing, 1)) rotate(-2deg) translateY(0);
   }
   100% {
-    transform: rotate(2deg) translateY(-5px);
+    transform: scaleX(var(--pet-facing, 1)) rotate(2deg) translateY(-5px);
+  }
+}
+
+@keyframes petSurpriseShake {
+  0% {
+    transform: scaleX(var(--pet-facing, 1)) rotate(-3deg) translateY(0);
+  }
+  100% {
+    transform: scaleX(var(--pet-facing, 1)) rotate(3deg) translateY(-3px);
+  }
+}
+
+@keyframes petCheerBounce {
+  0% {
+    transform: scaleX(var(--pet-facing, 1)) translateY(0) scale(1);
+  }
+  100% {
+    transform: scaleX(var(--pet-facing, 1)) translateY(-8px) scale(1.04);
   }
 }
 
@@ -2280,15 +2298,15 @@ h3 {
 
 .about-pet {
   position: absolute;
-  left: 50%;
+  left: 0;
   bottom: 14px;
   width: 176px;
   height: 228px;
   padding: 0;
   border: 0;
   background: transparent;
-  transform: translateX(-50%);
-  transition: filter 220ms ease, transform 220ms ease;
+  transform: translateX(var(--pet-left, 24px));
+  transition: filter 220ms ease, transform 720ms cubic-bezier(.2, .8, .2, 1);
 }
 
 .pet-floor {
@@ -2539,6 +2557,7 @@ h3 {
   transform-origin: center bottom;
   user-select: none;
   pointer-events: none;
+  transform: scaleX(var(--pet-facing, 1));
 }
 
 .about-pet.is-hovering .pet-frame {
@@ -2560,6 +2579,14 @@ h3 {
 
 .about-pet.is-proud .pet-frame {
   animation: petProudTilt 1200ms ease-in-out infinite alternate;
+}
+
+.about-pet.is-surprise .pet-frame {
+  animation: petSurpriseShake 520ms ease-in-out infinite alternate;
+}
+
+.about-pet.is-cheer .pet-frame {
+  animation: petCheerBounce 780ms ease-in-out infinite alternate;
 }
 
 .about-puzzle-copy h1 {
