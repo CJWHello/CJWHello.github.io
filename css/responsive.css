@@ -207,10 +207,6 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .note-book-card .project-content {
-    padding-left: 20px;
-  }
-
   .timeline::before {
     left: 10px;
   }
@@ -445,10 +441,6 @@
 
   .notes-compact-grid .project-content {
     padding: 16px;
-  }
-
-  .note-book-card .project-content {
-    padding-left: 22px;
   }
 
   .acgn-share-card {
