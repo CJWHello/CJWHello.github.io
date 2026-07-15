@@ -7,51 +7,71 @@
   },
   "pet": {
     "eyebrow": "Pet",
-    "title": "今日值班的小桌宠",
-    "lead": "基于 my.jpg 做的限定区域桌宠。它会在自己的舞台里巡逻、挥手、跳一下、打瞌睡，只会在 About 左侧这块区域活动。",
+    "title": "捉到一只活的山田凉",
+    "lead": "点击切换 12 个动作和 12 句状态语录。桌宠固定待在自己的舞台里，不会再到处乱跑。",
     "image": "./assets/my.jpg",
     "hoverText": "已进入互动模式，正在认真营业。",
-    "meta": ["Hover: 互动", "Click: 换动作", "Stage: 限定区域"],
-    "frames": {
-      "idle": "./assets/pet/c-1.jpg",
-      "wave": "./assets/pet/c-8.jpg",
-      "jump": "./assets/pet/c-10.jpg",
-      "nap": "./assets/pet/c-11.jpg",
-      "proud": "./assets/pet/c-12.jpg",
-      "surprise": "./assets/pet/c-13.jpg",
-      "cheer": "./assets/pet/c-14.jpg",
-      "walk1": "./assets/pet/c-4.jpg",
-      "walk2": "./assets/pet/c-5.jpg",
-      "hover": "./assets/pet/c-7.jpg"
-    },
+    "meta": ["Hover: 互动", "Click: 12 动作切换", "Stage: 固定区域"],
     "actions": [
       {
         "state": "is-idle",
-        "text": "今天也在认真值班。"
+        "text": "今天也在认真值班。",
+        "frame": "./assets/pet/stand.jpg"
+      },
+      {
+        "state": "is-sit",
+        "text": "先坐一会儿，整理一下思路。",
+        "frame": "./assets/pet/坐.jpg"
       },
       {
         "state": "is-wave",
-        "text": "你好，欢迎来到 About。"
+        "text": "你好，欢迎来到 About。",
+        "frame": "./assets/pet/挥手.jpg"
+      },
+      {
+        "state": "is-smile",
+        "text": "今天心情不错，先笑一个。",
+        "frame": "./assets/pet/笑.jpg"
+      },
+      {
+        "state": "is-left-walk",
+        "text": "如果可以，其实我还想往左边走两步。",
+        "frame": "./assets/pet/left_walk.jpg"
+      },
+      {
+        "state": "is-right-walk",
+        "text": "那也可以往右边试探一下。",
+        "frame": "./assets/pet/right_walk.jpg"
       },
       {
         "state": "is-jump",
-        "text": "让我原地蹦一下。"
+        "text": "让我原地蹦一下。",
+        "frame": "./assets/pet/jump.jpg"
       },
       {
         "state": "is-nap",
-        "text": "先小睡一会儿，再继续巡逻。"
+        "text": "太困了，允许我短暂休眠。",
+        "frame": "./assets/pet/睡.jpg"
+      },
+      {
+        "state": "is-guitar",
+        "text": "给你弹一段，不过只会可爱风。",
+        "frame": "./assets/pet/弹吉他.jpg"
       },
       {
         "state": "is-proud",
-        "text": "状态良好，继续前进。"
+        "text": "状态良好，继续前进。",
+        "frame": "./assets/pet/叉腰.jpg"
       },
       {
-        "state": "is-surprise",
-        "text": "咦，刚刚是不是点到我了？"
+        "state": "is-lookback",
+        "text": "别急，我回头看你一眼。",
+        "frame": "./assets/pet/回头望.jpg"
       },
       {
-        "state": "is-cheer",
-        "text": "收到，马上进入高能状态。"
+        "state": "is-crouch",
+        "text": "先蹲一下，再考虑下一步。",
+        "frame": "./assets/pet/蹲.jpg"
       }
     ]
   },

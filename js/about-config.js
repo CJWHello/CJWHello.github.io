@@ -37,17 +37,19 @@
     const container = document.querySelector("[data-about-copy]");
     if (!container || !pet) return;
     const meta = Array.isArray(pet.meta) ? pet.meta : [];
-    const frames = getPetFramesConfig(pet);
-    const initialText = escapeHtml((pet.actions && pet.actions[0] && pet.actions[0].text) || "今天也在认真值班。");
+    const actions = Array.isArray(pet.actions) ? pet.actions : [];
+    const initialAction = actions[0] || null;
+    const initialText = escapeHtml(initialAction?.text || "今天也在认真值班。");
+    const initialFrame = escapeHtml(initialAction?.frame || "./assets/pet/stand.jpg");
     container.innerHTML = `
       <div class="about-pet-shell" data-about-pet>
         <p class="eyebrow">${escapeHtml(pet.eyebrow || "Pet")}</p>
         <div class="about-pet-stage">
-          <button class="about-pet is-idle" type="button" aria-label="互动桌宠" style="--pet-x:56px;--pet-y:84px;">
+          <button class="about-pet is-idle" type="button" aria-label="互动桌宠">
             <span class="pet-speech">${initialText}</span>
             <span class="pet-floor"></span>
             <span class="pet-actor">
-              <img class="pet-frame" src="${escapeHtml(frames.idle || "./assets/pet/c-1.jpg")}" alt="${escapeHtml(pet.title || "桌宠")}" loading="lazy" />
+              <img class="pet-frame" src="${initialFrame}" alt="${escapeHtml(pet.title || "桌宠")}" loading="lazy" />
             </span>
           </button>
         </div>
@@ -62,58 +64,16 @@
 
   function initAboutPet(config) {
     const pet = document.querySelector(".about-pet");
-    const stage = document.querySelector(".about-pet-stage");
     const speech = pet?.querySelector(".pet-speech");
     const frame = pet?.querySelector(".pet-frame");
-    if (!pet || !speech || !stage) return;
+    if (!pet || !speech || !frame) return;
 
-    const frames = getPetFramesConfig(config);
     const actions = Array.isArray(config?.actions) && config.actions.length ? config.actions : [
-      { state: "is-idle", text: "今天也在认真值班。" },
-      { state: "is-wave", text: "你好，欢迎来到 About。" },
-      { state: "is-jump", text: "让我原地蹦一下。" },
-      { state: "is-nap", text: "先小睡一会儿。" },
-      { state: "is-proud", text: "状态良好，继续前进。" }
+      { state: "is-idle", text: "今天也在认真值班。", frame: "./assets/pet/stand.jpg" }
     ];
     const hoverText = config?.hoverText || "已进入互动模式，正在认真营业。";
 
     let index = 0;
-    let direction = 1;
-    let walkToggle = false;
-    let patrolTimer = null;
-
-    function applyFacing() {
-      pet.style.setProperty("--pet-facing", String(direction));
-    }
-
-    function patrol() {
-      const stageRect = stage.getBoundingClientRect();
-      const petWidth = pet.offsetWidth || 176;
-      const current = Number.parseFloat(pet.style.getPropertyValue("--pet-left")) || 24;
-      const maxLeft = Math.max(24, stageRect.width - petWidth - 24);
-      let next = current + direction * 40;
-
-      if (next <= 24) {
-        next = 24;
-        direction = 1;
-      } else if (next >= maxLeft) {
-        next = maxLeft;
-        direction = -1;
-      }
-
-      applyFacing();
-      pet.style.setProperty("--pet-left", `${Math.round(next)}px`);
-
-      if (frame && !pet.matches(":hover")) {
-        walkToggle = !walkToggle;
-        frame.src = walkToggle ? frames.walk1 : frames.walk2;
-        window.setTimeout(() => {
-          if (!pet.matches(":hover")) {
-            frame.src = framesForAction(actions[index], frames);
-          }
-        }, 260);
-      }
-    }
 
     function applyAction(nextIndex) {
       index = nextIndex % actions.length;
@@ -121,73 +81,25 @@
       pet.classList.remove(...stateClasses);
       pet.classList.add(actions[index].state);
       speech.textContent = actions[index].text;
-      if (frame) frame.src = framesForAction(actions[index], frames);
-    }
-
-    function startPatrol() {
-      clearInterval(patrolTimer);
-      patrolTimer = window.setInterval(() => {
-        if (pet.matches(":hover")) return;
-        patrol();
-      }, 1800);
+      frame.src = actions[index].frame || "./assets/pet/stand.jpg";
     }
 
     pet.addEventListener("pointerenter", () => {
       pet.classList.add("is-hovering");
       speech.textContent = hoverText;
-      if (frame) frame.src = frames.hover;
     });
 
     pet.addEventListener("pointerleave", () => {
       pet.classList.remove("is-hovering");
       speech.textContent = actions[index].text;
-      if (frame) frame.src = framesForAction(actions[index], frames);
+      frame.src = actions[index].frame || "./assets/pet/stand.jpg";
     });
 
     pet.addEventListener("click", () => {
       applyAction((index + 1) % actions.length);
     });
 
-    window.addEventListener("resize", () => {
-      const stageRect = stage.getBoundingClientRect();
-      const petWidth = pet.offsetWidth || 176;
-      const maxLeft = Math.max(24, stageRect.width - petWidth - 24);
-      const current = Number.parseFloat(pet.style.getPropertyValue("--pet-left")) || 24;
-      pet.style.setProperty("--pet-left", `${Math.min(current, maxLeft)}px`);
-    }, { passive: true });
-
-    pet.style.setProperty("--pet-left", "24px");
-    applyFacing();
     applyAction(0);
-    startPatrol();
-  }
-
-  function getPetFramesConfig(config) {
-    const userFrames = config && typeof config === "object" ? config.frames : null;
-    return {
-      idle: userFrames?.idle || "./assets/pet/c-1.jpg",
-      wave: userFrames?.wave || "./assets/pet/c-8.jpg",
-      jump: userFrames?.jump || "./assets/pet/c-10.jpg",
-      nap: userFrames?.nap || "./assets/pet/c-11.jpg",
-      proud: userFrames?.proud || "./assets/pet/c-12.jpg",
-      surprise: userFrames?.surprise || "./assets/pet/c-13.jpg",
-      cheer: userFrames?.cheer || "./assets/pet/c-14.jpg",
-      walk1: userFrames?.walk1 || "./assets/pet/c-4.jpg",
-      walk2: userFrames?.walk2 || "./assets/pet/c-5.jpg",
-      hover: userFrames?.hover || "./assets/pet/c-7.jpg"
-    };
-  }
-
-  function framesForAction(action, frames) {
-    const state = action?.state;
-    if (typeof action?.frame === "string") return action.frame;
-    if (state === "is-wave") return frames.wave;
-    if (state === "is-jump") return frames.jump;
-    if (state === "is-nap") return frames.nap;
-    if (state === "is-proud") return frames.proud;
-    if (state === "is-surprise") return frames.surprise;
-    if (state === "is-cheer") return frames.cheer;
-    return frames.idle;
   }
 
   function renderPuzzle(puzzle) {
