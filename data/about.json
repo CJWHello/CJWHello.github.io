@@ -151,7 +151,7 @@
         "title": "简洁 / 克制 / 可维护",
         "description": "这里可以写你偏好的设计或做事风格。",
         "edges": {
-          "top": "in",
+          "top": "out",
           "right": "in",
           "bottom": "flat",
           "left": "flat"

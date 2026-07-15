@@ -2048,14 +2048,11 @@ h3 {
 }
 
 [data-theme="light"] .about-puzzle-board {
-  background:
-    linear-gradient(145deg, rgba(255,255,255,.9), rgba(255,255,255,.72)),
-    rgba(255,255,255,.78);
-  box-shadow: 0 22px 60px rgba(35, 70, 150, 0.14);
+  background:transparent;
 }
 
 [data-theme="light"] .about-puzzle-board::before {
-  border-color: rgba(9, 16, 36, 0.08);
+  border:0;
 }
 
 [data-theme="light"] .about-puzzle-board::after {
