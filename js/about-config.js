@@ -43,7 +43,6 @@
     const initialFrame = escapeHtml(initialAction?.frame || "./assets/pet/stand.jpg");
     container.innerHTML = `
       <div class="about-pet-shell" data-about-pet>
-        <p class="eyebrow">${escapeHtml(pet.eyebrow || "Pet")}</p>
         <div class="about-pet-stage">
           <button class="about-pet is-idle" type="button" aria-label="互动桌宠">
             <span class="pet-speech">${initialText}</span>
@@ -53,8 +52,6 @@
             </span>
           </button>
         </div>
-        <h1>${escapeHtml(pet.title || "今日值班的小桌宠")}</h1>
-        <p class="about-puzzle-lead">${escapeHtml(pet.lead || "")}</p>
         <div class="about-puzzle-meta">
           ${meta.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
         </div>

@@ -2284,9 +2284,9 @@ h3 {
 }
 
 .about-pet-stage {
-  min-height: 360px;
+  min-height: 420px;
   overflow: hidden;
-  padding: 12px 0 8px;
+  padding: 8px 0 12px;
   border: 0;
   background:transparent;
   box-shadow: var(--shadow-soft);
@@ -2295,9 +2295,9 @@ h3 {
 .about-pet {
   position: absolute;
   left: 50%;
-  bottom: 14px;
-  width: 176px;
-  height: 228px;
+  bottom: 8px;
+  width: 230px;
+  height: 300px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -2307,14 +2307,15 @@ h3 {
 
 .pet-floor {
   position: absolute;
-  bottom: 8px;
+  bottom: 12px;
   left: 50%;
-  width: 116px;
-  height: 22px;
+  width: 160px;
+  height: 30px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,0,0,.24), rgba(0,0,0,0) 72%);
+  background: radial-gradient(circle, rgba(0,0,0,.3), rgba(0,0,0,.12) 48%, rgba(0,0,0,0) 74%);
   transform: translateX(-50%);
   transition: transform 220ms ease, opacity 220ms ease;
+  filter: blur(1px);
 }
 
 .pet-actor,
@@ -2538,18 +2539,18 @@ h3 {
 }
 
 .pet-actor {
-  inset: 24px 0 16px;
+  inset: 10px 0 22px;
   display: grid;
   place-items: end center;
 }
 
 .pet-frame {
   display: block;
-  width: 150px;
+  width: 208px;
   height: auto;
-  max-height: 176px;
+  max-height: 258px;
   object-fit: contain;
-  filter: drop-shadow(0 14px 20px rgba(0, 0, 0, 0.16));
+  filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.16));
   transform-origin: center bottom;
   user-select: none;
   pointer-events: none;
