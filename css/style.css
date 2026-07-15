@@ -1969,6 +1969,8 @@ h3 {
   display: grid;
   gap: 24px;
   padding-top: 8px;
+  border:0;
+  background: transparent;
 }
 
 .travel-gallery-card {
