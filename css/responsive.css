@@ -223,7 +223,7 @@
 
   .musing-timeline-entry {
     margin-left: 38px;
-    grid-template-columns: 52px minmax(0, 1fr);
+    min-height: 76px;
   }
 
   .notes-compact-grid {
@@ -511,8 +511,7 @@
   }
 
   .musing-timeline-entry {
-    grid-template-columns: 48px minmax(0, 1fr);
-    gap: 12px;
+    gap: 6px;
     min-height: 62px;
     margin-left: 30px;
   }

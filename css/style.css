@@ -1806,12 +1806,11 @@ h3 {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 56px minmax(0, 1fr);
-  align-items: center;
-  gap: 18px;
-  min-height: 72px;
+  gap: 6px;
+  align-content: center;
+  min-height: 82px;
   margin-left: 40px;
-  padding: 0 4px 0 0;
+  padding: 10px 4px 10px 0;
   color: inherit;
   transition: transform 180ms ease, color 180ms ease, text-shadow 180ms ease;
 }
@@ -1853,17 +1852,19 @@ h3 {
 }
 
 .musing-entry-date {
+  display: block;
   color: var(--muted);
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
 }
 
 .musing-entry-title {
+  display: block;
   margin: 0;
   color: var(--text);
-  font-size: clamp(1.08rem, 1.6vw, 1.55rem);
+  font-size: clamp(1.02rem, 1.5vw, 1.42rem);
   font-weight: 500;
   line-height: 1.35;
 }
