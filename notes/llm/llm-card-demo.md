@@ -1,9 +1,9 @@
 ---
-title: "LLM 卡片自动生成测试"
-cover: "./assets/images/project-nexus.svg"
+title: "Transformer笔记"
+cover: "https://i-blog.csdnimg.cn/img_convert/00e3bfd5a3c0070849b4aa5fa2635b12.png"
 excerpt: "用于测试 Notes 页是否会自动生成新类别按钮和新笔记卡片。"
-tags: ["LLM", "Demo", "Auto Card"]
-type: "Demo"
+tags: ["LLM", "Transformer"]
+type: "LLM"
 ---
 
 # LLM 卡片自动生成测试
