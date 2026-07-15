@@ -203,13 +203,12 @@
     grid-template-columns: 1fr;
   }
 
-  .notes-compact-grid .project-card {
-    grid-template-columns: 96px minmax(0, 1fr);
+  .notes-compact-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .notes-compact-grid .project-card img {
-    width: 96px;
-    min-height: 150px;
+  .note-book-card .project-content {
+    padding-left: 20px;
   }
 
   .timeline::before {
@@ -441,18 +440,15 @@
   }
 
   .notes-compact-grid .project-card {
-    grid-template-columns: 1fr;
-  }
-
-  .notes-compact-grid .project-card img {
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    aspect-ratio: 16 / 7;
+    aspect-ratio: 0.82;
   }
 
   .notes-compact-grid .project-content {
     padding: 16px;
+  }
+
+  .note-book-card .project-content {
+    padding-left: 22px;
   }
 
   .acgn-share-card {
