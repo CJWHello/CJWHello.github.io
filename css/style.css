@@ -1204,16 +1204,17 @@ h3 {
   right: 50%;
   z-index: 2;
   min-height: 24px;
-  padding: 0 10px;
-  border: 1px solid rgba(212, 179, 92, 0.26);
-  border-radius: 999px;
+  padding: 0;
+  border: 0;
   color: rgba(243, 228, 186, 0.9);
-  background: rgba(212, 179, 92, 0.08);
-  font-family: var(--font-mono);
+  background: transparent;
+  font-family: "MedievalSharp", "Cinzel Decorative", "Papyrus", fantasy;
   font-size: 0.66rem;
   font-weight: 700;
   line-height: 24px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-shadow: 0 0 14px rgba(212, 179, 92, 0.18);
   transform: translateX(50%);
 }
 
@@ -1233,11 +1234,16 @@ h3 {
 
 .note-book-card .project-meta span {
   min-height: 26px;
-  padding: 0 9px;
+  padding: 0;
   font-size: 0.68rem;
   color: #f0dfab;
-  border-color: rgba(212, 179, 92, 0.24);
-  background: rgba(212, 179, 92, 0.08);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-family: "MedievalSharp", "Cinzel Decorative", "Papyrus", fantasy;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 0 14px rgba(212, 179, 92, 0.14);
 }
 
 .note-cover-crest {
@@ -1339,12 +1345,20 @@ h3 {
 
 .note-book-card .tech-stack span {
   color: rgba(239, 230, 201, 0.76);
-  border-color: rgba(255,255,255,.08);
-  background: rgba(255,255,255,.04);
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-family: "MedievalSharp", "Cinzel Decorative", "Papyrus", fantasy;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(212, 179, 92, 0.12);
 }
 
 .note-book-card .tech-stack {
   justify-content: center;
+  gap: 10px;
 }
 
 [data-theme="light"] .note-book-card {
@@ -1366,14 +1380,14 @@ h3 {
 
 [data-theme="light"] .note-book-card .project-meta span {
   color: #7d5413;
-  border-color: rgba(171, 125, 36, 0.18);
-  background: rgba(171, 125, 36, 0.08);
 }
 
 [data-theme="light"] .note-volume-badge {
   color: #7d5413;
-  border-color: rgba(171, 125, 36, 0.2);
-  background: rgba(171, 125, 36, 0.08);
+}
+
+[data-theme="light"] .note-book-card .tech-stack span {
+  color: rgba(125, 84, 19, 0.82);
 }
 
 [data-theme="light"] .note-cover-crest-ring {
