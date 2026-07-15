@@ -2165,7 +2165,7 @@ h3 {
 
 [data-theme="light"] .travel-gallery-card {
   background: transparent;
-  box-shadow: 0 18px 38px rgba(35, 70, 150, 0.12);
+  box-shadow: 0;
 }
 
 [data-theme="light"] .travel-gallery-status span {
