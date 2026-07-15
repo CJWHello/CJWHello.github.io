@@ -13,7 +13,7 @@
     })
     .then(renderAbout)
     .catch(() => {
-      /* Keep the static fallback. */
+      initAboutPet(readPetFallbackConfig());
     });
 
   function escapeHtml(value = "") {
@@ -100,6 +100,34 @@
     });
 
     applyAction(0);
+  }
+
+  function readPetFallbackConfig() {
+    const pet = document.querySelector(".about-pet");
+    const speech = pet?.querySelector(".pet-speech");
+    const frame = pet?.querySelector(".pet-frame");
+    const title = document.querySelector("[data-about-pet] + h1, .about-pet-shell h1");
+    const lead = document.querySelector(".about-pet-shell .about-puzzle-lead");
+
+    return {
+      title: title?.textContent?.trim() || "今日值班的小桌宠",
+      lead: lead?.textContent?.trim() || "",
+      hoverText: "已进入互动模式，正在认真营业。",
+      actions: [
+        { state: "is-idle", text: speech?.textContent?.trim() || "今天也在认真值班。", frame: frame?.getAttribute("src") || "./assets/pet/stand.jpg" },
+        { state: "is-sit", text: "先坐一会儿，整理一下思路。", frame: "./assets/pet/坐.jpg" },
+        { state: "is-wave", text: "你好，欢迎来到 About。", frame: "./assets/pet/挥手.jpg" },
+        { state: "is-smile", text: "今天心情不错，先笑一个。", frame: "./assets/pet/笑.jpg" },
+        { state: "is-left-walk", text: "如果可以，其实我还想往左边走两步。", frame: "./assets/pet/left_walk.jpg" },
+        { state: "is-right-walk", text: "那也可以往右边试探一下。", frame: "./assets/pet/right_walk.jpg" },
+        { state: "is-jump", text: "让我原地蹦一下。", frame: "./assets/pet/jump.jpg" },
+        { state: "is-nap", text: "太困了，允许我短暂休眠。", frame: "./assets/pet/睡.jpg" },
+        { state: "is-guitar", text: "给你弹一段，不过只会可爱风。", frame: "./assets/pet/弹吉他.jpg" },
+        { state: "is-proud", text: "状态良好，继续前进。", frame: "./assets/pet/叉腰.jpg" },
+        { state: "is-lookback", text: "别急，我回头看你一眼。", frame: "./assets/pet/回头望.jpg" },
+        { state: "is-crouch", text: "先蹲一下，再考虑下一步。", frame: "./assets/pet/蹲.jpg" }
+      ]
+    };
   }
 
   function renderPuzzle(puzzle) {
