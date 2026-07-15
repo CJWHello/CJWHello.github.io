@@ -203,9 +203,13 @@
     grid-template-columns: 1fr;
   }
 
-  .travel-slider-shell {
-    grid-template-columns: 38px minmax(0, 1fr) 38px;
-    gap: 10px;
+  .travel-coverflow-shell {
+    min-height: 360px;
+    padding: 0 52px;
+  }
+
+  .travel-coverflow-stage {
+    height: 360px;
   }
 
   .travel-slider-button {
@@ -457,8 +461,31 @@
     padding: 18px;
   }
 
-  .travel-slide img {
-    height: 220px;
+  .travel-gallery-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .travel-coverflow-shell {
+    min-height: 280px;
+    padding: 0 42px;
+  }
+
+  .travel-coverflow-stage {
+    height: 280px;
+  }
+
+  .travel-slide-card {
+    width: min(100%, 360px);
+    border-radius: 22px;
+  }
+
+  .travel-slide-card.is-prev {
+    transform: translate(-50%, -50%) translateX(-24%) rotateY(18deg) scale(0.82);
+  }
+
+  .travel-slide-card.is-next {
+    transform: translate(-50%, -50%) translateX(24%) rotateY(-18deg) scale(0.82);
   }
 
   .acgn-share-card {
