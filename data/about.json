@@ -8,10 +8,10 @@
   "pet": {
     "eyebrow": "Pet",
     "title": "捉到一只活的山田凉",
-    "lead": "点击切换 12 个动作和 12 句状态语录。桌宠固定待在自己的舞台里，不会再到处乱跑。",
+    "lead": "捉到一只活的山田凉",
     "image": "./assets/my.jpg",
     "hoverText": "已进入互动模式，正在认真营业。",
-    "meta": ["Hover: 互动", "Click: 12 动作切换", "Stage: 固定区域"],
+    "meta": ["Hover: 互动", "Click: 动作切换", "Stage: 固定区域"],
     "actions": [
       {
         "state": "is-idle",
@@ -25,7 +25,7 @@
       },
       {
         "state": "is-wave",
-        "text": "你好，欢迎来到 About。",
+        "text": "你好啊。",
         "frame": "./assets/pet/挥手.jpg"
       },
       {
@@ -65,7 +65,7 @@
       },
       {
         "state": "is-lookback",
-        "text": "别急，我回头看你一眼。",
+        "text": "回头看你一眼。",
         "frame": "./assets/pet/回头望.jpg"
       },
       {

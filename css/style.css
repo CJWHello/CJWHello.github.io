@@ -1969,7 +1969,7 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 18px;
   color: var(--text);
-  background: rgba(255,255,255,.08);
+  background: transparent;
   box-shadow: var(--shadow-soft);
   font-size: 0.8rem;
   font-weight: 700;
@@ -1986,7 +1986,7 @@ h3 {
   margin-left: -7px;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  background: rgba(255,255,255,.08);
+  background: transparent;
   content: "";
   transform: translateY(-8px) rotate(45deg);
 }
