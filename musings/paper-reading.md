@@ -1,19 +1,21 @@
----
-title: "读 VLM 论文时，我更想先抓住输入输出"
-date: "2026-07-12"
-tags: ["VLM", "论文"]
-cover: "./assets/images/project-nexus.svg"
-excerpt: "很多 VLM 论文细节很密，但先看清数据流、视觉 token 怎么进入语言模型，理解会稳很多。"
----
+# &#35770;&#25991;&#38405;&#35835;&#20999;&#29255;&#65306;&#20808;&#25235;&#38382;&#39064;&#65292;&#20877;&#30475;&#26041;&#27861;
 
-![VLM paper notes](./assets/images/project-nexus.svg)
+![paper reading](./assets/images/project-dashboard.svg)
 
-最近读 VLM 相关论文时，我发现自己最容易被模块名和公式带走。  
-更好的顺序反而是先画一张输入输出图：
+When reading a paper, I now ask one question first:
+what kind of failure case is this paper trying to fix?
 
-1. 图像或视频如何切成视觉 token
-2. 视觉 token 如何和文本 token 对齐
-3. 模型在哪些层发生跨模态交互
-4. 最终 loss 或 reward 到底约束了什么
+## &#25105;&#29616;&#22312;&#24120;&#29992;&#30340;&#38405;&#35835;&#39034;&#24207;
 
-这比一上来追逐所有细节更稳定。
+1. Abstract and introduction
+2. Method figure and information flow
+3. Only the experiments that validate the core claim
+
+## &#35835;&#23436;&#20043;&#21518;&#20250;&#35760;&#20160;&#20040;
+
+- problem definition
+- key assumption
+- reusable idea
+- weak point in evaluation
+
+> A good note is not a summary rewrite, but a reason to remember the paper.

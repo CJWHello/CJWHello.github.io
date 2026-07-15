@@ -1,6 +1,3 @@
-/**
- * Render musing cards from a simple JSON manifest.
- */
 (() => {
   "use strict";
 
@@ -19,23 +16,19 @@
       bindFilters();
     })
     .catch(() => {
-      grid.innerHTML = '<article class="sticky-note-card"><h2>Musings load failed</h2><p>GitHub Pages can render these cards after the JSON manifest is available.</p></article>';
+      grid.innerHTML = '<article class="sticky-note-card"><div class="sticky-note-body"><h2>Musings load failed</h2><p>请检查 musings.json 是否可读取。</p></div></article>';
     });
 
   function renderCard(post) {
     const tagText = (post.tags || []).join(" ");
-    const tagHtml = (post.tags || []).map((tag) => `<span>${tag}</span>`).join("");
     return `
-      <article class="sticky-note-card reveal is-visible" data-tags="${tagText}">
+      <a class="sticky-note-card reveal is-visible" data-tags="${tagText}" href="./musing.html?file=${encodeURIComponent(post.href || "")}">
         <img src="${post.cover}" alt="${post.title}" loading="lazy" />
         <div class="sticky-note-body">
-          <time>${post.date || ""}</time>
           <h2>${post.title}</h2>
           <p>${post.excerpt || ""}</p>
-          <div class="skill-tags">${tagHtml}</div>
-          <div class="card-actions"><a href="${post.href}"><i class="fa-regular fa-file-lines"></i> Open</a></div>
         </div>
-      </article>
+      </a>
     `;
   }
 

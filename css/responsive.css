@@ -217,6 +217,10 @@
     height: 38px;
   }
 
+  .sticky-note-card {
+    grid-template-columns: 180px minmax(0, 1fr);
+  }
+
   .notes-compact-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -486,6 +490,15 @@
 
   .travel-slide-card.is-next {
     transform: translate(-50%, -50%) translateX(24%) rotateY(-18deg) scale(0.82);
+  }
+
+  .sticky-note-card {
+    grid-template-columns: 1fr;
+  }
+
+  .sticky-note-card img {
+    height: auto;
+    aspect-ratio: 16 / 8;
   }
 
   .acgn-share-card {

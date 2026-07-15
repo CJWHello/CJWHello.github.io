@@ -1,27 +1,27 @@
 {
   "musings": [
     {
-      "title": "科研日常",
+      "title": "\u79d1\u7814\u65e5\u5e38",
       "date": "2026-07-11",
-      "tags": ["科研", "日常"],
+      "tags": ["\u79d1\u7814", "\u65e5\u5e38"],
       "cover": "./assets/images/project-vision.svg",
-      "excerpt": "记录实验推进、读论文时的卡顿点，以及那些看起来很小但会影响整天节奏的细节。",
+      "excerpt": "\u8bb0\u5f55\u5b9e\u9a8c\u63a8\u8fdb\u3001\u8bfb\u8bba\u6587\u65f6\u7684\u5361\u987f\u70b9\uff0c\u4ee5\u53ca\u90a3\u4e9b\u770b\u8d77\u6765\u5f88\u5c0f\u4f46\u4f1a\u5f71\u54cd\u6574\u5929\u8282\u594f\u7684\u7ec6\u8282\u3002",
       "href": "./musings/research-life.md"
     },
     {
-      "title": "论文阅读切片",
+      "title": "\u8bba\u6587\u9605\u8bfb\u5207\u7247",
       "date": "2026-07-11",
-      "tags": ["论文", "VLM"],
+      "tags": ["\u8bba\u6587", "VLM"],
       "cover": "./assets/images/project-dashboard.svg",
-      "excerpt": "把某篇论文最值得记住的问题意识、方法直觉和我自己的疑问压缩成一张卡片。",
+      "excerpt": "\u628a\u67d0\u7bc7\u8bba\u6587\u6700\u503c\u5f97\u8bb0\u4f4f\u7684\u95ee\u9898\u610f\u8bc6\u3001\u65b9\u6cd5\u76f4\u89c9\u548c\u6211\u81ea\u5df1\u7684\u7591\u95ee\u538b\u7f29\u6210\u4e00\u5f20\u5361\u7247\u3002",
       "href": "./musings/paper-reading.md"
     },
     {
-      "title": "夜里 Debug",
+      "title": "\u591c\u91cc Debug",
       "date": "2026-07-11",
-      "tags": ["工程", "心情"],
+      "tags": ["\u5de5\u7a0b", "\u5fc3\u60c5"],
       "cover": "./assets/images/project-nexus.svg",
-      "excerpt": "那些在深夜突然定位到 bug 根因的时刻，通常伴随着一点疲惫、一点成就感和一点哭笑不得。",
+      "excerpt": "\u90a3\u4e9b\u5728\u6df1\u591c\u7a81\u7136\u5b9a\u4f4d\u5230 bug \u6839\u56e0\u7684\u65f6\u523b\uff0c\u901a\u5e38\u4f34\u968f\u7740\u4e00\u70b9\u75b2\u60eb\u3001\u4e00\u70b9\u6210\u5c31\u611f\u548c\u4e00\u70b9\u54ed\u7b11\u4e0d\u5f97\u3002",
       "href": "./musings/night-debug.md"
     }
   ]

@@ -1752,12 +1752,15 @@ h3 {
 
 .sticky-notes-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 16px;
 }
 
 .sticky-note-card {
   position: relative;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  align-items: stretch;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
@@ -1766,12 +1769,46 @@ h3 {
     var(--surface);
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16);
   backdrop-filter: blur(18px);
-  transition: transform 180ms ease, border-color 180ms ease;
+  isolation: isolate;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.sticky-note-card::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(110deg, transparent 12%, rgba(255,255,255,.14) 46%, transparent 74%);
+  opacity: 0;
+  transform: translateX(-55%);
+  transition: opacity 220ms ease, transform 560ms ease;
+  pointer-events: none;
+}
+
+.sticky-note-card::after {
+  position: absolute;
+  inset: auto -8% -36% 30%;
+  height: 72%;
+  content: "";
+  background: radial-gradient(circle, rgba(91, 140, 255, 0.24), transparent 68%);
+  filter: blur(28px);
+  opacity: 0;
+  transition: opacity 220ms ease;
+  pointer-events: none;
 }
 
 .sticky-note-card:hover {
   border-color: rgba(0, 229, 255, 0.28);
   transform: translateY(-4px);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.2);
+}
+
+.sticky-note-card:hover::before {
+  opacity: 1;
+  transform: translateX(45%);
+}
+
+.sticky-note-card:hover::after {
+  opacity: 1;
 }
 
 .sticky-note-card.is-hidden {
@@ -1780,13 +1817,19 @@ h3 {
 
 .sticky-note-card img {
   width: 100%;
-  aspect-ratio: 16 / 8;
+  height: 100%;
   object-fit: cover;
-  opacity: 0.88;
+  opacity: 0.9;
 }
 
 .sticky-note-body {
-  padding: 16px;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-content: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 20px 22px;
 }
 
 .sticky-note-body time {
@@ -1797,15 +1840,25 @@ h3 {
 }
 
 .sticky-note-body h2 {
-  margin: 8px 0;
-  font-size: 1rem;
-  line-height: 1.28;
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.32;
 }
 
 .sticky-note-body p {
   margin-bottom: 0;
   color: var(--muted);
   font-size: 0.84rem;
+  line-height: 1.7;
+}
+
+.sticky-note-card .skill-tags {
+  gap: 8px;
+}
+
+.sticky-note-card .skill-tags span {
+  border-color: rgba(255,255,255,.1);
+  background: rgba(255,255,255,.05);
 }
 
 /* ACGN pages */
