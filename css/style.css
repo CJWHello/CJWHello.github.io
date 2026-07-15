@@ -1255,6 +1255,24 @@ h3 {
   margin: 6px auto 16px;
 }
 
+.note-cover-crest::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  width: 48px;
+  height: 48px;
+  content: "";
+  border-radius: 50%;
+  border: 3px solid rgba(212, 179, 92, 0.42);
+  background:
+    radial-gradient(circle, rgba(110, 43, 74, 0.74) 0 26%, rgba(43, 70, 115, 0.96) 42%, rgba(17, 21, 38, 0.98) 72%);
+  box-shadow:
+    inset 0 0 0 3px rgba(255,255,255,.05),
+    0 0 12px rgba(212, 179, 92, 0.1);
+  transform: translate(-50%, -50%);
+}
+
 .note-cover-crest-ring,
 .note-cover-crest-core {
   position: absolute;
@@ -1262,21 +1280,34 @@ h3 {
 
 .note-cover-crest-ring {
   inset: 4px 0;
+  z-index: 1;
   border: 4px solid rgba(212, 179, 92, 0.72);
   border-radius: 50%;
   clip-path: polygon(
     0% 50%,
-    8% 34%,
-    22% 16%,
-    50% 6%,
-    78% 16%,
-    92% 34%,
+    4% 42%,
+    10% 32%,
+    18% 23%,
+    28% 15%,
+    39% 10%,
+    50% 8%,
+    61% 10%,
+    72% 15%,
+    82% 23%,
+    90% 32%,
+    96% 42%,
     100% 50%,
-    92% 66%,
-    78% 84%,
-    50% 94%,
-    22% 84%,
-    8% 66%
+    96% 58%,
+    90% 68%,
+    82% 77%,
+    72% 85%,
+    61% 90%,
+    50% 92%,
+    39% 90%,
+    28% 85%,
+    18% 77%,
+    10% 68%,
+    4% 58%
   );
   box-shadow:
     inset 0 0 0 2px rgba(35, 20, 14, 0.48),
@@ -1296,14 +1327,10 @@ h3 {
 }
 
 .note-cover-crest-ring::before {
-  width: 58px;
-  height: 58px;
-  border: 3px solid rgba(212, 179, 92, 0.42);
-  background:
-    radial-gradient(circle, rgba(110, 43, 74, 0.74) 0 30%, rgba(43, 70, 115, 0.92) 45%, rgba(17, 21, 38, 0.96) 72%);
-  box-shadow:
-    inset 0 0 0 3px rgba(255,255,255,.05),
-    0 0 12px rgba(212, 179, 92, 0.1);
+  width: 88px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(212, 179, 92, 0.44), rgba(212, 179, 92, 0.12), rgba(212, 179, 92, 0.44));
+  box-shadow: 0 0 8px rgba(212, 179, 92, 0.08);
 }
 
 .note-cover-crest-ring::after {
@@ -1316,6 +1343,7 @@ h3 {
 
 .note-cover-crest-core {
   inset: 18px 45px;
+  z-index: 2;
   display: grid;
   place-items: center;
   color: #f4ead1;
@@ -1422,8 +1450,12 @@ h3 {
   border-color: rgba(171, 125, 36, 0.72);
 }
 
-[data-theme="light"] .note-cover-crest-ring::before {
+[data-theme="light"] .note-cover-crest::before {
   border-color: rgba(171, 125, 36, 0.34);
+}
+
+[data-theme="light"] .note-cover-crest-ring::before {
+  background: linear-gradient(90deg, rgba(171, 125, 36, 0.42), rgba(171, 125, 36, 0.12), rgba(171, 125, 36, 0.42));
 }
 
 [data-theme="light"] .note-cover-crest-core {
