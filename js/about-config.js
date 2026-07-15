@@ -37,34 +37,17 @@
     const container = document.querySelector("[data-about-copy]");
     if (!container || !pet) return;
     const meta = Array.isArray(pet.meta) ? pet.meta : [];
-    const image = escapeHtml(pet.image || "./assets/my.jpg");
+    const frames = getPetFramesConfig(pet);
     const initialText = escapeHtml((pet.actions && pet.actions[0] && pet.actions[0].text) || "今天也在认真值班。");
     container.innerHTML = `
       <div class="about-pet-shell" data-about-pet>
         <p class="eyebrow">${escapeHtml(pet.eyebrow || "Pet")}</p>
         <div class="about-pet-stage">
-          <button class="about-pet is-idle" type="button" aria-label="互动桌宠" style="--pet-image:url('${image}');--pet-x:56px;--pet-y:84px;">
+          <button class="about-pet is-idle" type="button" aria-label="互动桌宠" style="--pet-x:56px;--pet-y:84px;">
             <span class="pet-speech">${initialText}</span>
             <span class="pet-floor"></span>
             <span class="pet-actor">
-              <span class="pet-tail"></span>
-              <span class="pet-body"></span>
-              <span class="pet-hood-ear ear-left"></span>
-              <span class="pet-hood-ear ear-right"></span>
-              <span class="pet-arm arm-left"></span>
-              <span class="pet-arm arm-right"></span>
-              <span class="pet-leg leg-left"></span>
-              <span class="pet-leg leg-right"></span>
-              <span class="pet-avatar-shell">
-                <span class="pet-avatar"></span>
-                <span class="pet-face-overlay">
-                  <span class="pet-eye eye-left"></span>
-                  <span class="pet-eye eye-right"></span>
-                  <span class="pet-blush blush-left"></span>
-                  <span class="pet-blush blush-right"></span>
-                </span>
-              </span>
-              <span class="pet-badge"></span>
+              <img class="pet-frame" src="${escapeHtml(frames.idle || "./assets/pet/c-1.jpg")}" alt="${escapeHtml(pet.title || "桌宠")}" loading="lazy" />
             </span>
           </button>
         </div>
@@ -81,8 +64,10 @@
     const pet = document.querySelector(".about-pet");
     const stage = document.querySelector(".about-pet-stage");
     const speech = pet?.querySelector(".pet-speech");
+    const frame = pet?.querySelector(".pet-frame");
     if (!pet || !speech || !stage) return;
 
+    const frames = getPetFramesConfig(config);
     const actions = Array.isArray(config?.actions) && config.actions.length ? config.actions : [
       { state: "is-idle", text: "今天也在认真值班。" },
       { state: "is-wave", text: "你好，欢迎来到 About。" },
@@ -94,6 +79,7 @@
 
     let index = 0;
     let roamTimer = null;
+    let walkToggle = false;
 
     function movePet() {
       const stageRect = stage.getBoundingClientRect();
@@ -105,6 +91,15 @@
       const y = Math.round(minY + Math.random() * Math.max(0, maxY - minY));
       pet.style.setProperty("--pet-x", `${x}px`);
       pet.style.setProperty("--pet-y", `${y}px`);
+      if (frame) {
+        walkToggle = !walkToggle;
+        frame.src = walkToggle ? frames.walk1 : frames.walk2;
+        window.setTimeout(() => {
+          if (!pet.matches(":hover")) {
+            frame.src = framesForState(actions[index].state, frames);
+          }
+        }, 420);
+      }
     }
 
     function applyAction(nextIndex, shouldMove) {
@@ -113,6 +108,7 @@
       pet.classList.remove(...stateClasses);
       pet.classList.add(actions[index].state);
       speech.textContent = actions[index].text;
+      if (frame) frame.src = framesForState(actions[index].state, frames);
       if (shouldMove) movePet();
     }
 
@@ -127,11 +123,13 @@
     pet.addEventListener("pointerenter", () => {
       pet.classList.add("is-hovering");
       speech.textContent = hoverText;
+      if (frame) frame.src = frames.hover;
     });
 
     pet.addEventListener("pointerleave", () => {
       pet.classList.remove("is-hovering");
       speech.textContent = actions[index].text;
+      if (frame) frame.src = framesForState(actions[index].state, frames);
     });
 
     pet.addEventListener("click", () => {
@@ -142,6 +140,28 @@
     applyAction(0, false);
     movePet();
     startRoam();
+  }
+
+  function getPetFramesConfig(config) {
+    const userFrames = config && typeof config === "object" ? config.frames : null;
+    return {
+      idle: userFrames?.idle || "./assets/pet/c-1.jpg",
+      wave: userFrames?.wave || "./assets/pet/c-8.jpg",
+      jump: userFrames?.jump || "./assets/pet/c-10.jpg",
+      nap: userFrames?.nap || "./assets/pet/c-11.jpg",
+      proud: userFrames?.proud || "./assets/pet/c-12.jpg",
+      walk1: userFrames?.walk1 || "./assets/pet/c-4.jpg",
+      walk2: userFrames?.walk2 || "./assets/pet/c-5.jpg",
+      hover: userFrames?.hover || "./assets/pet/c-7.jpg"
+    };
+  }
+
+  function framesForState(state, frames) {
+    if (state === "is-wave") return frames.wave;
+    if (state === "is-jump") return frames.jump;
+    if (state === "is-nap") return frames.nap;
+    if (state === "is-proud") return frames.proud;
+    return frames.idle;
   }
 
   function renderPuzzle(puzzle) {

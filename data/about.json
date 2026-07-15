@@ -12,6 +12,16 @@
     "image": "./assets/my.jpg",
     "hoverText": "已进入互动模式，正在认真营业。",
     "meta": ["Hover: 互动", "Click: 换动作", "Stage: 限定区域"],
+    "frames": {
+      "idle": "./assets/pet/c-1.jpg",
+      "wave": "./assets/pet/c-8.jpg",
+      "jump": "./assets/pet/c-10.jpg",
+      "nap": "./assets/pet/c-11.jpg",
+      "proud": "./assets/pet/c-12.jpg",
+      "walk1": "./assets/pet/c-4.jpg",
+      "walk2": "./assets/pet/c-5.jpg",
+      "hover": "./assets/pet/c-7.jpg"
+    },
     "actions": [
       {
         "state": "is-idle",
@@ -42,8 +52,8 @@
     "tiles": [
       {
         "label": "爱好",
-        "title": "阅读 / 电影 / 羽毛球",
-        "description": "这里可以替换成你真实的兴趣爱好。",
+        "title": "健身 / 篮球 ",
+        "description": "健身支撑我走过了三年考研,篮球陪我度过了大学四年",
         "edges": {
           "top": "flat",
           "right": "out",
@@ -53,8 +63,8 @@
       },
       {
         "label": "MBTI",
-        "title": "INTJ",
-        "description": "这里写人格类型，或者你更认可的一种自我描述。",
+        "title": "ENTJ",
+        "description": "时E时I，时J时P，没有e人我就是e人，没有j人我就是j人",
         "edges": {
           "top": "flat",
           "right": "in",
@@ -63,9 +73,9 @@
         }
       },
       {
-        "label": "城市",
-        "title": "湖北黄冈",
-        "description": "这里可以写家乡、常驻城市，或者一句和城市有关的小注解。",
+        "label": "CS Learner",
+        "title": "LLM / VLM",
+        "description": "初学前端，后转全栈，忽闻前端已死，遂转算法，现学LLM，未来学VLM，人生苦短，然学无涯。最近在恶补LLM和VLM的知识，ai变得太快了，学不完了，呜呜~",
         "edges": {
           "top": "flat",
           "right": "flat",
@@ -75,8 +85,8 @@
       },
       {
         "label": "研究方向",
-        "title": "VLM / Agent / Infra",
-        "description": "这里可以写你当前最关注的技术主线。",
+        "title": "LLM / VLM",
+        "description": "",
         "edges": {
           "top": "out",
           "right": "out",
@@ -86,8 +96,8 @@
       },
       {
         "label": "关键词",
-        "title": "持续学习",
-        "description": "这里适合放你的核心特质或成长关键词。",
+        "title": "见贤思齐",
+        "description": "哇靠，怎么这么厉害啊，我也想成为这样的人",
         "edges": {
           "top": "in",
           "right": "in",
@@ -97,8 +107,8 @@
       },
       {
         "label": "日常状态",
-        "title": "看论文 / 做笔记 / 写 Demo",
-        "description": "这里可以放平时最常见的学习和工作节奏。",
+        "title": "焦虑->学习->摆烂->焦虑",
+        "description": "太累了，先休息一下吧。",
         "edges": {
           "top": "out",
           "right": "flat",

@@ -2229,6 +2229,42 @@ h3 {
   }
 }
 
+@keyframes petHoverBob {
+  0% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  100% {
+    transform: translateY(-6px) rotate(2deg);
+  }
+}
+
+@keyframes petWavePose {
+  0% {
+    transform: translateY(0) rotate(-3deg) scale(1);
+  }
+  100% {
+    transform: translateY(-4px) rotate(3deg) scale(1.03);
+  }
+}
+
+@keyframes petNapFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-4px) scale(0.985);
+  }
+}
+
+@keyframes petProudTilt {
+  0% {
+    transform: rotate(-2deg) translateY(0);
+  }
+  100% {
+    transform: rotate(2deg) translateY(-5px);
+  }
+}
+
 .about-pet-stage {
   min-height: 360px;
   overflow: hidden;
@@ -2487,6 +2523,45 @@ h3 {
     linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.74));
 }
 
+.pet-actor {
+  inset: 24px 0 16px;
+  display: grid;
+  place-items: end center;
+}
+
+.pet-frame {
+  display: block;
+  width: 150px;
+  height: auto;
+  max-height: 176px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 20px rgba(0, 0, 0, 0.16));
+  transform-origin: center bottom;
+  user-select: none;
+  pointer-events: none;
+}
+
+.about-pet.is-hovering .pet-frame {
+  animation: petHoverBob 920ms ease-in-out infinite alternate;
+}
+
+.about-pet.is-wave .pet-frame {
+  animation: petWavePose 860ms ease-in-out infinite alternate;
+}
+
+.about-pet.is-jump .pet-frame {
+  animation: petDeskJump 920ms ease-in-out infinite alternate;
+}
+
+.about-pet.is-nap .pet-frame {
+  animation: petNapFloat 1800ms ease-in-out infinite;
+  opacity: 0.94;
+}
+
+.about-pet.is-proud .pet-frame {
+  animation: petProudTilt 1200ms ease-in-out infinite alternate;
+}
+
 .about-puzzle-copy h1 {
   margin-bottom: 0;
   font-size: clamp(2rem, 4vw, 3.6rem);
@@ -2531,9 +2606,7 @@ h3 {
   padding: 28px;
   border: 1px solid var(--line);
   border-radius: 28px;
-  background:
-    linear-gradient(145deg, rgba(255,255,255,.11), rgba(255,255,255,.03)),
-    rgba(255,255,255,.03);
+  background:transparent;
   box-shadow: 0 26px 70px rgba(0, 0, 0, 0.22);
   backdrop-filter: blur(18px);
   isolation: isolate;
