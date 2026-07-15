@@ -11,21 +11,56 @@
     })
     .then((payload) => {
       const items = Array.isArray(payload.musings) ? payload.musings : [];
-      grid.innerHTML = items.map(renderCard).join("");
+      grid.innerHTML = renderTimeline(items);
     })
     .catch(() => {
-      grid.innerHTML = '<article class="sticky-note-card"><div class="sticky-note-body"><h2>Musings load failed</h2><p>请检查 musings.json 是否可读取。</p></div></article>';
+      grid.innerHTML = '<div class="musing-year-group"><h2 class="musing-year-heading">Musings</h2><p class="musing-empty">无法读取 musings.json。</p></div>';
     });
 
-  function renderCard(post) {
-    const dateTime = [post.date || "", post.time || ""].filter(Boolean).join(" ");
+  function renderTimeline(items) {
+    if (!items.length) {
+      return '<div class="musing-year-group"><h2 class="musing-year-heading">Musings</h2><p class="musing-empty">还没有随想记录。</p></div>';
+    }
+
+    const groups = items.reduce((bucket, item) => {
+      const year = (item.date || "").slice(0, 4) || "Unknown";
+      if (!bucket[year]) bucket[year] = [];
+      bucket[year].push(item);
+      return bucket;
+    }, {});
+
+    return Object.keys(groups)
+      .sort((a, b) => Number(b) - Number(a))
+      .map((year) => {
+        const rows = groups[year]
+          .sort((a, b) => `${b.date || ""} ${b.time || ""}`.localeCompare(`${a.date || ""} ${a.time || ""}`))
+          .map(renderEntry)
+          .join("");
+
+        return `
+          <section class="musing-year-group reveal is-visible">
+            <h2 class="musing-year-heading">${year}</h2>
+            <div class="musing-timeline-list">
+              ${rows}
+            </div>
+          </section>
+        `;
+      })
+      .join("");
+  }
+
+  function renderEntry(post) {
     return `
-      <a class="sticky-note-card sticky-note-timeline reveal is-visible" href="./musing.html?file=${encodeURIComponent(post.href || "")}">
-        <div class="sticky-note-body">
-          <time>${dateTime}</time>
-          <h2>${post.title}</h2>
-        </div>
+      <a class="musing-timeline-entry" href="./musing.html?file=${encodeURIComponent(post.href || "")}">
+        <time class="musing-entry-date">${formatDate(post.date || "")}</time>
+        <span class="musing-entry-title">${post.title || ""}</span>
       </a>
     `;
+  }
+
+  function formatDate(value) {
+    const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (!match) return value;
+    return `${match[2]}-${match[3]}`;
   }
 })();

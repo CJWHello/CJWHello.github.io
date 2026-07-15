@@ -1747,159 +1747,154 @@ h3 {
 
 /* Musings page */
 .sticky-notes-section {
-  padding-top: 12px;
+  padding-top: 6px;
 }
 
 .sticky-notes-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
   position: relative;
+  display: grid;
+  gap: 34px;
+  max-width: 920px;
+  min-height: 420px;
+  padding: 8px 0 12px;
 }
 
 .sticky-notes-grid::before {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 24px;
-  width: 1px;
-  content: "";
-  background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.06));
-}
-
-.sticky-note-card {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 16px 18px 16px 14px;
-  background: linear-gradient(180deg, rgba(255,248,221,.96), rgba(247,236,202,.94));
-  box-shadow:
-    0 10px 20px rgba(0, 0, 0, 0.12),
-    inset 0 1px 0 rgba(255,255,255,.6);
-  isolation: isolate;
-  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
-}
-
-.sticky-note-card::before {
-  position: absolute;
   inset: 0;
   content: "";
-  background: linear-gradient(110deg, transparent 12%, rgba(255,255,255,.42) 46%, transparent 74%);
-  opacity: 0;
-  transform: translateX(-55%);
-  transition: opacity 220ms ease, transform 560ms ease;
+  background:
+    linear-gradient(rgba(245, 247, 255, 0.76), rgba(245, 247, 255, 0.76)),
+    url("../assets/my.jpg") center/cover no-repeat;
+  opacity: 0.18;
+  filter: blur(18px) saturate(0.9);
+  border-radius: 28px;
   pointer-events: none;
 }
 
-.sticky-note-card::after {
+.sticky-notes-grid::after {
   position: absolute;
-  top: 12px;
-  right: 18px;
-  width: 86px;
-  height: 24px;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 2px;
   content: "";
-  border-radius: 4px;
-  background: linear-gradient(180deg, rgba(176, 220, 255, .48), rgba(150, 198, 236, .32));
-  box-shadow:
-    0 6px 16px rgba(50, 84, 120, 0.12),
-    inset 0 1px 0 rgba(255,255,255,.52);
-  opacity: 0.9;
+  background: linear-gradient(180deg, rgba(180, 180, 180, 0.42), rgba(180, 180, 180, 0.1));
   pointer-events: none;
-  transform: rotate(-3deg);
 }
 
-.sticky-note-timeline {
-  margin-left: 54px;
-}
-
-.sticky-note-timeline::before {
-  position: absolute;
-  top: 26px;
-  left: -39px;
-  z-index: 2;
-  width: 18px;
-  height: 18px;
-  content: "";
-  border: 3px solid rgba(120, 190, 255, 0.75);
-  border-radius: 50%;
-  background: #f8eed0;
-  box-shadow: 0 0 0 6px rgba(91, 140, 255, 0.08);
-}
-
-.sticky-note-card:hover {
-  border-color: rgba(0, 229, 255, 0.16);
-  transform: translateY(-4px) rotate(-0.2deg);
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.18),
-    0 0 26px rgba(91, 140, 255, 0.08);
-}
-
-.sticky-note-card:hover::before {
-  opacity: 1;
-  transform: translateX(45%);
-}
-
-.sticky-note-card:hover::after {
-  opacity: 1;
-}
-
-.sticky-note-card.is-hidden {
-  display: none;
-}
-
-.sticky-note-body {
+.musing-year-group {
   position: relative;
   z-index: 1;
   display: grid;
-  align-content: center;
-  gap: 6px;
-  min-width: 0;
-  min-height: 86px;
-  padding: 18px 24px 18px;
-  color: #3c2f1f;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0)),
-    repeating-linear-gradient(
-      180deg,
-      transparent 0,
-      transparent 27px,
-      rgba(90, 80, 54, 0.06) 27px,
-      rgba(90, 80, 54, 0.06) 28px
-    );
+  gap: 10px;
 }
 
-.sticky-note-body time {
-  color: rgba(86, 70, 44, 0.72);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
+.musing-year-heading {
+  margin: 0 0 2px 44px;
+  color: var(--text);
+  font-size: clamp(2rem, 3vw, 2.4rem);
   font-weight: 800;
-  letter-spacing: 0.04em;
+  line-height: 1;
 }
 
-.sticky-note-body h2 {
+.musing-timeline-list {
+  display: grid;
+}
+
+.musing-timeline-entry {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  align-items: center;
+  gap: 18px;
+  min-height: 72px;
+  margin-left: 40px;
+  padding: 0 4px 0 0;
+  color: inherit;
+  transition: transform 180ms ease, color 180ms ease, text-shadow 180ms ease;
+}
+
+.musing-timeline-entry::before {
+  position: absolute;
+  top: 50%;
+  left: -28px;
+  z-index: 2;
+  width: 10px;
+  height: 10px;
+  content: "";
+  border-radius: 50%;
+  background: rgba(180, 180, 180, 0.88);
+  transform: translateY(-50%);
+  box-shadow: 0 0 0 6px rgba(255,255,255,.04);
+}
+
+.musing-timeline-entry::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: "";
+  border-bottom: 1px dashed rgba(180, 180, 180, 0.28);
+}
+
+.musing-timeline-entry:hover {
+  transform: translateX(6px);
+  color: var(--text);
+  text-shadow: 0 0 16px rgba(91, 140, 255, 0.12);
+}
+
+.musing-timeline-entry:hover::before {
+  background: var(--secondary);
+  box-shadow:
+    0 0 0 6px rgba(0, 229, 255, 0.08),
+    0 0 18px rgba(0, 229, 255, 0.2);
+}
+
+.musing-entry-date {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.musing-entry-title {
   margin: 0;
-  color: #2d2216;
-  font-size: 1rem;
-  line-height: 1.4;
+  color: var(--text);
+  font-size: clamp(1.08rem, 1.6vw, 1.55rem);
+  font-weight: 500;
+  line-height: 1.35;
 }
 
-[data-theme="light"] .sticky-note-card {
-  border-color: rgba(121, 98, 62, 0.16);
-  background: linear-gradient(180deg, rgba(255,250,234,.98), rgba(245,236,208,.96));
-  box-shadow:
-    0 14px 28px rgba(138, 112, 70, 0.12),
-    inset 0 1px 0 rgba(255,255,255,.62);
+.musing-empty {
+  margin: 0 0 0 44px;
+  color: var(--muted);
 }
 
-[data-theme="light"] .sticky-note-card:hover {
-  box-shadow:
-    0 20px 40px rgba(138, 112, 70, 0.16),
-    0 0 22px rgba(91, 140, 255, 0.08);
+[data-theme="light"] .sticky-notes-grid::before {
+  opacity: 0.28;
 }
 
-[data-theme="light"] .sticky-note-body {
-  color: #473726;
+[data-theme="light"] .sticky-notes-grid::after {
+  background: linear-gradient(180deg, rgba(120, 120, 120, 0.34), rgba(120, 120, 120, 0.14));
+}
+
+[data-theme="light"] .musing-timeline-entry::before {
+  background: rgba(140, 140, 140, 0.82);
+}
+
+[data-theme="light"] .musing-timeline-entry::after {
+  border-bottom-color: rgba(120, 120, 120, 0.22);
+}
+
+[data-theme="light"] .musing-entry-title {
+  color: rgba(7, 16, 36, 0.76);
+}
+
+[data-theme="light"] .musing-timeline-entry:hover {
+  color: #071024;
 }
 
 /* ACGN pages */

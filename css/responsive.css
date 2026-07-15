@@ -217,8 +217,13 @@
     height: 38px;
   }
 
-  .sticky-note-card {
-    margin-left: 50px;
+  .musing-year-heading {
+    margin-left: 42px;
+  }
+
+  .musing-timeline-entry {
+    margin-left: 38px;
+    grid-template-columns: 52px minmax(0, 1fr);
   }
 
   .notes-compact-grid {
@@ -492,20 +497,32 @@
     transform: translate(-50%, -50%) translateX(24%) rotateY(-18deg) scale(0.82);
   }
 
-  .sticky-notes-grid::before {
-    left: 18px;
+  .sticky-notes-grid {
+    gap: 26px;
   }
 
-  .sticky-note-card {
-    margin-left: 40px;
+  .sticky-notes-grid::after {
+    left: 16px;
   }
 
-  .sticky-note-body {
-    padding: 18px 18px 20px;
+  .musing-year-heading {
+    margin-left: 34px;
+    font-size: 1.8rem;
   }
 
-  .sticky-note-timeline::before {
-    left: -31px;
+  .musing-timeline-entry {
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 12px;
+    min-height: 62px;
+    margin-left: 30px;
+  }
+
+  .musing-timeline-entry::before {
+    left: -23px;
+  }
+
+  .musing-entry-title {
+    font-size: 1rem;
   }
 
   .acgn-share-card {
