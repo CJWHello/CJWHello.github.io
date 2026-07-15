@@ -204,12 +204,12 @@
   }
 
   .travel-coverflow-shell {
-    min-height: 360px;
-    padding: 0 52px;
+    min-height: 300px;
+    padding: 0 46px;
   }
 
   .travel-coverflow-stage {
-    height: 360px;
+    height: 300px;
   }
 
   .travel-slider-button {
@@ -467,16 +467,16 @@
   }
 
   .travel-coverflow-shell {
-    min-height: 280px;
-    padding: 0 42px;
+    min-height: 240px;
+    padding: 0 38px;
   }
 
   .travel-coverflow-stage {
-    height: 280px;
+    height: 240px;
   }
 
   .travel-slide-card {
-    width: min(100%, 360px);
+    width: min(100%, 320px);
     border-radius: 22px;
   }
 

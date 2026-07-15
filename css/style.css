@@ -1974,16 +1974,12 @@ h3 {
 .travel-gallery-card {
   position: relative;
   overflow: hidden;
-  padding: 28px;
+  padding: 24px;
   border: 1px solid var(--line);
   border-radius: 28px;
-  background:
-    radial-gradient(circle at 14% 18%, rgba(91, 140, 255, 0.18), transparent 28%),
-    radial-gradient(circle at 82% 20%, rgba(139, 92, 246, 0.16), transparent 24%),
-    linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03)),
-    var(--surface);
+  background: transparent;
   box-shadow: 0 22px 54px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(18px);
+  backdrop-filter: none;
 }
 
 .travel-gallery-head {
@@ -2019,13 +2015,13 @@ h3 {
 
 .travel-coverflow-shell {
   position: relative;
-  min-height: clamp(320px, 46vw, 500px);
-  padding: 0 64px;
+  min-height: clamp(240px, 32vw, 360px);
+  padding: 0 56px;
 }
 
 .travel-coverflow-stage {
   position: relative;
-  height: clamp(320px, 46vw, 500px);
+  height: clamp(240px, 32vw, 360px);
   perspective: 1400px;
   transform-style: preserve-3d;
 }
@@ -2034,7 +2030,7 @@ h3 {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: min(100%, 620px);
+  width: min(100%, 520px);
   aspect-ratio: 16 / 10;
   margin: 0;
   overflow: hidden;
@@ -2168,10 +2164,10 @@ h3 {
 }
 
 [data-theme="light"] .travel-gallery-card {
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.84), rgba(255,255,255,.6)),
-    rgba(244, 247, 255, 0.78);
+  background: transparent;
   box-shadow: 0 18px 38px rgba(35, 70, 150, 0.12);
+}
+
 [data-theme="light"] .travel-gallery-status span {
   border-color: rgba(9, 16, 36, 0.1);
   background: rgba(255,255,255,.72);
