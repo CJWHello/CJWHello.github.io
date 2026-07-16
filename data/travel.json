@@ -14,6 +14,7 @@
     {
       "city": "杭州",
       "spot": "西湖",
+      "date": "2025.04",
       "images": [
         {
           "src": "./assets/images/project-nexus.svg",
@@ -28,6 +29,7 @@
     {
       "city": "上海",
       "spot": "外滩",
+      "date": "2025.05",
       "images": [
         {
           "src": "./assets/images/project-dashboard.svg",
@@ -42,6 +44,7 @@
     {
       "city": "北京",
       "spot": "故宫",
+      "date": "2025.02",
       "images": [
         {
           "src": "./assets/images/project-vision.svg",
@@ -56,6 +59,7 @@
     {
       "city": "成都",
       "spot": "宽窄巷子",
+      "date": "2024.11",
       "images": [
         {
           "src": "./assets/images/project-diffusion.svg",

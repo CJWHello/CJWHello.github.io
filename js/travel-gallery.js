@@ -232,9 +232,10 @@
 
     galleryRoot.innerHTML = items.map((item, itemIndex) => {
       const slides = normalizeImages(item);
+      const place = [item.city, item.spot].filter(Boolean).join(" · ");
+      const date = item.date || "";
       return [
         `<article class="travel-postcard reveal is-visible" data-postcard data-postcard-index="${itemIndex}">`,
-        '  <div class="travel-postcard-stamp" aria-hidden="true"></div>',
         '  <div class="travel-postcard-visual">',
         '    <div class="travel-postcard-frame">',
         slides.map((slide, slideIndex) => (
@@ -250,17 +251,16 @@
           "    </button>"
         ].join("") : "",
         "  </div>",
-        '  <div class="travel-postcard-copy">',
-        `    <p class="travel-postcard-city">${escapeHtml(item.city || "")}</p>`,
-        `    <h2>${escapeHtml(item.spot || "")}</h2>`,
-        '    <div class="travel-postcard-meta">',
-        `      <span>${String(slides.length).padStart(2, "0")} photos</span>`,
-        `      <span data-postcard-counter>01 / ${String(slides.length).padStart(2, "0")}</span>`,
-        "    </div>",
+        '  <div class="travel-postcard-seal">',
+        `    <p class="travel-postcard-place">${escapeHtml(place || item.city || "")}</p>`,
+        `    <p class="travel-postcard-date">${escapeHtml(date)}</p>`,
+        slides.length > 1
+          ? `    <span class="travel-postcard-counter" data-postcard-counter>01 / ${String(slides.length).padStart(2, "0")}</span>`
+          : "",
+        "  </div>",
         slides.length > 1
           ? `    <div class="travel-postcard-dots">${slides.map((_, slideIndex) => `<button class="travel-postcard-dot${slideIndex === 0 ? " is-active" : ""}" type="button" data-postcard-dot="${slideIndex}" aria-label="切换到第 ${slideIndex + 1} 张"></button>`).join("")}</div>`
           : "",
-        "  </div>",
         "</article>"
       ].join("");
     }).join("");
