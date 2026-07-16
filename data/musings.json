@@ -4,19 +4,19 @@
       "year": "2026",
       "entries": [
         {
-          "title": "\u79d1\u7814\u65e5\u5e38",
+          "title": "科研日常",
           "date": "07-11",
           "time": "22:14",
           "href": "./musings/research-life.md"
         },
         {
-          "title": "\u8bba\u6587\u9605\u8bfb\u5207\u7247",
+          "title": "论文阅读切片",
           "date": "07-11",
           "time": "18:36",
           "href": "./musings/paper-reading.md"
         },
         {
-          "title": "\u591c\u91cc Debug",
+          "title": "夜里 Debug",
           "date": "07-11",
           "time": "01:08",
           "href": "./musings/night-debug.md"

@@ -12,7 +12,7 @@
       const post = items.find((item) => item.href === file) || items[0];
 
       if (!post?.href) {
-        output.innerHTML = "<p>未找到对应随想。请从 Musings 页重新进入。</p>";
+        output.innerHTML = "<p>未找到对应随想。请从 Musings 页面重新进入。</p>";
         return;
       }
 
@@ -42,7 +42,10 @@
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         return response.json();
       })
-      .then((payload) => Array.isArray(payload.musings) ? payload.musings : [])
+      .then((payload) => {
+        const years = Array.isArray(payload.years) ? payload.years : [];
+        return years.flatMap((group) => Array.isArray(group.entries) ? group.entries : []);
+      })
       .catch(() => []);
   }
 
