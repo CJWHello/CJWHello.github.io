@@ -2107,16 +2107,16 @@ h3 {
 .travel-postcard {
   position: relative;
   display: grid;
-  gap: 10px;
-  padding: 0 0 18px;
-  border-radius: 18px;
+  gap: 8px;
+  padding: 0 0 10px;
+  border-radius: 0;
   background: transparent;
   box-shadow: none;
   transition: transform 180ms ease;
 }
 
 .travel-postcard:hover {
-  transform: translateY(-5px) rotate(-0.6deg);
+  transform: translateY(-3px);
 }
 
 .travel-postcard-visual {
@@ -2126,14 +2126,11 @@ h3 {
 .travel-postcard-frame {
   position: relative;
   overflow: hidden;
-  border: 10px solid rgba(255, 252, 246, 0.94);
-  border-bottom-width: 26px;
-  border-radius: 12px;
-  background: #f7f1e6;
-  box-shadow:
-    0 20px 34px rgba(82, 53, 29, 0.16),
-    inset 0 0 0 1px rgba(133, 99, 61, 0.08);
-  aspect-ratio: 5 / 4;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  box-shadow: 0 16px 28px rgba(22, 14, 10, 0.14);
+  aspect-ratio: 16 / 9;
 }
 
 .travel-postcard-image {
@@ -2189,50 +2186,40 @@ h3 {
 .travel-postcard-seal {
   position: absolute;
   right: 16px;
-  bottom: 12px;
-  position: relative;
-  z-index: 1;
+  bottom: 14px;
+  z-index: 3;
   display: grid;
   justify-items: end;
-  gap: 3px;
-  min-width: 126px;
-  padding: 10px 12px 11px;
-  border-radius: 999px 999px 18px 999px;
-  background:
-    radial-gradient(circle at 20% 25%, rgba(255,255,255,.26), transparent 38%),
-    linear-gradient(135deg, rgba(123, 87, 52, 0.9), rgba(94, 58, 41, 0.96));
-  box-shadow:
-    0 10px 20px rgba(45, 25, 18, 0.22),
-    inset 0 0 0 1px rgba(255,255,255,.12);
-  color: #fff6ea;
+  gap: 1px;
+  max-width: min(58%, 220px);
+  min-width: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
   text-align: right;
+  pointer-events: none;
 }
 
 .travel-postcard-place,
-.travel-postcard-date,
-.travel-postcard-counter {
+.travel-postcard-date {
   margin: 0;
+  font-family: "MedievalSharp", "Cinzel Decorative", "Papyrus", fantasy;
+  text-shadow: 0 2px 14px rgba(18, 12, 9, 0.24);
 }
 
 .travel-postcard-place {
-  max-width: 180px;
-  font-size: 0.76rem;
+  max-width: 100%;
+  font-size: 0.86rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  line-height: 1.2;
+  letter-spacing: 0.1em;
+  line-height: 1.15;
 }
 
 .travel-postcard-date {
-  font-size: 0.68rem;
-  opacity: 0.9;
-  letter-spacing: 0.16em;
+  font-size: 0.7rem;
+  opacity: 0.92;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-}
-
-.travel-postcard-counter {
-  font-size: 0.62rem;
-  opacity: 0.74;
-  letter-spacing: 0.16em;
 }
 
 .travel-postcard-dots {
@@ -2265,29 +2252,21 @@ h3 {
   box-shadow: 0 14px 28px rgba(35, 70, 150, 0.12);
 }
 
-[data-theme="light"] .travel-postcard-seal {
-  background:
-    radial-gradient(circle at 20% 25%, rgba(255,255,255,.32), transparent 38%),
-    linear-gradient(135deg, rgba(164, 123, 81, 0.94), rgba(118, 77, 54, 0.96));
+[data-theme="light"] .travel-postcard-place,
+[data-theme="light"] .travel-postcard-date {
+  color: #fff8ef;
 }
 
 [data-theme="dark"] .travel-postcard {
   box-shadow: none;
 }
 
-[data-theme="dark"] .travel-postcard-frame {
-  border-color: rgba(248, 239, 222, 0.9);
-  background: rgba(233, 224, 207, 0.94);
-}
-
-[data-theme="dark"] .travel-postcard-seal {
-  background:
-    radial-gradient(circle at 22% 24%, rgba(165, 227, 255, 0.2), transparent 42%),
-    linear-gradient(135deg, rgba(43, 63, 112, 0.92), rgba(66, 34, 93, 0.96));
-  box-shadow:
-    0 12px 24px rgba(5, 10, 28, 0.28),
-    inset 0 0 0 1px rgba(173, 233, 255, 0.12);
-  color: #eff6ff;
+[data-theme="dark"] .travel-postcard-place,
+[data-theme="dark"] .travel-postcard-date {
+  color: #e8f2ff;
+  text-shadow:
+    0 0 10px rgba(121, 189, 255, 0.18),
+    0 2px 16px rgba(12, 16, 42, 0.42);
 }
 
 .cta-card {

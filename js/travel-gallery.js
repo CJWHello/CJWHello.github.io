@@ -232,7 +232,7 @@
 
     galleryRoot.innerHTML = items.map((item, itemIndex) => {
       const slides = normalizeImages(item);
-      const place = [item.city, item.spot].filter(Boolean).join(" · ");
+      const place = item.placeEn || [item.cityEn, item.spotEn].filter(Boolean).join(" ");
       const date = item.date || "";
       return [
         `<article class="travel-postcard reveal is-visible" data-postcard data-postcard-index="${itemIndex}">`,
@@ -252,11 +252,8 @@
         ].join("") : "",
         "  </div>",
         '  <div class="travel-postcard-seal">',
-        `    <p class="travel-postcard-place">${escapeHtml(place || item.city || "")}</p>`,
+        `    <p class="travel-postcard-place">${escapeHtml(place || "")}</p>`,
         `    <p class="travel-postcard-date">${escapeHtml(date)}</p>`,
-        slides.length > 1
-          ? `    <span class="travel-postcard-counter" data-postcard-counter>01 / ${String(slides.length).padStart(2, "0")}</span>`
-          : "",
         "  </div>",
         slides.length > 1
           ? `    <div class="travel-postcard-dots">${slides.map((_, slideIndex) => `<button class="travel-postcard-dot${slideIndex === 0 ? " is-active" : ""}" type="button" data-postcard-dot="${slideIndex}" aria-label="切换到第 ${slideIndex + 1} 张"></button>`).join("")}</div>`
@@ -291,7 +288,6 @@
     galleryRoot.querySelectorAll("[data-postcard]").forEach((card) => {
       const images = [...card.querySelectorAll("[data-postcard-image]")];
       const dots = [...card.querySelectorAll("[data-postcard-dot]")];
-      const counter = card.querySelector("[data-postcard-counter]");
       const prev = card.querySelector("[data-postcard-prev]");
       const next = card.querySelector("[data-postcard-next]");
       if (images.length < 2) return;
@@ -305,9 +301,6 @@
         dots.forEach((dot, index) => {
           dot.classList.toggle("is-active", index === current);
         });
-        if (counter) {
-          counter.textContent = `${String(current + 1).padStart(2, "0")} / ${String(images.length).padStart(2, "0")}`;
-        }
       };
 
       const go = (nextIndex) => {
