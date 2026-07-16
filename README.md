@@ -86,7 +86,7 @@ http://localhost:8080
 
 ## Deploy to GitHub Pages
 
-1. 创建 GitHub 仓库，例如 `chenjunwei.github.io`，或任意普通仓库名。
+1. 创建 GitHub 仓库，例如 `<yourname>.github.io`，或任意普通仓库名。
 2. 将本项目所有文件提交到仓库根目录。
 3. 打开仓库的 `Settings`。
 4. 进入 `Pages`。
@@ -95,7 +95,7 @@ http://localhost:8080
    - Branch: `main`
    - Folder: `/root`
 6. 保存后等待 GitHub Pages 构建完成。
-7. 访问 `https://chenjunwei.github.io/`。
+7. 访问 `https://<yourname>.github.io/`。
 
 如果你部署到普通仓库，例如 `portfolio`，访问地址通常是：
 
@@ -189,7 +189,7 @@ note.html?file=resume-projects
 如果你希望像 Vue 自定义组件一样维护卡片数据，现在这几个页面都可以按数据文件维护：
 
 - `Notes`：`data/notes.json`
-- `Projects`：`data/projects.json`
+- `Travel`：`data/travel.json`
 - `Musings`：`data/musings.json`
 - `二次元`：`data/acgn.json`
 
@@ -233,7 +233,6 @@ excerpt: "卡片摘要"
 
 图片都在 `assets/images/` 中：
 
-- `profile-card.svg`：首页个人视觉卡片
 - `project-vision.svg`：项目预览图
 - `project-dashboard.svg`：项目预览图
 - `project-diffusion.svg`：项目预览图

@@ -19,42 +19,6 @@
           "alt": "\u676d\u5dde\u65c5\u884c\u7167\u7247 3"
         }
       ]
-    },
-    {
-      "title": "\u91cd\u5e86",
-      "subtitle": "Mountain City",
-      "images": [
-        {
-          "src": "./assets/images/project-diffusion.svg",
-          "alt": "\u91cd\u5e86\u65c5\u884c\u7167\u7247 1"
-        },
-        {
-          "src": "./assets/images/project-nexus.svg",
-          "alt": "\u91cd\u5e86\u65c5\u884c\u7167\u7247 2"
-        },
-        {
-          "src": "./assets/images/project-dashboard.svg",
-          "alt": "\u91cd\u5e86\u65c5\u884c\u7167\u7247 3"
-        }
-      ]
-    },
-    {
-      "title": "\u9752\u5c9b",
-      "subtitle": "Sea Breeze",
-      "images": [
-        {
-          "src": "./assets/images/project-vision.svg",
-          "alt": "\u9752\u5c9b\u65c5\u884c\u7167\u7247 1"
-        },
-        {
-          "src": "./assets/images/project-diffusion.svg",
-          "alt": "\u9752\u5c9b\u65c5\u884c\u7167\u7247 2"
-        },
-        {
-          "src": "./assets/images/project-nexus.svg",
-          "alt": "\u9752\u5c9b\u65c5\u884c\u7167\u7247 3"
-        }
-      ]
     }
   ]
 }

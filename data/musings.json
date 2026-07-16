@@ -4,22 +4,10 @@
       "year": "2026",
       "entries": [
         {
-          "title": "科研日常",
-          "date": "07-11",
+          "title": "Hello World",
+          "date": "07-15",
           "time": "22:14",
-          "href": "./musings/research-life.md"
-        },
-        {
-          "title": "论文阅读切片",
-          "date": "07-11",
-          "time": "18:36",
-          "href": "./musings/paper-reading.md"
-        },
-        {
-          "title": "夜里 Debug",
-          "date": "07-11",
-          "time": "01:08",
-          "href": "./musings/night-debug.md"
+          "href": "./musings/begin.md"
         }
       ]
     }

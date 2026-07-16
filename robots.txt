@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://chenjunwei.github.io/sitemap.xml
+Sitemap: https://your-site-url.example/sitemap.xml
