@@ -30,8 +30,9 @@
   }
 
   .about-puzzle-board {
+    justify-self: center;
     margin-right: auto;
-    margin-left: 0;
+    margin-left: auto;
   }
 
   .orbiter-ring {
