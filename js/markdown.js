@@ -3,6 +3,7 @@
 
   const output = document.querySelector("[data-markdown-output]");
   const tocRoot = document.querySelector("[data-note-toc]");
+  const tocBody = document.querySelector("[data-note-toc-body]");
   const rawLink = document.querySelector("[data-raw-note]");
   if (!output) return;
 
@@ -130,17 +131,13 @@
   }
 
   function renderToc(items) {
-    if (!tocRoot) return;
+    if (!tocRoot || !tocBody) return;
     if (!items.length) {
-      tocRoot.innerHTML = [
-        '<p class="note-toc-title">Outline</p>',
-        '<p class="note-toc-empty">当前笔记没有可用标题。</p>'
-      ].join("");
+      tocBody.innerHTML = '<p class="note-toc-empty">当前笔记没有可用标题。</p>';
       return;
     }
 
-    tocRoot.innerHTML = [
-      '<p class="note-toc-title">Outline</p>',
+    tocBody.innerHTML = [
       '<nav class="note-toc-nav" aria-label="Markdown outline">',
       items.map((item) => (
         `<a class="note-toc-link level-${item.level}" href="#${item.slug}">${escapeHtml(item.text)}</a>`
