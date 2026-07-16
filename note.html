@@ -44,9 +44,15 @@
 
   <main class="page-transition inner-page">
     <section class="section-shell note-shell">
-      <article class="markdown-reader glass-card reveal is-visible" data-markdown-output>
-        <p class="muted">Loading...</p>
-      </article>
+      <div class="note-layout">
+        <aside class="note-toc glass-card reveal is-visible" data-note-toc>
+          <p class="note-toc-title">Outline</p>
+          <p class="note-toc-empty">正在生成大纲...</p>
+        </aside>
+        <article class="markdown-reader glass-card reveal is-visible" data-markdown-output>
+          <p class="muted">Loading...</p>
+        </article>
+      </div>
       <div class="centered-action reveal is-visible">
         <a class="button button-ghost" href="./projects.html"><i class="fa-solid fa-arrow-left"></i><span>返回笔记库</span></a>
       </div>
@@ -57,7 +63,6 @@
   <script src="./js/particles.js"></script><script src="./js/animation.js"></script><script src="./js/site-data.js"></script><script src="./js/main.js"></script><script src="./js/markdown.js"></script>
 </body>
 </html>
-
 
 
 

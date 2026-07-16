@@ -471,6 +471,15 @@
     gap: 14px;
   }
 
+  .note-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .note-toc {
+    position: static;
+    order: -1;
+  }
+
   .sticky-notes-grid {
     gap: 26px;
   }

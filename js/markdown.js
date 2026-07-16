@@ -2,8 +2,7 @@
   "use strict";
 
   const output = document.querySelector("[data-markdown-output]");
-  const titleNode = document.querySelector("[data-note-title]");
-  const subtitleNode = document.querySelector("[data-note-subtitle]");
+  const tocRoot = document.querySelector("[data-note-toc]");
   const rawLink = document.querySelector("[data-raw-note]");
   if (!output) return;
 
@@ -15,8 +14,9 @@
 
   const params = new URLSearchParams(window.location.search);
   const key = params.get("file") || "multimodal-roadmap";
+  const headings = [];
 
-  const md = createMarkdownRenderer();
+  const md = createMarkdownRenderer(headings);
 
   loadNotes()
     .then((notes) => {
@@ -24,25 +24,24 @@
 
       if (!note?.path) {
         output.innerHTML = "<p>未找到对应笔记。请从笔记库重新进入。</p>";
+        renderToc([]);
         return;
       }
 
       if (rawLink) rawLink.setAttribute("href", note.path);
+
       return fetch(note.path)
         .then((response) => {
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           return response.text();
         })
         .then((markdown) => {
-          const firstHeading = markdown.match(/^#\s+(.+)$/m);
-          const displayTitle = note.title || (firstHeading ? firstHeading[1].trim() : fileNameFromPath(note.path));
-          if (titleNode) titleNode.textContent = displayTitle;
-          if (subtitleNode) subtitleNode.textContent = "Markdown 笔记已渲染为网页阅读模式。";
-          document.title = `${displayTitle} | 恍如昨日`;
-
+          headings.length = 0;
           const prepared = preserveMath(markdown);
           const rendered = md.render(prepared.text);
           output.innerHTML = wrapTables(prepared.restore(rendered));
+          renderToc(headings);
+          document.title = `${note.title || fileNameFromPath(note.path)} | 恍如昨日`;
 
           if (window.MathJax?.typesetPromise) {
             window.MathJax.typesetPromise([output]).catch(() => {});
@@ -55,13 +54,15 @@
         "<p>如果你是直接双击打开 HTML，浏览器可能会阻止读取本地 Markdown 文件。</p>",
         "<p>部署到 GitHub Pages 后可以正常访问；本地预览建议运行 <code>python -m http.server 8080</code>。</p>"
       ].join("");
+      renderToc([]);
     });
 
-  function createMarkdownRenderer() {
+  function createMarkdownRenderer(headingStore) {
     if (!window.markdownit) {
       throw new Error("markdown-it unavailable");
     }
 
+    const slugCount = new Map();
     const instance = window.markdownit({
       html: true,
       breaks: true,
@@ -73,19 +74,32 @@
       instance.use(window.markdownitTaskLists, { enabled: true, label: true, labelAfter: true });
     }
 
-    const defaultImage = instance.renderer.rules.image || ((tokens, idx, options, env, self) => self.renderToken(tokens, idx, options));
+    const defaultHeadingOpen = instance.renderer.rules.heading_open
+      || ((tokens, idx, options, env, self) => self.renderToken(tokens, idx, options));
+    instance.renderer.rules.heading_open = (tokens, idx, options, env, self) => {
+      const inline = tokens[idx + 1];
+      const text = inline?.content?.trim() || "";
+      const level = Number(tokens[idx].tag.replace("h", ""));
+      const slug = createSlug(text, slugCount);
+      tokens[idx].attrSet("id", slug);
+      if (level >= 1 && level <= 4) {
+        headingStore.push({ level, text, slug });
+      }
+      return defaultHeadingOpen(tokens, idx, options, env, self);
+    };
+
+    const defaultImage = instance.renderer.rules.image
+      || ((tokens, idx, options, env, self) => self.renderToken(tokens, idx, options));
     instance.renderer.rules.image = (tokens, idx, options, env, self) => {
       const token = tokens[idx];
       const loadingIndex = token.attrIndex("loading");
-      if (loadingIndex < 0) {
-        token.attrPush(["loading", "lazy"]);
-      } else {
-        token.attrs[loadingIndex][1] = "lazy";
-      }
+      if (loadingIndex < 0) token.attrPush(["loading", "lazy"]);
+      else token.attrs[loadingIndex][1] = "lazy";
       return defaultImage(tokens, idx, options, env, self);
     };
 
-    const defaultLinkOpen = instance.renderer.rules.link_open || ((tokens, idx, options, env, self) => self.renderToken(tokens, idx, options));
+    const defaultLinkOpen = instance.renderer.rules.link_open
+      || ((tokens, idx, options, env, self) => self.renderToken(tokens, idx, options));
     instance.renderer.rules.link_open = (tokens, idx, options, env, self) => {
       const token = tokens[idx];
       setOrPushAttr(token, "target", "_blank");
@@ -96,13 +110,43 @@
     return instance;
   }
 
+  function createSlug(text, slugCount) {
+    const base = String(text || "")
+      .toLowerCase()
+      .replace(/<[^>]*>/g, "")
+      .replace(/[^\p{L}\p{N}\s-]/gu, "")
+      .trim()
+      .replace(/\s+/g, "-")
+      || "section";
+    const count = slugCount.get(base) || 0;
+    slugCount.set(base, count + 1);
+    return count ? `${base}-${count}` : base;
+  }
+
   function setOrPushAttr(token, name, value) {
-    const attrIndex = token.attrIndex(name);
-    if (attrIndex < 0) {
-      token.attrPush([name, value]);
-    } else {
-      token.attrs[attrIndex][1] = value;
+    const index = token.attrIndex(name);
+    if (index < 0) token.attrPush([name, value]);
+    else token.attrs[index][1] = value;
+  }
+
+  function renderToc(items) {
+    if (!tocRoot) return;
+    if (!items.length) {
+      tocRoot.innerHTML = [
+        '<p class="note-toc-title">Outline</p>',
+        '<p class="note-toc-empty">当前笔记没有可用标题。</p>'
+      ].join("");
+      return;
     }
+
+    tocRoot.innerHTML = [
+      '<p class="note-toc-title">Outline</p>',
+      '<nav class="note-toc-nav" aria-label="Markdown outline">',
+      items.map((item) => (
+        `<a class="note-toc-link level-${item.level}" href="#${item.slug}">${escapeHtml(item.text)}</a>`
+      )).join(""),
+      "</nav>"
+    ].join("");
   }
 
   function loadNotes() {
@@ -162,7 +206,17 @@
   }
 
   function wrapTables(html) {
-    return html.replace(/<table>/g, '<div class="markdown-table-wrap"><table>')
+    return html
+      .replace(/<table>/g, '<div class="markdown-table-wrap"><table>')
       .replace(/<\/table>/g, "</table></div>");
+  }
+
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
   }
 })();
