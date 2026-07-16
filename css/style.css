@@ -1791,6 +1791,7 @@ h3 {
 .musing-year-heading {
   margin: 0 0 2px 44px;
   color: var(--text);
+  font-family: "STSong", "SimSun", "Noto Serif SC", serif;
   font-size: clamp(2rem, 3vw, 2.4rem);
   font-weight: 800;
   line-height: 1;
@@ -1852,7 +1853,7 @@ h3 {
 .musing-entry-date {
   display: block;
   color: var(--muted);
-  font-family: var(--font-mono);
+  font-family: "STSong", "SimSun", "Noto Serif SC", serif;
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.04em;
@@ -1862,6 +1863,7 @@ h3 {
   display: block;
   margin: 0;
   color: var(--text);
+  font-family: "STSong", "SimSun", "Noto Serif SC", serif;
   font-size: clamp(1.02rem, 1.5vw, 1.42rem);
   font-weight: 500;
   line-height: 1.35;
@@ -2477,9 +2479,9 @@ h3 {
 
 .about-puzzle-layout {
   display: grid;
-  grid-template-columns: minmax(260px, 0.82fr) minmax(0, 1fr);
+  grid-template-columns: 1fr;
   gap: clamp(24px, 4vw, 48px);
-  align-items: center;
+  align-items: start;
 }
 
 .about-puzzle-copy {
@@ -2719,7 +2721,8 @@ h3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
   width: min(100%, 640px);
-  margin-left: auto;
+  margin-right: auto;
+  margin-left: 0;
   padding: 28px;
   border: 1px solid var(--line);
   border-radius: 28px;
