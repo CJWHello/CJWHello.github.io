@@ -170,7 +170,7 @@
           coordinateSystem: "geo",
           data,
           symbol: "circle",
-          symbolSize: 12,
+          symbolSize: 6,
           zlevel: 3,
           itemStyle: {
             color: isLight ? "#6c63ff" : "#84f6ff",
@@ -189,7 +189,7 @@
           coordinateSystem: "geo",
           data,
           symbol: "circle",
-          symbolSize: 10,
+          symbolSize: 5,
           zlevel: 2,
           rippleEffect: {
             scale: 3.2,
