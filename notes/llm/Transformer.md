@@ -181,5 +181,3 @@ $$
 =
 1+\frac{\partial F(x)}{\partial x}
 $$
-
-# 10. Mask
