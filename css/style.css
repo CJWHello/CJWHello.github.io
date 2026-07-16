@@ -3198,13 +3198,40 @@ h3 {
   padding: 18px 16px;
 }
 
+.note-toc-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
 .note-toc-title {
-  margin: 0 0 12px;
+  margin: 0;
   color: var(--text);
   font-family: var(--font-mono);
   font-size: 0.8rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+}
+
+.note-toc-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(255,255,255,.04);
+  transition: color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.note-toc-back:hover {
+  color: var(--secondary);
+  border-color: rgba(0, 229, 255, 0.28);
+  transform: translateX(-1px);
 }
 
 .note-toc-empty {

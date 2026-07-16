@@ -165,7 +165,7 @@
 
   function preserveMath(markdown) {
     const tokens = [];
-    let text = markdown;
+    let text = preserveQuotedMath(markdown, tokens);
 
     text = text.replace(/```math\s*([\s\S]*?)```/g, (_, formula) => {
       const token = `@@MATH_${tokens.length}@@`;
@@ -203,6 +203,46 @@
         return tokens.reduce((acc, token, index) => acc.replaceAll(`@@MATH_${index}@@`, token), rendered);
       }
     };
+  }
+
+  function preserveQuotedMath(markdown, tokens) {
+    const lines = markdown.split("\n");
+    const outputLines = [];
+
+    for (let index = 0; index < lines.length; index += 1) {
+      const line = lines[index];
+      const quoteDisplayOpen = line.match(/^\s*>\s*(\$\$|\\\[)\s*$/);
+      if (!quoteDisplayOpen) {
+        outputLines.push(line);
+        continue;
+      }
+
+      const open = quoteDisplayOpen[1];
+      const close = open === "$$" ? "$$" : "\\]";
+      const body = [];
+
+      while (index + 1 < lines.length) {
+        index += 1;
+        const current = lines[index];
+        const match = current.match(/^\s*>\s?(.*)$/);
+        if (!match) {
+          body.push(current);
+          continue;
+        }
+
+        const content = match[1];
+        if (content.trim() === close) {
+          break;
+        }
+        body.push(content);
+      }
+
+      const token = `@@MATH_${tokens.length}@@`;
+      tokens.push(`<div class="math-block">${open}${body.join("\n").trim()}${close}</div>`);
+      outputLines.push(`> ${token}`);
+    }
+
+    return outputLines.join("\n");
   }
 
   function wrapTables(html) {
