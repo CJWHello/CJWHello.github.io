@@ -44,6 +44,9 @@
           if (subtitleNode) subtitleNode.textContent = "Markdown 笔记已渲染为网页阅读模式。";
           document.title = `${displayTitle} | 恍如昨日`;
           output.innerHTML = renderMarkdown(markdown);
+          if (window.MathJax?.typesetPromise) {
+            window.MathJax.typesetPromise([output]).catch(() => {});
+          }
         });
     })
     .catch(() => {
@@ -77,15 +80,52 @@
       .replace(/'/g, "&#039;");
   }
 
+  function preserveMath(value) {
+    const tokens = [];
+    let text = value;
+
+    text = text.replace(/\\\[([\s\S]+?)\\\]/g, (_, formula) => {
+      const token = `@@MATH_${tokens.length}@@`;
+      tokens.push(`<div class="math-block">\\[${formula}\\]</div>`);
+      return token;
+    });
+
+    text = text.replace(/\\\(([\s\S]+?)\\\)/g, (_, formula) => {
+      const token = `@@MATH_${tokens.length}@@`;
+      tokens.push(`\\(${formula}\\)`);
+      return token;
+    });
+
+    text = text.replace(/\$\$([\s\S]+?)\$\$/g, (_, formula) => {
+      const token = `@@MATH_${tokens.length}@@`;
+      tokens.push(`<div class="math-block">$$${formula}$$</div>`);
+      return token;
+    });
+
+    text = text.replace(/(^|[^$\\])\$([^\n$]+?)\$(?!\$)/g, (_, prefix, formula) => {
+      const token = `@@MATH_${tokens.length}@@`;
+      tokens.push(`${prefix}$${formula}$`);
+      return token;
+    });
+
+    return {
+      text,
+      restore(rendered) {
+        return tokens.reduce((acc, token, index) => acc.replaceAll(`@@MATH_${index}@@`, token), rendered);
+      }
+    };
+  }
+
   function renderInline(value) {
-    let text = escapeHtml(value);
+    const math = preserveMath(value);
+    let text = escapeHtml(math.text);
     text = text.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" loading="lazy" />');
     text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
     text = text.replace(/`([^`]+)`/g, "<code>$1</code>");
     text = text.replace(/~~([^~]+)~~/g, "<del>$1</del>");
     text = text.replace(/(\*\*|__)(.+?)\1/g, "<strong>$2</strong>");
     text = text.replace(/(^|[\s>])(\*|_)([^*_]+)\2/g, "$1<em>$3</em>");
-    return text;
+    return math.restore(text);
   }
 
   function renderMarkdown(markdown) {
@@ -161,6 +201,32 @@
       if (!trimmed) {
         flushParagraph();
         closeList();
+        continue;
+      }
+
+      if (trimmed === "$$" || (/^\$\$/.test(trimmed) && !/\$\$$/.test(trimmed.slice(2)))) {
+        flushParagraph();
+        closeList();
+        const block = [line];
+        while (index + 1 < lines.length) {
+          index += 1;
+          block.push(lines[index]);
+          if (lines[index].trim().endsWith("$$")) break;
+        }
+        html.push(`<div class="math-block">${block.join("\n")}</div>`);
+        continue;
+      }
+
+      if (trimmed === "\\[" || (/^\\\[/.test(trimmed) && !/\\\]$/.test(trimmed))) {
+        flushParagraph();
+        closeList();
+        const block = [line];
+        while (index + 1 < lines.length) {
+          index += 1;
+          block.push(lines[index]);
+          if (lines[index].trim().endsWith("\\]")) break;
+        }
+        html.push(`<div class="math-block">${block.join("\n")}</div>`);
         continue;
       }
 

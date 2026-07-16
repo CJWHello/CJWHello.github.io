@@ -14,6 +14,18 @@
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/animation.css" />
   <link rel="stylesheet" href="./css/responsive.css" />
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]],
+        displayMath: [["$$", "$$"], ["\\[", "\\]"]]
+      },
+      svg: {
+        fontCache: "global"
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
   <div class="page-loader" aria-hidden="true"><div class="loader-orbit"></div><p>Loading note</p></div>
@@ -43,7 +55,6 @@
   <script src="./js/particles.js"></script><script src="./js/animation.js"></script><script src="./js/site-data.js"></script><script src="./js/main.js"></script><script src="./js/markdown.js"></script>
 </body>
 </html>
-
 
 
 
