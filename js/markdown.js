@@ -6,6 +6,7 @@
   const tocBody = document.querySelector("[data-note-toc-body]");
   const rawLink = document.querySelector("[data-raw-note]");
   if (!output) return;
+  let tocObserver = null;
 
   const fallbackNotes = [
     { key: "multimodal-roadmap", title: "多模态大模型算法学习路线", path: "./notes/vlm/多模态大模型算法学习路线.md" },
@@ -42,6 +43,7 @@
           const rendered = md.render(prepared.text);
           output.innerHTML = wrapTables(prepared.restore(rendered));
           renderToc(headings);
+          bindTocSpy();
           document.title = `${note.title || fileNameFromPath(note.path)} | 恍如昨日`;
 
           if (window.MathJax?.typesetPromise) {
@@ -140,10 +142,48 @@
     tocBody.innerHTML = [
       '<nav class="note-toc-nav" aria-label="Markdown outline">',
       items.map((item) => (
-        `<a class="note-toc-link level-${item.level}" href="#${item.slug}">${escapeHtml(item.text)}</a>`
+        `<a class="note-toc-link level-${item.level}" href="#${item.slug}" data-toc-link="${item.slug}">${escapeHtml(item.text)}</a>`
       )).join(""),
       "</nav>"
     ].join("");
+  }
+
+  function bindTocSpy() {
+    const links = [...document.querySelectorAll("[data-toc-link]")];
+    const sections = links
+      .map((link) => {
+        const slug = link.getAttribute("data-toc-link");
+        const node = slug ? document.getElementById(slug) : null;
+        return node ? { slug, node } : null;
+      })
+      .filter(Boolean);
+
+    if (!links.length || !sections.length) return;
+
+    const setActive = (slug) => {
+      links.forEach((link) => {
+        link.classList.toggle("is-active", link.getAttribute("data-toc-link") === slug);
+      });
+    };
+
+    setActive(sections[0].slug);
+
+    if (tocObserver) {
+      tocObserver.disconnect();
+    }
+
+    tocObserver = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      if (!visible.length) return;
+      setActive(visible[0].target.id);
+    }, {
+      rootMargin: "-20% 0px -65% 0px",
+      threshold: [0, 1]
+    });
+
+    sections.forEach(({ node }) => tocObserver.observe(node));
   }
 
   function loadNotes() {

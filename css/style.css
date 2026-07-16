@@ -3219,8 +3219,9 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  gap: 8px;
+  min-height: 32px;
+  padding: 0 10px;
   border: 1px solid var(--line);
   border-radius: 999px;
   color: var(--muted);
@@ -3232,6 +3233,11 @@ h3 {
   color: var(--secondary);
   border-color: rgba(0, 229, 255, 0.28);
   transform: translateX(-1px);
+}
+
+.note-toc-back span {
+  font-size: 0.78rem;
+  white-space: nowrap;
 }
 
 .note-toc-empty {
@@ -3255,6 +3261,11 @@ h3 {
 .note-toc-link:hover {
   color: var(--secondary);
   transform: translateX(2px);
+}
+
+.note-toc-link.is-active {
+  color: var(--text);
+  font-weight: 700;
 }
 
 .note-toc-link.level-2 {
