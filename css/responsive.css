@@ -458,12 +458,12 @@
   }
 
   .travel-map-visual {
-    min-height: 420px;
+    min-height: 500px;
     padding: 16px;
   }
 
   .travel-map-chart {
-    min-height: 388px;
+    min-height: 468px;
   }
 
   .travel-gallery-section {

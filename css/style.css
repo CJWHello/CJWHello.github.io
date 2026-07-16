@@ -2034,6 +2034,7 @@ h3 {
 }
 
 .travel-map-section {
+  width: min(calc(100% - 24px), 1680px);
   padding-top: 22px;
   padding-bottom: 20px;
 }
@@ -2046,7 +2047,7 @@ h3 {
 }
 
 .travel-map-shell p:not(.eyebrow) {
-  max-width: 720px;
+  max-width: 920px;
   color: var(--muted);
   font-size: 0.92rem;
 }
@@ -2056,7 +2057,7 @@ h3 {
 }
 
 .travel-map-board {
-  width: min(100%, 940px);
+  width: 100%;
   margin-top: 12px;
 }
 
@@ -2071,8 +2072,8 @@ h3 {
 .travel-map-visual {
   position: relative;
   width: 100%;
-  min-height: 560px;
-  padding: clamp(14px, 2.4vw, 22px);
+  min-height: 720px;
+  padding: clamp(16px, 2vw, 22px);
   border: 1px solid rgba(255,255,255,.08);
   border-radius: 28px;
   background: transparent;
@@ -2080,7 +2081,7 @@ h3 {
 }
 
 .travel-map-chart {
-  min-height: calc(560px - 2 * clamp(14px, 2.4vw, 22px));
+  min-height: calc(720px - 2 * clamp(16px, 2vw, 22px));
   width: 100%;
   height: 100%;
 }
