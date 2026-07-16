@@ -14,26 +14,58 @@
     {
       "city": "杭州",
       "spot": "西湖",
-      "image": "./assets/images/project-nexus.svg",
-      "alt": "杭州西湖旅行照片"
+      "images": [
+        {
+          "src": "./assets/images/project-nexus.svg",
+          "alt": "杭州西湖旅行照片"
+        },
+        {
+          "src": "./assets/images/project-dashboard.svg",
+          "alt": "杭州断桥旅行照片"
+        }
+      ]
     },
     {
       "city": "上海",
       "spot": "外滩",
-      "image": "./assets/images/project-dashboard.svg",
-      "alt": "上海外滩旅行照片"
+      "images": [
+        {
+          "src": "./assets/images/project-dashboard.svg",
+          "alt": "上海外滩旅行照片"
+        },
+        {
+          "src": "./assets/images/project-vision.svg",
+          "alt": "上海夜景旅行照片"
+        }
+      ]
     },
     {
       "city": "北京",
       "spot": "故宫",
-      "image": "./assets/images/project-vision.svg",
-      "alt": "北京故宫旅行照片"
+      "images": [
+        {
+          "src": "./assets/images/project-vision.svg",
+          "alt": "北京故宫旅行照片"
+        },
+        {
+          "src": "./assets/images/project-diffusion.svg",
+          "alt": "北京城墙旅行照片"
+        }
+      ]
     },
     {
       "city": "成都",
       "spot": "宽窄巷子",
-      "image": "./assets/images/project-diffusion.svg",
-      "alt": "成都宽窄巷子旅行照片"
+      "images": [
+        {
+          "src": "./assets/images/project-diffusion.svg",
+          "alt": "成都宽窄巷子旅行照片"
+        },
+        {
+          "src": "./assets/images/project-nexus.svg",
+          "alt": "成都街景旅行照片"
+        }
+      ]
     }
   ]
 }

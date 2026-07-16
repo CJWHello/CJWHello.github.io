@@ -457,12 +457,8 @@
     padding: 16px;
   }
 
-  .travel-map-shell h1 {
-    font-size: 1.8rem;
-  }
-
   .travel-map-visual {
-    aspect-ratio: 5 / 4;
+    min-height: 420px;
     padding: 16px;
   }
 
