@@ -3191,6 +3191,7 @@ h3 {
   padding: clamp(26px, 5vw, 54px);
 }
 
+.markdown-reader h1,
 .markdown-reader h2,
 .markdown-reader h3,
 .markdown-reader h4,
@@ -3199,6 +3200,11 @@ h3 {
   margin-top: 1.8em;
   margin-bottom: 0.72em;
   line-height: 1.18;
+}
+
+.markdown-reader h1 {
+  margin-top: 0;
+  font-size: clamp(1.5rem, 2.4vw, 2.2rem);
 }
 
 .markdown-reader h2 {
@@ -3238,6 +3244,10 @@ h3 {
   margin: 0 0.45em 0 -1.2em;
   accent-color: var(--secondary);
   vertical-align: -0.12em;
+}
+
+.markdown-reader .task-list-item label {
+  display: inline;
 }
 
 .markdown-reader blockquote {
