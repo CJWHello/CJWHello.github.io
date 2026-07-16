@@ -204,18 +204,8 @@
     grid-template-columns: 1fr;
   }
 
-  .travel-coverflow-shell {
-    min-height: 300px;
-    padding: 0 46px;
-  }
-
-  .travel-coverflow-stage {
-    height: 300px;
-  }
-
-  .travel-slider-button {
-    width: 38px;
-    height: 38px;
+  .travel-gallery-section {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .musing-year-heading {
@@ -467,35 +457,18 @@
     padding: 16px;
   }
 
-  .travel-gallery-card {
-    padding: 18px;
+  .travel-map-shell h1 {
+    font-size: 1.8rem;
   }
 
-  .travel-gallery-head {
-    align-items: flex-start;
-    flex-direction: column;
+  .travel-map-visual {
+    aspect-ratio: 5 / 4;
+    padding: 16px;
   }
 
-  .travel-coverflow-shell {
-    min-height: 240px;
-    padding: 0 38px;
-  }
-
-  .travel-coverflow-stage {
-    height: 240px;
-  }
-
-  .travel-slide-card {
-    width: min(100%, 320px);
-    border-radius: 22px;
-  }
-
-  .travel-slide-card.is-prev {
-    transform: translate(-50%, -50%) translateX(-24%) rotateY(18deg) scale(0.82);
-  }
-
-  .travel-slide-card.is-next {
-    transform: translate(-50%, -50%) translateX(24%) rotateY(-18deg) scale(0.82);
+  .travel-gallery-section {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .sticky-notes-grid {

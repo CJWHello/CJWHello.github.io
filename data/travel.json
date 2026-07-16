@@ -1,24 +1,39 @@
 {
-  "title": "\u4e2a\u4eba\u65c5\u6e38\u96c6\u9526",
-  "lead": "\u6bcf\u4e2a\u5730\u70b9\u4e00\u7ec4\u6a2a\u5411\u6ed1\u52a8\u753b\u5eca\uff0c\u6807\u9898\u548c\u56fe\u7247\u8def\u5f84\u7edf\u4e00\u4ece JSON \u8bfb\u53d6\uff0c\u540e\u7eed\u53ea\u6539\u8fd9\u4e2a\u6587\u4ef6\u5c31\u80fd\u65b0\u589e\u6216\u5220\u9664\u65c5\u884c\u5730\u70b9\u3002",
-  "destinations": [
+  "title": "中国旅行地图",
+  "lead": "地图上的光点代表去过的城市，下面的照片按三列画廊展示。以后只需要增删这份 JSON，就能同步更新地图和相册。",
+  "map": {
+    "label": "去过的城市",
+    "points": [
+      { "city": "杭州", "x": 74.5, "y": 58.5 },
+      { "city": "上海", "x": 78.2, "y": 56.8 },
+      { "city": "北京", "x": 64.8, "y": 31.8 },
+      { "city": "成都", "x": 43.5, "y": 58.6 }
+    ]
+  },
+  "gallery": [
     {
-      "title": "\u676d\u5dde",
-      "subtitle": "West Lake",
-      "images": [
-        {
-          "src": "./assets/images/project-nexus.svg",
-          "alt": "\u676d\u5dde\u65c5\u884c\u7167\u7247 1"
-        },
-        {
-          "src": "./assets/images/project-dashboard.svg",
-          "alt": "\u676d\u5dde\u65c5\u884c\u7167\u7247 2"
-        },
-        {
-          "src": "./assets/images/project-vision.svg",
-          "alt": "\u676d\u5dde\u65c5\u884c\u7167\u7247 3"
-        }
-      ]
+      "city": "杭州",
+      "spot": "西湖",
+      "image": "./assets/images/project-nexus.svg",
+      "alt": "杭州西湖旅行照片"
+    },
+    {
+      "city": "上海",
+      "spot": "外滩",
+      "image": "./assets/images/project-dashboard.svg",
+      "alt": "上海外滩旅行照片"
+    },
+    {
+      "city": "北京",
+      "spot": "故宫",
+      "image": "./assets/images/project-vision.svg",
+      "alt": "北京故宫旅行照片"
+    },
+    {
+      "city": "成都",
+      "spot": "宽窄巷子",
+      "image": "./assets/images/project-diffusion.svg",
+      "alt": "成都宽窄巷子旅行照片"
     }
   ]
 }

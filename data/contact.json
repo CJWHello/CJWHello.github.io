@@ -6,8 +6,8 @@
   "accounts": [
     {
       "platform": "GitHub",
-      "nickname": "恍如昨日",
-      "href": "https://github.com/",
+      "nickname": "CJWHello",
+      "href": "https://github.com/CJWHello",
       "image": "./assets/icons/accounts/github.png",
       "imageAlt": "GitHub account cover",
       "accent": "blue"
@@ -15,7 +15,7 @@
     {
       "platform": "小红书",
       "nickname": "恍如昨日",
-      "href": "https://www.xiaohongshu.com/",
+      "href": "https://www.xiaohongshu.com/user/profile/6868ea0c000000001e0398a7",
       "image": "./assets/icons/accounts/xiaohongshu.ico",
       "imageAlt": "Xiaohongshu account cover",
       "accent": "rose"
@@ -23,7 +23,7 @@
     {
       "platform": "抖音",
       "nickname": "壬无",
-      "href": "https://www.douyin.com/",
+      "href": "https://www.douyin.com/user/MS4wLjABAAAAhfBeJiqrXfJlC3RQZsqBapU9gy4vwzN4WoaLhGYv54Q",
       "image": "./assets/icons/accounts/douyin.png",
       "imageAlt": "Douyin account cover",
       "accent": "cyan"

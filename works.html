@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="恍如昨日的个人旅游集锦页面，按地点展示滑动画廊，图片与标题均由 JSON 数据驱动。" />
+  <meta name="description" content="中国旅行地图与城市画廊，去过的城市会在地图上点亮，图片内容由 JSON 统一管理。" />
   <meta name="theme-color" content="#050816" />
   <meta property="og:title" content="Travel | 恍如昨日" />
-  <meta property="og:description" content="个人旅行地点画廊，按地点整理照片与标题。" />
+  <meta property="og:description" content="在地图上标记走过的城市，并在下方按画廊形式展示旅行照片。" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="./assets/images/og-cover.svg" />
   <title>Travel | 恍如昨日</title>
@@ -50,26 +50,19 @@
   </header>
 
   <main class="page-transition inner-page travel-page">
+    <section class="section-shell travel-map-section">
+      <div class="travel-map-shell reveal is-visible" data-travel-map>
+        <p class="eyebrow">Travel</p>
+        <h1>正在加载旅行地图</h1>
+        <p>地图与城市点位将从 JSON 自动读取。</p>
+      </div>
+    </section>
+
     <section class="section-shell travel-gallery-section" data-travel-gallery>
-      <article class="travel-gallery-card reveal is-visible">
-        <div class="travel-gallery-head">
-          <p class="eyebrow">Loading</p>
-          <h2>正在读取旅行地点</h2>
-        </div>
-        <div class="travel-slider-shell">
-          <button class="travel-slider-button is-prev" type="button" aria-label="上一张">
-            <i class="fa-solid fa-chevron-left"></i>
-          </button>
-          <div class="travel-slider-viewport">
-            <div class="travel-slider-track">
-              <figure class="travel-slide is-placeholder">
-                <img src="./assets/images/project-nexus.svg" alt="加载中" loading="lazy" />
-              </figure>
-            </div>
-          </div>
-          <button class="travel-slider-button is-next" type="button" aria-label="下一张">
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
+      <article class="travel-photo-card reveal is-visible">
+        <img src="./assets/images/project-nexus.svg" alt="加载中的旅行图片" loading="lazy" />
+        <div class="travel-photo-copy">
+          <h2>正在读取旅行画廊</h2>
         </div>
       </article>
     </section>

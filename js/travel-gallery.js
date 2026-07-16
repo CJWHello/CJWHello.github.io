@@ -1,8 +1,9 @@
 (() => {
   "use strict";
 
-  const root = document.querySelector("[data-travel-gallery]");
-  if (!root) return;
+  const mapRoot = document.querySelector("[data-travel-map]");
+  const galleryRoot = document.querySelector("[data-travel-gallery]");
+  if (!mapRoot || !galleryRoot) return;
 
   fetch("./data/travel.json")
     .then((response) => {
@@ -10,156 +11,96 @@
       return response.json();
     })
     .then((payload) => {
-      renderHero(payload);
-      renderDestinations(Array.isArray(payload.destinations) ? payload.destinations : []);
-      bindGalleries();
+      renderMap(payload);
+      renderGallery(payload);
       document.querySelectorAll("main .reveal").forEach((node) => node.classList.add("is-visible"));
     })
     .catch(() => {
-      root.innerHTML = [
-        '<article class="travel-gallery-card reveal is-visible">',
-        '  <div class="travel-gallery-head">',
-        '    <p class="eyebrow">Travel</p>',
-        "    <h2>\u65c5\u884c\u6570\u636e\u8bfb\u53d6\u5931\u8d25</h2>",
-        "  </div>",
-        "</article>"
-      ].join("");
+      mapRoot.innerHTML = `
+        <p class="eyebrow">Travel</p>
+        <h1>旅行地图加载失败</h1>
+        <p>请检查 data/travel.json 是否可访问。</p>
+      `;
+      galleryRoot.innerHTML = `
+        <article class="travel-photo-card reveal is-visible">
+          <div class="travel-photo-copy">
+            <h2>旅行画廊加载失败</h2>
+          </div>
+        </article>
+      `;
     });
 
-  function renderHero(payload) {
-    const hero = document.querySelector(".travel-hero-shell");
-    if (!hero) return;
+  function renderMap(payload) {
+    const title = escapeHtml(payload.title || "中国旅行地图");
+    const lead = escapeHtml(payload.lead || "");
+    const label = escapeHtml(payload.map?.label || "去过的城市");
+    const points = Array.isArray(payload.map?.points) ? payload.map.points : [];
 
-    hero.innerHTML = [
-      '<p class="eyebrow">Travel</p>',
-      `<h1>${escapeHtml(payload.title || "\u4e2a\u4eba\u65c5\u6e38\u96c6\u9526")}</h1>`,
-      `<p>${escapeHtml(payload.lead || "")}</p>`
-    ].join("");
+    mapRoot.innerHTML = `
+      <p class="eyebrow">Travel</p>
+      <h1>${title}</h1>
+      <p>${lead}</p>
+      <div class="travel-map-board">
+        <div class="travel-map-visual">
+          ${chinaMapSvg()}
+          ${points.map(renderPoint).join("")}
+        </div>
+      </div>
+      <p class="travel-map-hint">${label}</p>
+    `;
   }
 
-  function renderDestinations(destinations) {
-    if (!destinations.length) {
-      root.innerHTML = [
-        '<article class="travel-gallery-card reveal is-visible">',
-        '  <div class="travel-gallery-head">',
-        '    <p class="eyebrow">Travel</p>',
-        "    <h2>\u8fd8\u6ca1\u6709\u65c5\u884c\u5730\u70b9</h2>",
-        "  </div>",
-        "</article>"
-      ].join("");
+  function renderPoint(point) {
+    const city = escapeHtml(point.city || "未知城市");
+    const x = Number(point.x) || 0;
+    const y = Number(point.y) || 0;
+    return `
+      <button class="travel-map-point" type="button" style="left:${x}%; top:${y}%;" aria-label="${city}">
+        <span class="travel-map-point-dot" aria-hidden="true"></span>
+        <span class="travel-map-point-label">${city}</span>
+      </button>
+    `;
+  }
+
+  function renderGallery(payload) {
+    const items = Array.isArray(payload.gallery) ? payload.gallery : [];
+    if (!items.length) {
+      galleryRoot.innerHTML = `
+        <article class="travel-photo-card reveal is-visible">
+          <div class="travel-photo-copy">
+            <h2>还没有旅行照片</h2>
+          </div>
+        </article>
+      `;
       return;
     }
 
-    root.innerHTML = destinations.map((destination, index) => renderGallery(destination, index)).join("");
+    galleryRoot.innerHTML = items.map((item) => `
+      <article class="travel-photo-card reveal is-visible">
+        <img src="${escapeHtml(item.image || "")}" alt="${escapeHtml(item.alt || item.city || "旅行照片")}" loading="lazy" />
+        <div class="travel-photo-copy">
+          <p class="eyebrow">${escapeHtml(item.city || "")}</p>
+          <h2>${escapeHtml(item.spot || "")}</h2>
+        </div>
+      </article>
+    `).join("");
   }
 
-  function renderGallery(destination, index) {
-    const title = destination.title || "\u672a\u547d\u540d\u5730\u70b9";
-    const subtitle = destination.subtitle || `Trip ${index + 1}`;
-    const images = Array.isArray(destination.images) && destination.images.length
-      ? destination.images
-      : [{ src: "./assets/images/project-nexus.svg", alt: `${title}\u9ed8\u8ba4\u56fe\u7247` }];
-
-    return [
-      '<article class="travel-gallery-card reveal is-visible" data-travel-card>',
-      '  <div class="travel-gallery-head">',
-      "    <div>",
-      `      <p class="eyebrow">${escapeHtml(subtitle)}</p>`,
-      `      <h2>${escapeHtml(title)}</h2>`,
-      "    </div>",
-      '    <div class="travel-gallery-status">',
-      `      <span data-travel-count>01 / ${String(images.length).padStart(2, "0")}</span>`,
-      "    </div>",
-      "  </div>",
-      '  <div class="travel-coverflow-shell">',
-      '    <button class="travel-slider-button is-prev" type="button" data-travel-prev aria-label="\u4e0a\u4e00\u5f20">',
-      '      <i class="fa-solid fa-chevron-left"></i>',
-      "    </button>",
-      '    <div class="travel-coverflow-stage" data-travel-stage>',
-      images.map((image, imageIndex) => [
-        '      <figure class="travel-slide-card" data-travel-slide',
-        `        data-slide-index="${imageIndex}"`,
-        `        aria-hidden="${imageIndex === 0 ? "false" : "true"}">`,
-        `        <img src="${escapeHtml(image.src || "./assets/images/project-nexus.svg")}" alt="${escapeHtml(image.alt || title)}" loading="lazy" />`,
-        '        <span class="travel-slide-glow" aria-hidden="true"></span>',
-        "      </figure>"
-      ].join("")).join(""),
-      "    </div>",
-      '    <button class="travel-slider-button is-next" type="button" data-travel-next aria-label="\u4e0b\u4e00\u5f20">',
-      '      <i class="fa-solid fa-chevron-right"></i>',
-      "    </button>",
-      "  </div>",
-      '  <div class="travel-slider-dots" data-travel-dots>',
-      images.map((_, imageIndex) => (
-        `<button class="travel-dot${imageIndex === 0 ? " is-active" : ""}" type="button" data-travel-dot="${imageIndex}" aria-label="\u5207\u6362\u5230\u7b2c ${imageIndex + 1} \u5f20"></button>`
-      )).join(""),
-      "  </div>",
-      "</article>"
-    ].join("");
-  }
-
-  function bindGalleries() {
-    document.querySelectorAll("[data-travel-card]").forEach((card) => {
-      const slides = [...card.querySelectorAll("[data-travel-slide]")];
-      const dots = [...card.querySelectorAll("[data-travel-dot]")];
-      const count = card.querySelector("[data-travel-count]");
-      const prev = card.querySelector("[data-travel-prev]");
-      const next = card.querySelector("[data-travel-next]");
-      if (!slides.length) return;
-
-      let activeIndex = 0;
-      let autoTimer = null;
-
-      const sync = () => {
-        slides.forEach((slide, index) => {
-          const offset = getWrappedOffset(index, activeIndex, slides.length);
-          slide.classList.remove("is-active", "is-prev", "is-next", "is-hidden-left", "is-hidden-right");
-          slide.setAttribute("aria-hidden", offset === 0 ? "false" : "true");
-
-          if (offset === 0) slide.classList.add("is-active");
-          else if (offset === -1) slide.classList.add("is-prev");
-          else if (offset === 1) slide.classList.add("is-next");
-          else if (offset < 0) slide.classList.add("is-hidden-left");
-          else slide.classList.add("is-hidden-right");
-        });
-
-        dots.forEach((dot, index) => dot.classList.toggle("is-active", index === activeIndex));
-        if (count) {
-          count.textContent = `${String(activeIndex + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
-        }
-      };
-
-      const goTo = (index) => {
-        activeIndex = (index + slides.length) % slides.length;
-        sync();
-        restartAuto();
-      };
-
-      const restartAuto = () => {
-        window.clearInterval(autoTimer);
-        if (slides.length < 2) return;
-        autoTimer = window.setInterval(() => {
-          activeIndex = (activeIndex + 1) % slides.length;
-          sync();
-        }, 4200);
-      };
-
-      prev?.addEventListener("click", () => goTo(activeIndex - 1));
-      next?.addEventListener("click", () => goTo(activeIndex + 1));
-      dots.forEach((dot, index) => dot.addEventListener("click", () => goTo(index)));
-      card.addEventListener("mouseenter", () => window.clearInterval(autoTimer));
-      card.addEventListener("mouseleave", restartAuto);
-
-      sync();
-      restartAuto();
-    });
-  }
-
-  function getWrappedOffset(index, activeIndex, total) {
-    let offset = index - activeIndex;
-    if (offset > total / 2) offset -= total;
-    if (offset < -total / 2) offset += total;
-    return offset;
+  function chinaMapSvg() {
+    return `
+      <svg class="travel-map-svg" viewBox="0 0 800 500" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="travelMapFill" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="rgba(96, 234, 255, 0.16)" />
+            <stop offset="100%" stop-color="rgba(158, 121, 255, 0.10)" />
+          </linearGradient>
+        </defs>
+        <path class="travel-map-shape" d="M117 197 L155 156 L206 145 L242 114 L315 104 L370 128 L423 120 L470 137 L527 131 L594 163 L654 156 L704 192 L689 234 L725 278 L697 327 L713 372 L672 409 L609 421 L556 404 L497 430 L447 412 L395 433 L344 417 L311 379 L249 384 L207 356 L173 320 L134 317 L102 276 L88 236 Z" />
+        <path class="travel-map-outline" d="M117 197 L155 156 L206 145 L242 114 L315 104 L370 128 L423 120 L470 137 L527 131 L594 163 L654 156 L704 192 L689 234 L725 278 L697 327 L713 372 L672 409 L609 421 L556 404 L497 430 L447 412 L395 433 L344 417 L311 379 L249 384 L207 356 L173 320 L134 317 L102 276 L88 236 Z" />
+        <path class="travel-map-island" d="M584 321 L605 311 L628 316 L637 336 L620 350 L592 346 Z" />
+        <path class="travel-map-island" d="M548 361 L566 354 L582 362 L577 377 L557 381 L541 373 Z" />
+      </svg>
+    `;
   }
 
   function escapeHtml(value = "") {
