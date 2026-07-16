@@ -132,10 +132,10 @@
       geo: {
         map: "china",
         roam: false,
-        zoom: 1.02,
-        layoutCenter: ["50%", "53%"],
-        layoutSize: "116%",
-        top: 8,
+        zoom: 0.98,
+        layoutCenter: ["50%", "56%"],
+        layoutSize: "110%",
+        top: 28,
         itemStyle: {
           areaColor: isLight ? "#edf3ff" : "#101a33",
           borderColor: isLight ? "#93aef8" : "#6ecfff",
