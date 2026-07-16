@@ -5,17 +5,10 @@
   const galleryRoot = document.querySelector("[data-travel-gallery]");
   if (!mapRoot || !galleryRoot) return;
 
-  const CHINA_MAP_SOURCES = [
-    "https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json",
-    "https://fastly.jsdelivr.net/npm/echarts@5/map/json/china.json",
-    "https://unpkg.com/echarts@5/map/json/china.json"
-  ];
-
   let travelChart = null;
   let currentPayload = null;
   let resizeBound = false;
   let themeObserver = null;
-  let mapReadyPromise = null;
 
   fetch("./data/travel.json")
     .then((response) => {
@@ -83,29 +76,14 @@
       return Promise.resolve();
     }
 
-    if (mapReadyPromise) return mapReadyPromise;
-
-    mapReadyPromise = loadChinaMapGeoJson().then((geoJson) => {
-      window.echarts.registerMap("china", geoJson);
-    });
-
-    return mapReadyPromise;
-  }
-
-  async function loadChinaMapGeoJson() {
-    for (const url of CHINA_MAP_SOURCES) {
-      try {
-        const response = await fetch(url, { mode: "cors", cache: "force-cache" });
-        if (!response.ok) continue;
-        const geoJson = await response.json();
-        if (geoJson && (geoJson.features || geoJson.geometries)) {
-          return geoJson;
-        }
-      } catch (error) {
-        // Try the next source.
-      }
-    }
-    throw new Error("china map fetch failed");
+    return fetch("./assets/maps/china.json")
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
+      .then((geoJson) => {
+        window.echarts.registerMap("china", geoJson);
+      });
   }
 
   function watchThemeChanges() {
@@ -128,8 +106,7 @@
       travelChart.dispose();
     }
 
-    const theme = document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
-    const isLight = theme === "light";
+    const isLight = document.documentElement.getAttribute("data-theme") === "light";
 
     travelChart = window.echarts.init(container, null, { renderer: "canvas" });
     const data = points
