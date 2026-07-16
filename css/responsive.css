@@ -462,6 +462,10 @@
     padding: 16px;
   }
 
+  .travel-map-chart {
+    min-height: 388px;
+  }
+
   .travel-gallery-section {
     grid-template-columns: 1fr;
     gap: 14px;
