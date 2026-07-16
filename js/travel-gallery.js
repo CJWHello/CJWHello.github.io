@@ -5,10 +5,17 @@
   const galleryRoot = document.querySelector("[data-travel-gallery]");
   if (!mapRoot || !galleryRoot) return;
 
+  const CHINA_MAP_SOURCES = [
+    "https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json",
+    "https://fastly.jsdelivr.net/npm/echarts@5/map/json/china.json",
+    "https://unpkg.com/echarts@5/map/json/china.json"
+  ];
+
   let travelChart = null;
   let currentPayload = null;
   let resizeBound = false;
   let themeObserver = null;
+  let mapReadyPromise = null;
 
   fetch("./data/travel.json")
     .then((response) => {
@@ -17,16 +24,16 @@
     })
     .then((payload) => {
       currentPayload = payload;
-      renderMap(payload);
       renderGallery(payload);
       document.querySelectorAll("main .reveal").forEach((node) => node.classList.add("is-visible"));
       watchThemeChanges();
+      return renderMap(payload);
     })
     .catch(() => {
       mapRoot.innerHTML = [
         '<p class="eyebrow">Travel</p>',
         "<h1>旅行地图加载失败</h1>",
-        "<p>请检查 data/travel.json 与 ECharts 地图脚本是否可访问。</p>"
+        "<p>请检查 data/travel.json 是否可访问。</p>"
       ].join("");
 
       galleryRoot.innerHTML = [
@@ -56,7 +63,49 @@
     ].join("");
 
     const chartNode = mapRoot.querySelector("[data-travel-map-chart]");
-    initChinaMap(chartNode, Array.isArray(payload.map?.points) ? payload.map.points : []);
+    if (!chartNode) return Promise.resolve();
+
+    chartNode.innerHTML = '<div class="travel-map-fallback">正在加载中国地图资源...</div>';
+
+    return ensureChinaMapRegistered()
+      .then(() => initChinaMap(chartNode, Array.isArray(payload.map?.points) ? payload.map.points : []))
+      .catch(() => {
+        chartNode.innerHTML = '<div class="travel-map-fallback">中国地图资源加载失败</div>';
+      });
+  }
+
+  function ensureChinaMapRegistered() {
+    if (!window.echarts || !window.echarts.registerMap) {
+      return Promise.reject(new Error("echarts unavailable"));
+    }
+
+    if (window.echarts.getMap && window.echarts.getMap("china")) {
+      return Promise.resolve();
+    }
+
+    if (mapReadyPromise) return mapReadyPromise;
+
+    mapReadyPromise = loadChinaMapGeoJson().then((geoJson) => {
+      window.echarts.registerMap("china", geoJson);
+    });
+
+    return mapReadyPromise;
+  }
+
+  async function loadChinaMapGeoJson() {
+    for (const url of CHINA_MAP_SOURCES) {
+      try {
+        const response = await fetch(url, { mode: "cors", cache: "force-cache" });
+        if (!response.ok) continue;
+        const geoJson = await response.json();
+        if (geoJson && (geoJson.features || geoJson.geometries)) {
+          return geoJson;
+        }
+      } catch (error) {
+        // Try the next source.
+      }
+    }
+    throw new Error("china map fetch failed");
   }
 
   function watchThemeChanges() {
@@ -71,9 +120,7 @@
 
   function initChinaMap(container, points) {
     if (!container || !window.echarts || !window.echarts.getMap || !window.echarts.getMap("china")) {
-      if (container) {
-        container.innerHTML = '<div class="travel-map-fallback">中国地图资源加载失败</div>';
-      }
+      container.innerHTML = '<div class="travel-map-fallback">中国地图资源加载失败</div>';
       return;
     }
 
@@ -111,13 +158,13 @@
       geo: {
         map: "china",
         roam: false,
-        zoom: 1.08,
+        zoom: 1.06,
         layoutCenter: ["50%", "52%"],
-        layoutSize: "112%",
+        layoutSize: "108%",
         itemStyle: {
           areaColor: isLight ? "#eef4ff" : "#101a33",
           borderColor: isLight ? "#9eb7ff" : "#6ecfff",
-          borderWidth: 1.15,
+          borderWidth: 1.1,
           shadowBlur: 22,
           shadowColor: isLight ? "rgba(114, 151, 255, 0.18)" : "rgba(98, 234, 255, 0.16)"
         },
