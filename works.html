@@ -6,7 +6,7 @@
   <meta name="description" content="中国旅行地图与城市画廊，去过的城市会在地图上点亮，图片内容由 JSON 统一管理。" />
   <meta name="theme-color" content="#050816" />
   <meta property="og:title" content="Travel | 恍如昨日" />
-  <meta property="og:description" content="在地图上标记走过的城市，并在下方按画廊形式展示旅行照片。" />
+  <meta property="og:description" content="在完整中国地图上标记去过的城市，并在下方展示旅行画廊。" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="./assets/images/og-cover.svg" />
   <title>Travel | 恍如昨日</title>
@@ -54,7 +54,7 @@
       <div class="travel-map-shell reveal is-visible" data-travel-map>
         <p class="eyebrow">Travel</p>
         <h1>正在加载旅行地图</h1>
-        <p>地图与城市点位将从 JSON 自动读取。</p>
+        <p>完整中国地图与城市点位将从 JSON 自动读取。</p>
       </div>
     </section>
 
@@ -96,6 +96,8 @@
   <script src="./js/animation.js"></script>
   <script src="./js/site-data.js"></script>
   <script src="./js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/map/js/china.js"></script>
   <script src="./js/travel-gallery.js"></script>
 </body>
 </html>

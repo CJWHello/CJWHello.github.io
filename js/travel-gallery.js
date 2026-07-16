@@ -5,102 +5,218 @@
   const galleryRoot = document.querySelector("[data-travel-gallery]");
   if (!mapRoot || !galleryRoot) return;
 
+  let travelChart = null;
+  let currentPayload = null;
+  let resizeBound = false;
+  let themeObserver = null;
+
   fetch("./data/travel.json")
     .then((response) => {
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       return response.json();
     })
     .then((payload) => {
+      currentPayload = payload;
       renderMap(payload);
       renderGallery(payload);
       document.querySelectorAll("main .reveal").forEach((node) => node.classList.add("is-visible"));
+      watchThemeChanges();
     })
     .catch(() => {
-      mapRoot.innerHTML = `
-        <p class="eyebrow">Travel</p>
-        <h1>旅行地图加载失败</h1>
-        <p>请检查 data/travel.json 是否可访问。</p>
-      `;
-      galleryRoot.innerHTML = `
-        <article class="travel-photo-card reveal is-visible">
-          <div class="travel-photo-copy">
-            <h2>旅行画廊加载失败</h2>
-          </div>
-        </article>
-      `;
+      mapRoot.innerHTML = [
+        '<p class="eyebrow">Travel</p>',
+        "<h1>旅行地图加载失败</h1>",
+        "<p>请检查 data/travel.json 与 ECharts 地图脚本是否可访问。</p>"
+      ].join("");
+
+      galleryRoot.innerHTML = [
+        '<article class="travel-photo-card reveal is-visible">',
+        '  <div class="travel-photo-copy">',
+        "    <h2>旅行画廊加载失败</h2>",
+        "  </div>",
+        "</article>"
+      ].join("");
     });
 
   function renderMap(payload) {
     const title = escapeHtml(payload.title || "中国旅行地图");
     const lead = escapeHtml(payload.lead || "");
     const label = escapeHtml(payload.map?.label || "去过的城市");
-    const points = Array.isArray(payload.map?.points) ? payload.map.points : [];
 
-    mapRoot.innerHTML = `
-      <p class="eyebrow">Travel</p>
-      <h1>${title}</h1>
-      <p>${lead}</p>
-      <div class="travel-map-board">
-        <div class="travel-map-visual">
-          ${chinaMapSvg()}
-          ${points.map(renderPoint).join("")}
-        </div>
-      </div>
-      <p class="travel-map-hint">${label}</p>
-    `;
+    mapRoot.innerHTML = [
+      '<p class="eyebrow">Travel</p>',
+      `<h1>${title}</h1>`,
+      `<p>${lead}</p>`,
+      '<div class="travel-map-board">',
+      '  <div class="travel-map-visual">',
+      '    <div class="travel-map-chart" data-travel-map-chart aria-label="中国旅行地图"></div>',
+      "  </div>",
+      "</div>",
+      `<p class="travel-map-hint">${label}</p>`
+    ].join("");
+
+    const chartNode = mapRoot.querySelector("[data-travel-map-chart]");
+    initChinaMap(chartNode, Array.isArray(payload.map?.points) ? payload.map.points : []);
   }
 
-  function renderPoint(point) {
-    const city = escapeHtml(point.city || "未知城市");
-    const x = Number(point.x) || 0;
-    const y = Number(point.y) || 0;
-    return `
-      <button class="travel-map-point" type="button" style="left:${x}%; top:${y}%;" aria-label="${city}">
-        <span class="travel-map-point-dot" aria-hidden="true"></span>
-        <span class="travel-map-point-label">${city}</span>
-      </button>
-    `;
+  function watchThemeChanges() {
+    if (themeObserver) return;
+    themeObserver = new MutationObserver(() => {
+      if (currentPayload) {
+        renderMap(currentPayload);
+      }
+    });
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  }
+
+  function initChinaMap(container, points) {
+    if (!container || !window.echarts || !window.echarts.getMap || !window.echarts.getMap("china")) {
+      if (container) {
+        container.innerHTML = '<div class="travel-map-fallback">中国地图资源加载失败</div>';
+      }
+      return;
+    }
+
+    if (travelChart) {
+      travelChart.dispose();
+    }
+
+    const theme = document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
+    const isLight = theme === "light";
+
+    travelChart = window.echarts.init(container, null, { renderer: "canvas" });
+    const data = points
+      .filter((point) => Number.isFinite(Number(point.lng)) && Number.isFinite(Number(point.lat)))
+      .map((point) => ({
+        name: point.city || "未知城市",
+        value: [Number(point.lng), Number(point.lat)]
+      }));
+
+    travelChart.setOption({
+      animation: true,
+      tooltip: {
+        trigger: "item",
+        backgroundColor: isLight ? "rgba(255,255,255,0.96)" : "rgba(8,13,34,0.92)",
+        borderColor: isLight ? "rgba(82, 109, 255, 0.18)" : "rgba(132, 246, 255, 0.18)",
+        borderWidth: 1,
+        textStyle: {
+          color: isLight ? "#071024" : "#f5f7ff",
+          fontSize: 13,
+          fontWeight: 600
+        },
+        formatter(params) {
+          return escapeHtml(params.name || "未知城市");
+        }
+      },
+      geo: {
+        map: "china",
+        roam: false,
+        zoom: 1.08,
+        layoutCenter: ["50%", "52%"],
+        layoutSize: "112%",
+        itemStyle: {
+          areaColor: isLight ? "#eef4ff" : "#101a33",
+          borderColor: isLight ? "#9eb7ff" : "#6ecfff",
+          borderWidth: 1.15,
+          shadowBlur: 22,
+          shadowColor: isLight ? "rgba(114, 151, 255, 0.18)" : "rgba(98, 234, 255, 0.16)"
+        },
+        emphasis: {
+          itemStyle: {
+            areaColor: isLight ? "#dbe7ff" : "#182850",
+            borderColor: isLight ? "#6d92ff" : "#9a7bff"
+          },
+          label: {
+            show: false
+          }
+        },
+        regions: [
+          {
+            name: "南海诸岛",
+            itemStyle: {
+              opacity: 0
+            },
+            label: {
+              show: false
+            }
+          }
+        ]
+      },
+      series: [
+        {
+          type: "scatter",
+          coordinateSystem: "geo",
+          data,
+          symbol: "circle",
+          symbolSize: 12,
+          zlevel: 3,
+          itemStyle: {
+            color: isLight ? "#5a67ff" : "#84f6ff",
+            shadowBlur: 18,
+            shadowColor: isLight ? "rgba(90, 103, 255, 0.5)" : "rgba(132, 246, 255, 0.8)"
+          },
+          emphasis: {
+            scale: 1.15,
+            itemStyle: {
+              color: isLight ? "#7f5cff" : "#b996ff"
+            }
+          }
+        },
+        {
+          type: "effectScatter",
+          coordinateSystem: "geo",
+          data,
+          symbol: "circle",
+          symbolSize: 10,
+          zlevel: 2,
+          rippleEffect: {
+            scale: 3.2,
+            brushType: "stroke"
+          },
+          itemStyle: {
+            color: isLight ? "#7f5cff" : "#9de9ff"
+          },
+          tooltip: {
+            show: false
+          }
+        }
+      ]
+    });
+
+    const resizeChart = () => {
+      if (travelChart) {
+        travelChart.resize();
+      }
+    };
+
+    if (!resizeBound) {
+      window.addEventListener("resize", resizeChart, { passive: true });
+      resizeBound = true;
+    }
   }
 
   function renderGallery(payload) {
     const items = Array.isArray(payload.gallery) ? payload.gallery : [];
     if (!items.length) {
-      galleryRoot.innerHTML = `
-        <article class="travel-photo-card reveal is-visible">
-          <div class="travel-photo-copy">
-            <h2>还没有旅行照片</h2>
-          </div>
-        </article>
-      `;
+      galleryRoot.innerHTML = [
+        '<article class="travel-photo-card reveal is-visible">',
+        '  <div class="travel-photo-copy">',
+        "    <h2>还没有旅行照片</h2>",
+        "  </div>",
+        "</article>"
+      ].join("");
       return;
     }
 
-    galleryRoot.innerHTML = items.map((item) => `
-      <article class="travel-photo-card reveal is-visible">
-        <img src="${escapeHtml(item.image || "")}" alt="${escapeHtml(item.alt || item.city || "旅行照片")}" loading="lazy" />
-        <div class="travel-photo-copy">
-          <p class="eyebrow">${escapeHtml(item.city || "")}</p>
-          <h2>${escapeHtml(item.spot || "")}</h2>
-        </div>
-      </article>
-    `).join("");
-  }
-
-  function chinaMapSvg() {
-    return `
-      <svg class="travel-map-svg" viewBox="0 0 800 500" aria-hidden="true" focusable="false">
-        <defs>
-          <linearGradient id="travelMapFill" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="rgba(96, 234, 255, 0.16)" />
-            <stop offset="100%" stop-color="rgba(158, 121, 255, 0.10)" />
-          </linearGradient>
-        </defs>
-        <path class="travel-map-shape" d="M117 197 L155 156 L206 145 L242 114 L315 104 L370 128 L423 120 L470 137 L527 131 L594 163 L654 156 L704 192 L689 234 L725 278 L697 327 L713 372 L672 409 L609 421 L556 404 L497 430 L447 412 L395 433 L344 417 L311 379 L249 384 L207 356 L173 320 L134 317 L102 276 L88 236 Z" />
-        <path class="travel-map-outline" d="M117 197 L155 156 L206 145 L242 114 L315 104 L370 128 L423 120 L470 137 L527 131 L594 163 L654 156 L704 192 L689 234 L725 278 L697 327 L713 372 L672 409 L609 421 L556 404 L497 430 L447 412 L395 433 L344 417 L311 379 L249 384 L207 356 L173 320 L134 317 L102 276 L88 236 Z" />
-        <path class="travel-map-island" d="M584 321 L605 311 L628 316 L637 336 L620 350 L592 346 Z" />
-        <path class="travel-map-island" d="M548 361 L566 354 L582 362 L577 377 L557 381 L541 373 Z" />
-      </svg>
-    `;
+    galleryRoot.innerHTML = items.map((item) => [
+      '<article class="travel-photo-card reveal is-visible">',
+      `  <img src="${escapeHtml(item.image || "")}" alt="${escapeHtml(item.alt || item.city || "旅行照片")}" loading="lazy" />`,
+      '  <div class="travel-photo-copy">',
+      `    <p class="eyebrow">${escapeHtml(item.city || "")}</p>`,
+      `    <h2>${escapeHtml(item.spot || "")}</h2>`,
+      "  </div>",
+      "</article>"
+    ].join("")).join("");
   }
 
   function escapeHtml(value = "") {

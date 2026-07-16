@@ -2073,80 +2073,25 @@ h3 {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
-  padding: clamp(18px, 3vw, 28px);
+  padding: clamp(10px, 2vw, 18px);
   border: 1px solid rgba(255,255,255,.08);
   border-radius: 28px;
   background: transparent;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
 }
 
-.travel-map-svg {
+.travel-map-chart {
   width: 100%;
   height: 100%;
 }
 
-.travel-map-shape {
-  fill: rgba(255,255,255,.06);
-}
-
-.travel-map-outline {
-  fill: none;
-  stroke: rgba(255,255,255,.28);
-  stroke-width: 8;
-  stroke-linejoin: round;
-}
-
-.travel-map-island {
-  fill: rgba(255,255,255,.04);
-  stroke: rgba(255,255,255,.18);
-  stroke-width: 5;
-}
-
-.travel-map-point {
-  position: absolute;
-  z-index: 2;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  transform: translate(-50%, -50%);
-}
-
-.travel-map-point-dot {
-  display: block;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #84f6ff;
-  box-shadow:
-    0 0 0 8px rgba(132, 246, 255, 0.08),
-    0 0 18px rgba(132, 246, 255, 0.75);
-  animation: travelPulse 2.6s ease-in-out infinite;
-}
-
-.travel-map-point-label {
-  position: absolute;
-  bottom: calc(100% + 12px);
-  left: 50%;
-  padding: 7px 11px;
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 999px;
-  color: var(--text);
-  background: rgba(8, 13, 34, 0.86);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-  font-size: 0.78rem;
-  font-weight: 700;
-  line-height: 1;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateX(-50%) translateY(4px);
-  transition: opacity 180ms ease, transform 180ms ease;
-  white-space: nowrap;
-}
-
-.travel-map-point:hover .travel-map-point-label,
-.travel-map-point:focus-visible .travel-map-point-label {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
+.travel-map-fallback {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 .travel-gallery-section {
@@ -2194,34 +2139,6 @@ h3 {
   border-color: rgba(9, 16, 36, 0.08);
   background: rgba(255,255,255,.6);
   box-shadow: 0 14px 28px rgba(35, 70, 150, 0.12);
-}
-
-[data-theme="light"] .travel-map-shape {
-  fill: rgba(7, 16, 36, 0.05);
-}
-
-[data-theme="light"] .travel-map-outline {
-  stroke: rgba(7, 16, 36, 0.2);
-}
-
-[data-theme="light"] .travel-map-island {
-  fill: rgba(7, 16, 36, 0.03);
-  stroke: rgba(7, 16, 36, 0.14);
-}
-
-[data-theme="light"] .travel-map-point-label {
-  color: #071024;
-  border-color: rgba(9, 16, 36, 0.08);
-  background: rgba(255,255,255,.94);
-}
-
-@keyframes travelPulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.12);
-  }
 }
 
 .cta-card {
