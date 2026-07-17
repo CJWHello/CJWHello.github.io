@@ -2004,6 +2004,12 @@ h3 {
   transition: box-shadow 220ms ease;
 }
 
+.acgn-row-manga .acgn-strip-card,
+.acgn-row-novel .acgn-strip-card {
+  min-height: 288px;
+  height: 288px;
+}
+
 .acgn-strip-card:hover {
   box-shadow: 0 22px 38px rgba(0, 0, 0, 0.28);
 }
@@ -2015,6 +2021,11 @@ h3 {
   object-fit: cover;
   transform-origin: center center;
   transition: transform 260ms ease;
+}
+
+.acgn-row-manga .acgn-strip-card img,
+.acgn-row-novel .acgn-strip-card img {
+  min-height: 288px;
 }
 
 .acgn-strip-card:hover img {

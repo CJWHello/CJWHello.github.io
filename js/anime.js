@@ -40,8 +40,9 @@
 
     rowsRoot.innerHTML = items.map((item) => {
       const tiles = buildTiles(item);
+      const typeClass = `acgn-row-${String(item.type || "acgn").toLowerCase()}`;
       return [
-        `<section class="acgn-row reveal is-visible" aria-label="${escapeHtml(item.typeLabel || item.type || "")}">`,
+        `<section class="acgn-row ${escapeHtml(typeClass)} reveal is-visible" aria-label="${escapeHtml(item.type || "")}">`,
         '  <div class="acgn-row-heading">',
         `    <p>${escapeHtml(item.type || "ACGN")}</p>`,
         "  </div>",

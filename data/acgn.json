@@ -9,23 +9,23 @@
       "type": "Anime",
       "shares": [
         {
-          "title": "龙与虎",
+          "title": "孤独摇滚",
           "image": "./assets/anime/f-1.jpg"
         },
         {
-          "title": "本周追番便签",
+          "title": "龙与虎",
           "image": "./assets/anime/f-2.jpg"
         },
         {
-          "title": "喜欢的角色瞬间",
+          "title": "Charlotte",
           "image": "./assets/anime/f-3.jpg"
         },
         {
-          "title": "治愈系片段",
+          "title": "排球少年",
           "image": "./assets/anime/f-4.jpg"
         },
         {
-          "title": "情绪存档",
+          "title": "混沌武士",
           "image": "./assets/anime/f-5.jpg"
         }
       ]
@@ -35,23 +35,23 @@
       "type": "Manga",
       "shares": [
        {
-          "title": "龙与虎",
+          "title": "狐妖小红娘",
           "image": "./assets/manga/f-1.jpg"
         },
         {
-          "title": "本周追番便签",
+          "title": "尸兄",
           "image": "./assets/manga/f-2.jpg"
         },
         {
-          "title": "喜欢的角色瞬间",
+          "title": "南号尚风",
           "image": "./assets/manga/f-3.jpg"
         },
         {
-          "title": "治愈系片段",
+          "title": "极刑·饭",
           "image": "./assets/manga/f-4.jpg"
         },
         {
-          "title": "情绪存档",
+          "title": "日月同错",
           "image": "./assets/manga/f-5.jpg"
         }
       ]
@@ -61,23 +61,23 @@
       "type": "Novel",
       "shares": [
         {
-          "title": "龙与虎",
+          "title": "绍宋",
           "image": "./assets/novel/f-1.jpg"
         },
         {
-          "title": "本周追番便签",
+          "title": "一念永恒",
           "image": "./assets/novel/f-2.jpg"
         },
         {
-          "title": "喜欢的角色瞬间",
+          "title": "烂柯棋缘",
           "image": "./assets/novel/f-3.jpg"
         },
         {
-          "title": "治愈系片段",
+          "title": "神秘复苏",
           "image": "./assets/novel/f-4.jpg"
         },
         {
-          "title": "情绪存档",
+          "title": "雪中悍道行",
           "image": "./assets/novel/f-5.jpg"
         }
       ]
