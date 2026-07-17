@@ -1,7 +1,6 @@
 {
   "hero": {
-    "title": "二次元收藏柜",
-    "subtitle": "像壁纸站首页那样，把喜欢的动漫、漫画和小说铺成三条长廊，翻过去就是最近想记录的心动瞬间。",
+    "mark": "恍然如梦",
     "background": "./assets/images/bg.jpg"
   },
   "items": [

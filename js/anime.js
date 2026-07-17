@@ -17,20 +17,15 @@
     })
     .catch(() => {
       heroRoot.innerHTML = [
-        '<p class="eyebrow">ACGN</p>',
-        "<h1>二次元页面加载失败</h1>",
-        "<p>请检查 data/acgn.json 是否可访问。</p>"
+        '<p class="acgn-home-mark">恍然如梦</p>'
       ].join("");
-      rowsRoot.innerHTML = "";
     });
 
   function renderHero(hero, items) {
     const cover = hero.background || items[0]?.cover || "./assets/images/acgn-anime.svg";
     heroRoot.style.setProperty("--acgn-hero-image", `url("${cover}")`);
     heroRoot.innerHTML = [
-      '<p class="eyebrow">ACGN</p>',
-      `<h1>${escapeHtml(hero.title || "二次元收藏柜")}</h1>`,
-      `<p>${escapeHtml(hero.subtitle || "把喜欢的动漫、漫画和小说铺成三条长廊。")}</p>`
+      `<p class="acgn-home-mark">${escapeHtml(hero.mark || "恍然如梦")}</p>`
     ].join("");
   }
 
