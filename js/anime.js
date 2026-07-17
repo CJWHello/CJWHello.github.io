@@ -22,7 +22,7 @@
     });
 
   function renderHero(hero, items) {
-    const cover = hero.background || items[0]?.cover || "./assets/images/acgn-anime.svg";
+    const cover = hero.background || items[0]?.shares?.[0]?.image || items[0]?.cover || "./assets/images/acgn-anime.svg";
     heroRoot.style.backgroundImage = [
       "linear-gradient(180deg, rgba(7, 10, 22, 0.28), rgba(7, 10, 22, 0.7))",
       `url("${cover}")`
@@ -44,14 +44,12 @@
         `<section class="acgn-row reveal is-visible" aria-label="${escapeHtml(item.typeLabel || item.type || "")}">`,
         '  <div class="acgn-row-heading">',
         `    <p>${escapeHtml(item.type || "ACGN")}</p>`,
-        `    <h2>${escapeHtml(item.typeLabel || item.title || "")}</h2>`,
         "  </div>",
         '  <div class="acgn-row-strip">',
         tiles.map((tile) => [
           `    <a class="acgn-strip-card" href="./anime-detail.html?id=${encodeURIComponent(item.id || "")}" aria-label="${escapeHtml(tile.title)}">`,
           `      <img src="${escapeHtml(tile.image)}" alt="${escapeHtml(tile.title)}" loading="lazy" />`,
           '      <div class="acgn-strip-overlay">',
-          `        <span class="acgn-strip-badge">${escapeHtml(item.typeLabel || item.type || "")}</span>`,
           `        <strong>${escapeHtml(tile.title)}</strong>`,
           "      </div>",
           "    </a>"
@@ -63,13 +61,11 @@
   }
 
   function buildTiles(item) {
-    const tiles = [
-      { title: item.title || item.typeLabel || "未命名", image: item.cover || "./assets/images/acgn-anime.svg" },
-      ...((item.shares || []).map((share) => ({
-        title: share.title || item.title || "未命名",
-        image: share.image || item.cover || "./assets/images/acgn-anime.svg"
-      })))
-    ];
+    const shares = Array.isArray(item.shares) ? item.shares : [];
+    const tiles = shares.map((share) => ({
+      title: share.title || item.title || "未命名",
+      image: share.image || item.cover || "./assets/images/acgn-anime.svg"
+    }));
 
     if (!tiles.length) {
       return [];

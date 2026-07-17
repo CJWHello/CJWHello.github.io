@@ -7,96 +7,81 @@
     {
       "id": "anime-watchlist",
       "type": "Anime",
-      "typeLabel": "动漫",
       "title": "龙与虎",
-      "cover": "./assets/anime/f-2.jpg",
-      "summary": "龙虎一生推！",
-      "tags": ["校园", "爱情", "心情"],
-      "content": "这里可以记录每一季的追番体验：作画、节奏、音乐、角色，以及某一集突然击中的瞬间。比起评分，更想留下当时的心情。",
       "shares": [
         {
+          "title": "龙与虎",
+          "image": "./assets/anime/f-2.jpg"
+        },
+        {
           "title": "本周追番便签",
-          "image": "./assets/anime/f-3.jpg",
-          "text": "这一周想记录一部节奏很舒服的番：不一定神作，但它让人愿意在睡前多看一集。"
+          "image": "./assets/anime/f-3.jpg"
         },
         {
           "title": "喜欢的角色瞬间",
-          "image": "./assets/anime/f-4.jpg",
-          "text": "角色真正动人的地方，往往不是高光台词，而是某个很小的停顿和眼神。"
+          "image": "./assets/anime/f-4.jpg"
         },
         {
           "title": "治愈系片段",
-          "image": "./assets/anime/f-2.jpg",
-          "text": "有些场景像一阵晚风，不需要很宏大，也能在某个晚上把人安静地留下来。"
+          "image": "./assets/anime/f-2.jpg"
         },
         {
           "title": "情绪存档",
-          "image": "./assets/anime/f-3.jpg",
-          "text": "把那些会想反复回看的情绪节点存起来，像私人的壁纸收藏夹。"
+          "image": "./assets/anime/f-3.jpg"
         }
       ]
     },
     {
       "id": "manga-notes",
       "type": "Manga",
-      "typeLabel": "漫画",
       "title": "漫画收藏",
-      "cover": "./assets/images/acgn-manga.svg",
-      "summary": "放漫画阅读笔记、分镜观察和喜欢的短评。",
-      "tags": ["漫画", "分镜", "收藏"],
-      "content": "漫画记录可以更关注画面：分镜、留白、黑白关系、台词节奏，以及某一页为什么好看。",
       "shares": [
         {
+          "title": "漫画收藏",
+          "image": "./assets/images/acgn-manga.svg"
+        },
+        {
           "title": "分镜观察",
-          "image": "./assets/images/acgn-manga.svg",
-          "text": "这一格如果只看台词并不特别，但画面留白让情绪停住了。"
+          "image": "./assets/images/acgn-manga.svg"
         },
         {
           "title": "收藏短评",
-          "image": "./assets/images/project-nexus.svg",
-          "text": "适合放卷数记录、喜欢的页码、角色关系变化，或者一句非常主观的短评。"
+          "image": "./assets/images/project-nexus.svg"
         },
         {
           "title": "角色关系线",
-          "image": "./assets/images/acgn-manga.svg",
-          "text": "人物关系推进到哪一页开始真正成立，往往比剧情大纲更值得记。"
+          "image": "./assets/images/acgn-manga.svg"
         },
         {
           "title": "卷册偏爱",
-          "image": "./assets/images/project-nexus.svg",
-          "text": "有些卷数会因为一个分镜、一页跨页或者一句台词被单独珍藏。"
+          "image": "./assets/images/project-nexus.svg"
         }
       ]
     },
     {
       "id": "novel-shelf",
       "type": "Novel",
-      "typeLabel": "小说",
       "title": "小说书架",
-      "cover": "./assets/images/acgn-novel.svg",
-      "summary": "整理轻小说、网文和长篇幻想故事的阅读记录。",
-      "tags": ["小说", "阅读", "幻想"],
-      "content": "小说区适合记录世界观、人物弧光、喜欢的句子和阅读进度。也可以写某个角色为什么让人念念不忘。",
       "shares": [
         {
+          "title": "小说书架",
+          "image": "./assets/images/acgn-novel.svg"
+        },
+        {
           "title": "世界观记录",
-          "image": "./assets/images/acgn-novel.svg",
-          "text": "一个好的世界观不是设定堆砌，而是角色在规则里做选择时，读者能感到代价。"
+          "image": "./assets/images/acgn-novel.svg"
         },
         {
           "title": "摘句占位",
-          "image": "./assets/images/project-dashboard.svg",
-          "text": "这里可以放喜欢的句子、章节短评，或者读到某一段时突然冒出来的想法。"
+          "image": "./assets/images/project-dashboard.svg"
         },
         {
           "title": "角色独白",
-          "image": "./assets/images/acgn-novel.svg",
-          "text": "真正留下来的句子，常常不是设定介绍，而是角色某次克制又坦白的独白。"
+          "image": "./assets/images/acgn-novel.svg"
         },
         {
           "title": "夜读片段",
-          "image": "./assets/images/project-dashboard.svg",
-          "text": "适合记录那些在夜里读完之后，会让人合上书还想发一会呆的章节。"
+          "image": "./assets/images/project-dashboard.svg"
         }
       ]
     }
