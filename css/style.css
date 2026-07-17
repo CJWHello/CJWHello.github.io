@@ -1900,6 +1900,10 @@ h3 {
   padding-bottom: 20px;
 }
 
+.inner-page.acgn-home-page {
+  padding-top: 0;
+}
+
 .acgn-home {
   display: grid;
   gap: 0;
@@ -1952,12 +1956,13 @@ h3 {
   display: grid;
   gap: 22px;
   padding-top: 34px;
+  width: min(calc(100% - 24px), 1600px);
 }
 
 .acgn-row {
   display: grid;
   gap: 14px;
-  width: calc(100% - 76px);
+  width: 100%;
   margin: 0 auto;
 }
 
