@@ -2286,7 +2286,7 @@ h3 {
 
 .site-footer {
   width: min(calc(100% - 40px), var(--max-width));
-  margin: 0 auto 18px;
+  margin: 50px auto 18px;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -2453,11 +2453,11 @@ h3 {
 }
 
 .inner-page {
-  padding-top: 80px;
+  padding-top: 98px;
 }
 
 .page-hero {
-  padding-bottom: 15px;
+  padding-bottom: 52px;
 }
 
 .about-puzzle-section {
