@@ -1917,7 +1917,7 @@ h3 {
   max-width: none;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  min-height: 100vh;
+  min-height: 66vh;
   display: grid;
   place-items: center;
   padding: 120px clamp(24px, 4vw, 48px) 72px;
