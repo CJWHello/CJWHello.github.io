@@ -1,8 +1,14 @@
 {
+  "hero": {
+    "title": "二次元收藏柜",
+    "subtitle": "像壁纸站首页那样，把喜欢的动漫、漫画和小说铺成三条长廊，翻过去就是最近想记录的心动瞬间。",
+    "background": "./assets/images/acgn-anime.svg"
+  },
   "items": [
     {
       "id": "anime-watchlist",
       "type": "Anime",
+      "typeLabel": "动漫",
       "title": "追番清单",
       "cover": "./assets/images/acgn-anime.svg",
       "summary": "记录最近想看、正在看和看完后想写几句的动画。",
@@ -22,29 +28,9 @@
       ]
     },
     {
-      "id": "novel-shelf",
-      "type": "Novel",
-      "title": "小说书架",
-      "cover": "./assets/images/acgn-novel.svg",
-      "summary": "整理轻小说、网文和长篇幻想故事的阅读记录。",
-      "tags": ["小说", "阅读", "幻想"],
-      "content": "小说区适合记录世界观、人物弧光、喜欢的句子和阅读进度。也可以写某个角色为什么让人念念不忘。",
-      "shares": [
-        {
-          "title": "世界观记录",
-          "image": "./assets/images/acgn-novel.svg",
-          "text": "一个好的世界观不是设定堆砌，而是角色在规则里做选择时，读者能感到代价。"
-        },
-        {
-          "title": "摘句占位",
-          "image": "./assets/images/project-dashboard.svg",
-          "text": "这里可以放喜欢的句子、章节短评，或者读到某一段时突然冒出来的想法。"
-        }
-      ]
-    },
-    {
       "id": "manga-notes",
       "type": "Manga",
+      "typeLabel": "漫画",
       "title": "漫画收藏",
       "cover": "./assets/images/acgn-manga.svg",
       "summary": "放漫画阅读笔记、分镜观察和喜欢的短评。",
@@ -60,6 +46,28 @@
           "title": "收藏短评",
           "image": "./assets/images/project-nexus.svg",
           "text": "适合放卷数记录、喜欢的页码、角色关系变化，或者一句非常主观的短评。"
+        }
+      ]
+    },
+    {
+      "id": "novel-shelf",
+      "type": "Novel",
+      "typeLabel": "小说",
+      "title": "小说书架",
+      "cover": "./assets/images/acgn-novel.svg",
+      "summary": "整理轻小说、网文和长篇幻想故事的阅读记录。",
+      "tags": ["小说", "阅读", "幻想"],
+      "content": "小说区适合记录世界观、人物弧光、喜欢的句子和阅读进度。也可以写某个角色为什么让人念念不忘。",
+      "shares": [
+        {
+          "title": "世界观记录",
+          "image": "./assets/images/acgn-novel.svg",
+          "text": "一个好的世界观不是设定堆砌，而是角色在规则里做选择时，读者能感到代价。"
+        },
+        {
+          "title": "摘句占位",
+          "image": "./assets/images/project-dashboard.svg",
+          "text": "这里可以放喜欢的句子、章节短评，或者读到某一段时突然冒出来的想法。"
         }
       ]
     }

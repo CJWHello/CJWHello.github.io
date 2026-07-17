@@ -30,9 +30,102 @@
     <div class="header-actions"><button class="icon-button theme-toggle" type="button" aria-label="Toggle color theme" data-theme-toggle><i class="fa-solid fa-moon"></i></button><button class="icon-button menu-toggle" type="button" aria-label="Open navigation" data-menu-toggle><i class="fa-solid fa-bars"></i></button></div>
   </header>
 
-  <main class="page-transition inner-page">
-    <section class="section-shell acgn-section">
-      <div class="acgn-grid" data-acgn-grid></div>
+  <main class="page-transition inner-page acgn-home-page">
+    <section class="acgn-home" data-acgn-home>
+      <div class="section-shell acgn-home-hero reveal is-visible">
+        <p class="eyebrow">ACGN</p>
+        <h1>二次元收藏柜</h1>
+        <p>像壁纸站首页那样，把喜欢的动漫、漫画和小说铺成三条长廊，翻过去就是最近想记录的心动瞬间。</p>
+      </div>
+      <section class="section-shell acgn-home-rows" data-acgn-rows>
+        <div class="acgn-row reveal is-visible">
+          <div class="acgn-row-heading">
+            <p>Anime</p>
+            <h2>动漫</h2>
+          </div>
+          <div class="acgn-row-strip">
+            <a class="acgn-strip-card" href="./anime-detail.html?id=anime-watchlist" aria-label="追番清单">
+              <img src="./assets/images/acgn-anime.svg" alt="追番清单" loading="lazy" />
+              <div class="acgn-strip-overlay">
+                <span class="acgn-strip-badge">动漫</span>
+                <strong>追番清单</strong>
+              </div>
+            </a>
+            <a class="acgn-strip-card" href="./anime-detail.html?id=anime-watchlist" aria-label="本周追番便签">
+              <img src="./assets/images/acgn-anime.svg" alt="本周追番便签" loading="lazy" />
+              <div class="acgn-strip-overlay">
+                <span class="acgn-strip-badge">动漫</span>
+                <strong>本周追番便签</strong>
+              </div>
+            </a>
+            <a class="acgn-strip-card" href="./anime-detail.html?id=anime-watchlist" aria-label="喜欢的角色瞬间">
+              <img src="./assets/images/project-vision.svg" alt="喜欢的角色瞬间" loading="lazy" />
+              <div class="acgn-strip-overlay">
+                <span class="acgn-strip-badge">动漫</span>
+                <strong>喜欢的角色瞬间</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="acgn-row reveal is-visible">
+          <div class="acgn-row-heading">
+            <p>Manga</p>
+            <h2>漫画</h2>
+          </div>
+          <div class="acgn-row-strip">
+            <a class="acgn-strip-card" href="./anime-detail.html?id=manga-notes" aria-label="漫画收藏">
+              <img src="./assets/images/acgn-manga.svg" alt="漫画收藏" loading="lazy" />
+              <div class="acgn-strip-overlay">
+                <span class="acgn-strip-badge">漫画</span>
+                <strong>漫画收藏</strong>
+              </div>
+            </a>
+            <a class="acgn-strip-card" href="./anime-detail.html?id=manga-notes" aria-label="分镜观察">
+              <img src="./assets/images/acgn-manga.svg" alt="分镜观察" loading="lazy" />
+              <div class="acgn-strip-overlay">
+                <span class="acgn-strip-badge">漫画</span>
+                <strong>分镜观察</strong>
+              </div>
+            </a>
+            <a class="acgn-strip-card" href="./anime-detail.html?id=manga-notes" aria-label="收藏短评">
+              <img src="./assets/images/project-nexus.svg" alt="收藏短评" loading="lazy" />
+              <div class="acgn-strip-overlay">
+                <span class="acgn-strip-badge">漫画</span>
+                <strong>收藏短评</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="acgn-row reveal is-visible">
+          <div class="acgn-row-heading">
+            <p>Novel</p>
+            <h2>小说</h2>
+          </div>
+          <div class="acgn-row-strip">
+            <a class="acgn-strip-card" href="./anime-detail.html?id=novel-shelf" aria-label="小说书架">
+              <img src="./assets/images/acgn-novel.svg" alt="小说书架" loading="lazy" />
+              <div class="acgn-strip-overlay">
+                <span class="acgn-strip-badge">小说</span>
+                <strong>小说书架</strong>
+              </div>
+            </a>
+            <a class="acgn-strip-card" href="./anime-detail.html?id=novel-shelf" aria-label="世界观记录">
+              <img src="./assets/images/acgn-novel.svg" alt="世界观记录" loading="lazy" />
+              <div class="acgn-strip-overlay">
+                <span class="acgn-strip-badge">小说</span>
+                <strong>世界观记录</strong>
+              </div>
+            </a>
+            <a class="acgn-strip-card" href="./anime-detail.html?id=novel-shelf" aria-label="摘句占位">
+              <img src="./assets/images/project-dashboard.svg" alt="摘句占位" loading="lazy" />
+              <div class="acgn-strip-overlay">
+                <span class="acgn-strip-badge">小说</span>
+                <strong>摘句占位</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
     </section>
   </main>
 
@@ -40,5 +133,3 @@
   <script src="./js/particles.js"></script><script src="./js/animation.js"></script><script src="./js/site-data.js"></script><script src="./js/main.js"></script><script src="./js/anime.js"></script>
 </body>
 </html>
-
-
