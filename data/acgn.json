@@ -7,81 +7,78 @@
     {
       "id": "anime-watchlist",
       "type": "Anime",
-      "title": "龙与虎",
       "shares": [
         {
           "title": "龙与虎",
-          "image": "./assets/anime/f-2.jpg"
+          "image": "./assets/anime/f-1.jpg"
         },
         {
           "title": "本周追番便签",
-          "image": "./assets/anime/f-3.jpg"
-        },
-        {
-          "title": "喜欢的角色瞬间",
-          "image": "./assets/anime/f-4.jpg"
-        },
-        {
-          "title": "治愈系片段",
           "image": "./assets/anime/f-2.jpg"
         },
         {
-          "title": "情绪存档",
+          "title": "喜欢的角色瞬间",
           "image": "./assets/anime/f-3.jpg"
+        },
+        {
+          "title": "治愈系片段",
+          "image": "./assets/anime/f-4.jpg"
+        },
+        {
+          "title": "情绪存档",
+          "image": "./assets/anime/f-5.jpg"
         }
       ]
     },
     {
       "id": "manga-notes",
       "type": "Manga",
-      "title": "漫画收藏",
       "shares": [
-        {
-          "title": "漫画收藏",
-          "image": "./assets/images/acgn-manga.svg"
+       {
+          "title": "龙与虎",
+          "image": "./assets/manga/f-1.jpg"
         },
         {
-          "title": "分镜观察",
-          "image": "./assets/images/acgn-manga.svg"
+          "title": "本周追番便签",
+          "image": "./assets/manga/f-2.jpg"
         },
         {
-          "title": "收藏短评",
-          "image": "./assets/images/project-nexus.svg"
+          "title": "喜欢的角色瞬间",
+          "image": "./assets/manga/f-3.jpg"
         },
         {
-          "title": "角色关系线",
-          "image": "./assets/images/acgn-manga.svg"
+          "title": "治愈系片段",
+          "image": "./assets/manga/f-4.jpg"
         },
         {
-          "title": "卷册偏爱",
-          "image": "./assets/images/project-nexus.svg"
+          "title": "情绪存档",
+          "image": "./assets/manga/f-5.jpg"
         }
       ]
     },
     {
       "id": "novel-shelf",
       "type": "Novel",
-      "title": "小说书架",
       "shares": [
         {
-          "title": "小说书架",
-          "image": "./assets/images/acgn-novel.svg"
+          "title": "龙与虎",
+          "image": "./assets/novel/f-1.jpg"
         },
         {
-          "title": "世界观记录",
-          "image": "./assets/images/acgn-novel.svg"
+          "title": "本周追番便签",
+          "image": "./assets/novel/f-2.jpg"
         },
         {
-          "title": "摘句占位",
-          "image": "./assets/images/project-dashboard.svg"
+          "title": "喜欢的角色瞬间",
+          "image": "./assets/novel/f-3.jpg"
         },
         {
-          "title": "角色独白",
-          "image": "./assets/images/acgn-novel.svg"
+          "title": "治愈系片段",
+          "image": "./assets/novel/f-4.jpg"
         },
         {
-          "title": "夜读片段",
-          "image": "./assets/images/project-dashboard.svg"
+          "title": "情绪存档",
+          "image": "./assets/novel/f-5.jpg"
         }
       ]
     }
