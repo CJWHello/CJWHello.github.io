@@ -23,7 +23,10 @@
 
   function renderHero(hero, items) {
     const cover = hero.background || items[0]?.cover || "./assets/images/acgn-anime.svg";
-    heroRoot.style.setProperty("--acgn-hero-image", `url("${cover}")`);
+    heroRoot.style.backgroundImage = [
+      "linear-gradient(180deg, rgba(7, 10, 22, 0.28), rgba(7, 10, 22, 0.7))",
+      `url("${cover}")`
+    ].join(", ");
     heroRoot.innerHTML = [
       `<p class="acgn-home-mark">${escapeHtml(hero.mark || "恍然如梦")}</p>`
     ].join("");
@@ -68,7 +71,17 @@
       })))
     ];
 
-    return tiles.slice(0, 3);
+    if (!tiles.length) {
+      return [];
+    }
+
+    const sourceTiles = [...tiles];
+    while (tiles.length < 5) {
+      const source = sourceTiles[tiles.length % sourceTiles.length];
+      tiles.push({ ...source });
+    }
+
+    return tiles.slice(0, 5);
   }
 
   function escapeHtml(value = "") {

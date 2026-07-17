@@ -23,6 +23,16 @@
           "title": "喜欢的角色瞬间",
           "image": "./assets/anime/f-4.jpg",
           "text": "角色真正动人的地方，往往不是高光台词，而是某个很小的停顿和眼神。"
+        },
+        {
+          "title": "治愈系片段",
+          "image": "./assets/anime/f-2.jpg",
+          "text": "有些场景像一阵晚风，不需要很宏大，也能在某个晚上把人安静地留下来。"
+        },
+        {
+          "title": "情绪存档",
+          "image": "./assets/anime/f-3.jpg",
+          "text": "把那些会想反复回看的情绪节点存起来，像私人的壁纸收藏夹。"
         }
       ]
     },
@@ -45,6 +55,16 @@
           "title": "收藏短评",
           "image": "./assets/images/project-nexus.svg",
           "text": "适合放卷数记录、喜欢的页码、角色关系变化，或者一句非常主观的短评。"
+        },
+        {
+          "title": "角色关系线",
+          "image": "./assets/images/acgn-manga.svg",
+          "text": "人物关系推进到哪一页开始真正成立，往往比剧情大纲更值得记。"
+        },
+        {
+          "title": "卷册偏爱",
+          "image": "./assets/images/project-nexus.svg",
+          "text": "有些卷数会因为一个分镜、一页跨页或者一句台词被单独珍藏。"
         }
       ]
     },
@@ -67,6 +87,16 @@
           "title": "摘句占位",
           "image": "./assets/images/project-dashboard.svg",
           "text": "这里可以放喜欢的句子、章节短评，或者读到某一段时突然冒出来的想法。"
+        },
+        {
+          "title": "角色独白",
+          "image": "./assets/images/acgn-novel.svg",
+          "text": "真正留下来的句子，常常不是设定介绍，而是角色某次克制又坦白的独白。"
+        },
+        {
+          "title": "夜读片段",
+          "image": "./assets/images/project-dashboard.svg",
+          "text": "适合记录那些在夜里读完之后，会让人合上书还想发一会呆的章节。"
         }
       ]
     }
