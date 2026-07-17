@@ -12,15 +12,36 @@
       ]
     },
     {
-      "key": "vlm-llm-card-demo",
-      "title": "Agent 卡片自动生成测试",
-      "category": "vlm",
-      "categoryLabel": "VLM",
-      "path": "./notes/vlm/llm-card-demo.md",
+      "key": "RoPE笔记",
+      "title": "RoPE笔记",
+      "category": "llm",
+      "categoryLabel": "LLM",
+      "path": "./notes/llm/RoPE.md",
       "tags": [
-        "Agent",
-        "Demo",
-        "Auto Card"
+        "LLM",
+        "RoPE"
+      ]
+    },
+    {
+      "key": "Attention笔记",
+      "title": "Attention笔记",
+      "category": "llm",
+      "categoryLabel": "LLM",
+      "path": "./notes/llm/Attention.md",
+      "tags": [
+        "LLM",
+        "Attention"
+      ]
+    },
+    {
+      "key": "KV Cache笔记",
+      "title": "KV Cache笔记",
+      "category": "llm",
+      "categoryLabel": "LLM",
+      "path": "./notes/llm/KV-Cache.md",
+      "tags": [
+        "LLM",
+        "KV Cache"
       ]
     }
   ]
