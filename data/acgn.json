@@ -2,27 +2,27 @@
   "hero": {
     "title": "二次元收藏柜",
     "subtitle": "像壁纸站首页那样，把喜欢的动漫、漫画和小说铺成三条长廊，翻过去就是最近想记录的心动瞬间。",
-    "background": "./assets/images/acgn-anime.svg"
+    "background": "./assets/images/bg.jpg"
   },
   "items": [
     {
       "id": "anime-watchlist",
       "type": "Anime",
       "typeLabel": "动漫",
-      "title": "追番清单",
-      "cover": "./assets/images/acgn-anime.svg",
-      "summary": "记录最近想看、正在看和看完后想写几句的动画。",
-      "tags": ["动画", "追番", "心情"],
+      "title": "龙与虎",
+      "cover": "./assets/anime/f-2.jpg",
+      "summary": "龙虎一生推！",
+      "tags": ["校园", "爱情", "心情"],
       "content": "这里可以记录每一季的追番体验：作画、节奏、音乐、角色，以及某一集突然击中的瞬间。比起评分，更想留下当时的心情。",
       "shares": [
         {
           "title": "本周追番便签",
-          "image": "./assets/images/acgn-anime.svg",
+          "image": "./assets/anime/f-3.jpg",
           "text": "这一周想记录一部节奏很舒服的番：不一定神作，但它让人愿意在睡前多看一集。"
         },
         {
           "title": "喜欢的角色瞬间",
-          "image": "./assets/images/project-vision.svg",
+          "image": "./assets/anime/f-4.jpg",
           "text": "角色真正动人的地方，往往不是高光台词，而是某个很小的停顿和眼神。"
         }
       ]
