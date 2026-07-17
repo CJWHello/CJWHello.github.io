@@ -3182,7 +3182,7 @@ h3 {
 
 /* Markdown note reader */
 .note-shell {
-  padding-top: 30px;
+  padding-top: 0px;
 }
 
 .note-layout {
