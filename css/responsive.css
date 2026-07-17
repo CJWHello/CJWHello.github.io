@@ -8,6 +8,26 @@
   }
 }
 
+@media (max-width: 1280px) {
+  .acgn-home-hero {
+    min-height: 60vh;
+    padding: 112px 28px 64px;
+  }
+
+  .acgn-home-rows {
+    width: min(calc(100% - 20px), 1440px);
+  }
+
+  .acgn-row-strip {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .acgn-strip-card {
+    width: 88%;
+  }
+}
+
 @media (max-width: 1080px) {
   .hero-grid,
   .about-profile-card,
@@ -48,13 +68,53 @@
   .notes-compact-grid,
   .blog-grid,
   .blog-grid-wide,
-  .sticky-notes-grid,
-  .acgn-row-strip {
+  .sticky-notes-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .contact-panel {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .acgn-home-hero {
+    min-height: 56vh;
+    padding: 108px 24px 56px;
+  }
+
+  .acgn-home-mark {
+    font-size: 0.9rem;
+    letter-spacing: 0.28em;
+  }
+
+  .acgn-home-rows {
+    width: min(calc(100% - 18px), 1320px);
+    gap: 18px;
+  }
+
+  .acgn-row-strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .acgn-strip-card {
+    width: 92%;
+    min-height: 132px;
+    height: 132px;
+  }
+
+  .acgn-strip-card img {
+    min-height: 132px;
+  }
+
+  .acgn-row-manga .acgn-strip-card,
+  .acgn-row-novel .acgn-strip-card {
+    min-height: 240px;
+    height: 240px;
+  }
+
+  .acgn-row-manga .acgn-strip-card img,
+  .acgn-row-novel .acgn-strip-card img {
+    min-height: 240px;
   }
 }
 
@@ -171,10 +231,60 @@
   .blog-grid,
   .blog-grid-wide,
   .sticky-notes-grid,
-  .acgn-row-strip,
   .contact-account-grid,
   .contact-panel {
     grid-template-columns: 1fr;
+  }
+
+  .acgn-home-hero {
+    min-height: 52vh;
+    padding: 96px 20px 48px;
+  }
+
+  .acgn-home-mark {
+    font-size: 0.86rem;
+    letter-spacing: 0.22em;
+    text-indent: 0.22em;
+  }
+
+  .acgn-home-rows {
+    width: min(calc(100% - 16px), 100%);
+    gap: 16px;
+    padding-top: 26px;
+  }
+
+  .acgn-row {
+    gap: 10px;
+  }
+
+  .acgn-row-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .acgn-strip-card {
+    width: 100%;
+    min-height: 148px;
+    height: 148px;
+  }
+
+  .acgn-strip-card img {
+    min-height: 148px;
+  }
+
+  .acgn-row-manga .acgn-strip-card,
+  .acgn-row-novel .acgn-strip-card {
+    min-height: 236px;
+    height: 236px;
+  }
+
+  .acgn-row-manga .acgn-strip-card img,
+  .acgn-row-novel .acgn-strip-card img {
+    min-height: 236px;
+  }
+
+  .acgn-strip-overlay strong {
+    font-size: 0.9rem;
   }
 
   .about-puzzle-board {
@@ -246,15 +356,20 @@
 
   .footer-grid > div:first-child {
     flex-basis: 100%;
-  }
-
-  .footer-grid > div:first-child p,
-  .footer-links {
-    justify-content: flex-start;
+    flex-wrap: wrap;
   }
 
   .footer-grid > div:first-child p {
     max-width: none;
+    white-space: normal;
+  }
+
+  .footer-bottom {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
   }
 }
 
@@ -366,6 +481,60 @@
     margin-bottom: 24px;
   }
 
+  .acgn-home-hero {
+    min-height: 46vh;
+    padding: 88px 16px 38px;
+  }
+
+  .acgn-home-mark {
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-indent: 0.18em;
+  }
+
+  .acgn-home-rows {
+    width: min(calc(100% - 12px), 100%);
+    padding-top: 18px;
+  }
+
+  .acgn-row-heading p {
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+  }
+
+  .acgn-row-strip {
+    gap: 8px;
+  }
+
+  .acgn-strip-card {
+    min-height: 132px;
+    height: 132px;
+    border-radius: 10px;
+  }
+
+  .acgn-strip-card img {
+    min-height: 132px;
+  }
+
+  .acgn-row-manga .acgn-strip-card,
+  .acgn-row-novel .acgn-strip-card {
+    min-height: 212px;
+    height: 212px;
+  }
+
+  .acgn-row-manga .acgn-strip-card img,
+  .acgn-row-novel .acgn-strip-card img {
+    min-height: 212px;
+  }
+
+  .acgn-strip-overlay {
+    padding: 10px;
+  }
+
+  .acgn-strip-overlay strong {
+    font-size: 0.84rem;
+  }
+
   .hero-mantra {
     gap: 14px;
     margin-top: 10px;
@@ -471,6 +640,14 @@
     gap: 14px;
   }
 
+  .travel-map-shell {
+    padding: 16px 12px;
+  }
+
+  .travel-map-lead {
+    font-size: 0.78rem;
+  }
+
   .note-layout {
     grid-template-columns: 1fr;
   }
@@ -478,6 +655,21 @@
   .note-toc {
     position: static;
     order: -1;
+    padding: 14px 12px;
+  }
+
+  .note-toc-head {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .note-toc-back {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .markdown-reader {
+    padding: 20px 16px;
   }
 
   .sticky-notes-grid {
@@ -519,5 +711,70 @@
 
   .cta-card {
     padding: 26px 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-header {
+    top: 8px;
+    left: 8px;
+  }
+
+  .site-header.is-expanded {
+    width: calc(100% - 16px);
+    padding: 0 10px;
+  }
+
+  .section-shell {
+    width: min(calc(100% - 16px), var(--max-width));
+    padding: 52px 0;
+  }
+
+  .hero-visual-solar {
+    min-height: 460px;
+  }
+
+  .orbiter-ring {
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+
+  .star-label,
+  .orbiter-label {
+    font-size: 0.62rem;
+  }
+
+  .acgn-home-hero {
+    min-height: 42vh;
+    padding: 84px 12px 30px;
+  }
+
+  .acgn-row-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .acgn-strip-card,
+  .acgn-row-manga .acgn-strip-card,
+  .acgn-row-novel .acgn-strip-card {
+    width: 100%;
+    max-width: 280px;
+    justify-self: center;
+  }
+
+  .travel-map-visual {
+    min-height: 420px;
+    padding: 10px;
+  }
+
+  .travel-map-chart {
+    min-height: 388px;
+  }
+
+  .footer-bottom {
+    flex-wrap: wrap;
+  }
+
+  .footer-bottom p,
+  .footer-grid > div:first-child p {
+    white-space: normal;
   }
 }
