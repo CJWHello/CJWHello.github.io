@@ -273,6 +273,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   width: 62px;
   height: var(--header-height);
   padding: 0 9px;
@@ -287,7 +288,7 @@ button {
 
 .site-header.is-expanded {
   left: 50%;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: min(calc(100% - 32px), var(--max-width));
   padding: 0 14px 0 18px;
   border-color: rgba(91, 140, 255, 0.24);
@@ -363,12 +364,12 @@ button {
 .site-nav {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 4px;
-  padding: 6px;
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 999px;
-  background: var(--nav-shell-bg);
+  justify-content: flex-start;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   max-width: 0;
   opacity: 0;
   overflow: hidden;
@@ -387,20 +388,29 @@ button {
 
 .site-header.is-expanded .site-nav {
   position: static;
-  max-width: 760px;
+  flex: 1 1 auto;
+  max-width: none;
   opacity: 1;
   pointer-events: auto;
   transform: translateX(0);
   visibility: visible;
+  min-width: 0;
+  margin: 0 10px 0 14px;
+  justify-content: space-evenly;
 }
 
 .site-nav a {
   position: relative;
-  padding: 9px 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 8px 10px;
   border-radius: 999px;
   color: var(--muted);
   font-size: 0.8rem;
   font-weight: 650;
+  white-space: nowrap;
   transition: color 180ms ease, background 180ms ease, transform 180ms ease;
 }
 
@@ -410,36 +420,45 @@ button {
   background: var(--nav-hover-bg);
 }
 
-.header-actions {
+.site-header > .icon-button {
   display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  flex: 0 0 auto;
   max-width: 0;
   opacity: 0;
   overflow: hidden;
   pointer-events: none;
   transform: translateX(8px);
   visibility: hidden;
-  transition: max-width 220ms ease, opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+  transition: max-width 220ms ease, opacity 180ms ease, transform 180ms ease, visibility 180ms ease, margin-left 180ms ease;
 }
 
-.site-header:not(.is-expanded) .header-actions {
+.site-header > .theme-toggle {
+  margin-left: auto;
+}
+
+.site-header:not(.is-expanded) > .icon-button {
   position: absolute;
   width: 0;
+  margin-left: 0;
 }
 
-.site-header.is-expanded .header-actions {
+.site-header.is-expanded > .icon-button {
   position: static;
-  max-width: 104px;
+  max-width: 44px;
   opacity: 1;
   pointer-events: auto;
   transform: translateX(0);
   visibility: visible;
 }
 
+.site-header.is-expanded > .menu-toggle {
+  margin-left: 8px;
+}
+
 .icon-button {
   display: inline-grid;
   place-items: center;
+  position: relative;
   width: 44px;
   height: 44px;
   border: 1px solid var(--line);
@@ -448,6 +467,17 @@ button {
   background: var(--icon-button-bg);
   box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.icon-button i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 .icon-button:hover {

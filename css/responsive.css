@@ -78,6 +78,7 @@
     left: 50%;
     width: min(calc(100% - 22px), var(--max-width));
     padding: 0 12px;
+    gap: 8px;
     transform: translateX(-50%);
   }
 
@@ -96,8 +97,8 @@
     left: 12px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px;
+    gap: 6px;
+    padding: 10px 12px;
     border-radius: 24px;
     background: rgba(8, 13, 34, 0.88);
     box-shadow: var(--shadow);
@@ -362,7 +363,7 @@
   }
 
   .site-nav a {
-    padding: 7px 10px;
+    padding: 7px 9px;
     font-size: 0.7rem;
   }
 
