@@ -132,7 +132,8 @@
   .site-nav a {
     width: auto;
     flex: 0 0 auto;
-    padding: 10px 14px;
+    padding: 8px 12px;
+    font-size: 0.74rem;
   }
 
   .section-shell {
@@ -179,11 +180,9 @@
   .skills-grid,
   .project-grid,
   .project-grid-wide,
-  .notes-compact-grid,
   .blog-grid,
   .blog-grid-wide,
   .sticky-notes-grid,
-  .contact-account-grid,
   .contact-panel {
     grid-template-columns: 1fr;
   }
@@ -198,17 +197,34 @@
     gap: 14px;
   }
 
+  .contact-account-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+
   .contact-account-card {
-    grid-template-columns: 72px minmax(0, 1fr);
-    min-height: 112px;
-    padding: 16px;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    min-height: 0;
+    padding: 14px 10px 12px;
+    gap: 10px;
   }
 
   .contact-account-card img {
-    width: 72px;
-    height: 72px;
-    border-radius: 20px;
-    padding: 14px;
+    width: 62px;
+    height: 62px;
+    border-radius: 18px;
+    padding: 12px;
+  }
+
+  .contact-account-body::after {
+    margin: 10px auto 0;
+  }
+
+  .contact-account-body h2 {
+    margin-top: 4px;
+    font-size: 0.86rem;
   }
 
   .acgn-detail-card {
@@ -221,6 +237,7 @@
 
   .travel-gallery-section {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
 
   .musing-year-heading {
@@ -233,7 +250,9 @@
   }
 
   .notes-compact-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    align-items: start;
   }
 
   .timeline::before {
@@ -255,26 +274,40 @@
   }
 
   .site-footer {
-    gap: 10px 12px;
-    padding-bottom: 14px;
+    flex-wrap: nowrap;
+    gap: 8px 10px;
+    padding: 12px 14px;
   }
 
   .footer-grid > div:first-child {
-    flex-basis: 100%;
-    flex-wrap: wrap;
+    flex: 1 1 auto;
+    flex-wrap: nowrap;
+    min-width: 0;
   }
 
   .footer-grid > div:first-child p {
-    max-width: none;
-    white-space: normal;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.76rem;
   }
 
   .footer-bottom {
-    width: 100%;
+    flex: 0 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .footer-bottom p {
+    max-width: 34vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.74rem;
   }
 }
 
@@ -311,14 +344,46 @@
   }
 
   .hero-actions,
-  .card-actions,
-  .filter-bar {
+  .card-actions {
     align-items: stretch;
   }
 
   .button,
-  .filter-button {
+  .card-actions .button {
     width: 100%;
+  }
+
+  .site-nav {
+    top: calc(var(--header-height) + 14px);
+    right: 10px;
+    left: 10px;
+    gap: 6px;
+    padding: 10px;
+  }
+
+  .site-nav a {
+    padding: 7px 10px;
+    font-size: 0.7rem;
+  }
+
+  .filter-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 8px;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  .filter-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-button {
+    width: auto;
+    flex: 0 0 auto;
+    min-height: 38px;
+    padding: 0 14px;
   }
 
   .hero-visual {
@@ -442,22 +507,19 @@
   }
 
   .contact-account-card {
-    grid-template-columns: 62px minmax(0, 1fr);
-    gap: 12px;
-    min-height: 98px;
-    padding: 14px;
+    padding: 12px 8px 10px;
     border-radius: 16px;
   }
 
   .contact-account-card img {
-    width: 62px;
-    height: 62px;
+    width: 52px;
+    height: 52px;
     border-radius: 16px;
-    padding: 12px;
+    padding: 10px;
   }
 
   .contact-account-body h2 {
-    font-size: 0.92rem;
+    font-size: 0.78rem;
   }
 
   .glass-card,
@@ -469,12 +531,17 @@
     padding: 20px;
   }
 
+  .notes-compact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
   .notes-compact-grid .project-card {
-    aspect-ratio: 0.82;
+    aspect-ratio: 0.74;
   }
 
   .notes-compact-grid .project-content {
-    padding: 16px;
+    padding: 14px;
   }
 
   .travel-map-visual {
@@ -487,8 +554,8 @@
   }
 
   .travel-gallery-section {
-    grid-template-columns: 1fr;
-    gap: 14px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
   }
 
   .travel-map-shell {
@@ -595,15 +662,36 @@
   }
 
   .acgn-row-strip {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .acgn-strip-card,
   .acgn-row-manga .acgn-strip-card,
   .acgn-row-novel .acgn-strip-card {
     width: 100%;
-    max-width: min(280px, 100%);
+    max-width: 100%;
     justify-self: center;
+  }
+
+  .notes-compact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .travel-gallery-section {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-account-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .contact-account-body span {
+    font-size: 0.62rem;
+  }
+
+  .contact-account-body h2 {
+    font-size: 0.72rem;
   }
 
   .travel-map-visual {
@@ -615,12 +703,7 @@
     min-height: 388px;
   }
 
-  .footer-bottom {
-    flex-wrap: wrap;
-  }
-
-  .footer-bottom p,
-  .footer-grid > div:first-child p {
-    white-space: normal;
+  .footer-bottom p {
+    max-width: 28vw;
   }
 }

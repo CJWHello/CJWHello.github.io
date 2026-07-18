@@ -1983,6 +1983,9 @@ h3 {
   background:
     linear-gradient(180deg, var(--acgn-hero-wash-top), var(--acgn-hero-wash-bottom)),
     url("../assets/images/bg.jpg") center/cover no-repeat;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
   box-shadow: 0 24px 44px rgba(0, 0, 0, 0.22);
 }
 
