@@ -1975,10 +1975,10 @@ h3 {
   max-width: none;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  min-height: 66vh;
+  min-height: clamp(320px, 66vh, 760px);
   display: grid;
   place-items: center;
-  padding: 120px clamp(24px, 4vw, 48px) 72px;
+  padding: clamp(84px, 10vw, 120px) clamp(16px, 3.2vw, 48px) clamp(30px, 6vw, 72px);
   border-radius: 0;
   background:
     linear-gradient(180deg, var(--acgn-hero-wash-top), var(--acgn-hero-wash-bottom)),
@@ -2004,22 +2004,22 @@ h3 {
 .acgn-home-mark {
   margin: 0;
   color: var(--acgn-mark-text);
-  font-size: clamp(0.92rem, 1.2vw, 1.05rem);
-  letter-spacing: 0.34em;
-  text-indent: 0.34em;
+  font-size: clamp(0.76rem, 1vw, 1.05rem);
+  letter-spacing: clamp(0.16em, 0.45vw, 0.34em);
+  text-indent: clamp(0.16em, 0.45vw, 0.34em);
   text-transform: uppercase;
 }
 
 .acgn-home-rows {
   display: grid;
-  gap: 22px;
-  padding-top: 34px;
-  width: min(calc(100% - 24px), 1600px);
+  gap: clamp(14px, 2vw, 22px);
+  padding-top: clamp(16px, 3vw, 34px);
+  width: min(calc(100% - clamp(12px, 2vw, 24px)), 1600px);
 }
 
 .acgn-row {
   display: grid;
-  gap: 14px;
+  gap: clamp(8px, 1.4vw, 14px);
   width: 100%;
   margin: 0 auto;
 }
@@ -2035,25 +2035,25 @@ h3 {
   margin: 0;
   color: var(--secondary);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: clamp(0.64rem, 0.8vw, 0.72rem);
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: clamp(0.08em, 0.24vw, 0.14em);
   text-transform: uppercase;
 }
 
 .acgn-row-strip {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(118px, 16vw, 188px), 1fr));
+  gap: clamp(8px, 1vw, 14px);
 }
 
 .acgn-strip-card {
   position: relative;
   display: block;
   overflow: hidden;
-  width: 80%;
-  min-height: 144px;
-  height: 144px;
+  width: 100%;
+  max-width: clamp(118px, 16vw, 188px);
+  aspect-ratio: 5 / 4;
   justify-self: center;
   border-radius: 12px;
   color: inherit;
@@ -2064,8 +2064,7 @@ h3 {
 
 .acgn-row-manga .acgn-strip-card,
 .acgn-row-novel .acgn-strip-card {
-  min-height: 288px;
-  height: 288px;
+  aspect-ratio: 5 / 8;
 }
 
 .acgn-strip-card:hover {
@@ -2075,15 +2074,9 @@ h3 {
 .acgn-strip-card img {
   width: 100%;
   height: 100%;
-  min-height: 144px;
   object-fit: cover;
   transform-origin: center center;
   transition: transform 260ms ease;
-}
-
-.acgn-row-manga .acgn-strip-card img,
-.acgn-row-novel .acgn-strip-card img {
-  min-height: 288px;
 }
 
 .acgn-strip-card:hover img {
@@ -2104,7 +2097,7 @@ h3 {
 
 .acgn-strip-overlay strong {
   color: var(--text);
-  font-size: 0.95rem;
+  font-size: clamp(0.78rem, 1vw, 0.95rem);
   font-weight: 500;
   line-height: 1.2;
   font-family: var(--font-body);

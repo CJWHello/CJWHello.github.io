@@ -9,23 +9,6 @@
 }
 
 @media (max-width: 1280px) {
-  .acgn-home-hero {
-    min-height: 60vh;
-    padding: 112px 28px 64px;
-  }
-
-  .acgn-home-rows {
-    width: min(calc(100% - 20px), 1440px);
-  }
-
-  .acgn-row-strip {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-  }
-
-  .acgn-strip-card {
-    width: 88%;
-  }
 }
 
 @media (max-width: 1080px) {
@@ -76,46 +59,6 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .acgn-home-hero {
-    min-height: 56vh;
-    padding: 108px 24px 56px;
-  }
-
-  .acgn-home-mark {
-    font-size: 0.9rem;
-    letter-spacing: 0.28em;
-  }
-
-  .acgn-home-rows {
-    width: min(calc(100% - 18px), 1320px);
-    gap: 18px;
-  }
-
-  .acgn-row-strip {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
-  }
-
-  .acgn-strip-card {
-    width: 92%;
-    min-height: 132px;
-    height: 132px;
-  }
-
-  .acgn-strip-card img {
-    min-height: 132px;
-  }
-
-  .acgn-row-manga .acgn-strip-card,
-  .acgn-row-novel .acgn-strip-card {
-    min-height: 240px;
-    height: 240px;
-  }
-
-  .acgn-row-manga .acgn-strip-card img,
-  .acgn-row-novel .acgn-strip-card img {
-    min-height: 240px;
-  }
 }
 
 @media (max-width: 860px) {
@@ -236,55 +179,8 @@
     grid-template-columns: 1fr;
   }
 
-  .acgn-home-hero {
-    min-height: 52vh;
-    padding: 96px 20px 48px;
-  }
-
-  .acgn-home-mark {
-    font-size: 0.86rem;
-    letter-spacing: 0.22em;
-    text-indent: 0.22em;
-  }
-
-  .acgn-home-rows {
-    width: min(calc(100% - 16px), 100%);
-    gap: 16px;
-    padding-top: 26px;
-  }
-
-  .acgn-row {
-    gap: 10px;
-  }
-
   .acgn-row-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .acgn-strip-card {
-    width: 100%;
-    min-height: 148px;
-    height: 148px;
-  }
-
-  .acgn-strip-card img {
-    min-height: 148px;
-  }
-
-  .acgn-row-manga .acgn-strip-card,
-  .acgn-row-novel .acgn-strip-card {
-    min-height: 236px;
-    height: 236px;
-  }
-
-  .acgn-row-manga .acgn-strip-card img,
-  .acgn-row-novel .acgn-strip-card img {
-    min-height: 236px;
-  }
-
-  .acgn-strip-overlay strong {
-    font-size: 0.9rem;
   }
 
   .about-puzzle-board {
@@ -479,60 +375,6 @@
   .hero-minimal {
     margin-top: 12px;
     margin-bottom: 24px;
-  }
-
-  .acgn-home-hero {
-    min-height: 46vh;
-    padding: 88px 16px 38px;
-  }
-
-  .acgn-home-mark {
-    font-size: 0.78rem;
-    letter-spacing: 0.18em;
-    text-indent: 0.18em;
-  }
-
-  .acgn-home-rows {
-    width: min(calc(100% - 12px), 100%);
-    padding-top: 18px;
-  }
-
-  .acgn-row-heading p {
-    font-size: 0.66rem;
-    letter-spacing: 0.1em;
-  }
-
-  .acgn-row-strip {
-    gap: 8px;
-  }
-
-  .acgn-strip-card {
-    min-height: 132px;
-    height: 132px;
-    border-radius: 10px;
-  }
-
-  .acgn-strip-card img {
-    min-height: 132px;
-  }
-
-  .acgn-row-manga .acgn-strip-card,
-  .acgn-row-novel .acgn-strip-card {
-    min-height: 212px;
-    height: 212px;
-  }
-
-  .acgn-row-manga .acgn-strip-card img,
-  .acgn-row-novel .acgn-strip-card img {
-    min-height: 212px;
-  }
-
-  .acgn-strip-overlay {
-    padding: 10px;
-  }
-
-  .acgn-strip-overlay strong {
-    font-size: 0.84rem;
   }
 
   .hero-mantra {
@@ -743,11 +585,6 @@
     font-size: 0.62rem;
   }
 
-  .acgn-home-hero {
-    min-height: 42vh;
-    padding: 84px 12px 30px;
-  }
-
   .acgn-row-strip {
     grid-template-columns: 1fr;
   }
@@ -756,7 +593,7 @@
   .acgn-row-manga .acgn-strip-card,
   .acgn-row-novel .acgn-strip-card {
     width: 100%;
-    max-width: 280px;
+    max-width: min(280px, 100%);
     justify-self: center;
   }
 
