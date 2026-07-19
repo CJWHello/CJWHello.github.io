@@ -38,10 +38,31 @@
       "title": "KV Cache笔记",
       "category": "llm",
       "categoryLabel": "LLM",
-      "path": "./notes/llm/KV-Cache.md",
+      "path": "./notes/llm/KV Cache.md",
       "tags": [
         "LLM",
         "KV Cache"
+      ]
+    },
+     {
+      "key": "LoRA笔记",
+      "title": "LoRA笔记",
+      "category": "llm",
+      "categoryLabel": "LLM",
+      "path": "./notes/llm/LoRA.md",
+      "tags": [
+        "LLM",
+        "LoRA"
+      ]
+    },{
+      "key": "MoE笔记",
+      "title": "MoE笔记",
+      "category": "llm",
+      "categoryLabel": "LLM",
+      "path": "./notes/llm/MoE.md",
+      "tags": [
+        "LLM",
+        "MoE"
       ]
     }
   ]
