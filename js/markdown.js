@@ -32,7 +32,7 @@
 
       if (rawLink) rawLink.setAttribute("href", note.path);
 
-      return fetch(note.path)
+      return fetch(withCacheBust(note.path), { cache: "no-store" })
         .then((response) => {
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           return response.text();
@@ -187,13 +187,18 @@
   }
 
   function loadNotes() {
-    return fetch("./data/notes.json")
+    return fetch(withCacheBust("./data/notes.json"), { cache: "no-store" })
       .then((response) => {
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         return response.json();
       })
       .then((payload) => Array.isArray(payload.notes) ? payload.notes : fallbackNotes)
       .catch(() => fallbackNotes);
+  }
+
+  function withCacheBust(url) {
+    const separator = url.includes("?") ? "&" : "?";
+    return `${url}${separator}t=${Date.now()}`;
   }
 
   function fileNameFromPath(path) {
